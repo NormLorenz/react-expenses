@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
-import './App.css';
+import './app.css';
 //import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
-import { Router, Route, Link, hashHistory } from 'react-router'
-
-import summary from './Summary'
-import about from './About'
+import { Link } from 'react-router'
 
 //http://stackoverflow.com/questions/38203430/links-rendered-outside-of-a-router-context-cannot-handle-clicks
 //https://medium.com/@dabit3/beginner-s-guide-to-react-router-53094349669#.vqjawjgpi
 
 class App extends Component {
   render() {
-
     return (
-
       <div>
-        <Router history={hashHistory}>
-          <Route path="/about" component={about} />
-          <Route path="/summary" component={summary} />
-        </Router>
         <h1>App</h1>
         <ul>
-          <li><Link to="about">About</Link></li>
-          <li><Link to="summary">Summary</Link></li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/summary'>Summary</Link></li>
+          <li><Link to='/expenses'>Expenses</Link></li>
+          <li><Link to='/properties'>Properites</Link></li>
+          <li><Link to='/categories'>Categories</Link></li>
+          <li><Link to='/reports'>Reports</Link></li>
+          <li><Link to='/about'>About</Link></li>
         </ul>
+        {this.props.children}
       </div>
 
-      // <div className="App">
-      //   <div className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
+      // <div className='App'>
+      //   <div className='App-header'>
+      //     <img src={logo} className='App-logo' alt='logo' />
       //     <h2>Welcome to React</h2>
       //   </div>
-      //   <p className="App-intro">
+      //   <p className='App-intro'>
       //     To get started, edit <code>src/App.js</code> and save to reload.
       //   </p>
       // </div>

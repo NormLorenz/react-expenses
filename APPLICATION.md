@@ -34,3 +34,4 @@
 * create a new firebase database
 * follow on with the second video
 * install surge.sh
+* https://facebook.github.io/react/docs/jsx-in-depth.html
