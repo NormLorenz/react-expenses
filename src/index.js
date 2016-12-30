@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 //import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 import { Router, Route, hashHistory } from 'react-router'
 
@@ -23,7 +23,7 @@ let config = {
 
 firebase.initializeApp(config);
 
-render((
+ReactDOM.render((
   <Router history={hashHistory}>
     <Route path='/' component={app}>
       <Route path='/summary' component={summary}/>
@@ -34,4 +34,4 @@ render((
       <Route path='/about' component={about}/>
     </Route>
   </Router>
-), document.getElementById('root'))
+), document.getElementById('root'));
