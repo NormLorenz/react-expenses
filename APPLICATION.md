@@ -1,4 +1,23 @@
+### learning react.js
+
+* https://www.youtube.com/watch?v=vYldnghykaU&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO
+* Learning React.js [1] - An Overview
+* Learning React.js [2] - Your First Component
+* Learning React.js [3] - Adding Properties
+  * getDefaultProps: function
+  * validate properties
+  * properties types
+* Learning React.js [4] - Events
+* Learning React.js [5] - State and Nested Components
+* Learning React.js [6] - Mapping Data
+  * todo list
+* Learning React.js [7] - Adding State Data Through a Form
+  * todo form
+
 ### setup application
+
+* https://github.com/facebookincubator/create-react-app
+* sudo npm install -g create-react-app
 
 * https://facebook.github.io/react/
 
@@ -36,17 +55,8 @@
 * style pages with w3.css
 * load react developer tools - DONE
 * build out properties with firebase
-https://github.com/tylermcginnis/re-base
-https://medium.com/@david.gilbertson/react-and-firebase-sittin-in-a-tree-a00d481786cb#.mz9rtm3wa
-https://react.rocks/tag/Firebase
-http://blog.krawaller.se/posts/a-react-redux-firebase-app-with-authentication/
-https://github.com/krawaller/reduxfirebasedemo
-http://stackoverflow.com/questions/22876978/loop-inside-react-jsx
-http://stackoverflow.com/questions/33681136/react-js-foreach-as-a-first-class-component
-https://jsfiddle.net/mattsturgeon/8ontg9jc/2/
-https://thinkster.io/iterating-and-rendering-loops-in-react
-https://github.com/facebook/react/issues/4339
-https://github.com/facebook/react/issues/2838
-https://facebook.github.io/react/docs/react-api.html
 
+https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
+
+CPR 2816 Steam Locomotive Restoration
 
