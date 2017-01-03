@@ -56,9 +56,16 @@
 * load react developer tools - DONE
 * build out properties with firebase
 
+https://www.kirupa.com/react/styling_in_react.htm
+
+* react-modal
+* https://github.com/reactjs/react-modal
+* https://reactcommunity.org/react-modal/
+
 https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
-CPR 2816 Steam Locomotive Restoration
+### tomorrow
 
-Troubleshooting wireless adapter problem on my ACER
-
+* bring over the markup for property list
+* style properties component
+* figure out inline style width
