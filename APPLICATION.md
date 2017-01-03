@@ -60,3 +60,5 @@ https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 CPR 2816 Steam Locomotive Restoration
 
+Troubleshooting wireless adapter problem on my ACER
+
