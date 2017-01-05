@@ -7,10 +7,9 @@ class About extends Component {
         <h3>About</h3>
         <p>
           This application is used to aid in the collection of receipts and expenses and allows 
-          importing and exporting data with reporting capabilites. It's built on an ember 
-          framework using w3.css styles, ember-modal-dialog, ember-power-select, ember-moment
-          and ember-radio-buttons add-ons. Additionally, the data is stored on a Google
-          database with emberfire.
+          importing and exporting data with reporting capabilites. It's built on an react 15.4.1
+          framework using w3.css styles, react-route, react-modal and moment.js.
+          Additionally, the data is stored on a Google database with firebase.
         </p>
         <p>
           Please click on the menu above to continue.

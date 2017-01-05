@@ -48,24 +48,28 @@
 
 * install react-router $ npm install --save react-router
 
-### continue setup
+### completed
 
-* install w3.css
-* install surge.sh
-* style pages with w3.css
+* install w3.css - DONE
+* bring over the markup for property list - DONE
+* style pages with w3.css - DONE
 * load react developer tools - DONE
+* react-modal - DONE
+  * https://github.com/reactjs/react-modal - DONE
+  * https://reactcommunity.org/react-modal/ - DONE
+* style properties component - DONE
+* figure out inline style width - DONE
+
+### in-flight
+* convert class to style
+* install surge.sh
 * build out properties with firebase
 
 https://www.kirupa.com/react/styling_in_react.htm
-
-* react-modal
-* https://github.com/reactjs/react-modal
-* https://reactcommunity.org/react-modal/
-
 https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 ### tomorrow
 
-* bring over the markup for property list
-* style properties component
-* figure out inline style width
+* include material-ui (written in React) - maybe for slider button http://www.material-ui.com/#/
+* http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
+* https://www.youtube.com/watch?v=szmS_M-BMls
