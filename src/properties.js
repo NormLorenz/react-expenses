@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import Toggle from 'react-toggle';
 
 class Properties extends Component {
 
@@ -22,20 +23,17 @@ class Properties extends Component {
         {
           id: 1,
           description: 'browning way',
-          isActive: true,
-          name: 'Attend a meeting at work'
+          isActive: true
         },
         {
           id: 2,
           description: 'garfield bay',
-          isActive: true,
-          name: 'Bring kids to school'
+          isActive: false
         },
         {
           id: 3,
           description: 'walnut street',
-          isActive: true,
-          name: 'Go to grocery store'
+          isActive: true
         }
       ]
     };
@@ -83,34 +81,22 @@ class Properties extends Component {
 class PropertiesList extends Component {
 
   doThis() {
-    
+
   }
 
   render() {
 
-    const divStyle = {
-      height: '400px',
-      overflow: 'scroll'
-    };
-
-    const col1Style = {
-      width: '75%'
-    };
-
-    const col2Style = {
-      width: '15%'
-    };
-
-    const col3Style = {
-      width: '10%'
-    };
+    const divStyle = { height: '400px', overflow: 'scroll' };
+    const col1Style = { width: '75%' };
+    const col2Style = { width: '15%' };
+    const col3Style = { width: '10%' };
 
     let items = this.props.properties.map(property => {
       return (
         <tr key={property.id}>
-          <td style={col1Style}>{property.description}</td>
-          <td style={col2Style}><input className='w3-check' type='checkbox' checked={property.isActive} /></td>
-          <td style={col3Style}><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.props.handler}>Edit</button></td>
+          <td>{property.description}</td>
+          <td><Toggle defaultChecked={property.isActive} disabled={true} /></td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.props.handler}>Edit</button></td>
         </tr>
       );
     });
@@ -118,12 +104,14 @@ class PropertiesList extends Component {
     return (
       <div style={divStyle}>
         <table className='w3-table-all'>
-          <tbody>
+          <thead>
             <tr>
-              <th>Description</th>
-              <th>Active</th>
-              <th>Action</th>
+              <th style={col1Style}>Description</th>
+              <th style={col2Style}>Active</th>
+              <th style={col3Style}>Action</th>
             </tr>
+          </thead>
+          <tbody>
             {items}
           </tbody>
         </table>
@@ -145,8 +133,8 @@ class PropertiesForm extends Component {
             <label className='w3-label'>Description</label>
           </p>
           <p>
-            <input className='w3-check' type='checkbox' checked={this.props.state.isActive} />
-            <label className="w3-validate"> Active</label>
+            <Toggle defaultChecked={this.props.state.isActive} /><br />
+            <label className="w3-text-teal">Active</label>
           </p>
           <p>
             <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.props.handler}>Cancel</button>

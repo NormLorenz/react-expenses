@@ -59,17 +59,19 @@
   * https://reactcommunity.org/react-modal/ - DONE
 * style properties component - DONE
 * figure out inline style width - DONE
+* install react-toggle - DONE
 
 ### in-flight
 * convert class to style
 * install surge.sh
 * build out properties with firebase
+* fix false refresh when closing modal form
+* what is the best way to add third party css
 
 https://www.kirupa.com/react/styling_in_react.htm
 https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 ### tomorrow
 
-* include material-ui (written in React) - maybe for slider button http://www.material-ui.com/#/
 * http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
 * https://www.youtube.com/watch?v=szmS_M-BMls
