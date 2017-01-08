@@ -60,6 +60,7 @@
 * style properties component - DONE
 * figure out inline style width - DONE
 * install react-toggle - DONE
+* move to expenses store from posts - DONE
 
 ### in-flight
 * convert class to style
@@ -75,3 +76,5 @@ https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 * http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
 * https://www.youtube.com/watch?v=szmS_M-BMls
+* [component communication](http://andrewhfarmer.com/component-communication/)
+* properties form convert <p> to something else

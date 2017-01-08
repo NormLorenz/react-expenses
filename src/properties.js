@@ -68,8 +68,7 @@ class Properties extends Component {
 
         <ReactModal className='app-modal'
           isOpen={this.state.showModal}
-          contentLabel='modal'
-          onRequestClose={this.handleCloseModal}>
+          contentLabel='modal'>
           <PropertiesForm state={this.state} handler={this.handleCloseModal} />
         </ReactModal>
 
@@ -120,7 +119,13 @@ class PropertiesList extends Component {
   }
 }
 
+PropertiesList.propTypes = {
+  handler: React.PropTypes.func,
+  properties: React.PropTypes.array
+};
+
 class PropertiesForm extends Component {
+
   render() {
     return (
       <div className='w3-panel w3-margin'>
@@ -145,5 +150,10 @@ class PropertiesForm extends Component {
     )
   }
 }
+
+PropertiesForm.propTypes = {
+  handler: React.PropTypes.func,
+  state: React.PropTypes.object
+};
 
 export default Properties;
