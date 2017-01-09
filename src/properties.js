@@ -4,21 +4,16 @@ import Toggle from 'react-toggle';
 
 class Properties extends Component {
 
-  // https://facebook.github.io/react/docs/lists-and-keys.html
-  // http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes
-  // https://facebook.github.io/react/docs/react-component.html
-
   constructor() {
     super();
     this.state = {
 
-      selectedProperty: null,
-      description: 'hoffman road',
-      isActive: true,
-      operation: 'edit an existing record',
-
       showModal: false,
-      text: '',
+      operation: '',
+      id: 0,
+      description: '',
+      isActive: true,
+
       properties: [
         {
           id: 1,
@@ -38,49 +33,52 @@ class Properties extends Component {
       ]
     };
 
-    this.handleNewModal = this.handleNewModal.bind(this);
-    this.handleEditModal = this.handleEditModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.handleDescription = this.handleDescription.bind(this);
+    this.handleIsActive = this.handleIsActive.bind(this);
   }
 
-  handleNewModal() {
+  handleOpen(event) {
+    if (event == null) {
+      this.setState({
+        operation: 'edit a new property',
+        id: 0,
+        description: '',
+        isActive: true
+      });
+    } else {
+      this.setState({
+        operation: 'edit an existing property',
+        id: event.id,
+        description: event.description,
+        isActive: event.isActive
+      });
+    }
     this.setState({ showModal: true });
-    this.setState({ operation: 'Create a new property' })
   }
 
-  handleEditModal() {
-    this.setState({ showModal: true });
-    this.setState({ operation: 'Edit an existing property' })
-  }
-
-  handleCloseModal() {
+  handleClose() {
     this.setState({ showModal: false });
   }
 
-  render() {
-    return (
-      <div className='w3-container'>
-
-        <h3>Properties</h3>
-
-        <PropertiesList properties={this.state.properties} handler={this.handleEditModal} />
-        <button onClick={this.handleNewModal}>New property</button>
-
-        <ReactModal className='app-modal'
-          isOpen={this.state.showModal}
-          contentLabel='modal'>
-          <PropertiesForm state={this.state} handler={this.handleCloseModal} />
-        </ReactModal>
-
-      </div>
-    )
+  handleSave() {
+    let newProperty = {
+      id: this.state.properties.length + 1,
+      description: this.state.description,
+      isActive: this.state.isActive
+    }
+    this.setState({ properties: this.state.properties.concat(newProperty) });
+    this.setState({ showModal: false });
   }
-}
 
-class PropertiesList extends Component {
+  handleDescription(event) {
+    this.setState({ description: event.target.value });
+  }
 
-  doThis() {
-
+  handleIsActive(event) {
+    this.setState({ isActive: event.target.checked });
   }
 
   render() {
@@ -90,70 +88,64 @@ class PropertiesList extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '10%' };
 
-    let items = this.props.properties.map(property => {
+    let items = this.state.properties.map(property => {
       return (
         <tr key={property.id}>
           <td>{property.description}</td>
           <td><Toggle defaultChecked={property.isActive} disabled={true} /></td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.props.handler}>Edit</button></td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={() => this.handleOpen(property)}>Edit</button></td>
         </tr>
       );
     });
 
     return (
-      <div style={divStyle}>
-        <table className='w3-table-all'>
-          <thead>
-            <tr>
-              <th style={col1Style}>Description</th>
-              <th style={col2Style}>Active</th>
-              <th style={col3Style}>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items}
-          </tbody>
-        </table>
-      </div>
-    )
-  }
-}
+      <div className='w3-container'>
 
-PropertiesList.propTypes = {
-  handler: React.PropTypes.func,
-  properties: React.PropTypes.array
-};
+        <h3>Properties</h3>
 
-class PropertiesForm extends Component {
-
-  render() {
-    return (
-      <div className='w3-panel w3-margin'>
-        <div className="w3-container w3-blue-grey">
-          <h4>{this.props.state.operation}</h4>
+        <div style={divStyle}>
+          <table className='w3-table-all'>
+            <thead>
+              <tr>
+                <th style={col1Style}>Description</th>
+                <th style={col2Style}>Active</th>
+                <th style={col3Style}>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items}
+            </tbody>
+          </table>
         </div>
-        <form className='w3-container'>
-          <p>
-            <input className='w3-input w3-border w3-round' value={this.props.state.description} />
-            <label className='w3-label'>Description</label>
-          </p>
-          <p>
-            <Toggle defaultChecked={this.props.state.isActive} /><br />
-            <label className="w3-text-teal">Active</label>
-          </p>
-          <p>
-            <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.props.handler}>Cancel</button>
-            <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Save</button>
-          </p>
-        </form>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={() => this.handleOpen(null)}>New Property</button>
+
+        <ReactModal className='app-modal'
+          isOpen={this.state.showModal}
+          contentLabel='modal'>
+          <div className='w3-margin'>
+            <div className="w3-container w3-blue-grey">
+              <h4>{this.state.operation}</h4>
+            </div>
+            <form className='w3-container'>
+              <div className='w3-section'>
+                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription} />
+                <label className='w3-label'>Description</label>
+              </div>
+              <div className='w3-section'>
+                <Toggle checked={this.state.isActive} onChange={this.handleIsActive} /><br />
+                <label className="w3-text-teal">Active</label>
+              </div>
+              <div className='w3-section'>
+                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose}>Cancel</button>
+                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSave}>Save</button>
+              </div>
+            </form>
+          </div>
+        </ReactModal>
+
       </div>
     )
   }
 }
-
-PropertiesForm.propTypes = {
-  handler: React.PropTypes.func,
-  state: React.PropTypes.object
-};
 
 export default Properties;

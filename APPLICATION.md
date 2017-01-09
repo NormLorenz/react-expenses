@@ -16,10 +16,10 @@
 
 ### setup application
 
-* https://github.com/facebookincubator/create-react-app
-* sudo npm install -g create-react-app
-
 * https://facebook.github.io/react/
+* https://github.com/facebookincubator/create-react-app
+
+* sudo npm install -g create-react-app
 
 * https://github.com/facebookincubator/create-react-app
 * https://www.youtube.com/watch?v=mwNATxfUsgI
@@ -61,6 +61,8 @@
 * figure out inline style width - DONE
 * install react-toggle - DONE
 * move to expenses store from posts - DONE
+* [ES6](https://leanpub.com/understandinges6/read#leanpub-auto-better-unicode-support) - DONE
+* [component communication](http://andrewhfarmer.com/component-communication/) - DONE
 
 ### in-flight
 * convert class to style
@@ -74,7 +76,38 @@ https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 ### tomorrow
 
+hook into firebase
+
+https://facebook.github.io/react/docs/forms.html
+
+* need handlers for both isActive and description
+
 * http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
 * https://www.youtube.com/watch?v=szmS_M-BMls
-* [component communication](http://andrewhfarmer.com/component-communication/)
-* properties form convert <p> to something else
+
+http://blog.revathskumar.com/2016/02/reactjs-writing-in-es6.html
+http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes
+http://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
+
+```javascript
+fetchSongDetails = () => {
+  const song = e.target.getAttribute('data-item');
+  console.log('We need to get the details for ', song);
+}
+
+renderResultRows(data) {
+    return data.map((song, index) => {  // anon func maintains scope!
+        // Pass in a function to our onClick, and make it anon
+        // to maintain scope.  The function body can be anything
+        // which will be executed on click only.  Our song value
+        // is maintained via a closure so it works.
+        return (
+            <tr key={index} data-item={song} onClick={this.fetchSongDetails}>
+                <td data-title="Song">{song.S_SONG}</td>
+                <td data-title="Movie">{song.S_MOVIE}</td>
+                <td data-title="Year">{song.S_YEAR}</td>
+            </tr>
+        );
+    });  // no need to bind with anon function
+}
+```
