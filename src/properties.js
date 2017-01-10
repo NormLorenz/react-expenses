@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import firebase from 'firebase';
 import Toggle from 'react-toggle';
 
 class Properties extends Component {
@@ -13,24 +14,8 @@ class Properties extends Component {
       id: 0,
       description: '',
       isActive: true,
-
-      properties: [
-        {
-          id: 1,
-          description: 'browning way',
-          isActive: true
-        },
-        {
-          id: 2,
-          description: 'garfield bay',
-          isActive: false
-        },
-        {
-          id: 3,
-          description: 'walnut street',
-          isActive: true
-        }
-      ]
+      propertiesRef: firebase.database().ref('properties'),
+      properties: [],
     };
 
     this.handleOpen = this.handleOpen.bind(this);
@@ -38,6 +23,7 @@ class Properties extends Component {
     this.handleSave = this.handleSave.bind(this);
     this.handleDescription = this.handleDescription.bind(this);
     this.handleIsActive = this.handleIsActive.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleOpen(event) {
@@ -65,11 +51,11 @@ class Properties extends Component {
 
   handleSave() {
     let newProperty = {
-      id: this.state.properties.length + 1,
       description: this.state.description,
       isActive: this.state.isActive
     }
-    this.setState({ properties: this.state.properties.concat(newProperty) });
+
+    this.state.propertiesRef.push(newProperty);
     this.setState({ showModal: false });
   }
 
@@ -79,6 +65,34 @@ class Properties extends Component {
 
   handleIsActive(event) {
     this.setState({ isActive: event.target.checked });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    // stuff from the save handler
+    // https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7
+    // at 5.53 minutes
+  }
+
+  componentDidMount() {
+    // once, item added or something
+    this.state.propertiesRef.on('value', snapshot => {
+
+      let properties = [];
+      snapshot.forEach(function (data) {
+        let property = {
+          id: data.key,
+          description: data.val().description,
+          isActive: data.val().isActive
+        }
+        properties.push(property);
+      });
+
+      this.setState({
+        properties: properties
+      });
+    });
   }
 
   render() {

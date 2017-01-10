@@ -63,11 +63,14 @@
 * move to expenses store from posts - DONE
 * [ES6](https://leanpub.com/understandinges6/read#leanpub-auto-better-unicode-support) - DONE
 * [component communication](http://andrewhfarmer.com/component-communication/) - DONE
+* hook into firebase - DONE
+* use taxYear instead of an array - DONE
+* need handlers for both isActive and description - DONE
+* build out properties with firebase - DONE
 
 ### in-flight
 * convert class to style
 * install surge.sh
-* build out properties with firebase
 * fix false refresh when closing modal form
 * what is the best way to add third party css
 
@@ -76,18 +79,25 @@ https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 ### tomorrow
 
-hook into firebase
+* https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
+* 3:37 minutes
 
-https://facebook.github.io/react/docs/forms.html
+* code new, edit and delete handlers on the properties list
+* hook in the handlerSubmit 
 
-* need handlers for both isActive and description
-
-* http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
 * https://www.youtube.com/watch?v=szmS_M-BMls
 
-http://blog.revathskumar.com/2016/02/reactjs-writing-in-es6.html
-http://www.newmediacampaigns.com/blog/refactoring-react-components-to-es6-classes
-http://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
+* http://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
+* another way is onClick={this.onDelete.bind(this, property)}
+* see https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
+
+```javascript
+  onClick={this.onDelete.bind(this, property)}
+  ...
+  onDelete(property) {
+
+  }
+```
 
 ```javascript
 fetchSongDetails = () => {
