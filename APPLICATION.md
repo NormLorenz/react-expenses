@@ -67,57 +67,26 @@
 * use taxYear instead of an array - DONE
 * need handlers for both isActive and description - DONE
 * build out properties with firebase - DONE
+* rename id to key - DONE
+* code new, edit and delete handlers on the properties list - DONE
+* another way is onClick={this.onDelete.bind(this, property, 'edit')} - DONE
 
 ### in-flight
+
+* http://wesbos.com/let-vs-const/
 * convert class to style
+* consider react rebase https://www.npmjs.com/package/re-base
 * install surge.sh
 * fix false refresh when closing modal form
 * what is the best way to add third party css
-
-https://www.kirupa.com/react/styling_in_react.htm
-https://www.youtube.com/watch?v=QY7Ibl37_08&t=59s
 
 ### tomorrow
 
 * https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
 * 3:37 minutes
 
-* code new, edit and delete handlers on the properties list
 * hook in the handlerSubmit 
+* center modal form
 
 * https://www.youtube.com/watch?v=szmS_M-BMls
-
-* http://stackoverflow.com/questions/37771316/react-triggering-click-event-on-table-row
-* another way is onClick={this.onDelete.bind(this, property)}
 * see https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
-
-```javascript
-  onClick={this.onDelete.bind(this, property)}
-  ...
-  onDelete(property) {
-
-  }
-```
-
-```javascript
-fetchSongDetails = () => {
-  const song = e.target.getAttribute('data-item');
-  console.log('We need to get the details for ', song);
-}
-
-renderResultRows(data) {
-    return data.map((song, index) => {  // anon func maintains scope!
-        // Pass in a function to our onClick, and make it anon
-        // to maintain scope.  The function body can be anything
-        // which will be executed on click only.  Our song value
-        // is maintained via a closure so it works.
-        return (
-            <tr key={index} data-item={song} onClick={this.fetchSongDetails}>
-                <td data-title="Song">{song.S_SONG}</td>
-                <td data-title="Movie">{song.S_MOVIE}</td>
-                <td data-title="Year">{song.S_YEAR}</td>
-            </tr>
-        );
-    });  // no need to bind with anon function
-}
-```

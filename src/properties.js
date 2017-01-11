@@ -8,16 +8,16 @@ class Properties extends Component {
   constructor() {
     super();
     this.state = {
-
       showModal: false,
       operation: '',
-      id: 0,
+      operationText: '',
+      key: '',
       description: '',
       isActive: true,
-      propertiesRef: firebase.database().ref('properties'),
       properties: [],
     };
 
+    // do we need this stuff below if we expliciply declare it on the line that uses it?
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -26,22 +26,35 @@ class Properties extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleOpen(event) {
-    if (event == null) {
+  handleOpen(property, operation) {
+    if (operation === 'new') {
       this.setState({
-        operation: 'edit a new property',
-        id: 0,
+        operation: operation,
+        operationText: 'Create a new property',
+        key: '',
         description: '',
         isActive: true
       });
-    } else {
+    }
+    else if (operation === 'edit') {
       this.setState({
-        operation: 'edit an existing property',
-        id: event.id,
-        description: event.description,
-        isActive: event.isActive
+        operation: operation,
+        operationText: 'Edit an existing property',
+        key: property.key,
+        description: property.description,
+        isActive: property.isActive
       });
     }
+    else {
+      this.setState({
+        operation: operation,
+        operationText: 'Delete an existing property',
+        key: property.key,
+        description: property.description,
+        isActive: property.isActive
+      });
+    }
+
     this.setState({ showModal: true });
   }
 
@@ -50,12 +63,24 @@ class Properties extends Component {
   }
 
   handleSave() {
-    let newProperty = {
+    let property = {
       description: this.state.description,
       isActive: this.state.isActive
     }
 
-    this.state.propertiesRef.push(newProperty);
+    if (this.state.operation === 'new') {
+      const propertiesRef = firebase.database().ref('properties');
+      propertiesRef.push(property);
+    }
+    else if (this.state.operation === 'edit') {
+      const propertiesRef = firebase.database().ref('properties').child(this.state.key);
+      propertiesRef.update(property);
+    }
+    else {
+      const propertiesRef = firebase.database().ref('properties').child(this.state.key);
+      propertiesRef.remove();
+    }
+
     this.setState({ showModal: false });
   }
 
@@ -70,19 +95,19 @@ class Properties extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    // use the submit button type
     // stuff from the save handler
     // https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7
     // at 5.53 minutes
   }
 
   componentDidMount() {
-    // once, item added or something
-    this.state.propertiesRef.on('value', snapshot => {
-
+    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
+    propertiesRef.on('value', snapshot => {
       let properties = [];
       snapshot.forEach(function (data) {
         let property = {
-          id: data.key,
+          key: data.key,
           description: data.val().description,
           isActive: data.val().isActive
         }
@@ -96,18 +121,18 @@ class Properties extends Component {
   }
 
   render() {
-
-    const divStyle = { height: '400px', overflow: 'scroll' };
-    const col1Style = { width: '75%' };
+    const divStyle = { height: '372px', overflow: 'scroll' };
+    const col1Style = { width: '70%' };
     const col2Style = { width: '15%' };
-    const col3Style = { width: '10%' };
+    const col3Style = { width: '15%' };
 
     let items = this.state.properties.map(property => {
       return (
-        <tr key={property.id}>
+        <tr key={property.key}>
           <td>{property.description}</td>
-          <td><Toggle defaultChecked={property.isActive} disabled={true} /></td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={() => this.handleOpen(property)}>Edit</button></td>
+          <td><Toggle checked={property.isActive} disabled={true} /></td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'edit')}>Edit</button>
+            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'delete')}>Delete</button></td>
         </tr>
       );
     });
@@ -123,7 +148,7 @@ class Properties extends Component {
               <tr>
                 <th style={col1Style}>Description</th>
                 <th style={col2Style}>Active</th>
-                <th style={col3Style}>Action</th>
+                <th style={col3Style}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -131,14 +156,14 @@ class Properties extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={() => this.handleOpen(null)}>New Property</button>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, null, 'new')}>New Property</button>
 
         <ReactModal className='app-modal'
           isOpen={this.state.showModal}
           contentLabel='modal'>
           <div className='w3-margin'>
             <div className="w3-container w3-blue-grey">
-              <h4>{this.state.operation}</h4>
+              <h4>{this.state.operationText}</h4>
             </div>
             <form className='w3-container'>
               <div className='w3-section'>
