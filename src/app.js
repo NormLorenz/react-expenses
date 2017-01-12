@@ -4,6 +4,10 @@ import firebase from 'firebase';
 //import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 import { Link } from 'react-router'
 
+const ReactToastr = require("react-toastr");
+const {ToastContainer} = ReactToastr;
+const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
 class App extends Component {
 
   constructor() {
@@ -11,6 +15,18 @@ class App extends Component {
     this.state = {
       speed: 10
     };
+  }
+
+  addAlert() {
+    console.log('hi');
+    this.refs.container.success(
+      "New property record written to Firebase!",
+      "Success", {
+        timeOut: 5000,
+        extendedTimeOut: 1000,
+        preventDuplicates: false
+      });
+    // window.open("http://youtu.be/3SR75k7Oggg");
   }
 
   componentDidMount() {
@@ -38,7 +54,10 @@ class App extends Component {
         </ul>
         {this.props.children}
         <h4>{this.state.speed}</h4>
-        <Greeting isLoggedIn={false} />
+        <ToastContainer ref="container"
+          toastMessageFactory={ToastMessageFactory}
+          className="toast-top-right" />
+        <button onClick={this.addAlert.bind(this)}>Alert</button>
       </div>
     );
   }

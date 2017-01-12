@@ -1,11 +1,4 @@
 
-.app-modal {
-  position: absolute;
-  width: 400px;
-  top: 125px;
-  left: 350px;
-}
-
 .app-container {
   max-width: 900px;
 }

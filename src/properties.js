@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
-import ReactModal from 'react-modal';
+import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
+
+const modalStyle = {
+  content: {
+    top: '50%',
+    left: '50%',
+    width: '400px',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
 class Properties extends Component {
 
@@ -16,14 +28,6 @@ class Properties extends Component {
       isActive: true,
       properties: [],
     };
-
-    // do we need this stuff below if we expliciply declare it on the line that uses it?
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleSave = this.handleSave.bind(this);
-    this.handleDescription = this.handleDescription.bind(this);
-    this.handleIsActive = this.handleIsActive.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleOpen(property, operation) {
@@ -158,7 +162,7 @@ class Properties extends Component {
         </div>
         <button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, null, 'new')}>New Property</button>
 
-        <ReactModal className='app-modal'
+        <Modal style={modalStyle}
           isOpen={this.state.showModal}
           contentLabel='modal'>
           <div className='w3-margin'>
@@ -167,20 +171,20 @@ class Properties extends Component {
             </div>
             <form className='w3-container'>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription} />
+                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} />
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
-                <Toggle checked={this.state.isActive} onChange={this.handleIsActive} /><br />
+                <Toggle checked={this.state.isActive} onChange={this.handleIsActive.bind(this)} /><br />
                 <label className="w3-text-teal">Active</label>
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose}>Cancel</button>
-                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSave}>Save</button>
+                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSave.bind(this)}>Save</button>
               </div>
             </form>
           </div>
-        </ReactModal>
+        </Modal>
 
       </div>
     )

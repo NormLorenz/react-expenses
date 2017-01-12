@@ -70,23 +70,27 @@
 * rename id to key - DONE
 * code new, edit and delete handlers on the properties list - DONE
 * another way is onClick={this.onDelete.bind(this, property, 'edit')} - DONE
+* refactor bind on event handlers - DONE
+* center modal form - DONE
 
 ### in-flight
 
-* http://wesbos.com/let-vs-const/
-* convert class to style
-* consider react rebase https://www.npmjs.com/package/re-base
-* install surge.sh
 * fix false refresh when closing modal form
-* what is the best way to add third party css
+* toaster - npm install --save react-toastr
+* http://codeseven.github.io/toastr/demo.html
+* https://github.com/tomchentw/react-toastr
+
+* hook in the handlerSubmit - see W3 Schools
+* hook in react authentication
 
 ### tomorrow
 
+* http://wesbos.com/let-vs-const/
+* consider react rebase https://www.npmjs.com/package/re-base
+* install surge.sh
+* what is the best way to add third party css
 * https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
 * 3:37 minutes
-
-* hook in the handlerSubmit 
-* center modal form
 
 * https://www.youtube.com/watch?v=szmS_M-BMls
 * see https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
