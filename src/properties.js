@@ -3,6 +3,12 @@ import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
 
+const action = {
+  new: { value: 0, name: 'Create a new property', submitText: 'Save', isNew: true, property: null },
+  edit: { value: 1, name: 'Edit an existing property', submitText: 'Save', isNew: false, property: null },
+  delete: { value: 2, name: 'Delete an existing property', submitText: 'Delete', isNew: false, property: null }
+};
+
 const modalStyle = {
   content: {
     top: '50%',
@@ -21,11 +27,12 @@ class Properties extends Component {
     super();
     this.state = {
       showModal: false,
-      operation: '',
-      operationText: '',
-      key: '',
-      description: '',
-      isActive: true,
+      operation: '', // remove
+      operationText: '', // remove
+      key: '', // remove
+      description: '', // remove
+      isActive: true, // remove
+      action: null, // add
       properties: [],
     };
   }
@@ -62,11 +69,12 @@ class Properties extends Component {
     this.setState({ showModal: true });
   }
 
-  handleClose() {
+  handleClose(event) {
+    event.preventDefault();
     this.setState({ showModal: false });
   }
 
-  handleSave() {
+  handleSave(event) {
     let property = {
       description: this.state.description,
       isActive: this.state.isActive
@@ -85,6 +93,7 @@ class Properties extends Component {
       propertiesRef.remove();
     }
 
+    event.preventDefault();
     this.setState({ showModal: false });
   }
 
@@ -106,6 +115,9 @@ class Properties extends Component {
   }
 
   componentDidMount() {
+
+    console.log(action.edit);
+
     const propertiesRef = firebase.database().ref('properties').orderByChild('description');
     propertiesRef.on('value', snapshot => {
       let properties = [];
@@ -166,7 +178,7 @@ class Properties extends Component {
           isOpen={this.state.showModal}
           contentLabel='modal'>
           <div className='w3-margin'>
-            <div className="w3-container w3-blue-grey">
+            <div className='w3-container w3-blue-grey'>
               <h4>{this.state.operationText}</h4>
             </div>
             <form className='w3-container'>
@@ -176,7 +188,7 @@ class Properties extends Component {
               </div>
               <div className='w3-section'>
                 <Toggle checked={this.state.isActive} onChange={this.handleIsActive.bind(this)} /><br />
-                <label className="w3-text-teal">Active</label>
+                <label className='w3-text-teal'>Active</label>
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>

@@ -72,16 +72,19 @@
 * another way is onClick={this.onDelete.bind(this, property, 'edit')} - DONE
 * refactor bind on event handlers - DONE
 * center modal form - DONE
+* fix false refresh when closing modal form - DONE
 
 ### in-flight
 
-* fix false refresh when closing modal form
-* toaster - npm install --save react-toastr
-* http://codeseven.github.io/toastr/demo.html
-* https://github.com/tomchentw/react-toastr
-
 * hook in the handlerSubmit - see W3 Schools
 * hook in react authentication
+* find a sutable toaster
+  * https://github.com/igorprado/react-notification-system
+  * http://igorprado.com/react-notification-system/
+  * http://stackoverflow.com/questions/39069513/react-global-notification-system
+  * https://www.bountysource.com/teams/react-notification-system/issues
+  * http://stackoverflow.com/questions/32933146/implementing-react-notification-system-on-react
+* refactor new, edit and delete
 
 ### tomorrow
 

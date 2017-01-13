@@ -4,37 +4,21 @@ import firebase from 'firebase';
 //import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 import { Link } from 'react-router'
 
-const ReactToastr = require("react-toastr");
-const {ToastContainer} = ReactToastr;
-const ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
-
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      speed: 10
+      taxYear: 1776
     };
-  }
-
-  addAlert() {
-    console.log('hi');
-    this.refs.container.success(
-      "New property record written to Firebase!",
-      "Success", {
-        timeOut: 5000,
-        extendedTimeOut: 1000,
-        preventDuplicates: false
-      });
-    // window.open("http://youtu.be/3SR75k7Oggg");
   }
 
   componentDidMount() {
     const rootRef = firebase.database().ref();
-    const speedRef = rootRef.child('speed');
-    speedRef.on('value', snap => {
+    const taxYearRef = rootRef.child('taxYear');
+    taxYearRef.on('value', snap => {
       this.setState({
-        speed: snap.val()
+        taxYear: snap.val()
       })
     });
   }
@@ -53,34 +37,13 @@ class App extends Component {
           <li><Link className='w3-hover-blue' to='/about'>About</Link></li>
         </ul>
         {this.props.children}
-        <h4>{this.state.speed}</h4>
-        <ToastContainer ref="container"
-          toastMessageFactory={ToastMessageFactory}
-          className="toast-top-right" />
-        <button onClick={this.addAlert.bind(this)}>Alert</button>
+        <h4>{this.state.taxYear}</h4>
       </div>
     );
   }
 }
 
 export default App;
-
-function Greeting(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
-    return <UserGreeting />;
-  }
-  return <GuestGreeting />;
-}
-
-function UserGreeting(props) {
-  return <h4>Welcome back!</h4>;
-}
-
-function GuestGreeting(props) {
-  return <h4>Please sign up.</h4>;
-}
-
 
 // import React from 'react';
 
