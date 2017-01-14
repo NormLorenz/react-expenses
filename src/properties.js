@@ -3,12 +3,6 @@ import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
 
-const action = {
-  new: { value: 0, name: 'Create a new property', submitText: 'Save', isNew: true, property: null },
-  edit: { value: 1, name: 'Edit an existing property', submitText: 'Save', isNew: false, property: null },
-  delete: { value: 2, name: 'Delete an existing property', submitText: 'Delete', isNew: false, property: null }
-};
-
 const modalStyle = {
   content: {
     top: '50%',
@@ -27,12 +21,12 @@ class Properties extends Component {
     super();
     this.state = {
       showModal: false,
-      operation: '', // remove
-      operationText: '', // remove
-      key: '', // remove
-      description: '', // remove
-      isActive: true, // remove
-      action: null, // add
+      operation: null,
+      operationText: null,
+      submitText: null,
+      key: null,
+      description: null,
+      isActive: false,
       properties: [],
     };
   }
@@ -42,6 +36,7 @@ class Properties extends Component {
       this.setState({
         operation: operation,
         operationText: 'Create a new property',
+        submitText: 'Save',
         key: '',
         description: '',
         isActive: true
@@ -51,6 +46,7 @@ class Properties extends Component {
       this.setState({
         operation: operation,
         operationText: 'Edit an existing property',
+        submitText: 'Save',
         key: property.key,
         description: property.description,
         isActive: property.isActive
@@ -60,6 +56,7 @@ class Properties extends Component {
       this.setState({
         operation: operation,
         operationText: 'Delete an existing property',
+        submitText: 'Delete',
         key: property.key,
         description: property.description,
         isActive: property.isActive
@@ -74,7 +71,9 @@ class Properties extends Component {
     this.setState({ showModal: false });
   }
 
-  handleSave(event) {
+  handleSubmit(event) {
+    event.preventDefault();
+
     let property = {
       description: this.state.description,
       isActive: this.state.isActive
@@ -93,7 +92,6 @@ class Properties extends Component {
       propertiesRef.remove();
     }
 
-    event.preventDefault();
     this.setState({ showModal: false });
   }
 
@@ -105,18 +103,7 @@ class Properties extends Component {
     this.setState({ isActive: event.target.checked });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    // use the submit button type
-    // stuff from the save handler
-    // https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7
-    // at 5.53 minutes
-  }
-
   componentDidMount() {
-
-    console.log(action.edit);
 
     const propertiesRef = firebase.database().ref('properties').orderByChild('description');
     propertiesRef.on('value', snapshot => {
@@ -192,7 +179,7 @@ class Properties extends Component {
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSave.bind(this)}>Save</button>
+                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSubmit.bind(this)}>{this.state.submitText}</button>
               </div>
             </form>
           </div>

@@ -73,10 +73,10 @@
 * refactor bind on event handlers - DONE
 * center modal form - DONE
 * fix false refresh when closing modal form - DONE
+* duplicate properties -> categories - DONE
 
 ### in-flight
 
-* hook in the handlerSubmit - see W3 Schools
 * hook in react authentication
 * find a sutable toaster
   * https://github.com/igorprado/react-notification-system
@@ -84,7 +84,10 @@
   * http://stackoverflow.com/questions/39069513/react-global-notification-system
   * https://www.bountysource.com/teams/react-notification-system/issues
   * http://stackoverflow.com/questions/32933146/implementing-react-notification-system-on-react
-* refactor new, edit and delete
+* submit button - see W3 Schools
+  * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
+* rubix cube hourglass
+* focus first field in modal form
 
 ### tomorrow
 
