@@ -74,6 +74,8 @@
 * center modal form - DONE
 * fix false refresh when closing modal form - DONE
 * duplicate properties -> categories - DONE
+* duplicate categories -> expenses - DONE
+* debit/credit component - DONE
 
 ### in-flight
 
@@ -87,7 +89,10 @@
 * submit button - see W3 Schools
   * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
 * rubix cube hourglass
-* focus first field in modal form
+* set focus first field in modal form
+* build out expenses list and form
+* get a select component
+* integrate moment
 
 ### tomorrow
 

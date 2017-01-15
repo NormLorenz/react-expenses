@@ -24,9 +24,11 @@ class Categories extends Component {
       operation: null,
       operationText: null,
       submitText: null,
+
       key: null,
       description: null,
       isActive: false,
+      
       categories: [],
     };
   }
