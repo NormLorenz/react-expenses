@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
-import IsDebit from './isDebit'
+import Debit from './debit'
+import Select from 'react-select';
 
 const modalStyle = {
   content: {
@@ -146,6 +147,40 @@ class Expenses extends Component {
 
   componentDidMount() {
 
+    const categoriesRef = firebase.database().ref('categories').orderByChild('description');
+    categoriesRef.on('value', snapshot => {
+      let categories = [];
+      snapshot.forEach(function (data) {
+        let category = {
+          key: data.key,
+          description: data.val().description,
+          isActive: data.val().isActive
+        }
+        categories.push(category);
+      });
+
+      this.setState({
+        categories: categories
+      });
+    });
+
+    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
+    propertiesRef.on('value', snapshot => {
+      let properties = [];
+      snapshot.forEach(function (data) {
+        let property = {
+          key: data.key,
+          description: data.val().description,
+          isActive: data.val().isActive
+        }
+        properties.push(property);
+      });
+
+      this.setState({
+        properties: properties
+      });
+    });
+
     const expensesRef = firebase.database().ref('expenses').orderByChild('date');
     expensesRef.on('value', snapshot => {
       let expenses = [];
@@ -185,7 +220,7 @@ class Expenses extends Component {
           <td>{expense.description}</td>
           <td>{expense.category}</td>
           <td>{expense.property}</td>
-          <td><IsDebit isDebit={expense.isDebit} /></td>
+          <td><Debit isDebit={expense.isDebit} /></td>
           <td className='w3-right-align'>{expense.amount}</td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'delete')}>Delete</button></td>
@@ -197,6 +232,15 @@ class Expenses extends Component {
       <div className='w3-container'>
 
         <h3>Expenses</h3>
+
+        <Select
+          //name='form-field-name'
+          valueKey='key'
+          //value='one'
+          labelKey='description'
+          options={this.state.properties}
+          // onChange={logChange}
+          />
 
         <div style={divStyle}>
           <table className='w3-table-all'>

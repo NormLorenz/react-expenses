@@ -4324,7 +4324,7 @@ react:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-addons-shallow-compare@^15.4.1:
+react-addons-shallow-compare@^15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.4.2.tgz#027ffd9720e3a1e0b328dcd8fc62e214a0d174a5"
   dependencies:
