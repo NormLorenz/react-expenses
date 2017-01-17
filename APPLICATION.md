@@ -93,6 +93,7 @@
 * build out expenses list and form
 * get a select component
 * integrate moment
+* can only set state on a mounted or unmounted component - categories page
 
 ### tomorrow
 
