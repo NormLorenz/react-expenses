@@ -17,7 +17,7 @@ class Property extends Component {
 
     else {
       return (
-        <span> </span>
+        <span> not selected </span>
       )
     }
   }

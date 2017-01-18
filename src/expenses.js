@@ -6,6 +6,8 @@ import Debit from './debit'
 import Select from 'react-select';
 import Property from './property';
 import Category from './category';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 const modalStyle = {
     content: {
@@ -64,7 +66,7 @@ class Expenses extends Component {
                 operationText: 'Edit an existing expense',
                 submitText: 'Save',
                 key: expense.key,
-                date: expense.date,
+                date: moment(expense.date).format('L'),
                 description: expense.description,
                 category: expense.category,
                 property: expense.property,
@@ -78,7 +80,7 @@ class Expenses extends Component {
                 operationText: 'Delete an existing expense',
                 submitText: 'Delete',
                 key: expense.key,
-                date: expense.date,
+                date: moment(expense.date).format('L'),
                 description: expense.description,
                 category: expense.category,
                 property: expense.property,
@@ -97,9 +99,9 @@ class Expenses extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
+        let calculatedDate = moment(this.state.date).toISOString();
         let expense = {
-            date: this.state.date,
+            date: calculatedDate,
             description: this.state.description,
             category: this.state.category,
             property: this.state.property,
@@ -152,7 +154,7 @@ class Expenses extends Component {
         const categoriesRef = firebase.database().ref('categories').orderByChild('description');
         categoriesRef.on('value', snapshot => {
             let categories = [];
-            snapshot.forEach(function(data) {
+            snapshot.forEach(function (data) {
                 let category = {
                     key: data.key,
                     description: data.val().description,
@@ -171,7 +173,7 @@ class Expenses extends Component {
         const propertiesRef = firebase.database().ref('properties').orderByChild('description');
         propertiesRef.on('value', snapshot => {
             let properties = [];
-            snapshot.forEach(function(data) {
+            snapshot.forEach(function (data) {
                 let property = {
                     key: data.key,
                     description: data.val().description,
@@ -190,7 +192,7 @@ class Expenses extends Component {
         const expensesRef = firebase.database().ref('expenses').orderByChild('date');
         expensesRef.on('value', snapshot => {
             let expenses = [];
-            snapshot.forEach(function(data) {
+            snapshot.forEach(function (data) {
                 let expense = {
                     key: data.key,
                     date: data.val().date,
@@ -211,18 +213,18 @@ class Expenses extends Component {
 
     render() {
         const divStyle = { height: '372px', overflow: 'scroll' };
-        const col1Style = { width: '20%' };
-        const col2Style = { width: '10%' };
-        const col3Style = { width: '19%' };
-        const col4Style = { width: '15%' };
-        const col5Style = { width: '8%' };
+        const col1Style = { width: '15%' };
+        const col2Style = { width: '15%' };
+        const col3Style = { width: '20%' };
+        const col4Style = { width: '20%' };
+        const col5Style = { width: '5%' };
         const col6Style = { width: '8%' };
         const col7Style = { width: '17%' };
 
         let items = this.state.expenses.map(expense => {
             return (
                 <tr key={expense.key}>
-                    <td>{expense.date}</td>
+                    <td><Moment date={expense.date} format='L' /></td>
                     <td>{expense.description}</td>
                     <td><Category categories={this.state.categories} category={expense.category} /></td>
                     <td><Property properties={this.state.properties} property={expense.property} /></td>

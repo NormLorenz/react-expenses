@@ -76,6 +76,9 @@
 * duplicate properties -> categories - DONE
 * duplicate categories -> expenses - DONE
 * debit/credit component - DONE
+* get a select component - DONE
+* integrate moment - DONE
+* build out expenses list and form - DONE
 
 ### in-flight
 
@@ -88,21 +91,26 @@
   * http://stackoverflow.com/questions/32933146/implementing-react-notification-system-on-react
 * submit button - see W3 Schools
   * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
+
+* add all categories
 * rubix cube hourglass
 * set focus first field in modal form
-* build out expenses list and form
-* get a select component
-* integrate moment
 * can only set state on a mounted or unmounted component - categories page
+* install surge.sh
 
 ### tomorrow
 
 * http://wesbos.com/let-vs-const/
 * consider react rebase https://www.npmjs.com/package/re-base
-* install surge.sh
 * what is the best way to add third party css
 * https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
 * 3:37 minutes
 
 * https://www.youtube.com/watch?v=szmS_M-BMls
 * see https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
+
+### update npm packages
+
+* npm outdated
+* https://docs.npmjs.com/getting-started/updating-local-packages
+* npm update
