@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
+import Active from './active';
 
 const modalStyle = {
   content: {
@@ -135,7 +136,7 @@ class Categories extends Component {
       return (
         <tr key={category.key}>
           <td>{category.description}</td>
-          <td><Toggle checked={category.isActive} disabled={true} /></td>
+          <td><Active isActive={category.isActive} /></td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, 'delete')}>Delete</button></td>
         </tr>

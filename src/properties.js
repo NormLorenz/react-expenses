@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
+import Active from './active';
 
 const modalStyle = {
   content: {
@@ -24,7 +25,7 @@ class Properties extends Component {
       operation: null,
       operationText: null,
       submitText: null,
-      
+
       key: null,
       description: null,
       isActive: false,
@@ -135,7 +136,7 @@ class Properties extends Component {
       return (
         <tr key={property.key}>
           <td>{property.description}</td>
-          <td><Toggle checked={property.isActive} disabled={true} /></td>
+          <td><Active isActive={property.isActive} /></td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'delete')}>Delete</button></td>
         </tr>
