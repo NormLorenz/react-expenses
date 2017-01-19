@@ -79,24 +79,28 @@
 * get a select component - DONE
 * integrate moment - DONE
 * build out expenses list and form - DONE
+* add all categories - DONE
 
 ### in-flight
 
 * hook in react authentication
+
 * find a sutable toaster
   * https://github.com/igorprado/react-notification-system
   * http://igorprado.com/react-notification-system/
   * http://stackoverflow.com/questions/39069513/react-global-notification-system
   * https://www.bountysource.com/teams/react-notification-system/issues
   * http://stackoverflow.com/questions/32933146/implementing-react-notification-system-on-react
+
 * submit button - see W3 Schools
   * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
 
-* add all categories
 * rubix cube hourglass
 * set focus first field in modal form
 * can only set state on a mounted or unmounted component - categories page
 * install surge.sh
+* build out summary
+* build out reports
 
 ### tomorrow
 

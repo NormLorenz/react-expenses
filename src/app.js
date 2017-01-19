@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 //import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 import { Link } from 'react-router'
 
@@ -9,18 +9,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      taxYear: 1776
     };
   }
 
   componentDidMount() {
-    const rootRef = firebase.database().ref();
-    const taxYearRef = rootRef.child('taxYear');
-    taxYearRef.on('value', snap => {
-      this.setState({
-        taxYear: snap.val()
-      })
-    });
   }
 
   render() {
@@ -37,7 +29,6 @@ class App extends Component {
           <li><Link className='w3-hover-blue' to='/about'>About</Link></li>
         </ul>
         {this.props.children}
-        <h4>{this.state.taxYear}</h4>
       </div>
     );
   }
