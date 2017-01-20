@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Avatar from './android_dance.gif';
+import firebase from 'firebase';
+
 
 // const modalStyle = {
 //   content: {
@@ -37,6 +39,17 @@ class Summary extends Component {
     };
   }
 
+  componentDidMount() {
+    const rootRef = firebase.database().ref();
+    const taxYearRef = rootRef.child('taxYear');
+    taxYearRef.once('value', snapshot => {
+      this.setState({
+        taxYear: snapshot.val()
+      })
+      console.log(snapshot.val());
+    });
+  }
+
   render() {
     return (
       <div className='w3-container'>
@@ -54,7 +67,7 @@ class Summary extends Component {
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Total expense records: {this.state.taxYearRecords}, total credits: {this.state.taxYearCredits} and total debits: {this.state.taxYearCredits}.
+              Total expense records: {this.state.taxYearRecords}, total credits: {this.state.taxYearCredits}and total debits: {this.state.taxYearCredits}.
             </p>
             <br />
           </div>

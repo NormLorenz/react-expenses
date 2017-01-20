@@ -46,6 +46,13 @@ class Expenses extends Component {
     };
   }
 
+  convertCentsToDollars(amount) {
+    let dollars = Math.floor(amount / 100);
+    let cents = amount % 100;
+    if (cents.toString().length === 1) { cents = '0' + cents; }
+    return `${dollars}.${cents}`;
+  }
+
   handleOpen(expense, operation) {
     if (operation === 'new') {
       this.setState({
@@ -72,7 +79,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: expense.amount
+        amount: this.convertCentsToDollars(expense.amount)
       });
     }
     else {
@@ -86,7 +93,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: expense.amount
+        amount: this.convertCentsToDollars(expense.amount)
       });
     }
 
@@ -101,10 +108,15 @@ class Expenses extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    // calulate a date if only the day and month are provided
     let calculatedDate = moment(this.state.date);
     if (calculatedDate.year() === 2001) {
       calculatedDate.year(this.state.taxYear);
     }
+
+    // convert dollars and cents to cents
+    let calculatedAmount = (this.state.amount).toString().replace(/[^0-9.]/g, '');
+    calculatedAmount *= 100;
 
     let expense = {
       date: calculatedDate.toISOString(),
@@ -112,7 +124,7 @@ class Expenses extends Component {
       category: this.state.category,
       property: this.state.property,
       isDebit: this.state.isDebit,
-      amount: this.state.amount
+      amount: calculatedAmount
     }
 
     if (this.state.operation === 'new') {
@@ -156,7 +168,6 @@ class Expenses extends Component {
   }
 
   componentDidMount() {
-
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.on('value', snapshot => {
@@ -243,7 +254,7 @@ class Expenses extends Component {
           <td><Category categories={this.state.categories} category={expense.category} /></td>
           <td><Property properties={this.state.properties} property={expense.property} /></td>
           <td><Debit isDebit={expense.isDebit} /></td>
-          <td className='w3-right-align'>{expense.amount}</td>
+          <td className='w3-right-align'>{this.convertCentsToDollars(expense.amount)}</td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'delete')}>Delete</button></td>
         </tr>

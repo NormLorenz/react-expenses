@@ -80,6 +80,7 @@
 * integrate moment - DONE
 * build out expenses list and form - DONE
 * add all categories - DONE
+* build out cents - DONE
 
 ### in-flight
 
@@ -101,6 +102,8 @@
 * install surge.sh
 * build out summary
 * build out reports
+* filter expenses based upon taxYear
+* build out utilities
 
 ### tomorrow
 
