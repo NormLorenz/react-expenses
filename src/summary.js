@@ -3,7 +3,7 @@ import Avatar from './android_dance.gif';
 import firebase from 'firebase';
 //import Moment from 'react-moment';
 import moment from 'moment';
-import utilities from './utilties';
+import { convertCentsToDollars } from './utilities';
 
 // const modalStyle = {
 //   content: {
@@ -73,6 +73,8 @@ class Summary extends Component {
         let taxYearCredits = 0;
         let taxYearDebits = 0;
 
+        console.log(taxYear);
+
         snapshot.forEach(function (data) {
           expenseRecords += 1;
           if (moment(data.val().date).year() === taxYear) {
@@ -108,13 +110,13 @@ class Summary extends Component {
 
         <div className='w3-card-4' style={cardStyle}>
           <header className='w3-container w3-light-grey'>
-            <h3>{this.state.taxYear}tax year totals</h3>
+            <h3>{this.state.taxYear}&nbsp;tax year totals</h3>
           </header>
           <div className='w3-container'>
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Total expense records: {this.state.taxYearRecords}, total credits: {convertCentsToDollars(this.state.taxYearCredits)}and total debits: {convertCentsToDollars(this.state.taxYearDebits)}.
+              Total expense records: {this.state.taxYearRecords}, total credits: {convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and total debits: {convertCentsToDollars(this.state.taxYearDebits)}.
             </p>
             <br />
           </div>

@@ -8,6 +8,7 @@ import Property from './property';
 import Category from './category';
 import Moment from 'react-moment';
 import moment from 'moment';
+import { convertCentsToDollars } from './utilities';
 
 const modalStyle = {
   content: {
@@ -46,13 +47,6 @@ class Expenses extends Component {
     };
   }
 
-  convertCentsToDollars(amount) {
-    let dollars = Math.floor(amount / 100);
-    let cents = amount % 100;
-    if (cents.toString().length === 1) { cents = '0' + cents; }
-    return `${dollars}.${cents}`;
-  }
-
   handleOpen(expense, operation) {
     if (operation === 'new') {
       this.setState({
@@ -79,7 +73,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: this.convertCentsToDollars(expense.amount)
+        amount: convertCentsToDollars(expense.amount)
       });
     }
     else {
@@ -93,7 +87,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: this.convertCentsToDollars(expense.amount)
+        amount: convertCentsToDollars(expense.amount)
       });
     }
 
@@ -254,7 +248,7 @@ class Expenses extends Component {
           <td><Category categories={this.state.categories} category={expense.category} /></td>
           <td><Property properties={this.state.properties} property={expense.property} /></td>
           <td><Debit isDebit={expense.isDebit} /></td>
-          <td className='w3-right-align'>{this.convertCentsToDollars(expense.amount)}</td>
+          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'delete')}>Delete</button></td>
         </tr>

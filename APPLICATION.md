@@ -81,6 +81,7 @@
 * build out expenses list and form - DONE
 * add all categories - DONE
 * build out cents - DONE
+* build out summary - DONE
 
 ### in-flight
 
@@ -100,11 +101,13 @@
 * set focus first field in modal form
 * can only set state on a mounted or unmounted component - categories page
 * install surge.sh
-* build out summary
 * build out reports
+* summary page is not refreshing correctly
 * filter expenses based upon taxYear
 * build out utilities
 * add summary modal form
+
+* [ES6 modules](http://wesbos.com/javascript-modules/)
 
 ### tomorrow
 
