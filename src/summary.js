@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Avatar from './android_dance.gif';
 import firebase from 'firebase';
-
+//import Moment from 'react-moment';
+import moment from 'moment';
+import utilities from './utilties';
 
 // const modalStyle = {
 //   content: {
@@ -30,23 +32,68 @@ class Summary extends Component {
     this.state = {
       taxYear: 1776,
       showModal: false,
-      categoryRecords: 24,
-      propertyRecords: 46,
-      expenseRecords: 313,
-      taxYearRecords: 34,
-      taxYearCredits: '$4,123.04',
-      taxYearDebits: '$1,003.23'
+      categoryRecords: 0,
+      propertyRecords: 0,
+      expenseRecords: 0,
+      taxYearRecords: 0,
+      taxYearCredits: 0,
+      taxYearDebits: 0
     };
   }
 
   componentDidMount() {
+
+    const categoriesRef = firebase.database().ref('categories');
+    categoriesRef.once('value', snapshot => {
+      this.setState({
+        categoryRecords: snapshot.numChildren()
+      });
+    });
+
+    const propertiesRef = firebase.database().ref('properties');
+    propertiesRef.once('value', snapshot => {
+      this.setState({
+        propertyRecords: snapshot.numChildren()
+      });
+    });
+
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.once('value', snapshot => {
       this.setState({
         taxYear: snapshot.val()
       })
-      console.log(snapshot.val());
+
+      const expensesRef = firebase.database().ref('expenses');
+      expensesRef.once('value', snapshot => {
+
+        let expenseRecords = 0;
+        let taxYear = this.state.taxYear;
+        let taxYearRecords = 0;
+        let taxYearCredits = 0;
+        let taxYearDebits = 0;
+
+        snapshot.forEach(function (data) {
+          expenseRecords += 1;
+          if (moment(data.val().date).year() === taxYear) {
+            taxYearRecords += 1;
+            if (data.val().isDebit === true) {
+              taxYearDebits += Number(data.val().amount);
+            }
+            else {
+              taxYearCredits += Number(data.val().amount);
+            }
+          }
+        });
+
+        this.setState({
+          expenseRecords: expenseRecords,
+          taxYearRecords: taxYearRecords,
+          taxYearCredits: taxYearCredits,
+          taxYearDebits: taxYearDebits
+        })
+      })
+
     });
   }
 
@@ -55,25 +102,25 @@ class Summary extends Component {
       <div className='w3-container'>
         <h3>Summary</h3>
 
-        <p><span className='w3-badge w3-blue'>23</span> number of category records</p>
-        <p><span className='w3-badge w3-blue'>45</span> number of property records</p>
-        <p><span className='w3-badge w3-blue'>312</span> number of expense records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> number of category records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> number of property records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.expenseRecords}</span> number of expense records</p>
 
         <div className='w3-card-4' style={cardStyle}>
           <header className='w3-container w3-light-grey'>
-            <h3>2015 tax year totals</h3>
+            <h3>{this.state.taxYear}tax year totals</h3>
           </header>
           <div className='w3-container'>
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Total expense records: {this.state.taxYearRecords}, total credits: {this.state.taxYearCredits}and total debits: {this.state.taxYearCredits}.
+              Total expense records: {this.state.taxYearRecords}, total credits: {convertCentsToDollars(this.state.taxYearCredits)}and total debits: {convertCentsToDollars(this.state.taxYearDebits)}.
             </p>
             <br />
           </div>
           <button className='w3-btn-block w3-blue-grey'>+ change tax year</button>
         </div>
-      </div>
+      </div >
     )
   }
 }

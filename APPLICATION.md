@@ -104,6 +104,7 @@
 * build out reports
 * filter expenses based upon taxYear
 * build out utilities
+* add summary modal form
 
 ### tomorrow
 
