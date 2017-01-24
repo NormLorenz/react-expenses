@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Category extends Component {
-
   render() {
 
     let key = this.props.category;

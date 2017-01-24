@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
-import Debit from './debit'
 import Select from 'react-select';
-import Property from './property';
-import Category from './category';
+
+import Property from '../helpers/property';
+import Category from '../helpers/category';
+import Debit from '../helpers/debit'
+import { convertCentsToDollars } from '../helpers/utilities';
+
 import Moment from 'react-moment';
 import moment from 'moment';
-import { convertCentsToDollars } from './utilities';
 
 const modalStyle = {
   content: {

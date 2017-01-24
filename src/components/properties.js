@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
-import Active from './active';
+import Active from '../helpers/active';
 
 const modalStyle = {
   content: {

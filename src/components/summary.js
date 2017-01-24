@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Avatar from './android_dance.gif';
+import Avatar from '../android_dance.gif';
 import firebase from 'firebase';
 //import Moment from 'react-moment';
 import moment from 'moment';
-import { convertCentsToDollars } from './utilities';
+import { convertCentsToDollars } from '../helpers/utilities';
 
 // const modalStyle = {
 //   content: {

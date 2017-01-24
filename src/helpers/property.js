@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Property extends Component {
-
   render() {
 
     let key = this.props.property;

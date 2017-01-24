@@ -82,10 +82,12 @@
 * add all categories - DONE
 * build out cents - DONE
 * build out summary - DONE
+* refactor application to use folders - DONE
+* build out utilities - DONE
 
 ### in-flight
 
-* hook in react authentication
+* [hook in react authentication](https://github.com/tylermcginnis/react-router-firebase-auth)
 
 * find a sutable toaster
   * https://github.com/igorprado/react-notification-system
@@ -100,11 +102,10 @@
 * rubix cube hourglass
 * set focus first field in modal form
 * can only set state on a mounted or unmounted component - categories page
-* install surge.sh
+* [install surge.sh]( https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy)
 * build out reports
 * summary page is not refreshing correctly
 * filter expenses based upon taxYear
-* build out utilities
 * add summary modal form
 
 * [ES6 modules](http://wesbos.com/javascript-modules/)
