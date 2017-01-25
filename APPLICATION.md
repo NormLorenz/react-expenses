@@ -102,7 +102,9 @@
 * rubix cube hourglass
 * set focus first field in modal form
 * can only set state on a mounted or unmounted component - categories page
-* [install surge.sh]( https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy)
+* surge
+  * [install surge.sh]( https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy)
+  * also explained in the read me file
 * build out reports
 * summary page is not refreshing correctly
 * filter expenses based upon taxYear
