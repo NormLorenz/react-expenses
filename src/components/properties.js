@@ -128,9 +128,9 @@ class Properties extends Component {
 
   render() {
     const divStyle = { height: '372px', overflow: 'scroll' };
-    const col1Style = { width: '70%' };
+    const col1Style = { width: '65%' };
     const col2Style = { width: '15%' };
-    const col3Style = { width: '15%' };
+    const col3Style = { width: '20%' };
 
     let items = this.state.properties.map(property => {
       return (

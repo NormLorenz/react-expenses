@@ -1,5 +1,8 @@
 ### learning react.js
 
+* [ES6](https://leanpub.com/understandinges6/read#leanpub-auto-better-unicode-support)
+* [ES6 modules](http://wesbos.com/javascript-modules/)
+
 * https://www.youtube.com/watch?v=vYldnghykaU&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO
 * Learning React.js [1] - An Overview
 * Learning React.js [2] - Your First Component
@@ -61,7 +64,6 @@
 * figure out inline style width - DONE
 * install react-toggle - DONE
 * move to expenses store from posts - DONE
-* [ES6](https://leanpub.com/understandinges6/read#leanpub-auto-better-unicode-support) - DONE
 * [component communication](http://andrewhfarmer.com/component-communication/) - DONE
 * hook into firebase - DONE
 * use taxYear instead of an array - DONE
@@ -84,10 +86,9 @@
 * build out summary - DONE
 * refactor application to use folders - DONE
 * build out utilities - DONE
+* [hook in react authentication](https://github.com/tylermcginnis/react-router-firebase-auth) - DONE
 
 ### in-flight
-
-* [hook in react authentication](https://github.com/tylermcginnis/react-router-firebase-auth)
 
 * find a sutable toaster
   * https://github.com/igorprado/react-notification-system
@@ -109,8 +110,14 @@
 * summary page is not refreshing correctly
 * filter expenses based upon taxYear
 * add summary modal form
-
-* [ES6 modules](http://wesbos.com/javascript-modules/)
+* w3-small
+* style navbar and application page
+  * https://github.com/reactjs/react-router-tutorial/tree/master/lessons/05-active-links
+  * light grey
+  * hover color
+  * highlight selected item
+* style register page
+* style login page
 
 ### tomorrow
 

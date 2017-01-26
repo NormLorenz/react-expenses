@@ -13,7 +13,6 @@ import Expenses from './expenses';
 import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
-import About from './about';
 
 function MatchWhenAuthed({component: Component, authed, ...rest}) {
   return (
@@ -68,50 +67,49 @@ class Application extends Component {
 
   render() {
 
-    return this.state.loading === true ? <h3>Loading</h3> : (
+    return this.state.loading === true ? <h4>Loading</h4> : (
       <BrowserRouter>
         {({router}) => (
           <div>
-            <nav className="navbar navbar-default navbar-static-top">
-              <div className="container">
+            <div className='w3-container'>
+              <ul className='w3-navbar w3-card-8 w3-light-grey'>
+                <li><Link to='/' className='w3-hover-none w3-hover-text-blue w3-text-grey'>React Expenses</Link></li>
+                <li className='w3-right'>
+                  {this.state.authed
+                    ? <button
+                      style={{ border: 'none', background: 'transparent' }}
+                      onClick={() => {
+                        logout()
+                        this.setState({ authed: false })
+                        router.transitionTo('/')
+                      } }
+                      className='w3-hover-none w3-hover-text-blue w3-text-grey'>Logout</button>
+                    : <span>
+                      <Link to='/login' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
+                      <Link to='/register' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Register</Link>
+                    </span>}
+                </li>
+                <li className='w3-right'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
+                <li className='w3-right'><Link activeClass='w3-large w3-text-black' to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
+                <li className='w3-right'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
+                <li className='w3-right'><Link to='/expenses' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Expenses</Link></li>
+                <li className='w3-right'><Link to='/summary' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Summary</Link></li>
+              </ul>
+            </div>
 
-                <div className="navbar-header">
-                  <Link to="/" className="navbar-brand">React Router + Firebase Auth</Link>
-                </div>
-
-                <ul className="nav navbar-nav pull-right">
-                  <li><Link to="/" className="navbar-brand">Home</Link></li>
-                  <li><Link to="/summary" className="navbar-brand">Summary</Link></li>
-                  <li>
-                    {this.state.authed
-                      ? <button
-                        style={{ border: 'none', background: 'transparent' }}
-                        onClick={() => {
-                          logout()
-                          this.setState({ authed: false })
-                          router.transitionTo('/')
-                        } }
-                        className="navbar-brand">Logout</button>
-                      : <span>
-                        <Link to="/login" className="navbar-brand">Login</Link>
-                        <Link to="/register" className="navbar-brand">Register</Link>
-                      </span>}
-                  </li>
-                </ul>
-
-              </div>
-            </nav>
-
-            <div className="container">
-              <div className="row">
+            <div className='w3-container'>
+              <div className='w3-row'>
                 <Match pattern='/' exactly component={Home} />
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/login' component={Login} />
                 <MatchWhenUnauthed authed={this.state.authed} pattern='/register' component={Register} />
                 <MatchWhenAuthed authed={this.state.authed} pattern='/summary' component={Summary} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/expenses' component={Expenses} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/properties' component={Properties} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/categories' component={Categories} />
+                <MatchWhenAuthed authed={this.state.authed} pattern='/reports' component={Reports} />
                 <Miss render={() => <h3>No Match</h3>} />
               </div>
             </div>
-
           </div>
         )}
       </BrowserRouter>
@@ -149,3 +147,36 @@ export default Application;
 //     <Route path='/about' component={about} />
 //   </Route>
 // </Router>
+
+// <nav className='navbar navbar-default navbar-static-top'>
+//   <div className='container'>
+
+//     <div className='navbar-header'>
+//       <Link to='/' className='navbar-brand'>React Expenses</Link>
+//     </div>
+
+//     <ul className='nav navbar-nav pull-right'>
+//       <li><Link to='/summary' className='navbar-brand'>Summary</Link></li>
+//       <li><Link to='/expenses' className='navbar-brand'>Expenses</Link></li>
+//       <li><Link to='/properties' className='navbar-brand'>Properties</Link></li>
+//       <li><Link to='/categories' className='navbar-brand'>Categories</Link></li>
+//       <li><Link to='/reports' className='navbar-brand'>Reports</Link></li>
+//       <li>
+//         {this.state.authed
+//           ? <button
+//             style={{ border: 'none', background: 'transparent' }}
+//             onClick={() => {
+//               logout()
+//               this.setState({ authed: false })
+//               router.transitionTo('/')
+//             } }
+//             className='navbar-brand'>Logout</button>
+//           : <span>
+//             <Link to='/login' className='navbar-brand'>Login</Link>
+//             <Link to='/register' className='navbar-brand'>Register</Link>
+//           </span>}
+//       </li>
+//     </ul>
+
+//   </div>
+// </nav>

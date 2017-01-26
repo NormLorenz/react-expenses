@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
 import { login } from '../helpers/authorization'
 
-export default class Login extends Component {
+class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     login(this.email.value, this.pw.value)
   }
-  render () {
+  render() {
+    const divStyle = { width: '400px' };
+
     return (
-      <div className="col-sm-6 col-sm-offset-3">
-        <h1> Login </h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Email</label>
-            <input className="form-control" ref={(email) => this.email = email} placeholder="Email"/>
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input type="password" className="form-control" placeholder="Password" ref={(pw) => this.pw = pw} />
-          </div>
-          <button type="submit" className="btn btn-primary">Login</button>
-        </form>
+      <div className='w3-container' style={divStyle}>
+        <h3>Login</h3>
+        <div className='w3-margin'>
+          <form className='w3-container' onSubmit={this.handleSubmit}>
+            <div className='w3-section'>
+              <input className='w3-input w3-border w3-round' placeholder='Email' ref={(email) => this.email = email} />
+              <label className='w3-label'>Email</label>
+            </div>
+            <div className='w3-section'>
+              <input className='w3-input w3-border w3-round' placeholder='Password' ref={(pw) => this.pw = pw} type='password' />
+              <label className='w3-label'>Password</label>
+            </div>
+            <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Login</button>
+          </form>
+        </div>
       </div>
     )
   }
 }
+
+export default Login;
