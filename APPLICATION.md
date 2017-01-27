@@ -87,6 +87,11 @@
 * refactor application to use folders - DONE
 * build out utilities - DONE
 * [hook in react authentication](https://github.com/tylermcginnis/react-router-firebase-auth) - DONE
+* style register page - DONE
+* style login page - DONE
+* style navbar and application page - DONE
+* turn on firebase authentication - DONE
+* set focus first field in modal form - DONE
 
 ### in-flight
 
@@ -99,25 +104,19 @@
 
 * submit button - see W3 Schools
   * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
+  * also see login and register pages for an example
 
 * rubix cube hourglass
-* set focus first field in modal form
-* can only set state on a mounted or unmounted component - categories page
 * surge
   * [install surge.sh]( https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy)
-  * also explained in the read me file
+  * also explained in the README file
 * build out reports
 * summary page is not refreshing correctly
 * filter expenses based upon taxYear
-* add summary modal form
+* add summary modal form to change year
 * w3-small
-* style navbar and application page
-  * https://github.com/reactjs/react-router-tutorial/tree/master/lessons/05-active-links
-  * light grey
-  * hover color
-  * highlight selected item
-* style register page
-* style login page
+* react-router link activeClassName
+* add space before the menu nav bar
 
 ### tomorrow
 

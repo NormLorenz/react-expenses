@@ -43,20 +43,6 @@ class Summary extends Component {
 
   componentDidMount() {
 
-    const categoriesRef = firebase.database().ref('categories');
-    categoriesRef.once('value', snapshot => {
-      this.setState({
-        categoryRecords: snapshot.numChildren()
-      });
-    });
-
-    const propertiesRef = firebase.database().ref('properties');
-    propertiesRef.once('value', snapshot => {
-      this.setState({
-        propertyRecords: snapshot.numChildren()
-      });
-    });
-
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.once('value', snapshot => {
@@ -72,8 +58,6 @@ class Summary extends Component {
         let taxYearRecords = 0;
         let taxYearCredits = 0;
         let taxYearDebits = 0;
-
-        console.log(taxYear);
 
         snapshot.forEach(function (data) {
           expenseRecords += 1;
@@ -97,6 +81,21 @@ class Summary extends Component {
       })
 
     });
+
+    const propertiesRef = firebase.database().ref('properties');
+    propertiesRef.once('value', snapshot => {
+      this.setState({
+        propertyRecords: snapshot.numChildren()
+      });
+    });
+
+    const categoriesRef = firebase.database().ref('categories');
+    categoriesRef.once('value', snapshot => {
+      this.setState({
+        categoryRecords: snapshot.numChildren()
+      });
+    });
+
   }
 
   render() {

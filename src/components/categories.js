@@ -173,7 +173,7 @@ class Categories extends Component {
             </div>
             <form className='w3-container'>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} />
+                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} autoFocus />
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
