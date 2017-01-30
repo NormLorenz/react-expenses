@@ -58,8 +58,8 @@
 * style pages with w3.css - DONE
 * load react developer tools - DONE
 * react-modal - DONE
-  * https://github.com/reactjs/react-modal - DONE
-  * https://reactcommunity.org/react-modal/ - DONE
+  * https://github.com/reactjs/react-modal/
+  * https://reactcommunity.org/react-modal/
 * style properties component - DONE
 * figure out inline style width - DONE
 * install react-toggle - DONE
@@ -91,7 +91,11 @@
 * style login page - DONE
 * style navbar and application page - DONE
 * turn on firebase authentication - DONE
+* surge - DONE
+  * https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy
+  * also explained in the README file
 * set focus first field in modal form - DONE
+* add space before the menu nav bar - DONE
 
 ### in-flight
 
@@ -107,22 +111,18 @@
   * also see login and register pages for an example
 
 * rubix cube hourglass
-* surge
-  * [install surge.sh]( https://medium.freecodecamp.com/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089#.qruf1kwoy)
-  * also explained in the README file
 * build out reports
 * summary page is not refreshing correctly
-* filter expenses based upon taxYear
+* filter expenses based upon tax tear yyyy or show all
 * add summary modal form to change year
-* w3-small
 * react-router link activeClassName
-* add space before the menu nav bar
+* convert from firebase reference to ref in constants
 
 ### tomorrow
 
 * http://wesbos.com/let-vs-const/
 * consider react rebase https://www.npmjs.com/package/re-base
-* what is the best way to add third party css
+* what is the best way to add third party css or images
 * https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
 * 3:37 minutes
 
@@ -131,6 +131,8 @@
 
 ### update npm packages
 
+* npm list -g --depth=0
 * npm outdated
 * https://docs.npmjs.com/getting-started/updating-local-packages
 * npm update
+* npm run build
