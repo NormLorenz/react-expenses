@@ -116,6 +116,7 @@ class Expenses extends Component {
 
     let expense = {
       date: calculatedDate.toISOString(),
+      taxYear: moment(calculatedDate).year(),
       description: this.state.description,
       category: this.state.category,
       property: this.state.property,
@@ -260,7 +261,7 @@ class Expenses extends Component {
     return (
       <div className='w3-container'>
 
-        <h3>Expenses</h3>
+        <h3>Expenses for tax year {this.state.taxYear}</h3>
 
         <div style={divStyle}>
           <table className='w3-table-all'>
