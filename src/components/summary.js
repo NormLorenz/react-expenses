@@ -101,7 +101,7 @@ class Summary extends Component {
   render() {
     return (
       <div className='w3-container'>
-        <h3>Summary</h3>
+        <h4>Summary</h4>
 
         <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> number of category records</p>
         <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> number of property records</p>
@@ -109,7 +109,7 @@ class Summary extends Component {
 
         <div className='w3-card-4' style={cardStyle}>
           <header className='w3-container w3-light-grey'>
-            <h3>{this.state.taxYear}&nbsp;tax year totals</h3>
+            <h4>{this.state.taxYear}&nbsp;tax year totals</h4>
           </header>
           <div className='w3-container'>
             <hr />

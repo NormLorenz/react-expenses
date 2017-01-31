@@ -165,12 +165,46 @@ class Expenses extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.on('value', snapshot => {
+      console.log('componentDidMount2');
       this.setState({
         taxYear: snapshot.val()
       })
+      console.log('componentDidMount3');
+      console.log(this.state.taxYear);
+
+      const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
+      expensesRef.on('value', snapshot => {
+        console.log('componentDidMount4');
+
+        let expenses = [];
+        snapshot.forEach(function (data) {
+          console.log('componentDidMount5');
+          let expense = {
+            key: data.key,
+            date: data.val().date,
+            description: data.val().description,
+            category: data.val().category,
+            property: data.val().property,
+            isDebit: data.val().isDebit,
+            amount: data.val().amount
+          }
+          expenses.push(expense);
+        });
+        console.log('componentDidMount6');
+
+
+        this.setState({
+          expenses: expenses.sort(function (a, b) {
+            return b.date < a.date;
+          })
+        });
+        console.log('componentDidMount7');
+
+      });
     });
 
     const categoriesRef = firebase.database().ref('categories').orderByChild('description');
@@ -210,27 +244,6 @@ class Expenses extends Component {
         properties: properties
       });
     });
-
-    const expensesRef = firebase.database().ref('expenses').orderByChild('date');
-    expensesRef.on('value', snapshot => {
-      let expenses = [];
-      snapshot.forEach(function (data) {
-        let expense = {
-          key: data.key,
-          date: data.val().date,
-          description: data.val().description,
-          category: data.val().category,
-          property: data.val().property,
-          isDebit: data.val().isDebit,
-          amount: data.val().amount
-        }
-        expenses.push(expense);
-      });
-
-      this.setState({
-        expenses: expenses
-      });
-    });
   }
 
   render() {
@@ -260,8 +273,7 @@ class Expenses extends Component {
 
     return (
       <div className='w3-container'>
-
-        <h3>Expenses for tax year {this.state.taxYear}</h3>
+        <h4>Expenses for tax year {this.state.taxYear}</h4>
 
         <div style={divStyle}>
           <table className='w3-table-all'>

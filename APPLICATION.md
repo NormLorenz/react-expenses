@@ -96,6 +96,7 @@
   * also explained in the README file
 * set focus first field in modal form - DONE
 * add space before the menu nav bar - DONE
+* filter expenses based upon tax year yyyy - DONE
 
 ### in-flight
 
@@ -113,10 +114,10 @@
 * rubix cube hourglass
 * build out reports
 * summary page is not refreshing correctly
-* filter expenses based upon tax tear yyyy or show all
 * add summary modal form to change year
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
+* concurency
 
 ### tomorrow
 

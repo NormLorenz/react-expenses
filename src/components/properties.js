@@ -132,7 +132,7 @@ class Properties extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '20%' };
 
-    let items = this.state.properties.map(property => {
+    let properties = this.state.properties.map(property => {
       return (
         <tr key={property.key}>
           <td>{property.description}</td>
@@ -145,9 +145,8 @@ class Properties extends Component {
 
     return (
       <div className='w3-container'>
-
-        <h3>Properties</h3>
-
+        <h4>Properties</h4>
+        
         <div style={divStyle}>
           <table className='w3-table-all'>
             <thead>
@@ -158,7 +157,7 @@ class Properties extends Component {
               </tr>
             </thead>
             <tbody>
-              {items}
+              {properties}
             </tbody>
           </table>
         </div>

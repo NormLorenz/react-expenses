@@ -29,7 +29,7 @@ class Categories extends Component {
       key: null,
       description: null,
       isActive: false,
-      
+
       categories: [],
     };
   }
@@ -132,7 +132,7 @@ class Categories extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '20%' };
 
-    let items = this.state.categories.map(category => {
+    let categories = this.state.categories.map(category => {
       return (
         <tr key={category.key}>
           <td>{category.description}</td>
@@ -145,8 +145,7 @@ class Categories extends Component {
 
     return (
       <div className='w3-container'>
-
-        <h3>Categories</h3>
+        <h4>Categories</h4>
 
         <div style={divStyle}>
           <table className='w3-table-all'>
@@ -158,7 +157,7 @@ class Categories extends Component {
               </tr>
             </thead>
             <tbody>
-              {items}
+              {categories}
             </tbody>
           </table>
         </div>

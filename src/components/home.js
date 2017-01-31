@@ -10,7 +10,8 @@ class Home extends Component {
   render() {
     return (
       <div className='w3-container'>
-        <h3>Home</h3>
+        <h4>Home</h4>
+
         <img src={Image} alt='react' className='w3-left w3-circle w3-margin-right' style={imageStyle} />
         <p>
           This application is used to aid in the collection of receipts and expenses and allows

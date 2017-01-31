@@ -11,7 +11,8 @@ class Register extends Component {
 
     return (
       <div className='w3-container' style={divStyle}>
-        <h3>Register</h3>
+        <h4>Register</h4>
+        
         <div className='w3-margin'>
           <form className='w3-container' onSubmit={this.handleSubmit}>
             <div className='w3-section'>

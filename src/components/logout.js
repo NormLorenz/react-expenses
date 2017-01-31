@@ -12,7 +12,8 @@ class Logout extends Component {
 
     return (
       <div className='w3-container' style={divStyle}>
-        <h3>Logout</h3>
+        <h4>Logout</h4>
+
         <div className='w3-margin'>
           Thankyou. You have been logged out of the application.
         </div>

@@ -4,8 +4,7 @@ import { convertCentsToDollars } from '../helpers/utilities';
 
 import Property from '../helpers/property';
 import Category from '../helpers/category';
-
-// import Debit from '../helpers/debit'
+import Active from '../helpers/active';
 
 import Moment from 'react-moment';
 // import moment from 'moment';
@@ -39,9 +38,11 @@ class Reports extends Component {
       const creditsRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
       creditsRef.once('value', snapshot => {
         let credits = [];
+        let creditsTotal = 0;
         snapshot.forEach(function (data) {
           if (data.val().isDebit === false) {
             let credit = {
+              key: data.key,
               date: data.val().date,
               description: data.val().description,
               category: data.val().category,
@@ -49,13 +50,15 @@ class Reports extends Component {
               amount: data.val().amount
             }
             credits.push(credit);
+            creditsTotal += credit.amount;
           }
         });
 
         this.setState({
           credits: credits.sort(function (a, b) {
             return b.date < a.date;
-          })
+          }),
+          creditsTotal: creditsTotal
         });
         console.log(credits);
       });
@@ -63,9 +66,11 @@ class Reports extends Component {
       const debitsRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
       debitsRef.once('value', snapshot => {
         let debits = [];
+        let debitsTotal = 0;
         snapshot.forEach(function (data) {
           if (data.val().isDebit === true) {
             let debit = {
+              key: data.key,
               date: data.val().date,
               description: data.val().description,
               category: data.val().category,
@@ -73,31 +78,59 @@ class Reports extends Component {
               amount: data.val().amount
             }
             debits.push(debit);
+            debitsTotal += debit.amount;
           }
         });
 
         this.setState({
           debits: debits.sort(function (a, b) {
             return b.date < a.date;
-          })
+          }),
+          debitsTotal: debitsTotal
         });
         console.log(debits);
       });
 
-      const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-      propertiesRef.once('value', snapshot => {
-        this.setState({
-          properties: snapshot.numChildren()
-        });
+    });
+
+    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
+    propertiesRef.once('value', snapshot => {
+      let properties = [];
+      let propertiesTotal = 0;
+      snapshot.forEach(function (data) {
+        let property = {
+          key: data.key,
+          description: data.val().description,
+          isActive: data.val().isActive,
+          amount: 0
+        }
+        properties.push(property);
       });
 
-      const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-      categoriesRef.once('value', snapshot => {
-        this.setState({
-          categories: snapshot.numChildren()
-        });
+      this.setState({
+        properties: properties,
+        propertiesTotal: propertiesTotal
+      });
+    });
+
+    const categoriesRef = firebase.database().ref('categories').orderByChild('description');
+    categoriesRef.once('value', snapshot => {
+      let categories = [];
+      let categoriesTotal = 0;
+      snapshot.forEach(function (data) {
+        let category = {
+          key: data.key,
+          description: data.val().description,
+          isActive: data.val().isActive,
+          amount: 0
+        }
+        categories.push(category);
       });
 
+      this.setState({
+        categories: categories,
+        categoriesTotal: categoriesTotal
+      });
     });
 
   }
@@ -130,13 +163,34 @@ class Reports extends Component {
       );
     });
 
+    let properties = this.state.properties.map(property => {
+      return (
+        <tr key={property.key}>
+          <td>{property.description}</td>
+          <td><Active isActive={property.isActive} /></td>
+          <td className='w3-right-align'>{convertCentsToDollars(property.amount)}</td>
+          <td></td>
+        </tr>
+      );
+    });
+
+    let categories = this.state.categories.map(category => {
+      return (
+        <tr key={category.key}>
+          <td>{category.description}</td>
+          <td><Active isActive={category.isActive} /></td>
+          <td className='w3-right-align'>{convertCentsToDollars(category.amount)}</td>
+          <td></td>
+        </tr>
+      );
+    });
 
     return (
       <div className='w3-container'>
-        <h3>Reports for tax year {this.state.taxYear}</h3>
+        <h4>Reports for tax year {this.state.taxYear}</h4>
 
         <div className='w3-section'>
-          <h4>Credits {convertCentsToDollars(this.state.creditsTotal)}</h4>
+          <h5>Credits {convertCentsToDollars(this.state.creditsTotal)}</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -155,7 +209,7 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h4>Debits {convertCentsToDollars(this.state.debitsTotal)}</h4>
+          <h5>Debits {convertCentsToDollars(this.state.debitsTotal)}</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -174,7 +228,7 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h4>Properties {convertCentsToDollars(this.state.propertiesTotal)}</h4>
+          <h5>Properties {convertCentsToDollars(this.state.propertiesTotal)}</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -185,12 +239,13 @@ class Reports extends Component {
               </tr>
             </thead>
             <tbody>
+              {properties}
             </tbody>
           </table>
         </div>
 
         <div className='w3-section'>
-          <h4>Categories {convertCentsToDollars(this.state.categoriesTotal)}</h4>
+          <h5>Categories {convertCentsToDollars(this.state.categoriesTotal)}</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -201,6 +256,7 @@ class Reports extends Component {
               </tr>
             </thead>
             <tbody>
+              {categories}
             </tbody>
           </table>
         </div>
