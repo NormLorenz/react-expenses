@@ -180,7 +180,7 @@ class Reports extends Component {
         <h4>Reports for tax year {this.state.taxYear}</h4>
 
         <div className='w3-section'>
-          <h5>Credits {convertCentsToDollars(this.state.creditsTotal)}</h5>
+          <h5>Credits</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -192,6 +192,13 @@ class Reports extends Component {
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
+            <tfoot>
+              <tr>
+                <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.creditsTotal)}</td>
+                <td></td>
+              </tr>
+            </tfoot>
             <tbody>
               {credits}
             </tbody>
@@ -199,7 +206,7 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h5>Debits {convertCentsToDollars(this.state.debitsTotal)}</h5>
+          <h5>Debits</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -211,6 +218,13 @@ class Reports extends Component {
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
+            <tfoot>
+              <tr>
+                <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.debitsTotal)}</td>
+                <td></td>
+              </tr>
+            </tfoot>
             <tbody>
               {debits}
             </tbody>

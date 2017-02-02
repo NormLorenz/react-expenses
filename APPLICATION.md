@@ -99,6 +99,8 @@
 * filter expenses based upon tax year yyyy - DONE
 * build out reports - DONE
 * summary page is not refreshing correctly - DONE
+* add credit and debit totals to footer - DONE
+* move totals under the report table - DONE
 
 ### in-flight
 
@@ -119,8 +121,6 @@
 * convert from firebase reference to ref in constants
 * concurency
 * consolidate database references
-* move totals under the report table
-* add credit and debit totals to categories and properties
 
 ### tomorrow
 
