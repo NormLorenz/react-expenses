@@ -97,6 +97,8 @@
 * set focus first field in modal form - DONE
 * add space before the menu nav bar - DONE
 * filter expenses based upon tax year yyyy - DONE
+* build out reports - DONE
+* summary page is not refreshing correctly - DONE
 
 ### in-flight
 
@@ -112,13 +114,13 @@
   * also see login and register pages for an example
 
 * rubix cube hourglass
-* build out reports
-* summary page is not refreshing correctly
 * add summary modal form to change year for past ten years
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
 * concurency
 * consolidate database references
+* move totals under the report table
+* add credit and debit totals to categories and properties
 
 ### tomorrow
 

@@ -23,6 +23,15 @@ class Reports extends Component {
     };
   }
 
+  // https://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
+  calculateSum(key, field, isDebit) {
+    let filteredExpenses = this.state.expenses.filter((expense) =>
+      expense.isDebit === isDebit && expense[field] === key);
+    let sum = filteredExpenses.reduce((sum, expense) =>
+      sum + expense.amount, 0);
+    return sum;
+  }
+
   componentDidMount() {
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
@@ -47,10 +56,10 @@ class Reports extends Component {
             amount: data.val().amount
           }
           if (expense.isDebit === true) {
-            creditsTotal += expense.amount;
+            debitsTotal += expense.amount;
           }
           else {
-            debitsTotal += expense.amount;
+            creditsTotal += expense.amount;
           }
           expenses.push(expense);
         });
@@ -62,44 +71,46 @@ class Reports extends Component {
           creditsTotal: creditsTotal,
           debitsTotal: debitsTotal
         });
-      });
-    });
 
-    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-    propertiesRef.once('value', snapshot => {
-      let properties = [];
-      snapshot.forEach(function (data) {
-        let property = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive,
-          credit: 0,
-          debit: 0
-        }
-        properties.push(property);
-      });
+        const propertiesRef = firebase.database().ref('properties').orderByChild('description');
+        propertiesRef.once('value', snapshot => {
+          let properties = [];
+          let _this = this;
+          snapshot.forEach(function (data) {
+            let property = {
+              key: data.key,
+              description: data.val().description,
+              isActive: data.val().isActive,
+              credit: _this.calculateSum(data.key, 'property', false),
+              debit: _this.calculateSum(data.key, 'property', true)
+            }
+            properties.push(property);
+          });
 
-      this.setState({
-        properties: properties
-      });
-    });
+          this.setState({
+            properties: properties
+          });
+        });
 
-    const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-    categoriesRef.once('value', snapshot => {
-      let categories = [];
-      snapshot.forEach(function (data) {
-        let category = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive,
-          credit: 0,
-          debit: 0
-        }
-        categories.push(category);
-      });
+        const categoriesRef = firebase.database().ref('categories').orderByChild('description');
+        categoriesRef.once('value', snapshot => {
+          let categories = [];
+          let _this = this;
+          snapshot.forEach(function (data) {
+            let category = {
+              key: data.key,
+              description: data.val().description,
+              isActive: data.val().isActive,
+              credit: _this.calculateSum(data.key, 'category', false),
+              debit: _this.calculateSum(data.key, 'category', true)
+            }
+            categories.push(category);
+          });
 
-      this.setState({
-        categories: categories
+          this.setState({
+            categories: categories
+          });
+        });
       });
     });
   }
