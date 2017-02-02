@@ -15,19 +15,15 @@ class Reports extends Component {
     super();
     this.state = {
       taxYear: 1776,
-      credits: [],
-      creditsTotal: 0,
-      debits: [],
-      debitsTotal: 0,
+      expenses: [],
       categories: [],
-      categoriesTotal: 0,
       properties: [],
-      propertiesTotal: 0
+      debitsTotal: 0,
+      creditsTotal: 0
     };
   }
 
   componentDidMount() {
-
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.once('value', snapshot => {
@@ -35,129 +31,110 @@ class Reports extends Component {
         taxYear: snapshot.val()
       });
 
-      const creditsRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
-      creditsRef.once('value', snapshot => {
-        let credits = [];
+      const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
+      expensesRef.once('value', snapshot => {
+        let expenses = [];
         let creditsTotal = 0;
-        snapshot.forEach(function (data) {
-          if (data.val().isDebit === false) {
-            let credit = {
-              key: data.key,
-              date: data.val().date,
-              description: data.val().description,
-              category: data.val().category,
-              property: data.val().property,
-              amount: data.val().amount
-            }
-            credits.push(credit);
-            creditsTotal += credit.amount;
-          }
-        });
-
-        this.setState({
-          credits: credits.sort(function (a, b) {
-            return b.date < a.date;
-          }),
-          creditsTotal: creditsTotal
-        });
-        console.log(credits);
-      });
-
-      const debitsRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
-      debitsRef.once('value', snapshot => {
-        let debits = [];
         let debitsTotal = 0;
         snapshot.forEach(function (data) {
-          if (data.val().isDebit === true) {
-            let debit = {
-              key: data.key,
-              date: data.val().date,
-              description: data.val().description,
-              category: data.val().category,
-              property: data.val().property,
-              amount: data.val().amount
-            }
-            debits.push(debit);
-            debitsTotal += debit.amount;
+          let expense = {
+            key: data.key,
+            date: data.val().date,
+            description: data.val().description,
+            category: data.val().category,
+            property: data.val().property,
+            isDebit: data.val().isDebit,
+            amount: data.val().amount
           }
+          if (expense.isDebit === true) {
+            creditsTotal += expense.amount;
+          }
+          else {
+            debitsTotal += expense.amount;
+          }
+          expenses.push(expense);
         });
 
         this.setState({
-          debits: debits.sort(function (a, b) {
+          expenses: expenses.sort(function (a, b) {
             return b.date < a.date;
           }),
+          creditsTotal: creditsTotal,
           debitsTotal: debitsTotal
         });
-        console.log(debits);
       });
-
     });
 
     const propertiesRef = firebase.database().ref('properties').orderByChild('description');
     propertiesRef.once('value', snapshot => {
       let properties = [];
-      let propertiesTotal = 0;
       snapshot.forEach(function (data) {
         let property = {
           key: data.key,
           description: data.val().description,
           isActive: data.val().isActive,
-          amount: 0
+          credit: 0,
+          debit: 0
         }
         properties.push(property);
       });
 
       this.setState({
-        properties: properties,
-        propertiesTotal: propertiesTotal
+        properties: properties
       });
     });
 
     const categoriesRef = firebase.database().ref('categories').orderByChild('description');
     categoriesRef.once('value', snapshot => {
       let categories = [];
-      let categoriesTotal = 0;
       snapshot.forEach(function (data) {
         let category = {
           key: data.key,
           description: data.val().description,
           isActive: data.val().isActive,
-          amount: 0
+          credit: 0,
+          debit: 0
         }
         categories.push(category);
       });
 
       this.setState({
-        categories: categories,
-        categoriesTotal: categoriesTotal
+        categories: categories
       });
     });
-
   }
 
   render() {
 
-    let credits = this.state.credits.map(credit => {
+    let filteredCredits = this.state.expenses.filter(expense => {
+      return expense.isDebit === false;
+    });
+
+    let credits = filteredCredits.map(expense => {
       return (
-        <tr key={credit.key}>
-          <td><Moment date={credit.date} format='L' /></td>
-          <td>{credit.description}</td>
-          <td><Category categories={this.state.categories} category={credit.category} /></td>
-          <td><Property properties={this.state.properties} property={credit.property} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(credit.amount)}</td>
+        <tr key={expense.key}>
+          <td><Moment date={expense.date} format='L' /></td>
+          <td>{expense.description}</td>
+          <td><Category categories={this.state.categories} category={expense.category} /></td>
+          <td><Property properties={this.state.properties} property={expense.property} /></td>
+          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
       );
     });
 
-    let debits = this.state.debits.map(debit => {
+    let filteredDebits = this.state.expenses.filter(expense => {
+      return expense.isDebit === true;
+    });
+
+    let debits = filteredDebits.map(expense => {
       return (
-        <tr key={debit.key}>
-          <td><Moment date={debit.date} format='L' /></td>
-          <td>{debit.description}</td>
-          <td><Category categories={this.state.categories} category={debit.category} /></td>
-          <td><Property properties={this.state.properties} property={debit.property} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(debit.amount)}</td>
+        <tr key={expense.key}>
+          <td><Moment date={expense.date} format='L' /></td>
+          <td>{expense.description}</td>
+          <td><Category categories={this.state.categories} category={expense.category} /></td>
+          <td><Property properties={this.state.properties} property={expense.property} /></td>
+          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
       );
@@ -168,7 +145,8 @@ class Reports extends Component {
         <tr key={property.key}>
           <td>{property.description}</td>
           <td><Active isActive={property.isActive} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(property.amount)}</td>
+          <td className='w3-right-align'>{convertCentsToDollars(property.credit)}</td>
+          <td className='w3-right-align'>{convertCentsToDollars(property.debit)}</td>
           <td></td>
         </tr>
       );
@@ -179,14 +157,15 @@ class Reports extends Component {
         <tr key={category.key}>
           <td>{category.description}</td>
           <td><Active isActive={category.isActive} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(category.amount)}</td>
+          <td className='w3-right-align'>{convertCentsToDollars(category.credit)}</td>
+          <td className='w3-right-align'>{convertCentsToDollars(category.debit)}</td>
           <td></td>
         </tr>
       );
     });
 
     return (
-      <div className='w3-container'>
+      <div className='w3-container' >
         <h4>Reports for tax year {this.state.taxYear}</h4>
 
         <div className='w3-section'>
@@ -194,12 +173,12 @@ class Reports extends Component {
           <table className='w3-table-all'>
             <thead>
               <tr>
-                <th style={{ width: '15%' }}>Date</th>
+                <th style={{ width: '18%' }}>Date</th>
                 <th style={{ width: '30%' }}>Description</th>
                 <th style={{ width: '20%' }}>Category</th>
                 <th style={{ width: '20%' }}>Property</th>
                 <th style={{ width: '10%' }}>Amount</th>
-                <th style={{ width: '5%' }}></th>
+                <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -213,12 +192,12 @@ class Reports extends Component {
           <table className='w3-table-all'>
             <thead>
               <tr>
-                <th style={{ width: '15%' }}>Date</th>
+                <th style={{ width: '18%' }}>Date</th>
                 <th style={{ width: '30%' }}>Description</th>
                 <th style={{ width: '20%' }}>Category</th>
                 <th style={{ width: '20%' }}>Property</th>
                 <th style={{ width: '10%' }}>Amount</th>
-                <th style={{ width: '5%' }}></th>
+                <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -228,14 +207,15 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h5>Properties {convertCentsToDollars(this.state.propertiesTotal)}</h5>
+          <h5>Properties</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
-                <th style={{ width: '65%' }}>Description</th>
+                <th style={{ width: '58%' }}>Description</th>
                 <th style={{ width: '20%' }}>Active</th>
-                <th style={{ width: '10%' }}>Amount</th>
-                <th style={{ width: '5%' }}></th>
+                <th className='w3-right-align' style={{ width: '10%' }}>Credits</th>
+                <th className='w3-right-align' style={{ width: '10%' }}>Debits</th>
+                <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -245,14 +225,15 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h5>Categories {convertCentsToDollars(this.state.categoriesTotal)}</h5>
+          <h5>Categories</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
-                <th style={{ width: '65%' }}>Description</th>
+                <th style={{ width: '58%' }}>Description</th>
                 <th style={{ width: '20%' }}>Active</th>
-                <th style={{ width: '10%' }}>Amount</th>
-                <th style={{ width: '5%' }}></th>
+                <th className='w3-right-align' style={{ width: '10%' }}>Credits</th>
+                <th className='w3-right-align' style={{ width: '10%' }}>Debits</th>
+                <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -261,7 +242,7 @@ class Reports extends Component {
           </table>
         </div>
 
-      </div>
+      </div >
     )
   }
 }

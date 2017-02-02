@@ -114,10 +114,11 @@
 * rubix cube hourglass
 * build out reports
 * summary page is not refreshing correctly
-* add summary modal form to change year
+* add summary modal form to change year for past ten years
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
 * concurency
+* consolidate database references
 
 ### tomorrow
 
