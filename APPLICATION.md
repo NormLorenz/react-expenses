@@ -17,6 +17,9 @@
 * Learning React.js [7] - Adding State Data Through a Form
   * todo form
 
+* https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10  3:37 minutes
+* https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
+
 ### setup application
 
 * https://facebook.github.io/react/
@@ -104,38 +107,28 @@
 * fixed math problem - DONE
 * used w3-small throughout - DONE
 * fixed sorting problem - DONE
+* modal use w3.css w3-navbar w3-card-8 w3-light-grey - DONE
+* submit button - see W3 Schools - DONE
+* find a sutable toaster https://github.com/igorprado/react-notification-system - DONE
+  * https://www.bountysource.com/issues/39897543-would-love-an-es6-example-of-using-this
+* finish toaster implemenation for categories, expenses and summary - DONE
 
 ### in-flight
-
-* find a sutable toaster
-  * https://github.com/igorprado/react-notification-system
-  * http://igorprado.com/react-notification-system/
-  * http://stackoverflow.com/questions/39069513/react-global-notification-system
-  * https://www.bountysource.com/teams/react-notification-system/issues
-  * http://stackoverflow.com/questions/32933146/implementing-react-notification-system-on-react
-
-* submit button - see W3 Schools
-  * https://www.youtube.com/watch?v=yOu_PUAOtP0&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=7 at 5.53 minutes
-  * also see login and register pages for an example
 
 * rubix cube hourglass
 * add summary modal form to change year for past ten years
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
 * concurency - consolidate database references
-* string functions
-* modal use w3.css w3-navbar w3-card-8 w3-light-grey
+* string functions - see w3 schools
+* create report both credits and debits totals for properties and categories
 
 ### tomorrow
 
 * http://wesbos.com/let-vs-const/
 * consider react rebase https://www.npmjs.com/package/re-base
 * what is the best way to add third party css or images
-* https://www.youtube.com/watch?v=QY7Ibl37_08&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO&index=10
-* 3:37 minutes
-
 * https://www.youtube.com/watch?v=szmS_M-BMls
-* see https://www.youtube.com/watch?v=AUso8hw2-JQ&index=8&list=PLillGF-RfqbbKWfm3Y_RF57dNGsHnkYqO 1:54 minutes
 
 ### update npm packages
 

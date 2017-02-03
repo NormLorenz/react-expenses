@@ -11,6 +11,7 @@ import { convertCentsToDollars } from '../helpers/utilities';
 
 import Moment from 'react-moment';
 import moment from 'moment';
+import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
   content: {
@@ -47,6 +48,19 @@ class Expenses extends Component {
       categories: [],
       properties: []
     };
+
+    this._notificationSystem = null;
+  }
+
+  addNotification(event) {
+    if (event) event.preventDefault();
+    if (this._notificationSystem) {
+      this._notificationSystem.addNotification({
+        message: 'Record saved',
+        level: 'info',
+        position: 'br'
+      });
+    }
   }
 
   handleOpen(expense, operation) {
@@ -137,6 +151,7 @@ class Expenses extends Component {
       expensesRef.remove();
     }
 
+    this.addNotification();
     this.setState({ showModal: false });
   }
 
@@ -161,7 +176,6 @@ class Expenses extends Component {
   }
 
   handleAmount(event) {
-    console.log(event.target.value);
     this.setState({ amount: event.target.value });
   }
 
@@ -263,6 +277,7 @@ class Expenses extends Component {
     return (
       <div className='w3-container'>
         <h4>Expenses for tax year {this.state.taxYear}</h4>
+        <NotificationSystem ref={n => this._notificationSystem = n} />
 
         <div style={divStyle}>
           <table className='w3-table-all'>
@@ -291,7 +306,7 @@ class Expenses extends Component {
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
-            <form className='w3-container'>
+            <form className='w3-container' onClick={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.date} onChange={this.handleDate.bind(this)} autoFocus />
                 <label className='w3-label'>Date</label>
@@ -318,7 +333,7 @@ class Expenses extends Component {
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSubmit.bind(this)}>{this.state.submitText}</button>
+                <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
           </div>

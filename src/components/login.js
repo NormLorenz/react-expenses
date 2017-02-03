@@ -6,6 +6,7 @@ class Login extends Component {
     e.preventDefault()
     login(this.email.value, this.pw.value)
   }
+  
   render() {
     const divStyle = { width: '400px' };
 

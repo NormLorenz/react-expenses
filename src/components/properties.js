@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
 import Active from '../helpers/active';
+import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
   content: {
@@ -30,8 +31,21 @@ class Properties extends Component {
       description: null,
       isActive: false,
 
-      properties: [],
+      properties: []
     };
+
+    this._notificationSystem = null;
+  }
+
+  addNotification(event) {
+    if (event) event.preventDefault();
+    if (this._notificationSystem) {
+      this._notificationSystem.addNotification({
+        message: 'Record saved',
+        level: 'info',
+        position: 'br'
+      });
+    }
   }
 
   handleOpen(property, operation) {
@@ -95,6 +109,7 @@ class Properties extends Component {
       propertiesRef.remove();
     }
 
+    this.addNotification();
     this.setState({ showModal: false });
   }
 
@@ -146,7 +161,8 @@ class Properties extends Component {
     return (
       <div className='w3-container'>
         <h4>Properties</h4>
-        
+        <NotificationSystem ref={n => this._notificationSystem = n} />
+
         <div style={divStyle}>
           <table className='w3-table-all'>
             <thead>
@@ -170,7 +186,7 @@ class Properties extends Component {
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
-            <form className='w3-container'>
+            <form className='w3-container' onClick={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} autoFocus />
                 <label className='w3-label'>Description</label>
@@ -181,7 +197,7 @@ class Properties extends Component {
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right' onClick={this.handleSubmit.bind(this)}>{this.state.submitText}</button>
+                <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
           </div>
