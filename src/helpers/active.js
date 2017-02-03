@@ -6,12 +6,12 @@ class Active extends Component {
 
     if (isActive === true) {
       return (
-        <span className="w3-badge w3-small w3-green">True</span>
+        <span className="w3-badge w3-green">true</span>
       )
     }
     else {
       return (
-        <span className="w3-badge w3-small w3-red">False</span>
+        <span className="w3-badge w3-red">false</span>
       )
     }
   }

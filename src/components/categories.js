@@ -167,7 +167,7 @@ class Categories extends Component {
           isOpen={this.state.showModal}
           contentLabel='modal'>
           <div className='w3-margin'>
-            <div className='w3-container w3-blue-grey'>
+            <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
             <form className='w3-container'>

@@ -71,7 +71,7 @@ class Application extends Component {
             <div className='w3-container'>
               <ul className='w3-navbar w3-card-8 w3-light-grey'>
                 <li><Link to='/' className='w3-hover-none w3-hover-text-blue w3-text-grey w3-large'>React Expenses</Link></li>
-                <li className='w3-right'>
+                <li className='w3-right w3-medium'>
                   {this.state.authed ?
                     <button
                       style={{ border: 'none', background: 'transparent', position: 'relative', top: '7px' }}
@@ -85,11 +85,11 @@ class Application extends Component {
                     <Link to='/login' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
                   }
                 </li>
-                <li className='w3-right'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
-                <li className='w3-right'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
-                <li className='w3-right'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
-                <li className='w3-right'><Link to='/expenses' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Expenses</Link></li>
-                <li className='w3-right'><Link to='/summary' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Summary</Link></li>
+                <li className='w3-right w3-medium'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
+                <li className='w3-right w3-medium'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
+                <li className='w3-right w3-medium'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
+                <li className='w3-right w3-medium'><Link to='/expenses' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Expenses</Link></li>
+                <li className='w3-right w3-medium'><Link to='/summary' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Summary</Link></li>
               </ul>
             </div>
 

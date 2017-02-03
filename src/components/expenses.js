@@ -112,7 +112,7 @@ class Expenses extends Component {
 
     // convert dollars and cents to cents
     let calculatedAmount = (this.state.amount).toString().replace(/[^0-9.]/g, '');
-    calculatedAmount *= 100;
+    calculatedAmount = Math.round(calculatedAmount * 100);
 
     let expense = {
       date: calculatedDate.toISOString(),
@@ -161,28 +161,23 @@ class Expenses extends Component {
   }
 
   handleAmount(event) {
+    console.log(event.target.value);
     this.setState({ amount: event.target.value });
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
     taxYearRef.on('value', snapshot => {
-      console.log('componentDidMount2');
       this.setState({
         taxYear: snapshot.val()
       })
-      console.log('componentDidMount3');
-      console.log(this.state.taxYear);
 
       const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
       expensesRef.on('value', snapshot => {
-        console.log('componentDidMount4');
 
         let expenses = [];
         snapshot.forEach(function (data) {
-          console.log('componentDidMount5');
           let expense = {
             key: data.key,
             date: data.val().date,
@@ -194,16 +189,10 @@ class Expenses extends Component {
           }
           expenses.push(expense);
         });
-        console.log('componentDidMount6');
-
 
         this.setState({
-          expenses: expenses.sort(function (a, b) {
-            return b.date < a.date;
-          })
+          expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1)
         });
-        console.log('componentDidMount7');
-
       });
     });
 
@@ -248,10 +237,10 @@ class Expenses extends Component {
 
   render() {
     const divStyle = { height: '372px', overflow: 'scroll' };
-    const col1Style = { width: '15%' };
-    const col2Style = { width: '15%' };
-    const col3Style = { width: '20%' };
-    const col4Style = { width: '20%' };
+    const col1Style = { width: '10%' };
+    const col2Style = { width: '30%' };
+    const col3Style = { width: '15%' };
+    const col4Style = { width: '15%' };
     const col5Style = { width: '5%' };
     const col6Style = { width: '8%' };
     const col7Style = { width: '17%' };
@@ -299,7 +288,7 @@ class Expenses extends Component {
           isOpen={this.state.showModal}
           contentLabel='modal'>
           <div className='w3-margin'>
-            <div className='w3-container w3-blue-grey'>
+            <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
             <form className='w3-container'>

@@ -101,6 +101,9 @@
 * summary page is not refreshing correctly - DONE
 * add credit and debit totals to footer - DONE
 * move totals under the report table - DONE
+* fixed math problem - DONE
+* used w3-small throughout - DONE
+* fixed sorting problem - DONE
 
 ### in-flight
 
@@ -119,8 +122,9 @@
 * add summary modal form to change year for past ten years
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
-* concurency
-* consolidate database references
+* concurency - consolidate database references
+* string functions
+* modal use w3.css w3-navbar w3-card-8 w3-light-grey
 
 ### tomorrow
 

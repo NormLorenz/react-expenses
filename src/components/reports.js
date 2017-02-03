@@ -7,7 +7,6 @@ import Category from '../helpers/category';
 import Active from '../helpers/active';
 
 import Moment from 'react-moment';
-// import moment from 'moment';
 
 class Reports extends Component {
 
@@ -65,9 +64,7 @@ class Reports extends Component {
         });
 
         this.setState({
-          expenses: expenses.sort(function (a, b) {
-            return b.date < a.date;
-          }),
+          expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1),
           creditsTotal: creditsTotal,
           debitsTotal: debitsTotal
         });

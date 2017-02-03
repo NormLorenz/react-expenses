@@ -6,12 +6,12 @@ class Debit extends Component {
 
     if (isDebit === true) {
       return (
-        <span className="w3-badge w3-small w3-green">Debit</span>
+        <span className="w3-badge w3-green">debit</span>
       )
     }
     else {
       return (
-        <span className="w3-badge w3-small w3-red">Credit</span>
+        <span className="w3-badge w3-red">credit</span>
       )
     }
   }
