@@ -306,7 +306,7 @@ class Expenses extends Component {
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
-            <form className='w3-container' onClick={this.handleSubmit.bind(this)}>
+            <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.date} onChange={this.handleDate.bind(this)} autoFocus />
                 <label className='w3-label'>Date</label>

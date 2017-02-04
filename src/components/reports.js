@@ -16,7 +16,11 @@ class Reports extends Component {
       taxYear: 1776,
       expenses: [],
       categories: [],
+      categoryCreditsTotal: 0,
+      categoryDebitsTotal: 0,
       properties: [],
+      propertyCreditsTotal: 0,
+      propertyDebitsTotal: 0,
       debitsTotal: 0,
       creditsTotal: 0
     };
@@ -72,6 +76,8 @@ class Reports extends Component {
         const propertiesRef = firebase.database().ref('properties').orderByChild('description');
         propertiesRef.once('value', snapshot => {
           let properties = [];
+          let propertyCreditsTotal = 0;
+          let propertyDebitsTotal = 0;
           let _this = this;
           snapshot.forEach(function (data) {
             let property = {
@@ -82,16 +88,22 @@ class Reports extends Component {
               debit: _this.calculateSum(data.key, 'property', true)
             }
             properties.push(property);
+            propertyCreditsTotal += property.credit;
+            propertyDebitsTotal += property.debit;
           });
 
           this.setState({
-            properties: properties
+            properties: properties,
+            propertyCreditsTotal: propertyCreditsTotal,
+            propertyDebitsTotal: propertyDebitsTotal
           });
         });
 
         const categoriesRef = firebase.database().ref('categories').orderByChild('description');
         categoriesRef.once('value', snapshot => {
           let categories = [];
+          let categoryCreditsTotal = 0;
+          let categoryDebitsTotal = 0;
           let _this = this;
           snapshot.forEach(function (data) {
             let category = {
@@ -102,10 +114,14 @@ class Reports extends Component {
               debit: _this.calculateSum(data.key, 'category', true)
             }
             categories.push(category);
+            categoryCreditsTotal += category.credit;
+            categoryDebitsTotal += category.debit;
           });
 
           this.setState({
-            categories: categories
+            categories: categories,
+            categoryCreditsTotal: categoryCreditsTotal,
+            categoryDebitsTotal: categoryDebitsTotal
           });
         });
       });
@@ -240,6 +256,14 @@ class Reports extends Component {
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
+            <tfoot>
+              <tr>
+                <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.propertyCreditsTotal)}</td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.propertyDebitsTotal)}</td>
+                <td></td>
+              </tr>
+            </tfoot>
             <tbody>
               {properties}
             </tbody>
@@ -258,6 +282,14 @@ class Reports extends Component {
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
+            <tfoot>
+              <tr>
+                <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.categoryCreditsTotal)}</td>
+                <td className='w3-right-align'>{convertCentsToDollars(this.state.categoryDebitsTotal)}</td>
+                <td></td>
+              </tr>
+            </tfoot>
             <tbody>
               {categories}
             </tbody>

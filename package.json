@@ -14,7 +14,7 @@
     "react-dom": "^15.4.1",
     "react-modal": "^1.6.5",
     "react-moment": "^0.1.2",
-    "react-router": "^4.0.0-alpha.5",
+    "react-router": "4.0.0-alpha.5",
     "react-select": "^1.0.0-rc.2"
   },
   "scripts": {

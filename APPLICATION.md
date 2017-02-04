@@ -122,6 +122,7 @@
 * concurency - consolidate database references
 * string functions - see w3 schools
 * create report both credits and debits totals for properties and categories
+* consider to implement redux
 
 ### tomorrow
 
