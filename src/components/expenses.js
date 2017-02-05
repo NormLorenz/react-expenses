@@ -250,7 +250,7 @@ class Expenses extends Component {
   }
 
   render() {
-    const divStyle = { height: '372px', overflow: 'scroll' };
+    const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '10%' };
     const col2Style = { width: '30%' };
     const col3Style = { width: '15%' };
@@ -297,7 +297,7 @@ class Expenses extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, null, 'new')}>New expense</button>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, 'new')}>New expense</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}

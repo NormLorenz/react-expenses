@@ -112,6 +112,7 @@
 * find a sutable toaster https://github.com/igorprado/react-notification-system - DONE
   * https://www.bountysource.com/issues/39897543-would-love-an-es6-example-of-using-this
 * finish toaster implemenation for categories, expenses and summary - DONE
+* create report both credits and debits totals for properties and categories - DONE
 
 ### in-flight
 
@@ -121,7 +122,6 @@
 * convert from firebase reference to ref in constants
 * concurency - consolidate database references
 * string functions - see w3 schools
-* create report both credits and debits totals for properties and categories
 * consider to implement redux
 
 ### tomorrow
