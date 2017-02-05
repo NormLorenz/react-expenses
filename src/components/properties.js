@@ -105,8 +105,8 @@ class Properties extends Component {
       propertiesRef.update(property);
     }
     else {
-      const propertiesRef = firebase.database().ref('properties').child(this.state.key);
-      propertiesRef.remove();
+      // const propertiesRef = firebase.database().ref('properties').child(this.state.key);
+      // propertiesRef.remove();
     }
 
     this.addNotification();

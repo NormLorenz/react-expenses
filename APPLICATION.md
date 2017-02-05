@@ -123,6 +123,7 @@
 * concurency - consolidate database references
 * string functions - see w3 schools
 * consider to implement redux
+* consolidate toaster notifications
 
 ### tomorrow
 

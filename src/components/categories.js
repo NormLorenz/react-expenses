@@ -105,8 +105,8 @@ class Categories extends Component {
       categoriesRef.update(category);
     }
     else {
-      const categoriesRef = firebase.database().ref('categories').child(this.state.key);
-      categoriesRef.remove();
+      // const categoriesRef = firebase.database().ref('categories').child(this.state.key);
+      // categoriesRef.remove();
     }
 
     this.addNotification();
