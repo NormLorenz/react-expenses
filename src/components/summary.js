@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
 import Avatar from '../android_dance.gif';
 import firebase from 'firebase';
 //import Moment from 'react-moment';
 import moment from 'moment';
+import Select from 'react-select';
+
 import { convertCentsToDollars } from '../helpers/utilities';
 
-// const modalStyle = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     width: '400px',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)'
-//   }
-// };
+const modalStyle = {
+  content: {
+    top: '50%',
+    left: '50%',
+    width: '400px',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
 
 const cardStyle = {
   width: '400px'
@@ -31,6 +34,8 @@ class Summary extends Component {
     super();
     this.state = {
       taxYear: 1776,
+      year: null,
+      years: [],
       showModal: false,
       categoryRecords: 0,
       propertyRecords: 0,
@@ -41,7 +46,32 @@ class Summary extends Component {
     };
   }
 
+  handleTaxYear(event) {
+    //this.setState({ date: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  handleOpen(event) {
+    this.setState({ showModal: true });
+    console.log(this.state.years);
+  }
+
+  handleClose(event) {
+    event.preventDefault();
+    this.setState({ showModal: false });
+  }
+
   componentDidMount() {
+
+    let years = [];
+    let year = moment().year();
+    for (let i = 0; i < 15; i++) {
+      years.push(year--);
+    }
+    this.setState({ years: years.map(i => { return { label: i, value: i } }) });
 
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
@@ -119,8 +149,29 @@ class Summary extends Component {
             </p>
             <br />
           </div>
-          <button className='w3-btn-block w3-blue-grey'>+ change tax year</button>
+          <button className='w3-btn-block w3-blue-grey' onClick={this.handleOpen.bind(this)}>+ change tax year</button>
         </div>
+
+        <Modal style={modalStyle}
+          isOpen={this.state.showModal}
+          contentLabel='modal'>
+          <div className='w3-margin'>
+            <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
+              <h4>Change the tax year</h4>
+            </div>
+            <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
+              <div className='w3-section'>
+                <Select value={this.state.taxYear} options={this.state.years} onChange={this.handleTaxYear.bind(this)} />
+                <label className='w3-label'>Tax year: also used to set the default year for shortened mm/dd entries</label>
+              </div>
+              <div className='w3-section'>
+                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Save</button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+
       </div >
     )
   }
