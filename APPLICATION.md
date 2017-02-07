@@ -113,23 +113,24 @@
   * https://www.bountysource.com/issues/39897543-would-love-an-es6-example-of-using-this
 * finish toaster implemenation for categories, expenses and summary - DONE
 * create report both credits and debits totals for properties and categories - DONE
+* add summary modal form to change year for past ten years - DONE
 
 ### in-flight
 
 * rubix cube hourglass
-* add summary modal form to change year for past ten years
 * react-router link activeClassName
 * convert from firebase reference to ref in constants
 * concurency - consolidate database references
 * string functions - see w3 schools
 * consider to implement redux
 * consolidate toaster notifications
+* install jest
 
 ### tomorrow
 
 * http://wesbos.com/let-vs-const/
 * consider react rebase https://www.npmjs.com/package/re-base
-* what is the best way to add third party css or images
+* what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
 
 ### update npm packages

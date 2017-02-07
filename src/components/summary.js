@@ -13,6 +13,7 @@ const modalStyle = {
     top: '50%',
     left: '50%',
     width: '400px',
+    height: '350px',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
