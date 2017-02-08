@@ -124,7 +124,7 @@
 * string functions - see w3 schools
 * consider to implement redux
 * consolidate toaster notifications
-* install jest
+* install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 
 ### tomorrow
 
