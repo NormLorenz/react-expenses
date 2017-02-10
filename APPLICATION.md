@@ -114,6 +114,9 @@
 * finish toaster implemenation for categories, expenses and summary - DONE
 * create report both credits and debits totals for properties and categories - DONE
 * add summary modal form to change year for past ten years - DONE
+* refactor Debit component to clickable ExpenseType - DONE
+* use propTypes for stateless components - DONE 
+* use mouse pointer with ExpenseType component - DONE
 
 ### in-flight
 

@@ -22,4 +22,8 @@ class Property extends Component {
   }
 }
 
+Property.propTypes = {
+  properties: React.PropTypes.array.isRequired
+};
+
 export default Property;

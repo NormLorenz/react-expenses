@@ -22,4 +22,8 @@ class Category extends Component {
   }
 }
 
+Category.propTypes = {
+  categories: React.PropTypes.array.isRequired
+};
+
 export default Category;

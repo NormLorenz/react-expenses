@@ -17,4 +17,8 @@ class Active extends Component {
   }
 }
 
+Active.propTypes = {
+  isActive: React.PropTypes.bool.isRequired
+};
+
 export default Active;

@@ -6,7 +6,8 @@ import Select from 'react-select';
 
 import Property from '../helpers/property';
 import Category from '../helpers/category';
-import Debit from '../helpers/debit'
+import Debit from '../helpers/debit';
+import ExpenseType from '../helpers/expenseType'
 import { convertCentsToDollars } from '../helpers/utilities';
 
 import Moment from 'react-moment';
@@ -175,6 +176,10 @@ class Expenses extends Component {
     this.setState({ isDebit: event.target.checked });
   }
 
+  handleExpenseType(event) {
+    this.setState({ isDebit: !this.state.isDebit });
+  }
+
   handleAmount(event) {
     this.setState({ amount: event.target.value });
   }
@@ -326,6 +331,10 @@ class Expenses extends Component {
               <div className='w3-section'>
                 <Toggle checked={this.state.isDebit} onChange={this.handleIsDebit.bind(this)} /><br />
                 <label className='w3-label'>Is debit</label>
+              </div>
+              <div className='w3-section'>
+                <ExpenseType isDebit={this.state.isDebit} onClick={this.handleExpenseType.bind(this)} /><br />
+                <label className='w3-label'>Debit or Credit</label>
               </div>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.amount} onChange={this.handleAmount.bind(this)} />

@@ -17,4 +17,8 @@ class Debit extends Component {
   }
 }
 
+Debit.propTypes = {
+  isDebit: React.PropTypes.bool.isRequired
+};
+
 export default Debit;
