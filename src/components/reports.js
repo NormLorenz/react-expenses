@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import firebase from 'firebase';
-import { convertCentsToDollars } from '../helpers/utilities';
+import * as utilities from '../helpers/utilities'; 
 
 import Property from '../helpers/property';
 import Category from '../helpers/category';
@@ -141,7 +141,7 @@ class Reports extends Component {
           <td>{expense.description}</td>
           <td><Category categories={this.state.categories} category={expense.category} /></td>
           <td><Property properties={this.state.properties} property={expense.property} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
       );
@@ -158,7 +158,7 @@ class Reports extends Component {
           <td>{expense.description}</td>
           <td><Category categories={this.state.categories} category={expense.category} /></td>
           <td><Property properties={this.state.properties} property={expense.property} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
       );
@@ -169,8 +169,8 @@ class Reports extends Component {
         <tr key={property.key}>
           <td>{property.description}</td>
           <td><Active isActive={property.isActive} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(property.credit)}</td>
-          <td className='w3-right-align'>{convertCentsToDollars(property.debit)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(property.credit)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(property.debit)}</td>
           <td></td>
         </tr>
       );
@@ -181,8 +181,8 @@ class Reports extends Component {
         <tr key={category.key}>
           <td>{category.description}</td>
           <td><Active isActive={category.isActive} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(category.credit)}</td>
-          <td className='w3-right-align'>{convertCentsToDollars(category.debit)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(category.credit)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(category.debit)}</td>
           <td></td>
         </tr>
       );
@@ -208,7 +208,7 @@ class Reports extends Component {
             <tfoot>
               <tr>
                 <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.creditsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.creditsTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>
@@ -234,7 +234,7 @@ class Reports extends Component {
             <tfoot>
               <tr>
                 <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.debitsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.debitsTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>
@@ -259,8 +259,8 @@ class Reports extends Component {
             <tfoot>
               <tr>
                 <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.propertyCreditsTotal)}</td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.propertyDebitsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.propertyCreditsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.propertyDebitsTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>
@@ -285,8 +285,8 @@ class Reports extends Component {
             <tfoot>
               <tr>
                 <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.categoryCreditsTotal)}</td>
-                <td className='w3-right-align'>{convertCentsToDollars(this.state.categoryDebitsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.categoryCreditsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.categoryDebitsTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>

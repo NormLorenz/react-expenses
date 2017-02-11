@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
-import Toggle from 'react-toggle';
 import Select from 'react-select';
 
 import Property from '../helpers/property';
 import Category from '../helpers/category';
 import Debit from '../helpers/debit';
 import ExpenseType from '../helpers/expenseType'
-import { convertCentsToDollars } from '../helpers/utilities';
+import * as utilities from '../helpers/utilities'; 
 
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -90,7 +89,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: convertCentsToDollars(expense.amount)
+        amount: utilities.convertCentsToDollars(expense.amount)
       });
     }
     else {
@@ -104,7 +103,7 @@ class Expenses extends Component {
         category: expense.category,
         property: expense.property,
         isDebit: expense.isDebit,
-        amount: convertCentsToDollars(expense.amount)
+        amount: utilities.convertCentsToDollars(expense.amount)
       });
     }
 
@@ -170,10 +169,6 @@ class Expenses extends Component {
 
   handleProperty(event) {
     this.setState({ property: event.value });
-  }
-
-  handleIsDebit(event) {
-    this.setState({ isDebit: event.target.checked });
   }
 
   handleExpenseType(event) {
@@ -272,7 +267,7 @@ class Expenses extends Component {
           <td><Category categories={this.state.categories} category={expense.category} /></td>
           <td><Property properties={this.state.properties} property={expense.property} /></td>
           <td><Debit isDebit={expense.isDebit} /></td>
-          <td className='w3-right-align'>{convertCentsToDollars(expense.amount)}</td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'delete')}>Delete</button></td>
         </tr>
@@ -327,10 +322,6 @@ class Expenses extends Component {
               <div className='w3-section'>
                 <Select value={this.state.property} options={this.state.properties} onChange={this.handleProperty.bind(this)} />
                 <label className='w3-label'>Property</label>
-              </div>
-              <div className='w3-section'>
-                <Toggle checked={this.state.isDebit} onChange={this.handleIsDebit.bind(this)} /><br />
-                <label className='w3-label'>Is debit</label>
               </div>
               <div className='w3-section'>
                 <ExpenseType isDebit={this.state.isDebit} onClick={this.handleExpenseType.bind(this)} /><br />

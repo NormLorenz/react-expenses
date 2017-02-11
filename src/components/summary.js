@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Avatar from '../android_dance.gif';
 import firebase from 'firebase';
-//import Moment from 'react-moment';
 import moment from 'moment';
 import Select from 'react-select';
-
-import { convertCentsToDollars } from '../helpers/utilities';
+import * as utilities from '../helpers/utilities'; 
 
 const modalStyle = {
   content: {
@@ -146,7 +144,7 @@ class Summary extends Component {
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Total expense records: {this.state.taxYearRecords}, total credits: {convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and total debits: {convertCentsToDollars(this.state.taxYearDebits)}.
+              Total expense records: {this.state.taxYearRecords}, total credits: {utilities.convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and total debits: {utilities.convertCentsToDollars(this.state.taxYearDebits)}.
             </p>
             <br />
           </div>

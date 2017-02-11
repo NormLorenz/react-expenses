@@ -6,12 +6,12 @@ class ExpenseType extends Component {
 
     if (isDebit === true) {
       return (
-        <span style={{ cursor: 'pointer' }} onClick={this.props.onClick} className="w3-badge w3-green">debit</span>
+        <span style={{ cursor: 'pointer' }} onClick={this.props.onClick} className="w3-badge w3-red">debit</span>
       )
     }
     else {
       return (
-        <span style={{ cursor: 'pointer' }} onClick={this.props.onClick} className="w3-badge w3-red" > credit</span >
+        <span style={{ cursor: 'pointer' }} onClick={this.props.onClick} className="w3-badge w3-green" > credit</span >
       )
     }
   }

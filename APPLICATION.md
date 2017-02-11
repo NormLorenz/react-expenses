@@ -117,6 +117,7 @@
 * refactor Debit component to clickable ExpenseType - DONE
 * use propTypes for stateless components - DONE 
 * use mouse pointer with ExpenseType component - DONE
+* building utilities library - http://wesbos.com/javascript-modules/ - DONE
 
 ### in-flight
 
