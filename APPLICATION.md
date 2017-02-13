@@ -117,7 +117,7 @@
 * refactor Debit component to clickable ExpenseType - DONE
 * use propTypes for stateless components - DONE 
 * use mouse pointer with ExpenseType component - DONE
-* building utilities library - http://wesbos.com/javascript-modules/ - DONE
+* building a utilities library - http://wesbos.com/javascript-modules/ - DONE
 
 ### in-flight
 
@@ -129,6 +129,7 @@
 * consider to implement redux
 * consolidate toaster notifications
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
+* implement fast scroll
 
 ### tomorrow
 

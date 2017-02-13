@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import { login } from '../helpers/authorization'
 
 class Login extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault()
-    login(this.email.value, this.pw.value)
+
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   login(this.email.value, this.pw.value)
+  // }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    login(this.email.value, this.pw.value);
   }
   
   render() {
