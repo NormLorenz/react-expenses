@@ -10,3 +10,8 @@ export function convertDollarsToCents(amount) {
   let calculatedAmount = (amount).toString().replace(/[^0-9.]/g, '');
   return Math.round(calculatedAmount * 100);
 }
+
+export function stringifyObject (object) {
+  return <pre>{JSON.stringify(object, null, ' ')}</pre>
+}
+ 

@@ -54,6 +54,14 @@
 
 * install react-router $ npm install --save react-router
 
+### update npm packages
+
+* npm list -g --depth=0
+* npm outdated
+* https://docs.npmjs.com/getting-started/updating-local-packages
+* npm update
+* npm run build
+
 ### completed
 
 * install w3.css - DONE
@@ -123,25 +131,36 @@
 
 * rubix cube hourglass
 * react-router link activeClassName
-* convert from firebase reference to ref in constants
-* concurency - consolidate database references
 * string functions - see w3 schools
-* consider to implement redux
 * consolidate toaster notifications
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * implement fast scroll
-
-### tomorrow
-
 * http://wesbos.com/let-vs-const/
-* consider react rebase https://www.npmjs.com/package/re-base
 * what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
+* data down actions up
 
-### update npm packages
+### database rewrite
 
-* npm list -g --depth=0
-* npm outdated
-* https://docs.npmjs.com/getting-started/updating-local-packages
-* npm update
-* npm run build
+* the winner is HOC
+  * https://facebook.github.io/react/docs/higher-order-components.html
+  * https://www.sitepoint.com/react-higher-order-components/
+  * this pattern is used currently in the application for authentication
+  * remove total expense records in summary page
+
+* initialize steps
+  * pull taxYear
+  * then pull revelant expenses
+  * and pull all properties
+  * and pull all categories
+* expenses change
+  * do nothing
+* properties change
+  * do nothing
+* categories change 
+  * do nothing
+* taxYear change
+  * pull taxYear
+  * then pull revelant expenses
+
+

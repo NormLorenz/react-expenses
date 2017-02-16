@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './application.css';
 
 import { Match, BrowserRouter, Link, Miss, Redirect } from 'react-router';
-import { logout } from '../helpers/authorization';
+import { logout } from '../helpers/authAccessLayer';
 import { firebaseAuth } from '../config/constants';
 
 import Login from './login';
