@@ -11,7 +11,7 @@ export function convertDollarsToCents(amount) {
   return Math.round(calculatedAmount * 100);
 }
 
-export function stringifyObject (object) {
-  return <pre>{JSON.stringify(object, null, ' ')}</pre>
-}
+// export function stringifyObject (object) {
+//   return <pre>{JSON.stringify(object, null, ' ')}</pre>
+// }
  

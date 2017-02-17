@@ -51,6 +51,7 @@
 
 * https://github.com/aksonov/react-native-router-flux
 * https://github.com/ReactTraining/react-router
+* https://reacttraining.com/react-router/examples/basic
 
 * install react-router $ npm install --save react-router
 
@@ -138,15 +139,17 @@
 * http://wesbos.com/let-vs-const/
 * what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
-* data down actions up
+* https://reacttraining.com/react-router/examples/basic
 
-### database rewrite
+### database and router rewrite
 
 * the winner is HOC
   * https://facebook.github.io/react/docs/higher-order-components.html
   * https://www.sitepoint.com/react-higher-order-components/
   * this pattern is used currently in the application for authentication
   * remove total expense records in summary page
+
+* data down actions up
 
 * initialize steps
   * pull taxYear

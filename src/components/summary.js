@@ -131,7 +131,7 @@ class Summary extends Component {
     return (
       <div className='w3-container'>
         <h4>Summary</h4>
-
+        <p>{this.props.user.name}</p>
         <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> number of category records</p>
         <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> number of property records</p>
         <p><span className='w3-badge w3-blue'>{this.state.expenseRecords}</span> number of expense records</p>

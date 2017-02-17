@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './application.css';
 
-import { Match, BrowserRouter, Link, Miss, Redirect } from 'react-router';
+import { Match, BrowserRouter as Router, Link, Miss, Redirect } from 'react-router';
 import { logout } from '../helpers/authAccessLayer';
 import { firebaseAuth } from '../config/constants';
 
@@ -14,13 +14,19 @@ import Categories from './categories';
 import Reports from './reports';
 
 function MatchWhenAuthed({component: Component, authed, ...rest}) {
+
+  var secretUserInfo = {
+    name: 'Jack Franklin',
+    favouriteColour: 'blue'
+  };
+
   return (
     <Match
       {...rest}
       render={(props) => authed === true
-        ? <Component {...props} />
+        ? <Component user={secretUserInfo} {...props} />
         : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
-      />
+    />
   )
 }
 
@@ -31,7 +37,7 @@ function MatchWhenUnauthed({component: Component, authed, ...rest}) {
       render={(props) => authed === false
         ? <Component {...props} />
         : <Redirect to='/summary' />}
-      />
+    />
   )
 }
 
@@ -63,9 +69,10 @@ class Application extends Component {
   componentWillUnmount() {
     this.removeListener()
   }
+
   render() {
     return this.state.loading === true ? <h4>Loading</h4> : (
-      <BrowserRouter>
+      <Router>
         {({router}) => (
           <div>
             <div className='w3-container'>
@@ -79,7 +86,7 @@ class Application extends Component {
                         logout();
                         this.setState({ authed: false });
                         router.transitionTo('/');
-                      } }
+                      }}
                       className='w3-hover-none w3-hover-text-blue w3-text-grey'>Logout</button>
                     :
                     <Link to='/login' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
@@ -107,7 +114,7 @@ class Application extends Component {
             </div>
           </div>
         )}
-      </BrowserRouter>
+      </Router>
     );
 
   }
