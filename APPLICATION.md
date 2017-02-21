@@ -140,6 +140,9 @@
 * what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
 * https://reacttraining.com/react-router/examples/basic
+* refactor all forms to use a name property and a single input handler
+  * see https://facebook.github.io/react/docs/forms.html
+ 
 
 ### database and router rewrite
 

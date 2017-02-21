@@ -21,7 +21,7 @@ class Login extends Component {
         <h4>Login</h4>
 
         <div className='w3-margin'>
-          <form className='w3-container' onSubmit={this.handleSubmit}>
+          <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
             <div className='w3-section'>
               <input className='w3-input w3-border w3-round' placeholder='Email' ref={(email) => this.email = email} />
               <label className='w3-label'>Email</label>
