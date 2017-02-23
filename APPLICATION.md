@@ -139,9 +139,11 @@
 * http://wesbos.com/let-vs-const/
 * what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
-* https://reacttraining.com/react-router/examples/basic
 * refactor all forms to use a name property and a single input handler
   * see https://facebook.github.io/react/docs/forms.html
+  * finish expenses form
+* use input type='number' for taxYear
+* https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-are-merged
  
 
 ### database and router rewrite
@@ -151,6 +153,7 @@
   * https://www.sitepoint.com/react-higher-order-components/
   * this pattern is used currently in the application for authentication
   * remove total expense records in summary page
+  * https://reacttraining.com/react-router/examples/basic
 
 * data down actions up
 

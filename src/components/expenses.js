@@ -7,7 +7,7 @@ import Property from '../helpers/property';
 import Category from '../helpers/category';
 import Debit from '../helpers/debit';
 import ExpenseType from '../helpers/expenseType'
-import * as utilities from '../helpers/utilities'; 
+import * as utilities from '../helpers/utilities';
 
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -155,14 +155,6 @@ class Expenses extends Component {
     this.setState({ showModal: false });
   }
 
-  handleDate(event) {
-    this.setState({ date: event.target.value });
-  }
-
-  handleDescription(event) {
-    this.setState({ description: event.target.value });
-  }
-
   handleCategory(event) {
     this.setState({ category: event.value });
   }
@@ -172,11 +164,18 @@ class Expenses extends Component {
   }
 
   handleExpenseType(event) {
+    console.log(event);
     this.setState({ isDebit: !this.state.isDebit });
   }
 
-  handleAmount(event) {
-    this.setState({ amount: event.target.value });
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   componentDidMount() {
@@ -308,15 +307,21 @@ class Expenses extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.date} onChange={this.handleDate.bind(this)} autoFocus />
+                <input className='w3-input w3-border w3-round' value={this.state.date} name='date' onChange={this.handleInputChange.bind(this)} autoFocus />
                 <label className='w3-label'>Date</label>
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} />
+                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
                 <Select value={this.state.category} options={this.state.categories} onChange={this.handleCategory.bind(this)} />
+                <label className='w3-label'>Category</label>
+              </div>
+              <div className='w3-section'>
+                <select className='w3-select w3-border w3-white w3-round' style={{ 'padding-left': '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
+                  {this.state.categories.map(category => { return <option key={category.key} value={category.key}>{category.description}</option> })}
+                </select>
                 <label className='w3-label'>Category</label>
               </div>
               <div className='w3-section'>
@@ -328,7 +333,7 @@ class Expenses extends Component {
                 <label className='w3-label'>Debit or Credit</label>
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.amount} onChange={this.handleAmount.bind(this)} />
+                <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Amount</label>
               </div>
               <div className='w3-section'>

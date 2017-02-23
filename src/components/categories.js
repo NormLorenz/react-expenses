@@ -111,12 +111,14 @@ class Categories extends Component {
     this.setState({ showModal: false });
   }
 
-  handleDescription(event) {
-    this.setState({ description: event.target.value });
-  }
+   handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  handleIsActive(event) {
-    this.setState({ isActive: event.target.checked });
+    this.setState({
+      [name]: value
+    });
   }
 
   componentDidMount() {
@@ -186,11 +188,11 @@ class Categories extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} onChange={this.handleDescription.bind(this)} autoFocus />
+                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' onChange={this.handleInputChange.bind(this)} autoFocus />
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
-                <Toggle checked={this.state.isActive} onChange={this.handleIsActive.bind(this)} /><br />
+                <Toggle checked={this.state.isActive} name='isActive' onChange={this.handleInputChange.bind(this)} /><br />
                 <label className='w3-text-teal'>Active</label>
               </div>
               <div className='w3-section'>
