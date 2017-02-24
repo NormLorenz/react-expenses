@@ -3,8 +3,7 @@ import Modal from 'react-modal';
 import Avatar from '../android_dance.gif';
 import firebase from 'firebase';
 import moment from 'moment';
-import Select from 'react-select';
-import * as utilities from '../helpers/utilities'; 
+import * as utilities from '../helpers/utilities';
 
 const modalStyle = {
   content: {
@@ -45,8 +44,14 @@ class Summary extends Component {
     };
   }
 
-  handleTaxYear(event) {
-    //this.setState({ date: event.target.value });
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
@@ -70,7 +75,7 @@ class Summary extends Component {
     for (let i = 0; i < 15; i++) {
       years.push(year--);
     }
-    this.setState({ years: years.map(i => { return { label: i, value: i } }) });
+    this.setState({ years: years.map(i => { return { description: i, key: i } }) });
 
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
@@ -160,7 +165,9 @@ class Summary extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <Select value={this.state.taxYear} options={this.state.years} onChange={this.handleTaxYear.bind(this)} />
+                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='property' value={this.state.taxYear} onChange={this.handleInputChange.bind(this)} >
+                  {this.state.years.map(year => { return <option className='w3-text-grey' key={year.key} value={year.key}>{year.description}</option> })}
+                </select>
                 <label className='w3-label'>Tax year: also used to set the default year for shortened mm/dd entries</label>
               </div>
               <div className='w3-section'>

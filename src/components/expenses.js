@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
-import Select from 'react-select';
 
 import Property from '../helpers/property';
 import Category from '../helpers/category';
@@ -155,14 +154,6 @@ class Expenses extends Component {
     this.setState({ showModal: false });
   }
 
-  handleCategory(event) {
-    this.setState({ category: event.value });
-  }
-
-  handleProperty(event) {
-    this.setState({ property: event.value });
-  }
-
   handleExpenseType(event) {
     console.log(event);
     this.setState({ isDebit: !this.state.isDebit });
@@ -216,9 +207,7 @@ class Expenses extends Component {
         let category = {
           key: data.key,
           description: data.val().description,
-          isActive: data.val().isActive,
-          label: data.val().description,
-          value: data.key
+          isActive: data.val().isActive
         }
         categories.push(category);
       });
@@ -235,9 +224,7 @@ class Expenses extends Component {
         let property = {
           key: data.key,
           description: data.val().description,
-          isActive: data.val().isActive,
-          label: data.val().description,
-          value: data.key
+          isActive: data.val().isActive
         }
         properties.push(property);
       });
@@ -315,17 +302,15 @@ class Expenses extends Component {
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
-                <Select value={this.state.category} options={this.state.categories} onChange={this.handleCategory.bind(this)} />
-                <label className='w3-label'>Category</label>
-              </div>
-              <div className='w3-section'>
-                <select className='w3-select w3-border w3-white w3-round' style={{ 'padding-left': '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
-                  {this.state.categories.map(category => { return <option key={category.key} value={category.key}>{category.description}</option> })}
+                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
+                  {this.state.categories.map(category => { return <option className='w3-text-grey' key={category.key} value={category.key}>{category.description}</option> })}
                 </select>
                 <label className='w3-label'>Category</label>
               </div>
               <div className='w3-section'>
-                <Select value={this.state.property} options={this.state.properties} onChange={this.handleProperty.bind(this)} />
+                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='property' value={this.state.property} onChange={this.handleInputChange.bind(this)} >
+                  {this.state.properties.map(property => { return <option className='w3-text-grey' key={property.key} value={property.key}>{property.description}</option> })}
+                </select>
                 <label className='w3-label'>Property</label>
               </div>
               <div className='w3-section'>

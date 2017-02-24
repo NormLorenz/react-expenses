@@ -141,10 +141,10 @@
 * https://www.youtube.com/watch?v=szmS_M-BMls
 * refactor all forms to use a name property and a single input handler
   * see https://facebook.github.io/react/docs/forms.html
-  * finish expenses form
+  * finish expenses form debit/credit component event.target
 * use input type='number' for taxYear
 * https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-are-merged
- 
+* finish taxYear in summary page 
 
 ### database and router rewrite
 
