@@ -5,11 +5,13 @@ import firebase from 'firebase';
 import Property from '../helpers/property';
 import Category from '../helpers/category';
 import Debit from '../helpers/debit';
-import ExpenseType from '../helpers/expenseType'
+import ExpenseType from '../helpers/expenseType';
+import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
 import * as utilities from '../helpers/utilities';
 
 import Moment from 'react-moment';
 import moment from 'moment';
+import Toggle from 'react-toggle';
 import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
@@ -155,7 +157,6 @@ class Expenses extends Component {
   }
 
   handleExpenseType(event) {
-    console.log(event);
     this.setState({ isDebit: !this.state.isDebit });
   }
 
@@ -314,8 +315,16 @@ class Expenses extends Component {
                 <label className='w3-label'>Property</label>
               </div>
               <div className='w3-section'>
-                <ExpenseType isDebit={this.state.isDebit} onClick={this.handleExpenseType.bind(this)} /><br />
+                <ExpenseType isDebit={this.state.isDebit} onChange={this.handleExpenseType.bind(this)} /><br />
                 <label className='w3-label'>Debit or Credit</label>
+              </div>
+              <div className='w3-section'>
+                <Toggle checked={this.state.isDebit} name='isDebit' onChange={this.handleInputChange.bind(this)} /><br />
+                <label className='w3-text-teal'>Cash In or Cash Out</label>
+              </div>
+              <div className='w3-section'>
+                <ExpenseTypeSlider checked={this.state.isDebit} name='isDebit' onChange={this.handleInputChange.bind(this)} /><br />
+                <label className='w3-text-teal'>Cash In or Cash Out</label>
               </div>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' onChange={this.handleInputChange.bind(this)} />

@@ -144,7 +144,17 @@
   * finish expenses form debit/credit component event.target
 * use input type='number' for taxYear
 * https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-are-merged
-* finish taxYear in summary page 
+* finish taxYear in summary page
+* build new expenseTypeSlider
+  * also rename debit compoent to expenseTypeText
+  * change slider color
+  * swap checked to not checked
+  * replace debit/credit with cash in and cash out
+  * change all cash in rows (expense/reports) with light green otherwise use black
+  * position expenseTypeSlider on page
+  * check out webkit stuff in css
+  * add a tab stop to the label
+
 
 ### database and router rewrite
 
