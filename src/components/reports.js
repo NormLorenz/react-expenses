@@ -193,7 +193,7 @@ class Reports extends Component {
         <h4>Reports for tax year {this.state.taxYear}</h4>
 
         <div className='w3-section'>
-          <h5>Credits</h5>
+          <h5>Cash In</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
@@ -219,7 +219,7 @@ class Reports extends Component {
         </div>
 
         <div className='w3-section'>
-          <h5>Debits</h5>
+          <h5>Cash Out</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>

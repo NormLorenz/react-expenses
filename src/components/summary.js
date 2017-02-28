@@ -149,7 +149,7 @@ class Summary extends Component {
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Total expense records: {this.state.taxYearRecords}, total credits: {utilities.convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and total debits: {utilities.convertCentsToDollars(this.state.taxYearDebits)}.
+              Expense records: {this.state.taxYearRecords}, cash in: {utilities.convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and cash out: {utilities.convertCentsToDollars(this.state.taxYearDebits)}.
             </p>
             <br />
           </div>

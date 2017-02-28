@@ -126,6 +126,10 @@
 * refactor Debit component to clickable ExpenseType - DONE
 * use propTypes for stateless components - DONE 
 * use mouse pointer with ExpenseType component - DONE
+* build new expenseTypeSlider - DONE
+  * add a tab stop to the label - CAN'T FIGURE THIS OUT
+* refactor all forms to use a name property and a single input handler - DONE
+  * see https://facebook.github.io/react/docs/forms.html
 * building a utilities library - http://wesbos.com/javascript-modules/ - DONE
 
 ### in-flight
@@ -137,24 +141,11 @@
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * implement fast scroll
 * http://wesbos.com/let-vs-const/
-* what is the best way to add third party css or images https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
+* what is the best way to add third party css or images
+  * https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * https://www.youtube.com/watch?v=szmS_M-BMls
-* refactor all forms to use a name property and a single input handler
-  * see https://facebook.github.io/react/docs/forms.html
-  * finish expenses form debit/credit component event.target
-* use input type='number' for taxYear
 * https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-are-merged
 * finish taxYear in summary page
-* build new expenseTypeSlider
-  * also rename debit compoent to expenseTypeText
-  * change slider color
-  * swap checked to not checked
-  * replace debit/credit with cash in and cash out
-  * change all cash in rows (expense/reports) with light green otherwise use black
-  * position expenseTypeSlider on page
-  * check out webkit stuff in css
-  * add a tab stop to the label
-
 
 ### database and router rewrite
 
