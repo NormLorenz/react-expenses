@@ -131,20 +131,15 @@
 * refactor all forms to use a name property and a single input handler - DONE
   * see https://facebook.github.io/react/docs/forms.html
 * building a utilities library - http://wesbos.com/javascript-modules/ - DONE
+* what is the best way to add third party css or images - DONE
+  * https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
+* string functions - see w3 schools - DONE
+* http://wesbos.com/let-vs-const/ - DONE
 
 ### in-flight
 
-* rubix cube hourglass
-* react-router link activeClassName
-* string functions - see w3 schools
 * consolidate toaster notifications
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
-* implement fast scroll
-* http://wesbos.com/let-vs-const/
-* what is the best way to add third party css or images
-  * https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
-* https://www.youtube.com/watch?v=szmS_M-BMls
-* https://facebook.github.io/react/docs/state-and-lifecycle.html#state-updates-are-merged
 * finish taxYear in summary page
 
 ### database and router rewrite
@@ -156,7 +151,7 @@
   * remove total expense records in summary page
   * https://reacttraining.com/react-router/examples/basic
 
-* data down actions up
+* react-router link activeClassName
 
 * initialize steps
   * pull taxYear
