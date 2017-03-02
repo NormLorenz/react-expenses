@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Property extends Component {
+class PropertyDisplay extends Component {
   render() {
 
     let key = this.props.property;
@@ -22,8 +22,8 @@ class Property extends Component {
   }
 }
 
-Property.propTypes = {
+PropertyDisplay.propTypes = {
   properties: React.PropTypes.array.isRequired
 };
 
-export default Property;
+export default PropertyDisplay;

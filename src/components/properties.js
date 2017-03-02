@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
-import Active from '../helpers/active';
+import ActiveDisplay from '../helpers/activeDisplay';
 import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
@@ -151,7 +151,7 @@ class Properties extends Component {
       return (
         <tr key={property.key}>
           <td>{property.description}</td>
-          <td><Active isActive={property.isActive} /></td>
+          <td><ActiveDisplay isActive={property.isActive} /></td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'edit')}>Edit</button>
             &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'delete')}>Delete</button></td>
         </tr>

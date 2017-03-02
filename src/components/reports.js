@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import firebase from 'firebase';
 import * as utilities from '../helpers/utilities'; 
 
-import Property from '../helpers/property';
-import Category from '../helpers/category';
-import Active from '../helpers/active';
+import PropertyDisplay from '../helpers/propertyDisplay';
+import CategoryDisplay from '../helpers/categoryDisplay';
+import ActiveDisplay from '../helpers/activeDisplay';
 
 import Moment from 'react-moment';
 
@@ -139,8 +139,8 @@ class Reports extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.date} format='L' /></td>
           <td>{expense.description}</td>
-          <td><Category categories={this.state.categories} category={expense.category} /></td>
-          <td><Property properties={this.state.properties} property={expense.property} /></td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
@@ -156,8 +156,8 @@ class Reports extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.date} format='L' /></td>
           <td>{expense.description}</td>
-          <td><Category categories={this.state.categories} category={expense.category} /></td>
-          <td><Property properties={this.state.properties} property={expense.property} /></td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td></td>
         </tr>
@@ -168,7 +168,7 @@ class Reports extends Component {
       return (
         <tr key={property.key}>
           <td>{property.description}</td>
-          <td><Active isActive={property.isActive} /></td>
+          <td><ActiveDisplay isActive={property.isActive} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(property.credit)}</td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(property.debit)}</td>
           <td></td>
@@ -180,7 +180,7 @@ class Reports extends Component {
       return (
         <tr key={category.key}>
           <td>{category.description}</td>
-          <td><Active isActive={category.isActive} /></td>
+          <td><ActiveDisplay isActive={category.isActive} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(category.credit)}</td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(category.debit)}</td>
           <td></td>

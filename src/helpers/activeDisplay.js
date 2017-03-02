@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Active extends Component {
+class ActiveDisplay extends Component {
   render() {
     let isActive = this.props.isActive;
 
@@ -17,8 +17,8 @@ class Active extends Component {
   }
 }
 
-Active.propTypes = {
+ActiveDisplay.propTypes = {
   isActive: React.PropTypes.bool.isRequired
 };
 
-export default Active;
+export default ActiveDisplay;

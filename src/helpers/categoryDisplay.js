@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Category extends Component {
+class CategoryDisplay extends Component {
   render() {
 
     let key = this.props.category;
@@ -22,8 +22,8 @@ class Category extends Component {
   }
 }
 
-Category.propTypes = {
+CategoryDisplay.propTypes = {
   categories: React.PropTypes.array.isRequired
 };
 
-export default Category;
+export default CategoryDisplay;

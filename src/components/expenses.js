@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import firebase from 'firebase';
 
-import Property from '../helpers/property';
-import Category from '../helpers/category';
+import PropertyDisplay from '../helpers/propertyDisplay';
+import CategoryDisplay from '../helpers/categoryDisplay';
 import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
 import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
 import * as utilities from '../helpers/utilities';
@@ -245,8 +245,8 @@ class Expenses extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.date} format='L' /></td>
           <td>{expense.description}</td>
-          <td><Category categories={this.state.categories} category={expense.category} /></td>
-          <td><Property properties={this.state.properties} property={expense.property} /></td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
           <td><ExpenseTypeDisplay isDebit={expense.isDebit} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
           <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
