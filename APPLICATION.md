@@ -135,6 +135,7 @@
   * https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
 * string functions - see w3 schools - DONE
 * http://wesbos.com/let-vs-const/ - DONE
+* create a new redux branch - DONE
 
 ### in-flight
 
