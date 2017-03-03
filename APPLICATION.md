@@ -136,16 +136,17 @@
 * string functions - see w3 schools - DONE
 * http://wesbos.com/let-vs-const/ - DONE
 * create a new redux branch - DONE
-blah
 
 ### in-flight
 
 * consolidate toaster notifications
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * finish taxYear in summary page
-* Deprecation warning: value provided is not in a recognized ISO format - moment
+* deprecation warning: value provided is not in a recognized ISO format - moment
 
 ### database and router rewrite
+
+* upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.6
 
 * the winner is HOC
   * https://facebook.github.io/react/docs/higher-order-components.html
