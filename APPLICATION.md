@@ -146,7 +146,12 @@
 
 ### database and router rewrite
 
-* upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.6
+* upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.7 - DONE
+* git - checkout from thumbdrive - DONE
+  * git fetch origin
+  * git checkout -b redux origin/redux
+* get rid of jest for now
+* fix editor es6/es7 highlighting
 
 * the winner is HOC
   * https://facebook.github.io/react/docs/higher-order-components.html
