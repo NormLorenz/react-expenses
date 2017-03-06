@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'reac
 //import { logout } from '../helpers/authAccessLayer';
 import { firebaseAuth } from '../config/constants';
 
-import Login from './login';
+//import Login from './login';
 import Home from './home';
 import Summary from './summary';
 import Expenses from './expenses';
@@ -13,6 +13,7 @@ import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
 
+// javascript object
 const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {
@@ -25,30 +26,68 @@ const fakeAuth = {
   }
 }
 
-const AuthButton = withRouter(({ push }) => (
-  fakeAuth.isAuthenticated ? (
+// stateless function ES6 syntax - pure, no state, not lifecycle but can use propTypes and defaultProps
+const AuthButton = withRouter(({ history }) => (
+  fakeAuth.isAuthenticated === true ? (
     <p>
       Welcome! <button onClick={() => {
-        fakeAuth.signout(() => push('/'))
+        fakeAuth.signout(() => history.push('/'))
       }}>Sign out</button>
     </p>
-  ) : (
+    ):(
       <p>You are not logged in.</p>
     )
-))
-
-const PrivateRoute = ({ component, ...rest }) => (
-  <Route {...rest} render={props => (
-    fakeAuth.isAuthenticated ? (
-      React.createElement(component, props)
-    ): (
-        <Redirect to={{ pathname: '/login', state: { from: props.location } }}/>
-    )
-  )}/>
+  )
 )
 
-class Application extends Component {
+// stateless function ES6 syntax - pure, no state, not lifecycle but can use propTypes and defaultProps
+const PrivateRoute = ({ component, ...rest }) => (
+  <Route {...rest} render={props => (
+    fakeAuth.isAuthenticated === true ? (
+      React.createElement(component, props)
+    ):(
+      <Redirect to={{
+        pathname: '/login',
+        state: { from: props.location }
+      }} />
+    )
+  )} />
+)
 
+class Login extends React.Component {
+  state = {
+    redirectToReferrer: false
+  }
+
+  login = () => {
+    fakeAuth.authenticate(() => {
+      this.setState({ redirectToReferrer: true })
+    })
+  }
+
+  render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { redirectToReferrer } = this.state
+
+    if (redirectToReferrer === true) {
+      return (
+        <Redirect to={from} />
+      )
+    }
+
+    else {
+      return (
+        <div>
+          <p>You must log in to view the page at {from.pathname}</p>
+          <button onClick={this.login}>Log in</button>
+        </div>
+      )
+    }
+  }
+}
+
+// stateful function ES6 syntax - 
+class Application extends Component {
   constructor() {
     super();
     this.state = {
