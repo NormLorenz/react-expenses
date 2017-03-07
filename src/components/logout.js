@@ -15,7 +15,7 @@ class Logout extends Component {
         <h4>Logout</h4>
 
         <div className='w3-margin'>
-          Thankyou. You have been logged out of the application.
+          Thank you. You have been logged out of the application.
         </div>
       </div>
     )

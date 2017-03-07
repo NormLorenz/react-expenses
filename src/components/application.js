@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './application.css';
 
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
-//import { logout } from '../helpers/authAccessLayer';
+import { logout } from '../helpers/authorization';
 import { firebaseAuth } from '../config/constants';
 
 //import Login from './login';
@@ -16,44 +16,50 @@ import Reports from './reports';
 // javascript object
 const fakeAuth = {
   isAuthenticated: false,
-  authenticate(cb) {
+  authenticate(callback) {
     this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
+    setTimeout(callback, 100) // fake async
   },
-  signout(cb) {
+    logout(callback) {
     this.isAuthenticated = false
-    setTimeout(cb, 100)
+    setTimeout(callback, 100)
   }
 }
+
+const Protected = () => <h3>Protected</h3>
 
 // stateless function ES6 syntax - pure, no state, not lifecycle but can use propTypes and defaultProps
 const AuthButton = withRouter(({ history }) => (
   fakeAuth.isAuthenticated === true ? (
     <p>
-      Welcome! <button onClick={() => {
-        fakeAuth.signout(() => history.push('/'))
-      }}>Sign out</button>
+      <button onClick={() => {
+        fakeAuth.logout(() => history.push('/'))
+      }}>Log out</button>
     </p>
-    ):(
-      <p>You are not logged in.</p>
-    )
+  ) : (
+    <p>
+      <Redirect to={{
+        pathname: '/login'
+      }} />
+    </p>
   )
-)
+))
 
 // stateless function ES6 syntax - pure, no state, not lifecycle but can use propTypes and defaultProps
 const PrivateRoute = ({ component, ...rest }) => (
   <Route {...rest} render={props => (
     fakeAuth.isAuthenticated === true ? (
       React.createElement(component, props)
-    ):(
+    ) : (
       <Redirect to={{
         pathname: '/login',
         state: { from: props.location }
       }} />
     )
-  )} />
+  )}/>
 )
 
+// stateful class ES6 syntax
 class Login extends React.Component {
   state = {
     redirectToReferrer: false
@@ -78,7 +84,7 @@ class Login extends React.Component {
     else {
       return (
         <div>
-          <p>You must log in to view the page at {from.pathname}</p>
+          <p>You must log in to view protected pages</p>
           <button onClick={this.login}>Log in</button>
         </div>
       )
@@ -124,23 +130,42 @@ class Application extends Component {
             <AuthButton />
             <ul className='w3-navbar w3-card-8 w3-light-grey'>
               <li><Link to='/' className='w3-hover-none w3-hover-text-blue w3-text-grey w3-large'>React Expenses</Link></li>
+
+              <li className='w3-right w3-medium'>
+                {this.state.authed ?
+                  <button
+                    style={{ border: 'none', background: 'transparent', position: 'relative', top: '7px' }}
+                    onClick={() => {
+                      logout();
+                      this.setState({ authed: false });
+                      //Router.transitionTo('/'); //
+                      //<Redirect to={'/'} />
+                    } }
+                    className='w3-hover-none w3-hover-text-blue w3-text-grey'>Logout</button>
+                  :
+                  <Link to='/login' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
+                }
+              </li>
+
               <li className='w3-right w3-medium'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
               <li className='w3-right w3-medium'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
               <li className='w3-right w3-medium'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
               <li className='w3-right w3-medium'><Link to='/expenses' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Expenses</Link></li>
               <li className='w3-right w3-medium'><Link to='/summary' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Summary</Link></li>
+              <li className='w3-right w3-medium'><Link to='/protected' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Protected</Link></li>
             </ul>
           </div>
 
           <div className='w3-container'>
             <div className='w3-row'>
-              <Route exactly path='/' component={Home} />
+              <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <PrivateRoute path='/summary' component={Summary} />
               <PrivateRoute path='/expenses' component={Expenses} />
               <PrivateRoute path='/properties' component={Properties} />
               <PrivateRoute path='/categories' component={Categories} />
               <PrivateRoute path='/reports' component={Reports} />
+              <PrivateRoute path="/protected" component={Protected} />
             </div>
           </div>
 

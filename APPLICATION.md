@@ -150,7 +150,7 @@
 * git - checkout from thumbdrive - DONE
   * git fetch origin
   * git checkout -b redux origin/redux
-* get rid of jest for now
+* disable jest for now - DONE
 * fix editor es6/es7 highlighting
 
 * the winner is HOC
