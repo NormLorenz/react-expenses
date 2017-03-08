@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './application.css';
 
 import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from 'react-router-dom';
-import { logout } from '../helpers/authorization';
+import { logout, fakeAuth } from '../helpers/authentication';
 import { firebaseAuth } from '../config/constants';
 
 //import Login from './login';
@@ -13,18 +13,18 @@ import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
 
-// javascript object
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(callback) {
-    this.isAuthenticated = true
-    setTimeout(callback, 100) // fake async
-  },
-    logout(callback) {
-    this.isAuthenticated = false
-    setTimeout(callback, 100)
-  }
-}
+// // javascript object
+// const fakeAuth = {
+//   isAuthenticated: false,
+//   authenticate(callback) {
+//     this.isAuthenticated = true
+//     setTimeout(callback, 100) // fake async
+//   },
+//     logout(callback) {
+//     this.isAuthenticated = false
+//     setTimeout(callback, 100)
+//   }
+// }
 
 const Protected = () => <h3>Protected</h3>
 
