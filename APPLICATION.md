@@ -144,14 +144,17 @@
 * finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
 
-### database and router rewrite
+### router rewrite
 
 * upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.7 - DONE
 * git - checkout from thumbdrive - DONE
   * git fetch origin
   * git checkout -b redux origin/redux
 * disable jest for now - DONE
-* fix editor es6/es7 highlighting
+* redirect after authentication
+* react-router link activeClassName
+
+### implement redux
 
 * the winner is HOC
   * https://facebook.github.io/react/docs/higher-order-components.html
@@ -159,8 +162,6 @@
   * this pattern is used currently in the application for authentication
   * remove total expense records in summary page
   * https://reacttraining.com/react-router/examples/basic
-
-* react-router link activeClassName
 
 * initialize steps
   * pull taxYear

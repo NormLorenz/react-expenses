@@ -3,14 +3,9 @@ import { login } from '../helpers/authentication'
 
 class Login extends Component {
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   login(this.email.value, this.pw.value)
-  // }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    login(this.email.value, this.pw.value);
+  handleSubmit = (e) => {
+    e.preventDefault()
+    login(this.email.value, this.pw.value)
   }
   
   render() {

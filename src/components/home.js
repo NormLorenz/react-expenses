@@ -21,7 +21,7 @@ class Home extends Component {
               <p>
                 This application is built with React js and is used to aid in the collection of receipts and expenses and allows
                 importing and exporting data with reporting capabilites. It's built on an react 15.4.2
-                framework using w3.css, react-router 4.0.0-beta.7, react-modal 1.6.5 and moment.js 2.17.1.
+                framework using w3.css, react-router 4.0.0-beta.8, react-modal 1.6.5 and moment.js 2.17.1.
                 Additionally, the data is stored on a Google Firebase using the 3.6.7 libaries.
               </p>
               <p>
