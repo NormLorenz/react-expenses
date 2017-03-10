@@ -156,13 +156,12 @@
 
 ### implement redux
 
-* the winner is HOC
-  * https://facebook.github.io/react/docs/higher-order-components.html
-  * https://www.sitepoint.com/react-higher-order-components/
-  * this pattern is used currently in the application for authentication
-  * remove total expense records in summary page
-  * https://reacttraining.com/react-router/examples/basic
-
+* https://www.youtube.com/watch?v=DiLVAXlVYR0
+* https://github.com/vijayst/redux-firebase-demo
+* https://github.com/buckyroberts/react-redux-boilerplate
+* https://www.youtube.com/watch?v=1w-oQ-i1XB8&list=PLoYCgNOIyGADILc3iUJzygCqC8Tt3bRXt
+* https://www.youtube.com/watch?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&v=MhkGQAoc7bc
+ 
 * initialize steps
   * pull taxYear
   * then pull revelant expenses
