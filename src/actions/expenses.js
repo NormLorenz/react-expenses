@@ -1,12 +1,6 @@
 import ActionTypes from '../constants/actionTypes';
 import database from '..constants/database';
 
-// export function watchExpensesEvent(dispatch) {
-//   database.ref('/expenses').on('value', (snap) => {
-//     dispatch(watchExpensesAction(snap.val()));
-//   });
-// }
-
 export const watchExpensesEvent = (dispatch) => {
   database.ref('/expenses').on('value', (snap) => {
     dispatch(watchExpensesAction(snap.val()));
@@ -19,16 +13,6 @@ function watchExpensesAction(expenses) {
     payload: expenses
   };
 }
-
-
-// export const addExpense = (expense) => {
-//     console.log("You added an expense: ", expense.first);
-//     return {
-//         type: 'ADD_EXPENSE',
-//         payload: expense
-//     }
-// };
-
 
 export const newExpenseAction = (expense) => {
   return dispatch => {
@@ -48,7 +32,7 @@ function newExpenseDispatch(expense) {
 export const editExpenseAction = (expense) => {
   return dispatch => {
     dispatch(editExpenseDispatch());
-    const expensesRef = database.ref('/expenses');
+    const expensesRef = database.ref('/expenses').child(expense.key);
     expensesRef.update(expense);
   }
 }
@@ -63,7 +47,7 @@ function editExpenseDispatch(expense) {
 export const deleteExpenseAction = (expense) => {
   return dispatch => {
     dispatch(deleteExpenseDispatch());
-    const expensesRef = database.ref('/expenses');
+    const expensesRef = database.ref('/expenses').child(expense.key);
     expensesRef.remove();
   }
 }
@@ -74,13 +58,3 @@ function deleteExpenseDispatch(expense) {
     payload: expense
   };
 }
-
-// export function addExpenseAction(expense) {
-//   return dispatch => {
-//     dispatch(dispatchExpenseAction());
-//     const expensesRef = database.ref('/expenses');
-//     expensesRef.push({
-//       expense
-//     });
-//   }
-// }
