@@ -20,6 +20,7 @@ firebase.initializeApp(config)
 
 export const ref = firebase.database().ref()
 export const firebaseAuth = firebase.auth
+export const database = firebase.database();
 
 // export const taxYearRef = ref.child('taxYear');
 // export const expensesRef = firebase.database().ref('expenses');

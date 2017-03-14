@@ -3,7 +3,7 @@ import './application.css';
 
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 import { logout } from '../helpers/authentication';
-import { firebaseAuth } from '../config/constants';
+import { firebaseAuth } from '../constants/database';
 
 import Login from './login';
 import Home from './home';

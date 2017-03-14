@@ -143,6 +143,7 @@
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
+* someday split containers from components
 
 ### router rewrite
 
@@ -162,19 +163,8 @@
 * https://www.youtube.com/watch?v=1w-oQ-i1XB8&list=PLoYCgNOIyGADILc3iUJzygCqC8Tt3bRXt
 * https://www.youtube.com/watch?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&v=MhkGQAoc7bc
  
-* initialize steps
-  * pull taxYear
-  * then pull revelant expenses
-  * and pull all properties
-  * and pull all categories
-* expenses change
-  * do nothing
-* properties change
-  * do nothing
-* categories change 
-  * do nothing
-* taxYear change
-  * pull taxYear
-  * then pull revelant expenses
+* https://www.codementor.io/vijayst/using-firebase-with-redux-for-building-a-react-app-du1086puw
+* https://github.com/vijayst/redux-firebase-demo
+ 
 
-
+* install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE

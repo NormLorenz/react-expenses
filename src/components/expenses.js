@@ -91,7 +91,7 @@ class Expenses extends Component {
         amount: utilities.convertCentsToDollars(expense.amount)
       });
     }
-    else {
+    else if (operation === 'delete') {
       this.setState({
         operation: operation,
         operationText: 'Delete an existing expense',
@@ -145,7 +145,7 @@ class Expenses extends Component {
       const expensesRef = firebase.database().ref('expenses').child(this.state.key);
       expensesRef.update(expense);
     }
-    else {
+    else if (this.state.operation === 'delete') {
       const expensesRef = firebase.database().ref('expenses').child(this.state.key);
       expensesRef.remove();
     }
