@@ -5,11 +5,13 @@ import ActionTypes from '../constants/actionTypes';
 
 // 'state = null' is set so that we don't throw an error when app first boots up
 export default function (state = null, action) {
+
   switch (action.type) {
+
     case ActionTypes.NewExpense:
       const newState = Object.assign({}, state, {
         inProgress: true,
-        success: 'Added new expense',
+        success: 'Added expense pending',
         error: null
       });
       return newState;
@@ -17,7 +19,7 @@ export default function (state = null, action) {
     case ActionTypes.EditExpense:
       const newState = Object.assign({}, state, {
         inProgress: true,
-        success: 'Updated existing expense',
+        success: 'Updated expense pending',
         error: null
       });
       return newState;
@@ -25,21 +27,21 @@ export default function (state = null, action) {
     case ActionTypes.DeleteExpense:
       const newState = Object.assign({}, state, {
         inProgress: true,
-        success: 'Deleted existing expense',
+        success: 'Deleted expense pending',
         error: null
       });
       return newState;
 
-    case ActionTypes.ExpensesUpdated: {
+    case ActionTypes.ExpensesUpdated:
       const newState = Object.assign({}, state, {
         inProgress: false,
-        success: 'Watched existing expenses',
+        success: 'Update expenses complete',
         error: null,
-        expenses: Object.keys(action.payload.expenses).map(k => expenses[k])
+        // expenses: Object.keys(action.payload.expenses).map(k => expenses[k])
+        expenses: action.payload
       });
       return newState;
-    }
-    
+
     default:
       return state;
   }

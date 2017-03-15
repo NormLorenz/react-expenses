@@ -1,6 +1,6 @@
 const actionTypes = {
 
-  EditTaxYear: 'EDIT_TAXYEAR',
+  EditTaxYear: 'CHANGE_TAXYEAR',
 
   NewExpense: 'NEW_EXPENSE',
   EditExpense: 'EDIT_EXPENSE',

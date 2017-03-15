@@ -1,19 +1,6 @@
 import ActionTypes from '../constants/actionTypes';
 import database from '..constants/database';
 
-export const watchExpensesEvent = (dispatch) => {
-  database.ref('/expenses').on('value', (snap) => {
-    dispatch(watchExpensesAction(snap.val()));
-  });
-}
-
-function watchExpensesAction(expenses) {
-  return {
-    type: ActionTypes.ExpensesUpdated,
-    payload: expenses
-  };
-}
-
 export const newExpenseAction = (expense) => {
   return dispatch => {
     dispatch(newExpenseDispatch());
@@ -56,5 +43,18 @@ function deleteExpenseDispatch(expense) {
   return {
     type: ActionTypes.DeleteExpense,
     payload: expense
+  };
+}
+
+export const watchExpensesEvent = (dispatch) => {
+  database.ref('/expenses').on('value', (snap) => {
+    dispatch(watchExpensesAction(snap.val()));
+  });
+}
+
+function watchExpensesAction(expenses) {
+  return {
+    type: ActionTypes.ExpensesUpdated,
+    payload: expenses
   };
 }
