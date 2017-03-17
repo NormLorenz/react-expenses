@@ -152,7 +152,7 @@
   * git fetch origin
   * git checkout -b redux origin/redux
 * disable jest for now - DONE
-* redirect after authentication
+* redirect after authentication to original url
 * react-router link activeClassName
 
 ### implement redux
@@ -165,6 +165,8 @@
  
 * https://www.codementor.io/vijayst/using-firebase-with-redux-for-building-a-react-app-du1086puw
 * https://github.com/vijayst/redux-firebase-demo
- 
 
+* https://github.com/reactjs/react-redux/blob/master/docs/api.md
+ 
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
+* remove redux-promise - DONE

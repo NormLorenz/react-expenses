@@ -9,22 +9,20 @@ export default function (state = null, action) {
   switch (action.type) {
 
     case ActionTypes.EditTaxYear:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: true,
         success: 'Change tax year pending',
         error: null
       });
-      return newState;
 
     case ActionTypes.ExpensesUpdated:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: false,
         success: 'Update taxYear complete',
         error: null,
         //taxYear: Object.keys(action.payload.expenses).map(k => expenses[k])
         taxYear: action.payload
       });
-      return newState;
 
     default:
       return state;

@@ -9,38 +9,34 @@ export default function (state = null, action) {
   switch (action.type) {
 
     case ActionTypes.NewProperty:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: true,
         success: 'Added property pending',
         error: null
       });
-      return newState;
 
     case ActionTypes.EditProperty:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: true,
         success: 'Updated property pending',
         error: null
       });
-      return newState;
 
     case ActionTypes.DeleteProperty:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: true,
         success: 'Deleted property pending',
         error: null
       });
-      return newState;
 
     case ActionTypes.PropertysUpdated:
-      const newState = Object.assign({}, state, {
+      return Object.assign({}, state, {
         inProgress: false,
         success: 'Update properties complete',
         error: null,
         // properties: Object.keys(action.payload.properties).map(k => properties[k])
         properties: action.payload
       });
-      return newState;
 
     default:
       return state;

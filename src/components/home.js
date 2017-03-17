@@ -26,7 +26,7 @@ class Home extends Component {
               </p>
               <p>
                 Google Firebase data access is built using a redux store. Redux is version 3.6.0, redux-logger: 2.8.2,
-                redux-promise 0.5.3, redux-thunk: 2.2.0 an react-redux: 5.0.3.
+                redux-thunk: 2.2.0 and react-redux: 5.0.3.
               </p>
               <p>
                 Please click on the menu above to continue.
