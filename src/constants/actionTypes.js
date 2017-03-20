@@ -1,6 +1,7 @@
 const actionTypes = {
 
-  EditTaxYear: 'CHANGE_TAXYEAR',
+  ChangeTest: 'CHANGE_TEST',
+  ChangeTaxYear: 'CHANGE_TAXYEAR',
 
   NewExpense: 'NEW_EXPENSE',
   EditExpense: 'EDIT_EXPENSE',
@@ -18,7 +19,7 @@ const actionTypes = {
   ExpensesUpdated: 'EXPENSES_UPDATED',
   CategoriesUpdated: 'CATEGORIES_UPDATED',
   PropertiesUpdated: 'PROPERTIES_UPDATED'
-  
+
 };
 
 export default actionTypes;

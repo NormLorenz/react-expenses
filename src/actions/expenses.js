@@ -3,7 +3,7 @@ import database from '..constants/database';
 
 export const newExpenseAction = (expense) => {
   return dispatch => {
-    dispatch(newExpenseDispatch());
+    dispatch(newExpenseDispatch(expense));
     const expensesRef = database.ref('/expenses');
     expensesRef.push(expense);
   }
@@ -18,7 +18,7 @@ function newExpenseDispatch(expense) {
 
 export const editExpenseAction = (expense) => {
   return dispatch => {
-    dispatch(editExpenseDispatch());
+    dispatch(editExpenseDispatch(expense));
     const expensesRef = database.ref('/expenses').child(expense.key);
     expensesRef.update(expense);
   }
@@ -33,7 +33,7 @@ function editExpenseDispatch(expense) {
 
 export const deleteExpenseAction = (expense) => {
   return dispatch => {
-    dispatch(deleteExpenseDispatch());
+    dispatch(deleteExpenseDispatch(expense));
     const expensesRef = database.ref('/expenses').child(expense.key);
     expensesRef.remove();
   }

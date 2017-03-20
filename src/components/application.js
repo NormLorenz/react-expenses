@@ -15,7 +15,8 @@ import Expenses from './expenses';
 import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
-import Redux from '../containers/redux';
+//import ReduxContainer from '../containers/redux';
+import TestContainer from './test';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth
 
@@ -93,7 +94,7 @@ class Application extends Component {
                   }
                 </li>
 
-                <li className='w3-right w3-medium'><Link to='/redux' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Redux</Link></li>
+                <li className='w3-right w3-medium'><Link to='/test' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Test</Link></li>
                 <li className='w3-right w3-medium'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
                 <li className='w3-right w3-medium'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
                 <li className='w3-right w3-medium'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
@@ -112,7 +113,7 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/properties' component={Properties} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
                   <PrivateRoute authed={this.state.authed} path='/reports' component={Reports} />
-                  <Route path='/redux' component={Redux} />
+                  <Route path='/test' component={TestContainer} />
                   <Route render={() => <h4>No Match</h4>} />
                 </Switch>
               </div>

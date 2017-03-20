@@ -143,7 +143,6 @@
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
-* someday split containers from components
 
 ### router rewrite
 
@@ -170,3 +169,4 @@
  
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
+* someday split containers from components

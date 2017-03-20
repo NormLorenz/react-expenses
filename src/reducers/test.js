@@ -8,20 +8,11 @@ export default function (state = null, action) {
 
   switch (action.type) {
 
-    case ActionTypes.ChangeTaxYear:
-      return Object.assign({}, state, {
-        inProgress: true,
-        success: 'Change tax year pending',
-        error: null
-      });
-
-    case ActionTypes.ExpensesUpdated:
+    case ActionTypes.ChangeTest:
       return Object.assign({}, state, {
         inProgress: false,
-        success: 'Update taxYear complete',
-        error: null,
-        //taxYear: Object.keys(action.payload.expenses).map(k => expenses[k])
-        taxYear: action.payload
+        success: 'Change test',
+        error: null
       });
 
     default:
