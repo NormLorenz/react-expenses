@@ -15,8 +15,7 @@ import Expenses from './expenses';
 import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
-//import ReduxContainer from '../containers/redux';
-import TestContainer from './test';
+import TestContainer from '../containers/test';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth
 
