@@ -1,5 +1,5 @@
 import ActionTypes from '../constants/actionTypes';
-import database from '..constants/database';
+import database from '../constants/database';
 
 export const newExpenseAction = (expense) => {
   return dispatch => {

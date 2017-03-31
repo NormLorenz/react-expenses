@@ -143,6 +143,9 @@
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
+* implement single responsibility principal
+* implement donations and charities
+* implement mileage
 
 ### router rewrite
 
@@ -161,12 +164,13 @@
 * https://github.com/buckyroberts/react-redux-boilerplate
 * https://www.youtube.com/watch?v=1w-oQ-i1XB8&list=PLoYCgNOIyGADILc3iUJzygCqC8Tt3bRXt
 * https://www.youtube.com/watch?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&v=MhkGQAoc7bc
- 
 * https://www.codementor.io/vijayst/using-firebase-with-redux-for-building-a-react-app-du1086puw
-* https://github.com/vijayst/redux-firebase-demo
 
-* https://github.com/reactjs/react-redux/blob/master/docs/api.md
+* https://github.com/reactjs/react-redux
+
+USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
  
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
-* someday split containers from components
+* implement split containers from components
+* make the whole application ES6'ish

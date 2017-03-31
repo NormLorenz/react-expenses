@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import { changeTestAction } from '../actions/test';
+import { changeTextAction, watchTextEvent } from '../actions/test';
 import TestComponent from '../components/test';
+
 
 function mapStateToProps(state) {
   return {
-    //invite: state.invite
+    text: state.test.text,
+    inProgress: state.test.inProgress
   };
 }
 
 function mapDispatchToProps(dispatch) {
+  watchTextEvent(dispatch);
   return {
-    onClick: () => {
-      dispatch(changeTestAction())
-    }
+    onAddText: (text) => dispatch(changeTextAction(text))
   }
 }
 

@@ -1,23 +1,24 @@
 const actionTypes = {
 
-  ChangeTest: 'CHANGE_TEST',
+  ChangeText: 'CHANGE_TEXT',
+  TextUpdated: 'TEXT_UPDATED',
+
   ChangeTaxYear: 'CHANGE_TAXYEAR',
+  TaxYearUpdated: 'TAXYEAR_UPDATED',
 
   NewExpense: 'NEW_EXPENSE',
   EditExpense: 'EDIT_EXPENSE',
   DeleteExpense: 'DELETE_EXPENSE',
+  ExpensesUpdated: 'EXPENSES_UPDATED',
 
   NewCategory: 'NEW_CATEGORY',
   EditCategory: 'EDIT_CATEGORY',
   DeleteCategory: 'DELETE_CATEGORY',
+  CategoriesUpdated: 'CATEGORIES_UPDATED',
 
   NewProperty: 'NEW_PROPERTY',
   EditProperty: 'EDIT_PROPERTY',
   DeleteProperty: 'DELETE_PROPERTY',
-
-  TaxYearUpdated: 'TAXYEAR_UPDATED',
-  ExpensesUpdated: 'EXPENSES_UPDATED',
-  CategoriesUpdated: 'CATEGORIES_UPDATED',
   PropertiesUpdated: 'PROPERTIES_UPDATED'
 
 };

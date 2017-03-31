@@ -4,15 +4,23 @@ import ActionTypes from '../constants/actionTypes';
 // isn't entire apps state, only the part of state that this reducer is responsible for
 
 // 'state = null' is set so that we don't throw an error when app first boots up
-export default function (state = null, action) {
+
+const init = { inProgress: false, text: '' };
+
+export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.ChangeTest:
+    case ActionTypes.ChangeText:
+      return Object.assign({}, state, {
+        inProgress: true,
+        text: action.payload
+      });
+
+    case ActionTypes.TextUpdated:
       return Object.assign({}, state, {
         inProgress: false,
-        success: 'Change test',
-        error: null
+        text: action.payload
       });
 
     default:

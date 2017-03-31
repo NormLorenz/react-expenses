@@ -15,7 +15,7 @@ export default function (state = null, action) {
         error: null
       });
 
-    case ActionTypes.ExpensesUpdated:
+    case ActionTypes.TaxYearUpdated:
       return Object.assign({}, state, {
         inProgress: false,
         success: 'Update taxYear complete',
