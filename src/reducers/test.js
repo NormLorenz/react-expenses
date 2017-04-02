@@ -5,7 +5,7 @@ import ActionTypes from '../constants/actionTypes';
 
 // 'state = null' is set so that we don't throw an error when app first boots up
 
-const init = { inProgress: false, text: '' };
+const init = { inProgress: true, text: '' };
 
 export default function (state = init, action) {
 

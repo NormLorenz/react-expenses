@@ -146,6 +146,8 @@
 * implement single responsibility principal
 * implement donations and charities
 * implement mileage
+* redo the yarn/npm store
+* make the whole application ES6'ish
 
 ### router rewrite
 
@@ -153,7 +155,7 @@
 * git - checkout from thumbdrive - DONE
   * git fetch origin
   * git checkout -b redux origin/redux
-* disable jest for now - DONE
+* remove jest for now - DONE
 * redirect after authentication to original url
 * react-router link activeClassName
 
@@ -172,5 +174,5 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
  
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
+* remove redux-thunk - DONE
 * implement split containers from components
-* make the whole application ES6'ish

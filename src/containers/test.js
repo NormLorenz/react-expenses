@@ -5,8 +5,7 @@ import TestComponent from '../components/test';
 
 function mapStateToProps(state) {
   return {
-    text: state.test.text,
-    inProgress: state.test.inProgress
+    readMe: state.readMe
   };
 }
 

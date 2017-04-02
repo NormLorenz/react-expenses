@@ -11,7 +11,7 @@ class TestComponent extends Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      text: newProps.text
+      text: newProps.readMe.text
     });
   }
 
@@ -44,7 +44,10 @@ class TestComponent extends Component {
             <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round'>Submit</button>
           </div>
           <div className='w3-section'>
-            {this.props.text}
+            {this.props.readMe.text}
+          </div>
+          <div className='w3-section'>
+            <div>{this.props.readMe.inProgress ? 'wait': 'finished'}</div>
           </div>
         </form>
 
@@ -55,8 +58,7 @@ class TestComponent extends Component {
 
 TestComponent.propTypes = {
   onAddText: React.PropTypes.func.isRequired,
-  text: React.PropTypes.string.isRequired,
-  inProgress: React.PropTypes.bool.isRequired
+  readMe: React.PropTypes.object.isRequired
 };
 
 export default TestComponent;

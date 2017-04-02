@@ -15,7 +15,7 @@ const allReducers = combineReducers({
   expenses: ExpensesReducer,
   properties: PropertiesReducer,
   taxYear: TaxYearReducer,
-  test: TestReducer
+  readMe: TestReducer
 });
 
 export default allReducers
