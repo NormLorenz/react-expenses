@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeTextAction, watchTextEvent } from '../actions/readme';
 
-class TestComponent extends Component {
+class Readme extends Component {
 
   constructor() {
     super();
@@ -11,7 +13,7 @@ class TestComponent extends Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      text: newProps.readMe.text
+      text: newProps.readme.text
     });
   }
 
@@ -26,8 +28,10 @@ class TestComponent extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.onAddText(this.state.text)
+    e.preventDefault();
+    if (this.state.text !== this.props.readme.text) {
+      this.props.onAddText(this.state.text);
+    }
   }
 
   render() {
@@ -44,10 +48,10 @@ class TestComponent extends Component {
             <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round'>Submit</button>
           </div>
           <div className='w3-section'>
-            {this.props.readMe.text}
+            {this.props.readme.text}
           </div>
           <div className='w3-section'>
-            <div>{this.props.readMe.inProgress ? 'wait': 'finished'}</div>
+            <div>{this.props.readme.inProgress ? 'wait' : 'finished'}</div>
           </div>
         </form>
 
@@ -56,10 +60,23 @@ class TestComponent extends Component {
   }
 }
 
-TestComponent.propTypes = {
+Readme.propTypes = {
   onAddText: React.PropTypes.func.isRequired,
-  readMe: React.PropTypes.object.isRequired
+  readme: React.PropTypes.object.isRequired
 };
 
-export default TestComponent;
 
+function mapStateToProps(state) {
+  return {
+    readme: state.readme
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  watchTextEvent(dispatch);
+  return {
+    onAddText: (text) => dispatch(changeTextAction(text))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Readme);

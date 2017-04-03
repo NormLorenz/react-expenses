@@ -148,6 +148,7 @@
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
+* There is no tracking information for the current branch - git pull origin redux
 
 ### router rewrite
 
@@ -174,5 +175,4 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
  
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
-* remove redux-thunk - DONE
 * implement split containers from components
