@@ -16,6 +16,7 @@ import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
 import Readme from './readme';
+//import Notifications from './notifications';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth
 

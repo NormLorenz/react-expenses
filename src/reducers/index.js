@@ -4,6 +4,7 @@ import ExpensesReducer from './expenses';
 import PropertiesReducer from './properties';
 import TaxyearReducer from './taxyear';
 import ReadmeReducer from './readme';
+import NotificationsReducer from './notifications';
 
 // we combine all reducers into a single object before updated data is dispatched (sent) to store
 // your entire applications state (store) is just whatever gets returned from all your reducers
@@ -15,7 +16,8 @@ const allReducers = combineReducers({
   expenses: ExpensesReducer,
   properties: PropertiesReducer,
   taxyear: TaxyearReducer,
-  readme: ReadmeReducer
+  readme: ReadmeReducer,
+  notifications: NotificationsReducer
 });
 
 export default allReducers

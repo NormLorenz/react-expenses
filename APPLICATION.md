@@ -139,7 +139,6 @@
 
 ### in-flight
 
-* consolidate toaster notifications
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
@@ -176,3 +175,7 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
 * implement split containers from components
+* consolidate toaster notifications
+  * https://codereviewvideos.com/blog/notifications-react-and-redux/
+  * remove props
+  * remove constructor
