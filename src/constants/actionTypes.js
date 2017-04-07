@@ -6,19 +6,17 @@ const actionTypes = {
   ChangeTaxYear: 'CHANGE_TAXYEAR',
   TaxYearUpdated: 'TAXYEAR_UPDATED',
 
-  NewExpense: 'NEW_EXPENSE',
+  InsertExpense: 'INSERT_EXPENSE',
   EditExpense: 'EDIT_EXPENSE',
   DeleteExpense: 'DELETE_EXPENSE',
   ExpensesUpdated: 'EXPENSES_UPDATED',
 
-  NewCategory: 'NEW_CATEGORY',
+  InsertCategory: 'INSERT_CATEGORY',
   EditCategory: 'EDIT_CATEGORY',
-  DeleteCategory: 'DELETE_CATEGORY',
   CategoriesUpdated: 'CATEGORIES_UPDATED',
 
-  NewProperty: 'NEW_PROPERTY',
+  InsertProperty: 'INSERT_PROPERTY',
   EditProperty: 'EDIT_PROPERTY',
-  DeleteProperty: 'DELETE_PROPERTY',
   PropertiesUpdated: 'PROPERTIES_UPDATED'
 
 };

@@ -180,3 +180,5 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * remove props
   * remove constructor
   * install react-notification-system-redux
+* refactor properties using redux
+* refactor categories using redux

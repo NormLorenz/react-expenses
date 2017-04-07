@@ -3,6 +3,11 @@ import Modal from 'react-modal';
 import firebase from 'firebase';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
+
+//// write actions/properties.js
+//// rewrite reducers/properties.js
+//// implement propTypes
+//// remove this
 import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
@@ -32,9 +37,11 @@ class Properties extends Component {
       properties: []
     };
 
+    //// remove this
     this._notificationSystem = null;
   }
 
+  //// remove this
   addNotification(event) {
     if (event) event.preventDefault();
     if (this._notificationSystem) {
@@ -86,6 +93,7 @@ class Properties extends Component {
     this.setState({ showModal: false });
   }
 
+  //// move to redux
   handleSubmit(event) {
     event.preventDefault();
 
@@ -107,6 +115,7 @@ class Properties extends Component {
       // propertiesRef.remove();
     }
 
+    // remove this line
     this.addNotification();
     this.setState({ showModal: false });
   }
@@ -123,6 +132,8 @@ class Properties extends Component {
 
   componentDidMount() {
 
+    //// also sort when we get properties from store
+    //// remove this and get from props
     const propertiesRef = firebase.database().ref('properties').orderByChild('description');
     propertiesRef.on('value', snapshot => {
       let properties = [];
@@ -158,6 +169,7 @@ class Properties extends Component {
       );
     });
 
+    //// remove notificationsystem
     return (
       <div className='w3-container'>
         <h4>Properties</h4>
@@ -209,3 +221,5 @@ class Properties extends Component {
 }
 
 export default Properties;
+
+//// add container logic here

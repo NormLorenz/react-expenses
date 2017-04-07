@@ -4,37 +4,31 @@ import ActionTypes from '../constants/actionTypes';
 // isn't entire apps state, only the part of state that this reducer is responsible for
 
 // 'state = null' is set so that we don't throw an error when app first boots up
-export default function (state = null, action) {
+
+const init = { inProgress: true, property: null, properties: null };
+
+export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.NewProperty:
+    case ActionTypes.InsertProperty:
       return Object.assign({}, state, {
         inProgress: true,
-        success: 'Added property pending',
-        error: null
+        property: action.payload,
+        properties: null
       });
 
     case ActionTypes.EditProperty:
       return Object.assign({}, state, {
         inProgress: true,
-        success: 'Updated property pending',
-        error: null
+        property: action.payload,
+        properties: null
       });
 
-    case ActionTypes.DeleteProperty:
-      return Object.assign({}, state, {
-        inProgress: true,
-        success: 'Deleted property pending',
-        error: null
-      });
-
-    case ActionTypes.PropertysUpdated:
+    case ActionTypes.PropertiesUpdated:
       return Object.assign({}, state, {
         inProgress: false,
-        success: 'Update properties complete',
-        error: null,
-        // properties: Object.keys(action.payload.properties).map(k => properties[k])
+        property: null,
         properties: action.payload
       });
 

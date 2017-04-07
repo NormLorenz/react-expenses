@@ -4,37 +4,31 @@ import ActionTypes from '../constants/actionTypes';
 // isn't entire apps state, only the part of state that this reducer is responsible for
 
 // 'state = null' is set so that we don't throw an error when app first boots up
-export default function (state = null, action) {
+
+const init = { inProgress: true, category: null, categories: null };
+
+export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.NewCategory:
+    case ActionTypes.InsertCategory:
       return Object.assign({}, state, {
         inProgress: true,
-        success: 'Added category pending',
-        error: null
+        category: action.payload,
+        categories: null
       });
 
     case ActionTypes.EditCategory:
       return Object.assign({}, state, {
         inProgress: true,
-        success: 'Updated category pending',
-        error: null
-      });
-
-    case ActionTypes.DeleteCategory:
-      return Object.assign({}, state, {
-        inProgress: true,
-        success: 'Deleted category pending',
-        error: null
+        category: action.payload,
+        categories: null
       });
 
     case ActionTypes.CategoriesUpdated:
       return Object.assign({}, state, {
         inProgress: false,
-        success: 'Update categories complete',
-        error: null,
-        //categories: Object.keys(action.payload.categories).map(k => categories[k])
+        category: null,
         categories: action.payload
       });
 

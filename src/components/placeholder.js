@@ -14,10 +14,6 @@ class Placeholder extends React.Component {
   }
 }
 
-Placeholder.contextTypes = {
-  store: PropTypes.object
-};
-
 Placeholder.propTypes = {
   notifications: PropTypes.array
 };
