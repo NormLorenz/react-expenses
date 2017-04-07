@@ -1,10 +1,16 @@
 import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
+import Notifications from 'react-notification-system-redux';
 
 export const changeTextAction = (text) => {
   return dispatch => {
     dispatch(changeTextDispatch(text));
     database.ref('readMe').set(text);
+    dispatch(Notifications.info({
+      title: 'Info',
+      message: 'readme record updated',
+      position: 'tr'
+    }));
   }
 }
 

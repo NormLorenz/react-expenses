@@ -16,7 +16,7 @@ import Properties from './properties';
 import Categories from './categories';
 import Reports from './reports';
 import Readme from './readme';
-//import Notifications from './notifications';
+import Placeholder from './placeholder';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth
 
@@ -118,6 +118,8 @@ class Application extends Component {
                 </Switch>
               </div>
             </div>
+
+            <Placeholder />
 
           </div>
         </Router>

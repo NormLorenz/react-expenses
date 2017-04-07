@@ -60,7 +60,6 @@ class Summary extends Component {
 
   handleOpen(event) {
     this.setState({ showModal: true });
-    console.log(this.state.years);
   }
 
   handleClose(event) {

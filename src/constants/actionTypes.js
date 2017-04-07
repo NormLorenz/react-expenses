@@ -1,7 +1,5 @@
 const actionTypes = {
 
-  AddNotification: 'ADD_NOTIFICATION',
-
   ChangeText: 'CHANGE_TEXT',
   TextUpdated: 'TEXT_UPDATED',
 
