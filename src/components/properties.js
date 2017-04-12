@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import firebase from 'firebase';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
-
-//// remove delete button
-//// remove this line
-import NotificationSystem from 'react-notification-system';
+import { connect } from 'react-redux';
+import { editPropertyAction, insertPropertyAction, watchPropertiesEvent } from '../actions/properties';
 
 const modalStyle = {
   content: {
@@ -34,21 +31,6 @@ class Properties extends Component {
       isActive: false,
       properties: []
     };
-
-    //// remove this line
-    this._notificationSystem = null;
-  }
-
-  //// remove this section
-  addNotification(event) {
-    if (event) event.preventDefault();
-    if (this._notificationSystem) {
-      this._notificationSystem.addNotification({
-        message: 'Record saved',
-        level: 'info',
-        position: 'br'
-      });
-    }
   }
 
   handleOpen(property, operation) {
@@ -91,30 +73,22 @@ class Properties extends Component {
     this.setState({ showModal: false });
   }
 
-  //// move to redux
   handleSubmit(event) {
     event.preventDefault();
 
     let property = {
+      key: this.state.key,
       description: this.state.description,
       isActive: this.state.isActive
     }
 
     if (this.state.operation === 'new') {
-      const propertiesRef = firebase.database().ref('properties');
-      propertiesRef.push(property);
+      this.props.onInsertProperty(property);
     }
     else if (this.state.operation === 'edit') {
-      const propertiesRef = firebase.database().ref('properties').child(this.state.key);
-      propertiesRef.update(property);
-    }
-    else {
-      // const propertiesRef = firebase.database().ref('properties').child(this.state.key);
-      // propertiesRef.remove();
+      this.props.onEditProperty(property);
     }
 
-    // remove this line
-    this.addNotification();
     this.setState({ showModal: false });
   }
 
@@ -128,34 +102,13 @@ class Properties extends Component {
     });
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.propertyObject.properties) {
-  //     this.setState({
-  //       properties: newProps.propertyObject.properties.sort(
-  //         (a, b) => a.description < b.description ? -1 : 1)
-  //     });
-  //   }
-  // }
-
-    //// remove this and get from props
-  componentDidMount() {
-
-    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-    propertiesRef.on('value', snapshot => {
-      let properties = [];
-      snapshot.forEach(function (data) {
-        let property = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive
-        }
-        properties.push(property);
-      });
-
+  componentWillReceiveProps(newProps) {
+    if (newProps.propertyObject.properties) {
       this.setState({
-        properties: properties
+        properties: newProps.propertyObject.properties.sort(
+          (a, b) => a.description < b.description ? -1 : 1)
       });
-    });
+    }
   }
 
   render() {
@@ -175,11 +128,9 @@ class Properties extends Component {
       );
     });
 
-    //// remove notificationsystem
     return (
       <div className='w3-container'>
         <h4>Properties</h4>
-        <NotificationSystem ref={n => this._notificationSystem = n} />
 
         <div style={divStyle}>
           <table className='w3-table-all'>
@@ -226,26 +177,24 @@ class Properties extends Component {
   }
 }
 
-export default Properties;
+Properties.propTypes = {
+  onEditProperty: React.PropTypes.func.isRequired,
+  onInsertProperty: React.PropTypes.func.isRequired,
+  propertyObject: React.PropTypes.object.isRequired
+};
 
-// Properties.propTypes = {
-//   onEditProperty: React.PropTypes.func.isRequired,
-//   onInsertProperty: React.PropTypes.func.isRequired,
-//   propertyObject: React.PropTypes.object.isRequired
-// };
+function mapStateToProps(state) {
+  return {
+    propertyObject: state.propertyObject
+  };
+}
 
-// function mapStateToProps(state) {
-//   return {
-//     propertyObject: state.propertyObject
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  watchPropertiesEvent(dispatch);
+  return {
+    onEditProperty: (property) => dispatch(editPropertyAction(property)),
+    onInsertProperty: (property) => dispatch(insertPropertyAction(property))
+  }
+}
 
-// function mapDispatchToProps(dispatch) {
-//   watchPropertiesEvent(dispatch);
-//   return {
-//     onEditProperty: (property) => dispatch(editPropertyAction(property)),
-//     onInsertProperty: (property) => dispatch(insertPropertyAction(property))
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Properties);
+export default connect(mapStateToProps, mapDispatchToProps)(Properties);

@@ -4,8 +4,10 @@ import Notifications from 'react-notification-system-redux';
 
 export const editPropertyAction = (property) => {
   return dispatch => {
+    let key = property.key;
+    delete property.key;
     dispatch(editPropertyDispatch(property));
-    database.ref('properties').update(property);
+    database.ref('properties').child(key).update(property);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'property record updated',
@@ -23,12 +25,13 @@ function editPropertyDispatch(property) {
 
 export const insertPropertyAction = (property) => {
   return dispatch => {
+    delete property.key;
     dispatch(insertPropertyDispatch(property));
     database.ref('properties').push(property);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'property record inserted',
-      position: 'tr'
+      position: 'br'
     }));
   }
 }

@@ -9,7 +9,7 @@ export const editCategoryAction = (category) => {
     dispatch(Notifications.info({
       title: 'Info',
       message: 'category record updated',
-      position: 'tr'
+      position: 'br'
     }));
   }
 }
@@ -28,7 +28,7 @@ export const insertCategoryAction = (category) => {
     dispatch(Notifications.info({
       title: 'Info',
       message: 'category record inserted',
-      position: 'tr'
+      position: 'br'
     }));
   }
 }
