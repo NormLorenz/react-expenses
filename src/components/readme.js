@@ -13,7 +13,7 @@ class Readme extends Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      text: newProps.readme.text
+      text: newProps.readmeObject.text
     });
   }
 
@@ -29,7 +29,7 @@ class Readme extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.text !== this.props.readme.text) {
+    if (this.state.text !== this.props.readmeObject.text) {
       this.props.onAddText(this.state.text);
     }
   }
@@ -48,10 +48,10 @@ class Readme extends Component {
             <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round'>Submit</button>
           </div>
           <div className='w3-section'>
-            {this.props.readme.text}
+            {this.props.readmeObject.text}
           </div>
           <div className='w3-section'>
-            <div>{this.props.readme.inProgress ? 'wait' : 'finished'}</div>
+            <div>{this.props.readmeObject.inProgress ? 'wait' : 'finished'}</div>
           </div>
         </form>
 
@@ -62,13 +62,12 @@ class Readme extends Component {
 
 Readme.propTypes = {
   onAddText: React.PropTypes.func.isRequired,
-  readme: React.PropTypes.object.isRequired
+  readmeObject: React.PropTypes.object.isRequired
 };
-
 
 function mapStateToProps(state) {
   return {
-    readme: state.readme
+    readmeObject: state.readmeObject
   };
 }
 

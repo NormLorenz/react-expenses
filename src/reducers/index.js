@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import CategoriesReducer from './categories';
-import ExpensesReducer from './expenses';
-import PropertiesReducer from './properties';
+import CategoryReducer from './categories';
+import ExpenseReducer from './expenses';
+import PropertyReducer from './properties';
 import TaxyearReducer from './taxyear';
 import ReadmeReducer from './readme';
 import {reducer as notifications} from 'react-notification-system-redux';
@@ -12,11 +12,11 @@ import {reducer as notifications} from 'react-notification-system-redux';
 // manage separate data domains
 
 const allReducers = combineReducers({
-  categories: CategoriesReducer,
-  expenses: ExpensesReducer,
-  properties: PropertiesReducer,
-  taxyear: TaxyearReducer,
-  readme: ReadmeReducer,
+  categoryObject: CategoryReducer,
+  expenseObject: ExpenseReducer,
+  propertyObject: PropertyReducer,
+  taxyearObject: TaxyearReducer,
+  readmeObject: ReadmeReducer,
   notifications
 });
 

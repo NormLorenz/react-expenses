@@ -4,10 +4,8 @@ import firebase from 'firebase';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
 
-//// write actions/properties.js
-//// rewrite reducers/properties.js
-//// implement propTypes
-//// remove this
+//// remove delete button
+//// remove this line
 import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
@@ -37,11 +35,11 @@ class Properties extends Component {
       properties: []
     };
 
-    //// remove this
+    //// remove this line
     this._notificationSystem = null;
   }
 
-  //// remove this
+  //// remove this section
   addNotification(event) {
     if (event) event.preventDefault();
     if (this._notificationSystem) {
@@ -130,10 +128,18 @@ class Properties extends Component {
     });
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.propertyObject.properties) {
+  //     this.setState({
+  //       properties: newProps.propertyObject.properties.sort(
+  //         (a, b) => a.description < b.description ? -1 : 1)
+  //     });
+  //   }
+  // }
+
+    //// remove this and get from props
   componentDidMount() {
 
-    //// also sort when we get properties from store
-    //// remove this and get from props
     const propertiesRef = firebase.database().ref('properties').orderByChild('description');
     propertiesRef.on('value', snapshot => {
       let properties = [];
@@ -222,4 +228,24 @@ class Properties extends Component {
 
 export default Properties;
 
-//// add container logic here
+// Properties.propTypes = {
+//   onEditProperty: React.PropTypes.func.isRequired,
+//   onInsertProperty: React.PropTypes.func.isRequired,
+//   propertyObject: React.PropTypes.object.isRequired
+// };
+
+// function mapStateToProps(state) {
+//   return {
+//     propertyObject: state.propertyObject
+//   };
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   watchPropertiesEvent(dispatch);
+//   return {
+//     onEditProperty: (property) => dispatch(editPropertyAction(property)),
+//     onInsertProperty: (property) => dispatch(insertPropertyAction(property))
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Properties);

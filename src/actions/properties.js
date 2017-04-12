@@ -9,7 +9,7 @@ export const editPropertyAction = (property) => {
     dispatch(Notifications.info({
       title: 'Info',
       message: 'property record updated',
-      position: 'tr'
+      position: 'br'
     }));
   }
 }

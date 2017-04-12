@@ -9,7 +9,7 @@ export const changeTextAction = (text) => {
     dispatch(Notifications.info({
       title: 'Info',
       message: 'readme record updated',
-      position: 'tr'
+      position: 'br'
     }));
   }
 }
