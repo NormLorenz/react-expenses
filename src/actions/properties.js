@@ -4,10 +4,8 @@ import Notifications from 'react-notification-system-redux';
 
 export const editPropertyAction = (property) => {
   return dispatch => {
-    let key = property.key;
-    delete property.key;
     dispatch(editPropertyDispatch(property));
-    database.ref('properties').child(key).update(property);
+    database.ref('properties').child(property.key).update(property.data);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'property record updated',
@@ -25,9 +23,8 @@ function editPropertyDispatch(property) {
 
 export const insertPropertyAction = (property) => {
   return dispatch => {
-    delete property.key;
     dispatch(insertPropertyDispatch(property));
-    database.ref('properties').push(property);
+    database.ref('properties').push(property.data);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'property record inserted',
@@ -49,8 +46,10 @@ export const watchPropertiesEvent = (dispatch) => {
     snap.forEach(function (data) {
       let property = {
         key: data.key,
-        description: data.val().description,
-        isActive: data.val().isActive
+        data: {
+          description: data.val().description,
+          isActive: data.val().isActive
+        }
       }
       properties.push(property);
     });

@@ -17,6 +17,8 @@ const modalStyle = {
   }
 };
 
+const operations = { new: 1, edit: 2, delete: 3 };
+
 class Properties extends Component {
 
   constructor() {
@@ -34,34 +36,34 @@ class Properties extends Component {
   }
 
   handleOpen(property, operation) {
-    if (operation === 'new') {
+    if (operation === operations.new) {
       this.setState({
         operation: operation,
         operationText: 'Create a new property',
         submitText: 'Save',
-        key: '',
+        key: null,
         description: '',
         isActive: true
       });
     }
-    else if (operation === 'edit') {
+    else if (operation === operations.edit) {
       this.setState({
         operation: operation,
         operationText: 'Edit an existing property',
         submitText: 'Save',
         key: property.key,
-        description: property.description,
-        isActive: property.isActive
+        description: property.data.description,
+        isActive: property.data.isActive
       });
     }
-    else {
+    else if (operation === operations.delete) {
       this.setState({
         operation: operation,
         operationText: 'Delete an existing property',
         submitText: 'Delete',
         key: property.key,
-        description: property.description,
-        isActive: property.isActive
+        description: property.data.description,
+        isActive: property.data.isActive
       });
     }
 
@@ -78,14 +80,16 @@ class Properties extends Component {
 
     let property = {
       key: this.state.key,
-      description: this.state.description,
-      isActive: this.state.isActive
+      data: {
+        description: this.state.description,
+        isActive: this.state.isActive
+      }
     }
 
-    if (this.state.operation === 'new') {
+    if (this.state.operation === operations.new) {
       this.props.onInsertProperty(property);
     }
-    else if (this.state.operation === 'edit') {
+    else if (this.state.operation === operations.edit) {
       this.props.onEditProperty(property);
     }
 
@@ -106,7 +110,7 @@ class Properties extends Component {
     if (newProps.propertyObject.properties) {
       this.setState({
         properties: newProps.propertyObject.properties.sort(
-          (a, b) => a.description < b.description ? -1 : 1)
+          (a, b) => a.data.description < b.data.description ? -1 : 1)
       });
     }
   }
@@ -120,10 +124,10 @@ class Properties extends Component {
     let properties = this.state.properties.map(property => {
       return (
         <tr key={property.key}>
-          <td>{property.description}</td>
-          <td><ActiveDisplay isActive={property.isActive} /></td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'edit')}>Edit</button>
-            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, 'delete')}>Delete</button></td>
+          <td>{property.data.description}</td>
+          <td><ActiveDisplay isActive={property.data.isActive} /></td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, operations.edit)}>Edit</button>
+            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, property, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -146,7 +150,7 @@ class Properties extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, 'new')}>New Property</button>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Property</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}

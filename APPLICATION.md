@@ -180,5 +180,9 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * remove props
   * remove constructor
   * install react-notification-system-redux
-* refactor properties using redux
-* refactor categories using redux
+* refactor properties using redux - DONE
+* refactor categories using redux - DONE
+* refactor expenses using redux
+* refactor reports using redux
+
+http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded

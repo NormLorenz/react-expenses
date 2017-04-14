@@ -5,7 +5,7 @@ import Notifications from 'react-notification-system-redux';
 export const editCategoryAction = (category) => {
   return dispatch => {
     dispatch(editCategoryDispatch(category));
-    database.ref('categories').update(category);
+    database.ref('categories').child(category.key).update(category.data);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'category record updated',
@@ -24,7 +24,7 @@ function editCategoryDispatch(category) {
 export const insertCategoryAction = (category) => {
   return dispatch => {
     dispatch(insertCategoryDispatch(category));
-    database.ref('categories').push(category);
+    database.ref('categories').push(category.data);
     dispatch(Notifications.info({
       title: 'Info',
       message: 'category record inserted',
@@ -46,8 +46,10 @@ export const watchCategoriesEvent = (dispatch) => {
     snap.forEach(function (data) {
       let category = {
         key: data.key,
-        description: data.val().description,
-        isActive: data.val().isActive
+        data: {
+          description: data.val().description,
+          isActive: data.val().isActive
+        }
       }
       categories.push(category);
     });

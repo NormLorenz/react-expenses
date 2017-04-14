@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import firebase from 'firebase';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
-import NotificationSystem from 'react-notification-system';
+import { connect } from 'react-redux';
+import { editCategoryAction, insertCategoryAction, watchCategoriesEvent } from '../actions/categories';
 
 const modalStyle = {
   content: {
@@ -16,6 +16,8 @@ const modalStyle = {
     transform: 'translate(-50%, -50%)'
   }
 };
+
+const operations = { new: 1, edit: 2, delete: 3 };
 
 class Categories extends Component {
 
@@ -31,50 +33,37 @@ class Categories extends Component {
       isActive: false,
       categories: []
     };
-
-    this._notificationSystem = null;
-  }
-
-  addNotification(event) {
-    if (event) event.preventDefault();
-    if (this._notificationSystem) {
-      this._notificationSystem.addNotification({
-        message: 'Record saved',
-        level: 'info',
-        position: 'br'
-      });
-    }
   }
 
   handleOpen(category, operation) {
-    if (operation === 'new') {
+    if (operation === operations.new) {
       this.setState({
         operation: operation,
         operationText: 'Create a new category',
         submitText: 'Save',
-        key: '',
+        key: null,
         description: '',
         isActive: true
       });
     }
-    else if (operation === 'edit') {
+    else if (operation === operations.edit) {
       this.setState({
         operation: operation,
         operationText: 'Edit an existing category',
         submitText: 'Save',
         key: category.key,
-        description: category.description,
-        isActive: category.isActive
+        description: category.data.description,
+        isActive: category.data.isActive
       });
     }
-    else {
+    else if (operation === operations.delete) {
       this.setState({
         operation: operation,
         operationText: 'Delete an existing category',
         submitText: 'Delete',
         key: category.key,
-        description: category.description,
-        isActive: category.isActive
+        description: category.data.description,
+        isActive: category.data.isActive
       });
     }
 
@@ -90,28 +79,24 @@ class Categories extends Component {
     event.preventDefault();
 
     let category = {
-      description: this.state.description,
-      isActive: this.state.isActive
+      key: this.state.key,
+      data: {
+        description: this.state.description,
+        isActive: this.state.isActive
+      }
     }
 
-    if (this.state.operation === 'new') {
-      const categoriesRef = firebase.database().ref('categories');
-      categoriesRef.push(category);
+    if (this.state.operation === operations.new) {
+      this.props.onInsertCategory(category);
     }
-    else if (this.state.operation === 'edit') {
-      const categoriesRef = firebase.database().ref('categories').child(this.state.key);
-      categoriesRef.update(category);
-    }
-    else {
-      // const categoriesRef = firebase.database().ref('categories').child(this.state.key);
-      // categoriesRef.remove();
+    else if (this.state.operation === operations.edit) {
+      this.props.onEditCategory(category);
     }
 
-    this.addNotification();
     this.setState({ showModal: false });
   }
 
-   handleInputChange(event) {
+  handleInputChange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
@@ -121,24 +106,13 @@ class Categories extends Component {
     });
   }
 
-  componentDidMount() {
-
-    const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-    categoriesRef.on('value', snapshot => {
-      let categories = [];
-      snapshot.forEach(function (data) {
-        let category = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive
-        }
-        categories.push(category);
-      });
-
+  componentWillReceiveProps(newProps) {
+    if (newProps.categoryObject.categories) {
       this.setState({
-        categories: categories
+        categories: newProps.categoryObject.categories.sort(
+          (a, b) => a.data.description < b.data.description ? -1 : 1)
       });
-    });
+    }
   }
 
   render() {
@@ -150,10 +124,10 @@ class Categories extends Component {
     let categories = this.state.categories.map(category => {
       return (
         <tr key={category.key}>
-          <td>{category.description}</td>
-          <td><ActiveDisplay isActive={category.isActive} /></td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, 'edit')}>Edit</button>
-            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, 'delete')}>Delete</button></td>
+          <td>{category.data.description}</td>
+          <td><ActiveDisplay isActive={category.data.isActive} /></td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.edit)}>Edit</button>
+            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -161,7 +135,6 @@ class Categories extends Component {
     return (
       <div className='w3-container'>
         <h4>Categories</h4>
-        <NotificationSystem ref={n => this._notificationSystem = n} />
 
         <div style={divStyle}>
           <table className='w3-table-all'>
@@ -177,7 +150,7 @@ class Categories extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, 'new')}>New category</button>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Category</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -208,4 +181,24 @@ class Categories extends Component {
   }
 }
 
-export default Categories;
+Categories.propTypes = {
+  onEditCategory: React.PropTypes.func.isRequired,
+  onInsertCategory: React.PropTypes.func.isRequired,
+  categoryObject: React.PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    categoryObject: state.categoryObject
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  watchCategoriesEvent(dispatch);
+  return {
+    onEditCategory: (category) => dispatch(editCategoryAction(category)),
+    onInsertCategory: (category) => dispatch(insertCategoryAction(category))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
