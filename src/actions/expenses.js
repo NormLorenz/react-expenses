@@ -1,26 +1,16 @@
 import ActionTypes from '../constants/actionTypes';
-import database from '../constants/database';
-
-export const newExpenseAction = (expense) => {
-  return dispatch => {
-    dispatch(newExpenseDispatch(expense));
-    const expensesRef = database.ref('/expenses');
-    expensesRef.push(expense);
-  }
-}
-
-function newExpenseDispatch(expense) {
-  return {
-    type: ActionTypes.NewExpense,
-    payload: expense
-  };
-}
+import { database } from '../constants/database';
+import Notifications from 'react-notification-system-redux';
 
 export const editExpenseAction = (expense) => {
   return dispatch => {
     dispatch(editExpenseDispatch(expense));
-    const expensesRef = database.ref('/expenses').child(expense.key);
-    expensesRef.update(expense);
+    database.ref('expenses').child(expense.key).update(expense.data);
+    dispatch(Notifications.info({
+      title: 'Info',
+      message: 'expense record updated',
+      position: 'br'
+    }));
   }
 }
 
@@ -31,24 +21,65 @@ function editExpenseDispatch(expense) {
   };
 }
 
+export const insertExpenseAction = (expense) => {
+  return dispatch => {
+    dispatch(insertExpenseDispatch(expense));
+    database.ref('expenses').push(expense.data);
+    dispatch(Notifications.info({
+      title: 'Info',
+      message: 'expense record inserted',
+      position: 'br'
+    }));
+  }
+}
+
+function insertExpenseDispatch(expense) {
+  return {
+    type: ActionTypes.InsertExpense,
+    payload: expense
+  };
+}
+
 export const deleteExpenseAction = (expense) => {
   return dispatch => {
     dispatch(deleteExpenseDispatch(expense));
-    const expensesRef = database.ref('/expenses').child(expense.key);
-    expensesRef.remove();
+    database.ref('expenses').child(expense.key).remove();
+    dispatch(Notifications.info({
+      title: 'Info',
+      message: 'expense record deleted',
+      position: 'br'
+    }));
   }
 }
 
 function deleteExpenseDispatch(expense) {
   return {
-    type: ActionTypes.DeleteExpense,
+    type: ActionTypes.deleteExpense,
     payload: expense
   };
 }
 
 export const watchExpensesEvent = (dispatch) => {
-  database.ref('/expenses').on('value', (snap) => {
-    dispatch(watchExpensesAction(snap.val()));
+  const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(2015);
+  expensesRef.on('value', snap => {
+    let expenses = [];
+    snap.forEach(function (data) {
+      let expense = {
+        key: data.key,
+        data: {
+          date: data.val().date,
+          description: data.val().description,
+          category: data.val().category,
+          property: data.val().property,
+          isDebit: data.val().isDebit,
+          amount: data.val().amount,
+          taxYear: data.val().taxYear
+        }
+      }
+      expenses.push(expense);
+    });
+
+    dispatch(watchExpensesAction(expenses));
   });
 }
 

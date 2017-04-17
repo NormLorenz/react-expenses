@@ -4,24 +4,23 @@ import ActionTypes from '../constants/actionTypes';
 // isn't entire apps state, only the part of state that this reducer is responsible for
 
 // 'state = null' is set so that we don't throw an error when app first boots up
-export default function (state = null, action) {
+
+const init = { inProgress: true, taxYear: 1776 };
+
+export default function (state = init, action) {
 
   switch (action.type) {
 
     case ActionTypes.ChangeTaxYear:
       return Object.assign({}, state, {
         inProgress: true,
-        success: 'Change tax year pending',
-        error: null
+        text: action.payload
       });
 
     case ActionTypes.TaxYearUpdated:
       return Object.assign({}, state, {
         inProgress: false,
-        success: 'Update taxYear complete',
-        error: null,
-        //taxYear: Object.keys(action.payload.expenses).map(k => expenses[k])
-        taxYear: action.payload
+        text: action.payload
       });
 
     default:

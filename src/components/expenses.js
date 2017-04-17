@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+
+//// remove this line
 import firebase from 'firebase';
 
 import PropertyDisplay from '../helpers/propertyDisplay';
@@ -8,8 +10,13 @@ import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
 import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
 import * as utilities from '../helpers/utilities';
 
+import { connect } from 'react-redux';
+import { editExpenseAction, insertExpenseAction, deleteExpenseAction, watchExpensesEvent } from '../actions/expenses';
+
 import Moment from 'react-moment';
 import moment from 'moment';
+
+//// remove this line
 import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
@@ -24,11 +31,15 @@ const modalStyle = {
   }
 };
 
+//// add this line
+const operations = { new: 1, edit: 2, delete: 3 };
+
 class Expenses extends Component {
 
   constructor() {
     super();
     this.state = {
+      //// remove this line
       taxYear: 1776,
       showModal: false,
       operation: null,
@@ -51,6 +62,7 @@ class Expenses extends Component {
     this._notificationSystem = null;
   }
 
+  //// remove this block
   addNotification(event) {
     if (event) event.preventDefault();
     if (this._notificationSystem) {
@@ -62,12 +74,14 @@ class Expenses extends Component {
     }
   }
 
+  //// refactor this to use in part enums
   handleOpen(expense, operation) {
     if (operation === 'new') {
       this.setState({
         operation: operation,
         operationText: 'Create a new expense',
         submitText: 'Save',
+        //// make this default to null
         key: '',
         date: '',
         description: '',
@@ -114,6 +128,7 @@ class Expenses extends Component {
     this.setState({ showModal: false });
   }
 
+  //// refactor this to remove firebase stuff
   handleSubmit(event) {
     event.preventDefault();
 
@@ -150,6 +165,7 @@ class Expenses extends Component {
       expensesRef.remove();
     }
 
+    //// remove this
     this.addNotification();
     this.setState({ showModal: false });
   }
@@ -163,7 +179,10 @@ class Expenses extends Component {
       [name]: value
     });
   }
+  
+  //// add componentWillReceiveProps
 
+  //// remove this
   componentDidMount() {
     const rootRef = firebase.database().ref();
     const taxYearRef = rootRef.child('taxYear');
@@ -330,3 +349,33 @@ class Expenses extends Component {
 }
 
 export default Expenses;
+
+// Expenses.propTypes = {
+//   onEditProperty: React.PropTypes.func.isRequired,
+//   onInsertProperty: React.PropTypes.func.isRequired,
+//   onDeleteProperty: React.PropTypes.func.isRequired,
+//   expenseObject: React.PropTypes.object.isRequired,
+//   properyObject: React.PropTypes.object.isRequired,
+//   categoryObject: React.PropTypes.object.isRequired,
+//   taxyearObject: React.PropTypes.object.isRequiredl
+// };
+
+// function mapStateToProps(state) {
+//   return {
+//     expenseObject: state.expenseObject,
+//     propertyObject: state.propertyObject,
+//     categoryObject: state.categoryObject,
+//     taxyearObject: state.taxyearObject
+//   };
+// }
+
+// function mapDispatchToProps(dispatch) {
+//   watchExpensesEvent(dispatch);
+//   return {
+//     onEditExpense: (expense) => dispatch(editExpenseAction(expense)),
+//     onInsertExpense: (expense) => dispatch(insertExpenseAction(expense)),
+//     onDeleteProperty: (expense) => dispatch(deleteExpenseAction(expense))
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

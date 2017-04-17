@@ -64,5 +64,3 @@ function watchPropertiesAction(properties) {
     payload: properties
   };
 }
-
-
