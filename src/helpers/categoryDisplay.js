@@ -10,7 +10,7 @@ class CategoryDisplay extends Component {
 
     if (category) {
       return (
-        <span> {category.description} </span>
+        <span> {category.data.description} </span>
       )
     }
 

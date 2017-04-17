@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-//// remove this line
-import firebase from 'firebase';
-
 import PropertyDisplay from '../helpers/propertyDisplay';
 import CategoryDisplay from '../helpers/categoryDisplay';
 import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
@@ -11,13 +8,13 @@ import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
 import * as utilities from '../helpers/utilities';
 
 import { connect } from 'react-redux';
+//import { watchTaxyearEvent } from '../actions/taxyear';
 import { editExpenseAction, insertExpenseAction, deleteExpenseAction, watchExpensesEvent } from '../actions/expenses';
+import { watchPropertiesEvent } from '../actions/properties';
+import { watchCategoriesEvent } from '../actions/categories';
 
 import Moment from 'react-moment';
 import moment from 'moment';
-
-//// remove this line
-import NotificationSystem from 'react-notification-system';
 
 const modalStyle = {
   content: {
@@ -31,7 +28,6 @@ const modalStyle = {
   }
 };
 
-//// add this line
 const operations = { new: 1, edit: 2, delete: 3 };
 
 class Expenses extends Component {
@@ -39,8 +35,6 @@ class Expenses extends Component {
   constructor() {
     super();
     this.state = {
-      //// remove this line
-      taxYear: 1776,
       showModal: false,
       operation: null,
       operationText: null,
@@ -54,35 +48,21 @@ class Expenses extends Component {
       isDebit: false,
       amount: null,
 
+      taxYear: 1776,
       expenses: [],
-      categories: [],
-      properties: []
+      properties: [],
+      categories: []
     };
 
-    this._notificationSystem = null;
   }
 
-  //// remove this block
-  addNotification(event) {
-    if (event) event.preventDefault();
-    if (this._notificationSystem) {
-      this._notificationSystem.addNotification({
-        message: 'Record saved',
-        level: 'info',
-        position: 'br'
-      });
-    }
-  }
-
-  //// refactor this to use in part enums
   handleOpen(expense, operation) {
-    if (operation === 'new') {
+    if (operation === operations.new) {
       this.setState({
         operation: operation,
         operationText: 'Create a new expense',
         submitText: 'Save',
-        //// make this default to null
-        key: '',
+        key: null,
         date: '',
         description: '',
         category: '',
@@ -91,32 +71,32 @@ class Expenses extends Component {
         amount: ''
       });
     }
-    else if (operation === 'edit') {
+    else if (operation === operations.edit) {
       this.setState({
         operation: operation,
         operationText: 'Edit an existing expense',
         submitText: 'Save',
         key: expense.key,
-        date: moment(expense.date).format('L'),
-        description: expense.description,
-        category: expense.category,
-        property: expense.property,
-        isDebit: expense.isDebit,
-        amount: utilities.convertCentsToDollars(expense.amount)
+        date: moment(expense.data.date).format('L'),
+        description: expense.data.description,
+        category: expense.data.category,
+        property: expense.data.property,
+        isDebit: expense.data.isDebit,
+        amount: utilities.convertCentsToDollars(expense.data.amount)
       });
     }
-    else if (operation === 'delete') {
+    else if (operation === operations.delete) {
       this.setState({
         operation: operation,
         operationText: 'Delete an existing expense',
         submitText: 'Delete',
         key: expense.key,
-        date: moment(expense.date).format('L'),
-        description: expense.description,
-        category: expense.category,
-        property: expense.property,
-        isDebit: expense.isDebit,
-        amount: utilities.convertCentsToDollars(expense.amount)
+        date: moment(expense.data.date).format('L'),
+        description: expense.data.description,
+        category: expense.data.category,
+        property: expense.data.property,
+        isDebit: expense.data.isDebit,
+        amount: utilities.convertCentsToDollars(expense.data.amount)
       });
     }
 
@@ -128,7 +108,6 @@ class Expenses extends Component {
     this.setState({ showModal: false });
   }
 
-  //// refactor this to remove firebase stuff
   handleSubmit(event) {
     event.preventDefault();
 
@@ -143,30 +122,28 @@ class Expenses extends Component {
     calculatedAmount = Math.round(calculatedAmount * 100);
 
     let expense = {
-      date: calculatedDate.toISOString(),
-      taxYear: moment(calculatedDate).year(),
-      description: this.state.description,
-      category: this.state.category,
-      property: this.state.property,
-      isDebit: this.state.isDebit,
-      amount: calculatedAmount
+      key: this.state.key,
+      data: {
+        date: calculatedDate.toISOString(),
+        description: this.state.description,
+        category: this.state.category,
+        property: this.state.property,
+        isDebit: this.state.isDebit,
+        amount: calculatedAmount,
+        taxYear: moment(calculatedDate).year()
+      }
     }
 
-    if (this.state.operation === 'new') {
-      const expensesRef = firebase.database().ref('expenses');
-      expensesRef.push(expense);
+    if (this.state.operation === operations.new) {
+      // this.props.onInsertExpense(expense);
     }
-    else if (this.state.operation === 'edit') {
-      const expensesRef = firebase.database().ref('expenses').child(this.state.key);
-      expensesRef.update(expense);
+    else if (this.state.operation === operations.edit) {
+      // this.props.onEditExpense(expense);
     }
-    else if (this.state.operation === 'delete') {
-      const expensesRef = firebase.database().ref('expenses').child(this.state.key);
-      expensesRef.remove();
+    else if (this.state.operation === operations.delete) {
+      // this.props.onDeleteExpense(expense);
     }
 
-    //// remove this
-    this.addNotification();
     this.setState({ showModal: false });
   }
 
@@ -179,74 +156,31 @@ class Expenses extends Component {
       [name]: value
     });
   }
-  
-  //// add componentWillReceiveProps
 
-  //// remove this
-  componentDidMount() {
-    const rootRef = firebase.database().ref();
-    const taxYearRef = rootRef.child('taxYear');
-    taxYearRef.on('value', snapshot => {
+  componentWillReceiveProps(newProps) {
+    if (newProps.taxyearObject.taxYear) {
       this.setState({
-        taxYear: snapshot.val()
+        taxYear: newProps.taxyearObject.taxYear
       })
-
-      const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
-      expensesRef.on('value', snapshot => {
-
-        let expenses = [];
-        snapshot.forEach(function (data) {
-          let expense = {
-            key: data.key,
-            date: data.val().date,
-            description: data.val().description,
-            category: data.val().category,
-            property: data.val().property,
-            isDebit: data.val().isDebit,
-            amount: data.val().amount
-          }
-          expenses.push(expense);
-        });
-
-        this.setState({
-          expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1)
-        });
-      });
-    });
-
-    const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-    categoriesRef.on('value', snapshot => {
-      let categories = [];
-      snapshot.forEach(function (data) {
-        let category = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive
-        }
-        categories.push(category);
-      });
-
+    }
+    if (newProps.expenseObject.expenses) {
       this.setState({
-        categories: categories
+        expenses: newProps.expenseObject.expenses.sort(
+          (a, b) => a.data.date < b.data.date ? -1 : 1)
       });
-    });
-
-    const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-    propertiesRef.on('value', snapshot => {
-      let properties = [];
-      snapshot.forEach(function (data) {
-        let property = {
-          key: data.key,
-          description: data.val().description,
-          isActive: data.val().isActive
-        }
-        properties.push(property);
-      });
-
+    }
+    if (newProps.propertyObject.properties) {
       this.setState({
-        properties: properties
+        properties: newProps.propertyObject.properties.sort(
+          (a, b) => a.data.description < b.data.description ? -1 : 1)
       });
-    });
+    }
+    if (newProps.categoryObject.categories) {
+      this.setState({
+        categories: newProps.categoryObject.categories.sort(
+          (a, b) => a.data.description < b.data.description ? -1 : 1)
+      });
+    }
   }
 
   render() {
@@ -262,14 +196,14 @@ class Expenses extends Component {
     let items = this.state.expenses.map(expense => {
       return (
         <tr key={expense.key}>
-          <td><Moment date={expense.date} format='L' /></td>
-          <td>{expense.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
-          <td><ExpenseTypeDisplay isDebit={expense.isDebit} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'edit')}>Edit</button>
-            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, 'delete')}>Delete</button></td>
+          <td><Moment date={expense.data.date} format='L' /></td>
+          <td>{expense.data.description}</td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td><ExpenseTypeDisplay isDebit={expense.data.isDebit} /></td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
+          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.edit)}>Edit</button>
+            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -277,7 +211,6 @@ class Expenses extends Component {
     return (
       <div className='w3-container'>
         <h4>Expenses for tax year {this.state.taxYear}</h4>
-        <NotificationSystem ref={n => this._notificationSystem = n} />
 
         <div style={divStyle}>
           <table className='w3-table-all'>
@@ -297,7 +230,7 @@ class Expenses extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, 'new')}>New expense</button>
+        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New expense</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -317,19 +250,19 @@ class Expenses extends Component {
               </div>
               <div className='w3-section'>
                 <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
-                  {this.state.categories.map(category => { return <option className='w3-text-grey' key={category.key} value={category.key}>{category.description}</option> })}
+                  {this.state.categories.map(category => { return <option className='w3-text-grey' key={category.key} value={category.key}>{category.data.description}</option> })}
                 </select>
                 <label className='w3-label'>Category</label>
               </div>
               <div className='w3-section'>
                 <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='property' value={this.state.property} onChange={this.handleInputChange.bind(this)} >
-                  {this.state.properties.map(property => { return <option className='w3-text-grey' key={property.key} value={property.key}>{property.description}</option> })}
+                  {this.state.properties.map(property => { return <option className='w3-text-grey' key={property.key} value={property.key}>{property.data.description}</option> })}
                 </select>
                 <label className='w3-label'>Property</label>
               </div>
               <div className='w3-section'>
                 <ExpenseTypeSlider checked={this.state.isDebit} name='isDebit' onChange={this.handleInputChange.bind(this)} />
-                <label className='w3-label'>Cash in or cash out</label>
+                <label className='w3-label'>Type</label>
               </div>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' onChange={this.handleInputChange.bind(this)} />
@@ -348,34 +281,35 @@ class Expenses extends Component {
   }
 }
 
-export default Expenses;
+Expenses.propTypes = {
+  onEditExpense: React.PropTypes.func.isRequired,
+  onInsertExpense: React.PropTypes.func.isRequired,
+  onDeleteExpense: React.PropTypes.func.isRequired,
+  taxyearObject: React.PropTypes.object.isRequired,
+  expenseObject: React.PropTypes.object.isRequired,
+  propertyObject: React.PropTypes.object.isRequired,
+  categoryObject: React.PropTypes.object.isRequired
+};
 
-// Expenses.propTypes = {
-//   onEditProperty: React.PropTypes.func.isRequired,
-//   onInsertProperty: React.PropTypes.func.isRequired,
-//   onDeleteProperty: React.PropTypes.func.isRequired,
-//   expenseObject: React.PropTypes.object.isRequired,
-//   properyObject: React.PropTypes.object.isRequired,
-//   categoryObject: React.PropTypes.object.isRequired,
-//   taxyearObject: React.PropTypes.object.isRequiredl
-// };
+function mapStateToProps(state) {
+  return {
+    taxyearObject: state.taxyearObject,
+    expenseObject: state.expenseObject,
+    propertyObject: state.propertyObject,
+    categoryObject: state.categoryObject
+  };
+}
 
-// function mapStateToProps(state) {
-//   return {
-//     expenseObject: state.expenseObject,
-//     propertyObject: state.propertyObject,
-//     categoryObject: state.categoryObject,
-//     taxyearObject: state.taxyearObject
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  // watchtaxyearEvent(dispatch);
+  watchExpensesEvent(dispatch);
+  watchPropertiesEvent(dispatch);
+  watchCategoriesEvent(dispatch);
+  return {
+    onEditExpense: (expense) => dispatch(editExpenseAction(expense)),
+    onInsertExpense: (expense) => dispatch(insertExpenseAction(expense)),
+    onDeleteExpense: (expense) => dispatch(deleteExpenseAction(expense))
+  }
+}
 
-// function mapDispatchToProps(dispatch) {
-//   watchExpensesEvent(dispatch);
-//   return {
-//     onEditExpense: (expense) => dispatch(editExpenseAction(expense)),
-//     onInsertExpense: (expense) => dispatch(insertExpenseAction(expense)),
-//     onDeleteProperty: (expense) => dispatch(deleteExpenseAction(expense))
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Expenses);
+export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

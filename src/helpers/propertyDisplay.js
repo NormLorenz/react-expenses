@@ -10,7 +10,7 @@ class PropertyDisplay extends Component {
 
     if (property) {
       return (
-        <span> {property.description} </span>
+        <span> {property.data.description} </span>
       )
     }
 
