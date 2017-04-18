@@ -135,10 +135,10 @@ class Expenses extends Component {
     }
 
     if (this.state.operation === operations.new) {
-      // this.props.onInsertExpense(expense);
+      this.props.onInsertExpense(expense);
     }
     else if (this.state.operation === operations.edit) {
-      // this.props.onEditExpense(expense);
+      this.props.onEditExpense(expense);
     }
     else if (this.state.operation === operations.delete) {
       // this.props.onDeleteExpense(expense);

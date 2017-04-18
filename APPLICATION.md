@@ -183,6 +183,13 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
 * refactor properties using redux - DONE
 * refactor categories using redux - DONE
 * refactor expenses using redux
+  * code taxYear
+  * test new, edit and delete
+  * move select to a component
+  * dropdown's default to first item on new expense
+  * display build or version number
 * refactor reports using redux
+* refactor summary
+* remove readme
 
 http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded
