@@ -187,6 +187,7 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * test new, edit and delete
   * move select to a component
   * dropdown's default to first item on new expense
+    * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_input_select_border
   * display build or version number
 * refactor reports using redux
 * refactor summary
