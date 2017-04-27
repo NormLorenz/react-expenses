@@ -174,7 +174,6 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
  
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
-* implement split containers from components
 * consolidate toaster notifications - DONE
   * https://codereviewvideos.com/blog/notifications-react-and-redux/
   * remove props
@@ -185,12 +184,17 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
 * refactor expenses using redux
   * code taxYear
   * test new, edit and delete
-  * move select to a component
-  * dropdown's default to first item on new expense
-    * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_input_select_border
-  * display build or version number
+  * move select to a component and use a placeholder
+  * http://derpturkey.com/select-placeholder-with-react/
+  * https://github.com/JedWatson/classnames
+  * https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04
+  * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
+  * pass the class name as props
+* display build or version number
 * refactor reports using redux
 * refactor summary
-* remove readme
+* remove readme route, component, action and reducer
+* display react version 1.1.0
+* use placeholders throughout
 
 http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded

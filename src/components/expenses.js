@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
+import './expenses.css';
+import classnames from 'classnames/bind';
+
 import PropertyDisplay from '../helpers/propertyDisplay';
 import CategoryDisplay from '../helpers/categoryDisplay';
 import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
@@ -184,6 +187,7 @@ class Expenses extends Component {
   }
 
   render() {
+
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '10%' };
     const col2Style = { width: '25%' };
@@ -192,6 +196,26 @@ class Expenses extends Component {
     const col5Style = { width: '10%' };
     const col6Style = { width: '8%' };
     const col7Style = { width: '17%' };
+
+    const classCategory = classnames(
+      'w3-select',
+      'w3-border',
+      'w3-white',
+      'w3-round',
+      {
+        'placeholder': !this.state.category
+      }
+    );
+
+    const classProperty = classnames(
+      'w3-select',
+      'w3-border',
+      'w3-white',
+      'w3-round',
+      {
+        'placeholder': !this.state.property
+      }
+    );
 
     let items = this.state.expenses.map(expense => {
       return (
@@ -241,21 +265,23 @@ class Expenses extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.date} name='date' onChange={this.handleInputChange.bind(this)} autoFocus />
+                <input className='w3-input w3-border w3-round' value={this.state.date} name='date' placeholder='mm/dd or mm/dd/yyyy' onChange={this.handleInputChange.bind(this)} autoFocus />
                 <label className='w3-label'>Date</label>
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' onChange={this.handleInputChange.bind(this)} />
+                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' placeholder='enter a description' onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
-                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
+                <select className={classCategory} style={{ paddingLeft: '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
+                  <option className='w3-text-grey' key='-1' value=''>select a category</option>
                   {this.state.categories.map(category => { return <option className='w3-text-grey' key={category.key} value={category.key}>{category.data.description}</option> })}
                 </select>
                 <label className='w3-label'>Category</label>
               </div>
               <div className='w3-section'>
-                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='property' value={this.state.property} onChange={this.handleInputChange.bind(this)} >
+                <select className={classProperty} style={{ paddingLeft: '6px' }} name='property' value={this.state.property} onChange={this.handleInputChange.bind(this)} >
+                  <option className='w3-text-grey' key='-1' value=''>select a property</option>
                   {this.state.properties.map(property => { return <option className='w3-text-grey' key={property.key} value={property.key}>{property.data.description}</option> })}
                 </select>
                 <label className='w3-label'>Property</label>
@@ -265,7 +291,7 @@ class Expenses extends Component {
                 <label className='w3-label'>Type</label>
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' onChange={this.handleInputChange.bind(this)} />
+                <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' placeholder='enter an amount' onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Amount</label>
               </div>
               <div className='w3-section'>
