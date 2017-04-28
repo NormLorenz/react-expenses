@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-import './expenses.css';
-import classnames from 'classnames/bind';
-
 import PropertyDisplay from '../helpers/propertyDisplay';
 import CategoryDisplay from '../helpers/categoryDisplay';
 import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
@@ -15,6 +12,8 @@ import { connect } from 'react-redux';
 import { editExpenseAction, insertExpenseAction, deleteExpenseAction, watchExpensesEvent } from '../actions/expenses';
 import { watchPropertiesEvent } from '../actions/properties';
 import { watchCategoriesEvent } from '../actions/categories';
+
+import MySelect from '../helpers/mySelect';
 
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -197,26 +196,6 @@ class Expenses extends Component {
     const col6Style = { width: '8%' };
     const col7Style = { width: '17%' };
 
-    const classCategory = classnames(
-      'w3-select',
-      'w3-border',
-      'w3-white',
-      'w3-round',
-      {
-        'placeholder': !this.state.category
-      }
-    );
-
-    const classProperty = classnames(
-      'w3-select',
-      'w3-border',
-      'w3-white',
-      'w3-round',
-      {
-        'placeholder': !this.state.property
-      }
-    );
-
     let items = this.state.expenses.map(expense => {
       return (
         <tr key={expense.key}>
@@ -273,17 +252,11 @@ class Expenses extends Component {
                 <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
-                <select className={classCategory} style={{ paddingLeft: '6px' }} name='category' value={this.state.category} onChange={this.handleInputChange.bind(this)} >
-                  <option className='w3-text-grey' key='-1' value=''>select a category</option>
-                  {this.state.categories.map(category => { return <option className='w3-text-grey' key={category.key} value={category.key}>{category.data.description}</option> })}
-                </select>
+                <MySelect className='w3-select w3-border w3-white w3-round' name='category' text='select a category' options={this.state.categories} value={this.state.category} onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Category</label>
               </div>
               <div className='w3-section'>
-                <select className={classProperty} style={{ paddingLeft: '6px' }} name='property' value={this.state.property} onChange={this.handleInputChange.bind(this)} >
-                  <option className='w3-text-grey' key='-1' value=''>select a property</option>
-                  {this.state.properties.map(property => { return <option className='w3-text-grey' key={property.key} value={property.key}>{property.data.description}</option> })}
-                </select>
+                <MySelect className='w3-select w3-border w3-white w3-round' name='property' text='select a property' options={this.state.properties} value={this.state.property} onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Property</label>
               </div>
               <div className='w3-section'>
