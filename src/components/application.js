@@ -94,7 +94,6 @@ class Application extends Component {
                   }
                 </li>
 
-                {/*<li className='w3-right w3-medium'><Link to='/readme' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Readme</Link></li>*/}
                 <li className='w3-right w3-medium'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
                 <li className='w3-right w3-medium'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
                 <li className='w3-right w3-medium'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
@@ -113,7 +112,6 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/properties' component={Properties} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
                   <PrivateRoute authed={this.state.authed} path='/reports' component={Reports} />
-                  {/*<Route path='/readme' component={Readme} />*/}
                   <Route render={() => <h4>No Match</h4>} />
                 </Switch>
               </div>

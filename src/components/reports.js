@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import firebase from 'firebase';
-import * as utilities from '../helpers/utilities'; 
+import * as utilities from '../helpers/utilities';
 
 import PropertyDisplay from '../helpers/propertyDisplay';
 import CategoryDisplay from '../helpers/categoryDisplay';
 import ActiveDisplay from '../helpers/activeDisplay';
+
+import { connect } from 'react-redux';
 
 import Moment from 'react-moment';
 
@@ -35,97 +36,175 @@ class Reports extends Component {
     return sum;
   }
 
-  componentDidMount() {
-    const rootRef = firebase.database().ref();
-    const taxYearRef = rootRef.child('taxYear');
-    taxYearRef.once('value', snapshot => {
+  // componentDidMount() {
+  //   const rootRef = firebase.database().ref();
+  //   const taxYearRef = rootRef.child('taxYear');
+  //   taxYearRef.once('value', snapshot => {
+  //     this.setState({
+  //       taxYear: snapshot.val()
+  //     });
+
+  //     const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
+  //     expensesRef.once('value', snapshot => {
+  //       let expenses = [];
+  //       let creditsTotal = 0;
+  //       let debitsTotal = 0;
+  //       snapshot.forEach(function (data) {
+  //         let expense = {
+  //           key: data.key,
+  //           date: data.val().date,
+  //           description: data.val().description,
+  //           category: data.val().category,
+  //           property: data.val().property,
+  //           isDebit: data.val().isDebit,
+  //           amount: data.val().amount
+  //         }
+  //         if (expense.isDebit === true) {
+  //           debitsTotal += expense.amount;
+  //         }
+  //         else {
+  //           creditsTotal += expense.amount;
+  //         }
+  //         expenses.push(expense);
+  //       });
+
+  //       this.setState({
+  //         expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1),
+  //         creditsTotal: creditsTotal,
+  //         debitsTotal: debitsTotal
+  //       });
+
+  //       const propertiesRef = firebase.database().ref('properties').orderByChild('description');
+  //       propertiesRef.once('value', snapshot => {
+  //         let properties = [];
+  //         let propertyCreditsTotal = 0;
+  //         let propertyDebitsTotal = 0;
+  //         let _this = this;
+  //         snapshot.forEach(function (data) {
+  //           let property = {
+  //             key: data.key,
+  //             description: data.val().description,
+  //             isActive: data.val().isActive,
+  //             credit: _this.calculateSum(data.key, 'property', false),
+  //             debit: _this.calculateSum(data.key, 'property', true)
+  //           }
+  //           properties.push(property);
+  //           propertyCreditsTotal += property.credit;
+  //           propertyDebitsTotal += property.debit;
+  //         });
+
+  //         this.setState({
+  //           properties: properties,
+  //           propertyCreditsTotal: propertyCreditsTotal,
+  //           propertyDebitsTotal: propertyDebitsTotal
+  //         });
+  //       });
+
+  //       const categoriesRef = firebase.database().ref('categories').orderByChild('description');
+  //       categoriesRef.once('value', snapshot => {
+  //         let categories = [];
+  //         let categoryCreditsTotal = 0;
+  //         let categoryDebitsTotal = 0;
+  //         let _this = this;
+  //         snapshot.forEach(function (data) {
+  //           let category = {
+  //             key: data.key,
+  //             description: data.val().description,
+  //             isActive: data.val().isActive,
+  //             credit: _this.calculateSum(data.key, 'category', false),
+  //             debit: _this.calculateSum(data.key, 'category', true)
+  //           }
+  //           categories.push(category);
+  //           categoryCreditsTotal += category.credit;
+  //           categoryDebitsTotal += category.debit;
+  //         });
+
+  //         this.setState({
+  //           categories: categories,
+  //           categoryCreditsTotal: categoryCreditsTotal,
+  //           categoryDebitsTotal: categoryDebitsTotal
+  //         });
+  //       });
+  //     });
+  //   });
+  // }
+
+  componentWillReceiveProps(newProps) {
+
+    console.log(1234);
+
+    // taxYear
+    if (newProps.taxyearObject.taxYear) {
       this.setState({
-        taxYear: snapshot.val()
+        taxYear: newProps.taxyearObject.taxYear
+      })
+    }
+
+    // expenses
+    if (newProps.expenseObject.expenses) {
+      let expenses = newProps.expenseObject.expenses.sort(
+        (a, b) => a.data.date < b.data.date ? -1 : 1);
+      let debitsTotal = 0;
+      let creditsTotal = 0;
+
+      this.state.expenses.forEach(function (expense) {
+        if (expense.isDebit === true)
+          debitsTotal += expense.amount;
+        else
+          creditsTotal += expense.amount;
       });
 
-      const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
-      expensesRef.once('value', snapshot => {
-        let expenses = [];
-        let creditsTotal = 0;
-        let debitsTotal = 0;
-        snapshot.forEach(function (data) {
-          let expense = {
-            key: data.key,
-            date: data.val().date,
-            description: data.val().description,
-            category: data.val().category,
-            property: data.val().property,
-            isDebit: data.val().isDebit,
-            amount: data.val().amount
-          }
-          if (expense.isDebit === true) {
-            debitsTotal += expense.amount;
-          }
-          else {
-            creditsTotal += expense.amount;
-          }
-          expenses.push(expense);
-        });
-
-        this.setState({
-          expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1),
-          creditsTotal: creditsTotal,
-          debitsTotal: debitsTotal
-        });
-
-        const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-        propertiesRef.once('value', snapshot => {
-          let properties = [];
-          let propertyCreditsTotal = 0;
-          let propertyDebitsTotal = 0;
-          let _this = this;
-          snapshot.forEach(function (data) {
-            let property = {
-              key: data.key,
-              description: data.val().description,
-              isActive: data.val().isActive,
-              credit: _this.calculateSum(data.key, 'property', false),
-              debit: _this.calculateSum(data.key, 'property', true)
-            }
-            properties.push(property);
-            propertyCreditsTotal += property.credit;
-            propertyDebitsTotal += property.debit;
-          });
-
-          this.setState({
-            properties: properties,
-            propertyCreditsTotal: propertyCreditsTotal,
-            propertyDebitsTotal: propertyDebitsTotal
-          });
-        });
-
-        const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-        categoriesRef.once('value', snapshot => {
-          let categories = [];
-          let categoryCreditsTotal = 0;
-          let categoryDebitsTotal = 0;
-          let _this = this;
-          snapshot.forEach(function (data) {
-            let category = {
-              key: data.key,
-              description: data.val().description,
-              isActive: data.val().isActive,
-              credit: _this.calculateSum(data.key, 'category', false),
-              debit: _this.calculateSum(data.key, 'category', true)
-            }
-            categories.push(category);
-            categoryCreditsTotal += category.credit;
-            categoryDebitsTotal += category.debit;
-          });
-
-          this.setState({
-            categories: categories,
-            categoryCreditsTotal: categoryCreditsTotal,
-            categoryDebitsTotal: categoryDebitsTotal
-          });
-        });
+      this.setState({
+        expenses: expenses,
+        debitsTotal: debitsTotal,
+        creditsTotal: creditsTotal
       });
-    });
+    }
+
+    // properties
+    if (newProps.propertyObject.properties) {
+      let properties = newProps.propertyObject.properties.sort(
+        (a, b) => a.data.description < b.data.description ? -1 : 1);
+      let propertyCreditsTotal = 0;
+      let propertyDebitsTotal = 0;
+      let _this = this;
+
+      properties.forEach(function (property) {
+        property.set('credit', _this.calculateSum(property.key, 'property', false));
+        property.set('debit', _this.calculateSum(property.key, 'property', true));
+        propertyCreditsTotal += property.credit;
+        propertyDebitsTotal += property.debit;
+      });
+
+      this.setState({
+        properties: properties,
+        propertyCreditsTotal: propertyCreditsTotal,
+        propertyDebitsTotal: propertyDebitsTotal
+      });
+    }
+
+    // categories
+    if (newProps.categoryObject.categories) {
+      let categories = newProps.categoryObject.categoriessort(
+        (a, b) => a.data.description < b.data.description ? -1 : 1);
+      let categoryCreditsTotal = 0;
+      let categoryDebitsTotal = 0;
+      let _this = this;
+
+      categories.forEach(function (category) {
+        category.set('credit', _this.calculateSum(category.key, 'category', false));
+        category.set('debit', _this.calculateSum(category.key, 'category', true));
+        categoryCreditsTotal += category.credit;
+        categoryDebitsTotal += category.debit;
+      });
+
+      this.setState({
+        categories: categories,
+        categoryCreditsTotal: categoryCreditsTotal,
+        categoryDebitsTotal: categoryDebitsTotal
+      });
+    }
+
   }
 
   render() {
@@ -301,4 +380,22 @@ class Reports extends Component {
   }
 }
 
-export default Reports;
+//export default Reports;
+
+Reports.propTypes = {
+  taxyearObject: React.PropTypes.object.isRequired,
+  expenseObject: React.PropTypes.object.isRequired,
+  propertyObject: React.PropTypes.object.isRequired,
+  categoryObject: React.PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    taxyearObject: state.taxyearObject,
+    expenseObject: state.expenseObject,
+    propertyObject: state.propertyObject,
+    categoryObject: state.categoryObject
+  };
+}
+
+export default connect(mapStateToProps)(Reports);

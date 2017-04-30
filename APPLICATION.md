@@ -191,9 +191,9 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
     * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
     * pass the class name as props
 * display build or version number
-* refactor reports using redux
+* refactor reports using redux - WORKING
 * refactor summary using redux
-* remove readme route, component, action and reducer
+* remove readme route, component, action and reducer - DONE
 * display react version 1.1.0
 * use placeholders throughout
 * propTypes

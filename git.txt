@@ -1,0 +1,13 @@
+user.name=normlorenz
+user.email=normlorenz@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=/media/norm/TRAVELDRIVE/gitMaster/react-expenses
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+gitg.mainline=refs/heads/master
+branch.redux.remote=origin
+branch.redux.merge=refs/heads/redux
