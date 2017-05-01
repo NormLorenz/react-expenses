@@ -6,6 +6,10 @@ import CategoryDisplay from '../helpers/categoryDisplay';
 import ActiveDisplay from '../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
+//import { watchTaxyearEvent } from '../actions/taxyear';
+import { watchExpensesEvent } from '../actions/expenses';
+import { watchPropertiesEvent } from '../actions/properties';
+import { watchCategoriesEvent } from '../actions/categories';
 
 import Moment from 'react-moment';
 
@@ -29,109 +33,18 @@ class Reports extends Component {
 
   // https://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
   calculateSum(key, field, isDebit) {
+    console.log(key);
+    console.log(field);
+    console.log(isDebit);
+    console.log(this.state.expenses);
     let filteredExpenses = this.state.expenses.filter((expense) =>
-      expense.isDebit === isDebit && expense[field] === key);
+      expense.data.isDebit === isDebit && expense.data[field] === key);
     let sum = filteredExpenses.reduce((sum, expense) =>
-      sum + expense.amount, 0);
+      sum + expense.data.amount, 0);
     return sum;
   }
 
-  // componentDidMount() {
-  //   const rootRef = firebase.database().ref();
-  //   const taxYearRef = rootRef.child('taxYear');
-  //   taxYearRef.once('value', snapshot => {
-  //     this.setState({
-  //       taxYear: snapshot.val()
-  //     });
-
-  //     const expensesRef = firebase.database().ref('expenses').orderByChild('taxYear').equalTo(this.state.taxYear);
-  //     expensesRef.once('value', snapshot => {
-  //       let expenses = [];
-  //       let creditsTotal = 0;
-  //       let debitsTotal = 0;
-  //       snapshot.forEach(function (data) {
-  //         let expense = {
-  //           key: data.key,
-  //           date: data.val().date,
-  //           description: data.val().description,
-  //           category: data.val().category,
-  //           property: data.val().property,
-  //           isDebit: data.val().isDebit,
-  //           amount: data.val().amount
-  //         }
-  //         if (expense.isDebit === true) {
-  //           debitsTotal += expense.amount;
-  //         }
-  //         else {
-  //           creditsTotal += expense.amount;
-  //         }
-  //         expenses.push(expense);
-  //       });
-
-  //       this.setState({
-  //         expenses: expenses.sort((a, b) => a.date < b.date ? -1 : 1),
-  //         creditsTotal: creditsTotal,
-  //         debitsTotal: debitsTotal
-  //       });
-
-  //       const propertiesRef = firebase.database().ref('properties').orderByChild('description');
-  //       propertiesRef.once('value', snapshot => {
-  //         let properties = [];
-  //         let propertyCreditsTotal = 0;
-  //         let propertyDebitsTotal = 0;
-  //         let _this = this;
-  //         snapshot.forEach(function (data) {
-  //           let property = {
-  //             key: data.key,
-  //             description: data.val().description,
-  //             isActive: data.val().isActive,
-  //             credit: _this.calculateSum(data.key, 'property', false),
-  //             debit: _this.calculateSum(data.key, 'property', true)
-  //           }
-  //           properties.push(property);
-  //           propertyCreditsTotal += property.credit;
-  //           propertyDebitsTotal += property.debit;
-  //         });
-
-  //         this.setState({
-  //           properties: properties,
-  //           propertyCreditsTotal: propertyCreditsTotal,
-  //           propertyDebitsTotal: propertyDebitsTotal
-  //         });
-  //       });
-
-  //       const categoriesRef = firebase.database().ref('categories').orderByChild('description');
-  //       categoriesRef.once('value', snapshot => {
-  //         let categories = [];
-  //         let categoryCreditsTotal = 0;
-  //         let categoryDebitsTotal = 0;
-  //         let _this = this;
-  //         snapshot.forEach(function (data) {
-  //           let category = {
-  //             key: data.key,
-  //             description: data.val().description,
-  //             isActive: data.val().isActive,
-  //             credit: _this.calculateSum(data.key, 'category', false),
-  //             debit: _this.calculateSum(data.key, 'category', true)
-  //           }
-  //           categories.push(category);
-  //           categoryCreditsTotal += category.credit;
-  //           categoryDebitsTotal += category.debit;
-  //         });
-
-  //         this.setState({
-  //           categories: categories,
-  //           categoryCreditsTotal: categoryCreditsTotal,
-  //           categoryDebitsTotal: categoryDebitsTotal
-  //         });
-  //       });
-  //     });
-  //   });
-  // }
-
   componentWillReceiveProps(newProps) {
-
-    console.log(1234);
 
     // taxYear
     if (newProps.taxyearObject.taxYear) {
@@ -139,6 +52,9 @@ class Reports extends Component {
         taxYear: newProps.taxyearObject.taxYear
       })
     }
+
+    console.log(newProps.expenseObject.expenses);
+
 
     // expenses
     if (newProps.expenseObject.expenses) {
@@ -148,10 +64,10 @@ class Reports extends Component {
       let creditsTotal = 0;
 
       this.state.expenses.forEach(function (expense) {
-        if (expense.isDebit === true)
-          debitsTotal += expense.amount;
+        if (expense.data.isDebit === true)
+          debitsTotal += expense.data.amount;
         else
-          creditsTotal += expense.amount;
+          creditsTotal += expense.data.amount;
       });
 
       this.setState({
@@ -170,8 +86,8 @@ class Reports extends Component {
       let _this = this;
 
       properties.forEach(function (property) {
-        property.set('credit', _this.calculateSum(property.key, 'property', false));
-        property.set('debit', _this.calculateSum(property.key, 'property', true));
+        property.credit = _this.calculateSum(property.key, 'property', false);
+        property.debit = _this.calculateSum(property.key, 'property', true);
         propertyCreditsTotal += property.credit;
         propertyDebitsTotal += property.debit;
       });
@@ -185,15 +101,15 @@ class Reports extends Component {
 
     // categories
     if (newProps.categoryObject.categories) {
-      let categories = newProps.categoryObject.categoriessort(
+      let categories = newProps.categoryObject.categories.sort(
         (a, b) => a.data.description < b.data.description ? -1 : 1);
       let categoryCreditsTotal = 0;
       let categoryDebitsTotal = 0;
       let _this = this;
 
       categories.forEach(function (category) {
-        category.set('credit', _this.calculateSum(category.key, 'category', false));
-        category.set('debit', _this.calculateSum(category.key, 'category', true));
+        category.credit = _this.calculateSum(category.key, 'category', false);
+        category.debit = _this.calculateSum(category.key, 'category', true);
         categoryCreditsTotal += category.credit;
         categoryDebitsTotal += category.debit;
       });
@@ -210,34 +126,34 @@ class Reports extends Component {
   render() {
 
     let filteredCredits = this.state.expenses.filter(expense => {
-      return expense.isDebit === false;
+      return expense.data.isDebit === false;
     });
 
     let credits = filteredCredits.map(expense => {
       return (
         <tr key={expense.key}>
-          <td><Moment date={expense.date} format='L' /></td>
-          <td>{expense.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
+          <td><Moment date={expense.data.date} format='L' /></td>
+          <td>{expense.data.description}</td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>
       );
     });
 
     let filteredDebits = this.state.expenses.filter(expense => {
-      return expense.isDebit === true;
+      return expense.data.isDebit === true;
     });
 
     let debits = filteredDebits.map(expense => {
       return (
         <tr key={expense.key}>
-          <td><Moment date={expense.date} format='L' /></td>
-          <td>{expense.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.property} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.amount)}</td>
+          <td><Moment date={expense.data.date} format='L' /></td>
+          <td>{expense.data.description}</td>
+          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
+          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>
       );
@@ -246,8 +162,8 @@ class Reports extends Component {
     let properties = this.state.properties.map(property => {
       return (
         <tr key={property.key}>
-          <td>{property.description}</td>
-          <td><ActiveDisplay isActive={property.isActive} /></td>
+          <td>{property.data.description}</td>
+          <td><ActiveDisplay isActive={property.data.isActive} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(property.credit)}</td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(property.debit)}</td>
           <td></td>
@@ -258,8 +174,8 @@ class Reports extends Component {
     let categories = this.state.categories.map(category => {
       return (
         <tr key={category.key}>
-          <td>{category.description}</td>
-          <td><ActiveDisplay isActive={category.isActive} /></td>
+          <td>{category.data.description}</td>
+          <td><ActiveDisplay isActive={category.data.isActive} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(category.credit)}</td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(category.debit)}</td>
           <td></td>
@@ -380,8 +296,6 @@ class Reports extends Component {
   }
 }
 
-//export default Reports;
-
 Reports.propTypes = {
   taxyearObject: React.PropTypes.object.isRequired,
   expenseObject: React.PropTypes.object.isRequired,
@@ -398,4 +312,13 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Reports);
+function mapDispatchToProps(dispatch) {
+  // watchtaxyearEvent(dispatch);
+  watchExpensesEvent(dispatch);
+  watchPropertiesEvent(dispatch);
+  watchCategoriesEvent(dispatch);
+  return {
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reports);
