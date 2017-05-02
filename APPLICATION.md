@@ -181,6 +181,8 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * install react-notification-system-redux
 * refactor properties using redux - DONE
 * refactor categories using redux - DONE
+* refactor reports using redux - DONE
+* remove readme route, component, action and reducer - DONE
 * refactor expenses using redux
   * code taxYear
   * test new, edit and delete
@@ -191,9 +193,7 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
     * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
     * pass the class name as props
 * display build or version number
-* refactor reports using redux - WORKING
-* refactor summary using redux
-* remove readme route, component, action and reducer - DONE
+* refactor summary using redux - WORKING
 * display react version 1.1.0
 * use placeholders throughout
 * propTypes

@@ -31,6 +31,9 @@ class Home extends Component {
               <p>
                 Please click on the menu above to continue.
               </p>
+              <p>
+                React Expenses ver 1.1.0
+              </p>
             </div>
           </div>
         </div>

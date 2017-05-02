@@ -32,12 +32,8 @@ class Reports extends Component {
   }
 
   // https://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
-  calculateSum(key, field, isDebit) {
-    console.log(key);
-    console.log(field);
-    console.log(isDebit);
-    console.log(this.state.expenses);
-    let filteredExpenses = this.state.expenses.filter((expense) =>
+  calculateSum(expenses, key, field, isDebit) {
+    let filteredExpenses = expenses.filter((expense) =>
       expense.data.isDebit === isDebit && expense.data[field] === key);
     let sum = filteredExpenses.reduce((sum, expense) =>
       sum + expense.data.amount, 0);
@@ -51,76 +47,71 @@ class Reports extends Component {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
       })
+
+      // expenses
+      if (newProps.expenseObject.expenses) {
+        let expenses = newProps.expenseObject.expenses.sort(
+          (a, b) => a.data.date < b.data.date ? -1 : 1);
+        let debitsTotal = 0;
+        let creditsTotal = 0;
+        expenses.forEach(function (expense) {
+          if (expense.data.isDebit === true)
+            debitsTotal += expense.data.amount;
+          else
+            creditsTotal += expense.data.amount;
+        });
+
+        this.setState({
+          expenses: expenses,
+          debitsTotal: debitsTotal,
+          creditsTotal: creditsTotal
+        });
+
+        // properties
+        if (newProps.propertyObject.properties) {
+          let properties = newProps.propertyObject.properties.sort(
+            (a, b) => a.data.description < b.data.description ? -1 : 1);
+          let propertyCreditsTotal = 0;
+          let propertyDebitsTotal = 0;
+          let _this = this;
+
+          properties.forEach(function (property) {
+            property.credit = _this.calculateSum(expenses, property.key, 'property', false);
+            property.debit = _this.calculateSum(expenses, property.key, 'property', true);
+            propertyCreditsTotal += property.credit;
+            propertyDebitsTotal += property.debit;
+          });
+
+          this.setState({
+            properties: properties,
+            propertyCreditsTotal: propertyCreditsTotal,
+            propertyDebitsTotal: propertyDebitsTotal
+          });
+        }
+
+        // categories
+        if (newProps.categoryObject.categories) {
+          let categories = newProps.categoryObject.categories.sort(
+            (a, b) => a.data.description < b.data.description ? -1 : 1);
+          let categoryCreditsTotal = 0;
+          let categoryDebitsTotal = 0;
+          let _this = this;
+
+          categories.forEach(function (category) {
+            category.credit = _this.calculateSum(expenses, category.key, 'category', false);
+            category.debit = _this.calculateSum(expenses, category.key, 'category', true);
+            categoryCreditsTotal += category.credit;
+            categoryDebitsTotal += category.debit;
+          });
+
+          this.setState({
+            categories: categories,
+            categoryCreditsTotal: categoryCreditsTotal,
+            categoryDebitsTotal: categoryDebitsTotal
+          });
+        }
+      }
     }
-
-    console.log(newProps.expenseObject.expenses);
-
-
-    // expenses
-    if (newProps.expenseObject.expenses) {
-      let expenses = newProps.expenseObject.expenses.sort(
-        (a, b) => a.data.date < b.data.date ? -1 : 1);
-      let debitsTotal = 0;
-      let creditsTotal = 0;
-
-      this.state.expenses.forEach(function (expense) {
-        if (expense.data.isDebit === true)
-          debitsTotal += expense.data.amount;
-        else
-          creditsTotal += expense.data.amount;
-      });
-
-      this.setState({
-        expenses: expenses,
-        debitsTotal: debitsTotal,
-        creditsTotal: creditsTotal
-      });
-    }
-
-    // properties
-    if (newProps.propertyObject.properties) {
-      let properties = newProps.propertyObject.properties.sort(
-        (a, b) => a.data.description < b.data.description ? -1 : 1);
-      let propertyCreditsTotal = 0;
-      let propertyDebitsTotal = 0;
-      let _this = this;
-
-      properties.forEach(function (property) {
-        property.credit = _this.calculateSum(property.key, 'property', false);
-        property.debit = _this.calculateSum(property.key, 'property', true);
-        propertyCreditsTotal += property.credit;
-        propertyDebitsTotal += property.debit;
-      });
-
-      this.setState({
-        properties: properties,
-        propertyCreditsTotal: propertyCreditsTotal,
-        propertyDebitsTotal: propertyDebitsTotal
-      });
-    }
-
-    // categories
-    if (newProps.categoryObject.categories) {
-      let categories = newProps.categoryObject.categories.sort(
-        (a, b) => a.data.description < b.data.description ? -1 : 1);
-      let categoryCreditsTotal = 0;
-      let categoryDebitsTotal = 0;
-      let _this = this;
-
-      categories.forEach(function (category) {
-        category.credit = _this.calculateSum(category.key, 'category', false);
-        category.debit = _this.calculateSum(category.key, 'category', true);
-        categoryCreditsTotal += category.credit;
-        categoryDebitsTotal += category.debit;
-      });
-
-      this.setState({
-        categories: categories,
-        categoryCreditsTotal: categoryCreditsTotal,
-        categoryDebitsTotal: categoryDebitsTotal
-      });
-    }
-
   }
 
   render() {
