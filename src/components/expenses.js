@@ -8,7 +8,7 @@ import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
 import * as utilities from '../helpers/utilities';
 
 import { connect } from 'react-redux';
-//import { watchTaxyearEvent } from '../actions/taxyear';
+import { watchTaxyearEvent } from '../actions/taxyear';
 import { editExpenseAction, insertExpenseAction, deleteExpenseAction, watchExpensesEvent } from '../actions/expenses';
 import { watchPropertiesEvent } from '../actions/properties';
 import { watchCategoriesEvent } from '../actions/categories';
@@ -50,7 +50,7 @@ class Expenses extends Component {
       isDebit: false,
       amount: null,
 
-      taxYear: 1776,
+      taxYear: 0,
       expenses: [],
       properties: [],
       categories: []
@@ -300,7 +300,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // watchtaxyearEvent(dispatch);
+  watchTaxyearEvent(dispatch);
   watchExpensesEvent(dispatch);
   watchPropertiesEvent(dispatch);
   watchCategoriesEvent(dispatch);

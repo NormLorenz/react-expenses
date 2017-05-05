@@ -1,8 +1,5 @@
 const actionTypes = {
 
-  ChangeText: 'CHANGE_TEXT',
-  TextUpdated: 'TEXT_UPDATED',
-
   ChangeTaxYear: 'CHANGE_TAXYEAR',
   TaxYearUpdated: 'TAXYEAR_UPDATED',
 

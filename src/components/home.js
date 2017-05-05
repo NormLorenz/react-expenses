@@ -32,7 +32,7 @@ class Home extends Component {
                 Please click on the menu above to continue.
               </p>
               <p>
-                React Expenses ver 1.1.0
+                React expenses ver 1.1.0 redux branch
               </p>
             </div>
           </div>

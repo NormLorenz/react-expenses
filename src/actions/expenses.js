@@ -60,7 +60,11 @@ function deleteExpenseDispatch(expense) {
 }
 
 export const watchExpensesEvent = (dispatch) => {
-  const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(2015);
+  // get taxYear first
+  // block until it returns
+  // then get expenses
+  let taxYear = 2015; //this.store.taxYearObject.taxYear;
+  const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(taxYear);
   expensesRef.on('value', snap => {
     let expenses = [];
     snap.forEach(function (data) {

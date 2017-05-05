@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Avatar from '../android_dance.gif';
-import firebase from 'firebase';
 import moment from 'moment';
 import * as utilities from '../helpers/utilities';
+
+import { connect } from 'react-redux';
+import { changeTaxyearAction, watchTaxyearEvent } from '../actions/taxyear';
+import { watchExpensesEvent } from '../actions/expenses';
+import { watchPropertiesEvent } from '../actions/properties';
+import { watchCategoriesEvent } from '../actions/categories';
 
 const modalStyle = {
   content: {
@@ -31,16 +36,15 @@ class Summary extends Component {
   constructor() {
     super();
     this.state = {
-      taxYear: 1776,
+      taxYear: 0,
       year: null,
       years: [],
       showModal: false,
       categoryRecords: 0,
       propertyRecords: 0,
       expenseRecords: 0,
-      taxYearRecords: 0,
-      taxYearCredits: 0,
-      taxYearDebits: 0
+      expenseCredits: 0,
+      expenseDebits: 0
     };
   }
 
@@ -56,6 +60,8 @@ class Summary extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.onChangeTaxyear(Number(this.state.taxYear));
+    this.setState({ showModal: false });
   }
 
   handleOpen(event) {
@@ -67,68 +73,60 @@ class Summary extends Component {
     this.setState({ showModal: false });
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(newProps) {
 
+    // taxYear
+    if (newProps.taxyearObject.taxYear) {
+      this.setState({
+        taxYear: newProps.taxyearObject.taxYear
+      })
+    }
+
+    // expenses
+    if (newProps.expenseObject.expenses) {
+      let expenseRecords = 0;
+      let expenseCredits = 0;
+      let expenseDebits = 0;
+
+      newProps.expenseObject.expenses.forEach(function (expense) {
+        expenseRecords += 1;
+        if (expense.data.isDebit === true) {
+          expenseDebits += expense.data.amount;
+        }
+        else {
+          expenseCredits += expense.data.amount;
+        }
+      });
+
+      this.setState({
+        expenseRecords: expenseRecords,
+        expenseCredits: expenseCredits,
+        expenseDebits: expenseDebits
+      });
+    }
+
+    // properties
+    if (newProps.propertyObject.properties) {
+      this.setState({
+        propertyRecords: newProps.propertyObject.properties.length
+      })
+    }
+
+    // categories
+    if (newProps.categoryObject.categories) {
+      this.setState({
+        categoryRecords: newProps.categoryObject.categories.length
+      })
+    }
+  }
+
+  componentDidMount() {
     let years = [];
     let year = moment().year();
     for (let i = 0; i < 15; i++) {
       years.push(year--);
     }
     this.setState({ years: years.map(i => { return { description: i, key: i } }) });
-
-    const rootRef = firebase.database().ref();
-    const taxYearRef = rootRef.child('taxYear');
-    taxYearRef.once('value', snapshot => {
-      this.setState({
-        taxYear: snapshot.val()
-      })
-
-      const expensesRef = firebase.database().ref('expenses');
-      expensesRef.once('value', snapshot => {
-
-        let expenseRecords = 0;
-        let taxYear = this.state.taxYear;
-        let taxYearRecords = 0;
-        let taxYearCredits = 0;
-        let taxYearDebits = 0;
-
-        snapshot.forEach(function (data) {
-          expenseRecords += 1;
-          if (moment(data.val().date).year() === taxYear) {
-            taxYearRecords += 1;
-            if (data.val().isDebit === true) {
-              taxYearDebits += Number(data.val().amount);
-            }
-            else {
-              taxYearCredits += Number(data.val().amount);
-            }
-          }
-        });
-
-        this.setState({
-          expenseRecords: expenseRecords,
-          taxYearRecords: taxYearRecords,
-          taxYearCredits: taxYearCredits,
-          taxYearDebits: taxYearDebits
-        })
-      })
-
-    });
-
-    const propertiesRef = firebase.database().ref('properties');
-    propertiesRef.once('value', snapshot => {
-      this.setState({
-        propertyRecords: snapshot.numChildren()
-      });
-    });
-
-    const categoriesRef = firebase.database().ref('categories');
-    categoriesRef.once('value', snapshot => {
-      this.setState({
-        categoryRecords: snapshot.numChildren()
-      });
-    });
-
   }
 
   render() {
@@ -137,7 +135,6 @@ class Summary extends Component {
         <h4>Summary</h4>
         <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> number of category records</p>
         <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> number of property records</p>
-        <p><span className='w3-badge w3-blue'>{this.state.expenseRecords}</span> number of expense records</p>
 
         <div className='w3-card-4' style={cardStyle}>
           <header className='w3-container w3-light-grey'>
@@ -147,7 +144,10 @@ class Summary extends Component {
             <hr />
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
-              Expense records: {this.state.taxYearRecords}, cash in: {utilities.convertCentsToDollars(this.state.taxYearCredits)}&nbsp;and cash out: {utilities.convertCentsToDollars(this.state.taxYearDebits)}.
+              Below are the dollar totals for tax year {this.state.taxYear} only. To view other years, click the
+              'change tax year' link below. Cash in: {utilities.convertCentsToDollars(this.state.expenseCredits)},
+              cash out: {utilities.convertCentsToDollars(this.state.expenseDebits)}&nbsp;
+              and total expense records: {this.state.expenseRecords}.
             </p>
             <br />
           </div>
@@ -163,7 +163,7 @@ class Summary extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='property' value={this.state.taxYear} onChange={this.handleInputChange.bind(this)} >
+                <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='taxYear' value={this.state.taxYear} onChange={this.handleInputChange.bind(this)} >
                   {this.state.years.map(year => { return <option className='w3-text-grey' key={year.key} value={year.key}>{year.description}</option> })}
                 </select>
                 <label className='w3-label'>Tax year: also used to set the default year for shortened mm/dd entries</label>
@@ -181,4 +181,30 @@ class Summary extends Component {
   }
 }
 
-export default Summary;
+Summary.propTypes = {
+  taxyearObject: React.PropTypes.object.isRequired,
+  expenseObject: React.PropTypes.object.isRequired,
+  propertyObject: React.PropTypes.object.isRequired,
+  categoryObject: React.PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    taxyearObject: state.taxyearObject,
+    expenseObject: state.expenseObject,
+    propertyObject: state.propertyObject,
+    categoryObject: state.categoryObject
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  watchTaxyearEvent(dispatch);
+  watchExpensesEvent(dispatch);
+  watchPropertiesEvent(dispatch);
+  watchCategoriesEvent(dispatch);
+  return {
+    onChangeTaxyear: (taxYear) => dispatch(changeTaxyearAction(taxYear))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);

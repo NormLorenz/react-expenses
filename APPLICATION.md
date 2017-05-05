@@ -183,6 +183,7 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
 * refactor categories using redux - DONE
 * refactor reports using redux - DONE
 * remove readme route, component, action and reducer - DONE
+* display react version 1.1.0 - DONE
 * refactor expenses using redux
   * code taxYear
   * test new, edit and delete
@@ -192,9 +193,10 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
     * https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04
     * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
     * pass the class name as props
+    * force taxYear
 * display build or version number
 * refactor summary using redux - WORKING
-* display react version 1.1.0
+  * force taxYear
 * use placeholders throughout
 * propTypes
 

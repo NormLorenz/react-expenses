@@ -6,7 +6,7 @@ import CategoryDisplay from '../helpers/categoryDisplay';
 import ActiveDisplay from '../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
-//import { watchTaxyearEvent } from '../actions/taxyear';
+import { watchTaxyearEvent } from '../actions/taxyear';
 import { watchExpensesEvent } from '../actions/expenses';
 import { watchPropertiesEvent } from '../actions/properties';
 import { watchCategoriesEvent } from '../actions/categories';
@@ -18,7 +18,7 @@ class Reports extends Component {
   constructor() {
     super();
     this.state = {
-      taxYear: 1776,
+      taxYear: 0,
       expenses: [],
       categories: [],
       categoryCreditsTotal: 0,
@@ -304,7 +304,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // watchtaxyearEvent(dispatch);
+  watchTaxyearEvent(dispatch);
   watchExpensesEvent(dispatch);
   watchPropertiesEvent(dispatch);
   watchCategoriesEvent(dispatch);
