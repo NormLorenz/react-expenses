@@ -11,12 +11,6 @@ export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.ChangeTaxYear:
-      return Object.assign({}, state, {
-        inProgress: true,
-        taxYear: action.payload
-      });
-
     case ActionTypes.TaxYearUpdated:
       return Object.assign({}, state, {
         inProgress: false,

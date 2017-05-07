@@ -2,9 +2,8 @@ import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
 import Notifications from 'react-notification-system-redux';
 
-export const editPropertyAction = (property) => {
-  return dispatch => {
-    dispatch(editPropertyDispatch(property));
+export const editProperty = (property) => {
+  return (dispatch) => {
     database.ref('properties').child(property.key).update(property.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -14,16 +13,8 @@ export const editPropertyAction = (property) => {
   }
 }
 
-function editPropertyDispatch(property) {
-  return {
-    type: ActionTypes.EditProperty,
-    payload: property
-  };
-}
-
-export const insertPropertyAction = (property) => {
-  return dispatch => {
-    dispatch(insertPropertyDispatch(property));
+export const insertProperty = (property) => {
+  return (dispatch) => {
     database.ref('properties').push(property.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -33,14 +24,7 @@ export const insertPropertyAction = (property) => {
   }
 }
 
-function insertPropertyDispatch(property) {
-  return {
-    type: ActionTypes.InsertProperty,
-    payload: property
-  };
-}
-
-export const watchPropertiesEvent = (dispatch) => {
+export const fetchProperties = (dispatch) => {
   database.ref('properties').on('value', snap => {
     let properties = [];
     snap.forEach(function (data) {
@@ -54,13 +38,9 @@ export const watchPropertiesEvent = (dispatch) => {
       properties.push(property);
     });
 
-    dispatch(watchPropertiesAction(properties));
+    dispatch({
+      type: ActionTypes.PropertiesUpdated,
+      payload: properties
+    });
   });
-}
-
-function watchPropertiesAction(properties) {
-  return {
-    type: ActionTypes.PropertiesUpdated,
-    payload: properties
-  };
 }

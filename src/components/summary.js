@@ -5,10 +5,10 @@ import moment from 'moment';
 import * as utilities from '../helpers/utilities';
 
 import { connect } from 'react-redux';
-import { changeTaxyearAction, watchTaxyearEvent } from '../actions/taxyear';
-import { watchExpensesEvent } from '../actions/expenses';
-import { watchPropertiesEvent } from '../actions/properties';
-import { watchCategoriesEvent } from '../actions/categories';
+import { editTaxYear, fetchTaxYear } from '../actions/taxyear';
+import { fetchExpenses } from '../actions/expenses';
+import { fetchProperties } from '../actions/properties';
+import { fetchCategories } from '../actions/categories';
 
 const modalStyle = {
   content: {
@@ -198,12 +198,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  watchTaxyearEvent(dispatch);
-  watchExpensesEvent(dispatch);
-  watchPropertiesEvent(dispatch);
-  watchCategoriesEvent(dispatch);
+  fetchTaxYear(dispatch);
+  fetchExpenses(dispatch);
+  fetchProperties(dispatch);
+  fetchCategories(dispatch);
   return {
-    onChangeTaxyear: (taxYear) => dispatch(changeTaxyearAction(taxYear))
+    onChangeTaxyear: (taxYear) => dispatch(editTaxYear(taxYear))
   }
 }
 

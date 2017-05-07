@@ -11,20 +11,6 @@ export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.InsertProperty:
-      return Object.assign({}, state, {
-        inProgress: true,
-        property: action.payload,
-        properties: null
-      });
-
-    case ActionTypes.EditProperty:
-      return Object.assign({}, state, {
-        inProgress: true,
-        property: action.payload,
-        properties: null
-      });
-
     case ActionTypes.PropertiesUpdated:
       return Object.assign({}, state, {
         inProgress: false,

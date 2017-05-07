@@ -199,5 +199,6 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * force taxYear
 * use placeholders throughout
 * propTypes
+* major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4
 
 http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded

@@ -11,20 +11,6 @@ export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.InsertCategory:
-      return Object.assign({}, state, {
-        inProgress: true,
-        category: action.payload,
-        categories: null
-      });
-
-    case ActionTypes.EditCategory:
-      return Object.assign({}, state, {
-        inProgress: true,
-        category: action.payload,
-        categories: null
-      });
-
     case ActionTypes.CategoriesUpdated:
       return Object.assign({}, state, {
         inProgress: false,

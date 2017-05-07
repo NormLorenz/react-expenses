@@ -11,27 +11,6 @@ export default function (state = init, action) {
 
   switch (action.type) {
 
-    case ActionTypes.NewExpense:
-      return Object.assign({}, state, {
-        inProgress: true,
-        expense: action.payload,
-        expenses: null
-      });
-
-    case ActionTypes.EditExpense:
-      return Object.assign({}, state, {
-        inProgress: true,
-        expense: action.payload,
-        expenses: null
-      });
-
-    case ActionTypes.DeleteExpense:
-      return Object.assign({}, state, {
-        inProgress: true,
-        expense: action.payload,
-        expenses: null
-      });
-
     case ActionTypes.ExpensesUpdated:
       return Object.assign({}, state, {
         inProgress: false,

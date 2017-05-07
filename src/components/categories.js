@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
-import { editCategoryAction, insertCategoryAction, watchCategoriesEvent } from '../actions/categories';
+import { editCategory, insertCategory, fetchCategories } from '../actions/categories';
 
 const modalStyle = {
   content: {
@@ -194,10 +194,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  watchCategoriesEvent(dispatch);
+  fetchCategories(dispatch);
   return {
-    onEditCategory: (category) => dispatch(editCategoryAction(category)),
-    onInsertCategory: (category) => dispatch(insertCategoryAction(category))
+    onEditCategory: (category) => dispatch(editCategory(category)),
+    onInsertCategory: (category) => dispatch(insertCategory(category))
   }
 }
 

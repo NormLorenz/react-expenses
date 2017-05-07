@@ -2,9 +2,8 @@ import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
 import Notifications from 'react-notification-system-redux';
 
-export const editExpenseAction = (expense) => {
-  return dispatch => {
-    dispatch(editExpenseDispatch(expense));
+export const editExpense = (expense) => {
+  return (dispatch) => {
     database.ref('expenses').child(expense.key).update(expense.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -14,16 +13,8 @@ export const editExpenseAction = (expense) => {
   }
 }
 
-function editExpenseDispatch(expense) {
-  return {
-    type: ActionTypes.EditExpense,
-    payload: expense
-  };
-}
-
-export const insertExpenseAction = (expense) => {
-  return dispatch => {
-    dispatch(insertExpenseDispatch(expense));
+export const insertExpense = (expense) => {
+  return (dispatch) => {
     database.ref('expenses').push(expense.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -33,16 +24,8 @@ export const insertExpenseAction = (expense) => {
   }
 }
 
-function insertExpenseDispatch(expense) {
-  return {
-    type: ActionTypes.InsertExpense,
-    payload: expense
-  };
-}
-
-export const deleteExpenseAction = (expense) => {
-  return dispatch => {
-    dispatch(deleteExpenseDispatch(expense));
+export const deleteExpense = (expense) => {
+  return (dispatch) => {
     database.ref('expenses').child(expense.key).remove();
     dispatch(Notifications.info({
       title: 'Info',
@@ -52,18 +35,8 @@ export const deleteExpenseAction = (expense) => {
   }
 }
 
-function deleteExpenseDispatch(expense) {
-  return {
-    type: ActionTypes.deleteExpense,
-    payload: expense
-  };
-}
-
-export const watchExpensesEvent = (dispatch) => {
-  // get taxYear first
-  // block until it returns
-  // then get expenses
-  let taxYear = 2015; //this.store.taxYearObject.taxYear;
+export const fetchExpenses = (dispatch) => {
+  let taxYear = 2015;
   const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(taxYear);
   expensesRef.on('value', snap => {
     let expenses = [];
@@ -82,14 +55,9 @@ export const watchExpensesEvent = (dispatch) => {
       }
       expenses.push(expense);
     });
-
-    dispatch(watchExpensesAction(expenses));
+    dispatch({
+      type: ActionTypes.ExpensesUpdated,
+      payload: expenses
+    });
   });
-}
-
-function watchExpensesAction(expenses) {
-  return {
-    type: ActionTypes.ExpensesUpdated,
-    payload: expenses
-  };
 }

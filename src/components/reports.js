@@ -6,10 +6,10 @@ import CategoryDisplay from '../helpers/categoryDisplay';
 import ActiveDisplay from '../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
-import { watchTaxyearEvent } from '../actions/taxyear';
-import { watchExpensesEvent } from '../actions/expenses';
-import { watchPropertiesEvent } from '../actions/properties';
-import { watchCategoriesEvent } from '../actions/categories';
+import { fetchTaxYear } from '../actions/taxyear';
+import { fetchExpenses } from '../actions/expenses';
+import { fetchProperties } from '../actions/properties';
+import { fetchCategories } from '../actions/categories';
 
 import Moment from 'react-moment';
 
@@ -304,10 +304,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  watchTaxyearEvent(dispatch);
-  watchExpensesEvent(dispatch);
-  watchPropertiesEvent(dispatch);
-  watchCategoriesEvent(dispatch);
+  fetchTaxYear(dispatch);
+  fetchExpenses(dispatch);
+  fetchProperties(dispatch);
+  fetchCategories(dispatch);
   return {
   }
 }

@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
-import { editPropertyAction, insertPropertyAction, watchPropertiesEvent } from '../actions/properties';
+import { editProperty, insertProperty, fetchProperties } from '../actions/properties';
 
 const modalStyle = {
   content: {
@@ -194,10 +194,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  watchPropertiesEvent(dispatch);
+  fetchProperties(dispatch);
   return {
-    onEditProperty: (property) => dispatch(editPropertyAction(property)),
-    onInsertProperty: (property) => dispatch(insertPropertyAction(property))
+    onEditProperty: (property) => dispatch(editProperty(property)),
+    onInsertProperty: (property) => dispatch(insertProperty(property))
   }
 }
 

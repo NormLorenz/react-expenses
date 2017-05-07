@@ -2,9 +2,8 @@ import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
 import Notifications from 'react-notification-system-redux';
 
-export const editCategoryAction = (category) => {
-  return dispatch => {
-    dispatch(editCategoryDispatch(category));
+export const editCategory = (category) => {
+  return (dispatch) => {
     database.ref('categories').child(category.key).update(category.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -14,16 +13,8 @@ export const editCategoryAction = (category) => {
   }
 }
 
-function editCategoryDispatch(category) {
-  return {
-    type: ActionTypes.EditCategory,
-    payload: category
-  };
-}
-
-export const insertCategoryAction = (category) => {
-  return dispatch => {
-    dispatch(insertCategoryDispatch(category));
+export const insertCategory = (category) => {
+  return (dispatch) => {
     database.ref('categories').push(category.data);
     dispatch(Notifications.info({
       title: 'Info',
@@ -33,14 +24,7 @@ export const insertCategoryAction = (category) => {
   }
 }
 
-function insertCategoryDispatch(category) {
-  return {
-    type: ActionTypes.InsertCategory,
-    payload: category
-  };
-}
-
-export const watchCategoriesEvent = (dispatch) => {
+export const fetchCategories = (dispatch) => {
   database.ref('categories').on('value', snap => {
     let categories = [];
     snap.forEach(function (data) {
@@ -54,15 +38,9 @@ export const watchCategoriesEvent = (dispatch) => {
       categories.push(category);
     });
 
-    dispatch(watchCategoriesAction(categories));
+    dispatch({
+      type: ActionTypes.CategoriesUpdated,
+      payload: categories
+    });
   });
 }
-
-function watchCategoriesAction(categories) {
-  return {
-    type: ActionTypes.CategoriesUpdated,
-    payload: categories
-  };
-}
-
-
