@@ -147,7 +147,7 @@
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
-* 'There is no tracking information for the current branch' - git pull origin redux - DIN
+* 'There is no tracking information for the current branch' - git pull origin redux - DONE
   * git branch --set-upstream redux origin/redux
 
 ### router rewrite
