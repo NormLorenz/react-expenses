@@ -138,6 +138,7 @@
 * create a new redux branch - DONE
 * 'There is no tracking information for the current branch' - git pull origin redux - DONE
   * git branch --set-upstream redux origin/redux
+* merged back into master
 
 ### in-flight
 
