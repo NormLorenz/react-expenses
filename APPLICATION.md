@@ -136,19 +136,19 @@
 * string functions - see w3 schools - DONE
 * http://wesbos.com/let-vs-const/ - DONE
 * create a new redux branch - DONE
+* 'There is no tracking information for the current branch' - git pull origin redux - DONE
+  * git branch --set-upstream redux origin/redux
 
 ### in-flight
 
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
-* finish taxYear in summary page
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * implement single responsibility principal
 * implement donations and charities
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
-* 'There is no tracking information for the current branch' - git pull origin redux - DONE
-  * git branch --set-upstream redux origin/redux
+* use placeholders throughout
 
 ### router rewrite
 
@@ -171,9 +171,6 @@
 * http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded
 * https://github.com/reactjs/react-redux
 
-
-USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
- 
 * install redux, redux-logger, redux-thunk, redux-promise and react-redux - DONE
 * remove redux-promise - DONE
 * consolidate toaster notifications - DONE
@@ -197,6 +194,5 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
   * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
   * pass the class name as props
 * major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4 - DONE
-* use placeholders throughout
 * implement propTypes for redux?
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
