@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
-import { editProperty, insertProperty, fetchProperties } from '../actions/properties';
+import * as actions from '../actions/properties';
 
 const modalStyle = {
   content: {
@@ -87,10 +87,10 @@ class Properties extends Component {
     }
 
     if (this.state.operation === operations.new) {
-      this.props.onInsertProperty(property);
+      this.props.insertProperty(property);
     }
     else if (this.state.operation === operations.edit) {
-      this.props.onEditProperty(property);
+      this.props.editProperty(property);
     }
 
     this.setState({ showModal: false });
@@ -106,8 +106,12 @@ class Properties extends Component {
     });
   }
 
+  componentWillMount() {
+    this.props.fetchProperties();
+  }
+
   componentWillReceiveProps(newProps) {
-    if (newProps.propertyObject.properties) {
+    if (newProps.propertyObject.isLoaded === true) {
       this.setState({
         properties: newProps.propertyObject.properties.sort(
           (a, b) => a.data.description < b.data.description ? -1 : 1)
@@ -182,9 +186,6 @@ class Properties extends Component {
 }
 
 Properties.propTypes = {
-  onEditProperty: React.PropTypes.func.isRequired,
-  onInsertProperty: React.PropTypes.func.isRequired,
-  propertyObject: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -193,12 +194,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  fetchProperties(dispatch);
-  return {
-    onEditProperty: (property) => dispatch(editProperty(property)),
-    onInsertProperty: (property) => dispatch(insertProperty(property))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Properties);
+export default connect(mapStateToProps, actions)(Properties);

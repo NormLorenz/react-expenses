@@ -9,7 +9,7 @@ import * as utilities from '../helpers/utilities';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../actions/taxyear';
-import { editExpense, insertExpense, deleteExpense, fetchExpenses } from '../actions/expenses';
+import { fetchExpenses, editExpense, insertExpense, deleteExpense } from '../actions/expenses';
 import { fetchProperties } from '../actions/properties';
 import { fetchCategories } from '../actions/categories';
 
@@ -137,13 +137,13 @@ class Expenses extends Component {
     }
 
     if (this.state.operation === operations.new) {
-      this.props.onInsertExpense(expense);
+      this.props.insertExpense(expense);
     }
     else if (this.state.operation === operations.edit) {
-      this.props.onEditExpense(expense);
+      this.props.editExpense(expense);
     }
     else if (this.state.operation === operations.delete) {
-      this.props.onDeleteExpense(expense);
+      this.props.deleteExpense(expense);
     }
 
     this.setState({ showModal: false });
@@ -157,6 +157,13 @@ class Expenses extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  componentWillMount() {
+    this.props.fetchTaxYear();
+    this.props.fetchExpenses();
+    this.props.fetchProperties();
+    this.props.fetchCategories();
   }
 
   componentWillReceiveProps(newProps) {
@@ -281,13 +288,6 @@ class Expenses extends Component {
 }
 
 Expenses.propTypes = {
-  onEditExpense: React.PropTypes.func.isRequired,
-  onInsertExpense: React.PropTypes.func.isRequired,
-  onDeleteExpense: React.PropTypes.func.isRequired,
-  taxyearObject: React.PropTypes.object.isRequired,
-  expenseObject: React.PropTypes.object.isRequired,
-  propertyObject: React.PropTypes.object.isRequired,
-  categoryObject: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -299,16 +299,15 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  fetchTaxYear(dispatch);
-  fetchExpenses(dispatch);
-  fetchProperties(dispatch);
-  fetchCategories(dispatch);
-  return {
-    onEditExpense: (expense) => dispatch(editExpense(expense)),
-    onInsertExpense: (expense) => dispatch(insertExpense(expense)),
-    onDeleteExpense: (expense) => dispatch(deleteExpense(expense))
+export default connect(
+  mapStateToProps,
+  {
+    editExpense: editExpense,
+    insertExpense: insertExpense,
+    deleteExpense: deleteExpense,
+    fetchTaxYear: fetchTaxYear,
+    fetchExpenses: fetchExpenses,
+    fetchProperties: fetchProperties,
+    fetchCategories: fetchCategories
   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Expenses);
+)(Expenses);

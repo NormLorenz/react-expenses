@@ -5,7 +5,7 @@ import moment from 'moment';
 import * as utilities from '../helpers/utilities';
 
 import { connect } from 'react-redux';
-import { editTaxYear, fetchTaxYear } from '../actions/taxyear';
+import { fetchTaxYear, editTaxYear } from '../actions/taxyear';
 import { fetchExpenses } from '../actions/expenses';
 import { fetchProperties } from '../actions/properties';
 import { fetchCategories } from '../actions/categories';
@@ -60,7 +60,7 @@ class Summary extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onChangeTaxyear(Number(this.state.taxYear));
+    this.props.editTaxYear(Number(this.state.taxYear));
     this.setState({ showModal: false });
   }
 
@@ -71,6 +71,13 @@ class Summary extends Component {
   handleClose(event) {
     event.preventDefault();
     this.setState({ showModal: false });
+  }
+
+  componentWillMount() {
+    this.props.fetchTaxYear();
+    this.props.fetchExpenses();
+    this.props.fetchProperties();
+    this.props.fetchCategories();
   }
 
   componentWillReceiveProps(newProps) {
@@ -181,13 +188,6 @@ class Summary extends Component {
   }
 }
 
-Summary.propTypes = {
-  taxyearObject: React.PropTypes.object.isRequired,
-  expenseObject: React.PropTypes.object.isRequired,
-  propertyObject: React.PropTypes.object.isRequired,
-  categoryObject: React.PropTypes.object.isRequired
-};
-
 function mapStateToProps(state) {
   return {
     taxyearObject: state.taxyearObject,
@@ -197,14 +197,13 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  fetchTaxYear(dispatch);
-  fetchExpenses(dispatch);
-  fetchProperties(dispatch);
-  fetchCategories(dispatch);
-  return {
-    onChangeTaxyear: (taxYear) => dispatch(editTaxYear(taxYear))
+export default connect(
+  mapStateToProps,
+  {
+    editTaxYear: editTaxYear,
+    fetchTaxYear: fetchTaxYear,
+    fetchExpenses: fetchExpenses,
+    fetchProperties: fetchProperties,
+    fetchCategories: fetchCategories
   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Summary);
+)(Summary)

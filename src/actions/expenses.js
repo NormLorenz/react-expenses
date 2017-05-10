@@ -2,7 +2,7 @@ import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
 import Notifications from 'react-notification-system-redux';
 
-export const editExpense = (expense) => {
+export function editExpense(expense) {
   return (dispatch) => {
     database.ref('expenses').child(expense.key).update(expense.data);
     dispatch(Notifications.info({
@@ -13,7 +13,7 @@ export const editExpense = (expense) => {
   }
 }
 
-export const insertExpense = (expense) => {
+export function insertExpense(expense) {
   return (dispatch) => {
     database.ref('expenses').push(expense.data);
     dispatch(Notifications.info({
@@ -24,7 +24,7 @@ export const insertExpense = (expense) => {
   }
 }
 
-export const deleteExpense = (expense) => {
+export function deleteExpense(expense) {
   return (dispatch) => {
     database.ref('expenses').child(expense.key).remove();
     dispatch(Notifications.info({
@@ -35,29 +35,32 @@ export const deleteExpense = (expense) => {
   }
 }
 
-export const fetchExpenses = (dispatch) => {
-  let taxYear = 2015;
-  const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(taxYear);
-  expensesRef.on('value', snap => {
-    let expenses = [];
-    snap.forEach(function (data) {
-      let expense = {
-        key: data.key,
-        data: {
-          date: data.val().date,
-          description: data.val().description,
-          category: data.val().category,
-          property: data.val().property,
-          isDebit: data.val().isDebit,
-          amount: data.val().amount,
-          taxYear: data.val().taxYear
-        }
-      }
-      expenses.push(expense);
+export function fetchExpenses() {
+  return dispatch => {
+    database.ref('taxYear').on('value', snap => {
+      const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(snap.val());
+      expensesRef.on('value', snap => {
+        let expenses = [];
+        snap.forEach(function (data) {
+          let expense = {
+            key: data.key,
+            data: {
+              date: data.val().date,
+              description: data.val().description,
+              category: data.val().category,
+              property: data.val().property,
+              isDebit: data.val().isDebit,
+              amount: data.val().amount,
+              taxYear: data.val().taxYear
+            }
+          }
+          expenses.push(expense);
+        });
+        dispatch({
+          type: ActionTypes.ExpensesUpdated,
+          payload: expenses
+        });
+      });
     });
-    dispatch({
-      type: ActionTypes.ExpensesUpdated,
-      payload: expenses
-    });
-  });
+  };
 }

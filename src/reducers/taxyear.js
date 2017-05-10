@@ -5,7 +5,7 @@ import ActionTypes from '../constants/actionTypes';
 
 // 'state = null' is set so that we don't throw an error when app first boots up
 
-const init = { inProgress: true, taxYear: 1776 };
+const init = { isLoaded: false, taxYear: 1776 };
 
 export default function (state = init, action) {
 
@@ -13,7 +13,7 @@ export default function (state = init, action) {
 
     case ActionTypes.TaxYearUpdated:
       return Object.assign({}, state, {
-        inProgress: false,
+        isLoaded: true,
         taxYear: action.payload
       });
 

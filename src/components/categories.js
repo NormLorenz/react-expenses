@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Toggle from 'react-toggle';
 import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
-import { editCategory, insertCategory, fetchCategories } from '../actions/categories';
+import * as actions from '../actions/categories';
 
 const modalStyle = {
   content: {
@@ -87,10 +87,10 @@ class Categories extends Component {
     }
 
     if (this.state.operation === operations.new) {
-      this.props.onInsertCategory(category);
+      this.props.insertCategory(category);
     }
     else if (this.state.operation === operations.edit) {
-      this.props.onEditCategory(category);
+      this.props.editCategory(category);
     }
 
     this.setState({ showModal: false });
@@ -106,8 +106,12 @@ class Categories extends Component {
     });
   }
 
+  componentWillMount() {
+    this.props.fetchCategories();
+  }
+
   componentWillReceiveProps(newProps) {
-    if (newProps.categoryObject.categories) {
+    if (newProps.categoryObject.isLoaded === true) {
       this.setState({
         categories: newProps.categoryObject.categories.sort(
           (a, b) => a.data.description < b.data.description ? -1 : 1)
@@ -182,9 +186,6 @@ class Categories extends Component {
 }
 
 Categories.propTypes = {
-  onEditCategory: React.PropTypes.func.isRequired,
-  onInsertCategory: React.PropTypes.func.isRequired,
-  categoryObject: React.PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -193,12 +194,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  fetchCategories(dispatch);
-  return {
-    onEditCategory: (category) => dispatch(editCategory(category)),
-    onInsertCategory: (category) => dispatch(insertCategory(category))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, actions)(Categories);

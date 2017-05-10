@@ -147,7 +147,8 @@
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
-* 'There is no tracking information for the current branch' - git pull origin redux
+* 'There is no tracking information for the current branch' - git pull origin redux - DIN
+  * git branch --set-upstream redux origin/redux
 
 ### router rewrite
 
@@ -167,8 +168,9 @@
 * https://www.youtube.com/watch?v=1w-oQ-i1XB8&list=PLoYCgNOIyGADILc3iUJzygCqC8Tt3bRXt
 * https://www.youtube.com/watch?list=PLoYCgNOIyGABj2GQSlDRjgvXtqfDxKm5b&v=MhkGQAoc7bc
 * https://www.codementor.io/vijayst/using-firebase-with-redux-for-building-a-react-app-du1086puw
-
+* http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded
 * https://github.com/reactjs/react-redux
+
 
 USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
  
@@ -184,21 +186,17 @@ USING REACT-FIREBASE-DEMO DOWNLOADED FROM GITHUB
 * refactor reports using redux - DONE
 * remove readme route, component, action and reducer - DONE
 * display react version 1.1.0 - DONE
-* refactor expenses using redux
+* refactor summary using redux - DONE
+* refactor expenses using redux - DONE
   * code taxYear
   * test new, edit and delete
-  * move select to a component and use a placeholder - DONE
-    * http://derpturkey.com/select-placeholder-with-react/
-    * https://github.com/JedWatson/classnames
-    * https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04
-    * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
-    * pass the class name as props
-    * force taxYear
-* display build or version number
-* refactor summary using redux - WORKING
-  * force taxYear
+* move select to a component and use a placeholder - DONE
+  * http://derpturkey.com/select-placeholder-with-react/
+  * https://github.com/JedWatson/classnames
+  * https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04
+  * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
+  * pass the class name as props
+* major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4 - DONE
 * use placeholders throughout
-* propTypes
-* major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4
-
-http://stackoverflow.com/questions/39761443/how-to-dispatch-redux-action-from-stateless-component-when-route-is-loaded
+* implement propTypes for redux?
+* do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject

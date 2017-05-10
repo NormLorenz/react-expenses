@@ -2,7 +2,7 @@ import ActionTypes from '../constants/actionTypes';
 import { database } from '../constants/database';
 import Notifications from 'react-notification-system-redux';
 
-export const editTaxYear = (taxYear) => {
+export function editTaxYear(taxYear) {
   return (dispatch) => {
     database.ref('taxYear').set(taxYear);
     dispatch(Notifications.info({
@@ -13,11 +13,14 @@ export const editTaxYear = (taxYear) => {
   }
 }
 
-export const fetchTaxYear = (dispatch) => {
-  database.ref('taxYear').on('value', snap => {
-    dispatch({
-      type: ActionTypes.TaxYearUpdated,
-      payload: snap.val()
+export function fetchTaxYear() {
+  return dispatch => {
+    database.ref('taxYear').on('value', snap => {
+
+      dispatch({
+        type: ActionTypes.TaxYearUpdated,
+        payload: snap.val()
+      });
     });
-  });
+  };
 }

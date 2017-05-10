@@ -40,6 +40,14 @@ class Reports extends Component {
     return sum;
   }
 
+  componentWillMount() {
+    this.props.fetchTaxYear();
+    this.props.fetchExpenses();
+    this.props.fetchProperties();
+    this.props.fetchCategories();
+
+  }
+
   componentWillReceiveProps(newProps) {
 
     // taxYear
@@ -287,13 +295,6 @@ class Reports extends Component {
   }
 }
 
-Reports.propTypes = {
-  taxyearObject: React.PropTypes.object.isRequired,
-  expenseObject: React.PropTypes.object.isRequired,
-  propertyObject: React.PropTypes.object.isRequired,
-  categoryObject: React.PropTypes.object.isRequired
-};
-
 function mapStateToProps(state) {
   return {
     taxyearObject: state.taxyearObject,
@@ -303,13 +304,12 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  fetchTaxYear(dispatch);
-  fetchExpenses(dispatch);
-  fetchProperties(dispatch);
-  fetchCategories(dispatch);
-  return {
+export default connect(
+  mapStateToProps,
+  {
+    fetchTaxYear: fetchTaxYear,
+    fetchExpenses: fetchExpenses,
+    fetchProperties: fetchProperties,
+    fetchCategories: fetchCategories
   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Reports);
+)(Reports);
