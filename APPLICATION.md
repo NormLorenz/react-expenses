@@ -139,6 +139,7 @@
 * 'There is no tracking information for the current branch' - git pull origin redux - DONE
   * git branch --set-upstream redux origin/redux
 * merged back into master
+* one more note
 
 ### in-flight
 
