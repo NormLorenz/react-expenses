@@ -77,29 +77,60 @@ class Application extends Component {
           <div>
 
             <div className='w3-container'>
-              <ul className='w3-navbar w3-card-8 w3-light-grey'>
+              <ul className='w3-navbar w3-card-4 w3-light-grey'>
                 <li><Link to='/' className='w3-hover-none w3-hover-text-blue w3-text-grey w3-large'>React Expenses</Link></li>
-
                 <li className='w3-right w3-medium'>
+
+
+
                   {this.state.authed ?
                     <button
                       style={{ border: 'none', background: 'transparent', position: 'relative', top: '7px' }}
                       onClick={() => { logout(); this.setState({ authed: false }); }}
                       className='w3-hover-none w3-hover-text-blue w3-text-grey'>Logout
-                  </button>
+                    </button>
                     :
                     <span>
-                      <Link to="/login" className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
+                      <Link to='/login' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Login</Link>
                     </span>
                   }
-                </li>
 
+
+
+
+
+                </li>
                 <li className='w3-right w3-medium'><Link to='/reports' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Reports</Link></li>
                 <li className='w3-right w3-medium'><Link to='/categories' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Categories</Link></li>
                 <li className='w3-right w3-medium'><Link to='/properties' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Properties</Link></li>
                 <li className='w3-right w3-medium'><Link to='/expenses' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Expenses</Link></li>
                 <li className='w3-right w3-medium'><Link to='/summary' className='w3-hover-none w3-hover-text-blue w3-text-grey'>Summary</Link></li>
               </ul>
+
+              <h3>React Expenses</h3>
+              <div className='w3-bar w3-card-4 w3-light-grey'>
+                <Link to='/' className='w3-bar-item w3-button'>Home</Link>
+                <Link to='/summary' className='w3-bar-item w3-button'>Summary</Link>
+                <Link to='/expenses' className='w3-bar-item w3-button'>Expenses</Link>
+                <a href='#' className='w3-bar-item w3-button'>Contributions</a>
+                <div className='w3-dropdown-hover'>
+                  <button className='w3-button'>Lists</button>
+                  <div className='w3-dropdown-content w3-bar-block w3-card-4'>
+                    <Link to='/properties' className='w3-bar-item w3-button'>Properties</Link>
+                    <Link to='/categories' className='w3-bar-item w3-button'>Categories</Link>
+                    <a href='#' className='w3-bar-item w3-button'>Charities</a>
+                  </div>
+                </div>
+                <div className='w3-dropdown-hover'>
+                  <button className='w3-button'>Reports</button>
+                  <div className='w3-dropdown-content w3-bar-block w3-card-4'>
+                    <Link to='/reports' className='w3-bar-item w3-button'>Expenses</Link>
+                    <a href='#' className='w3-bar-item w3-button'>Contributions</a>
+                  </div>
+                </div>
+                <a href='#' className='w3-bar-item w3-button w3-right'>Logout</a>
+              </div>
+
             </div>
 
             <div className='w3-container'>
@@ -121,7 +152,7 @@ class Application extends Component {
 
           </div>
         </Router>
-      </Provider>
+      </Provider >
     );
 
   }

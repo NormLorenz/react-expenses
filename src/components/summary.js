@@ -176,8 +176,8 @@ class Summary extends Component {
                 <label className='w3-label'>Tax year: also used to set the default year for shortened mm/dd entries</label>
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Save</button>
+                <button className='w3-button w3-padding-small w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button type='submit' className='w3-button w3-padding-small w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Save</button>
               </div>
             </form>
           </div>

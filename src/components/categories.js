@@ -130,8 +130,8 @@ class Categories extends Component {
         <tr key={category.key}>
           <td>{category.data.description}</td>
           <td><ActiveDisplay isActive={category.data.isActive} /></td>
-          <td><button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.edit)}>Edit</button>
-            &nbsp;<button className='w3-button w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.delete)}>Delete</button></td>
+          <td><button className='w3-button w3-padding-small w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.edit)}>Edit</button>
+            &nbsp;<button className='w3-button w3-padding-small w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, category, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -154,7 +154,7 @@ class Categories extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Category</button>
+        <button className='w3-button w3-padding-small w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Category</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -173,8 +173,8 @@ class Categories extends Component {
                 <label className='w3-text-teal'>Active</label>
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button type='submit' className='w3-button w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
+                <button className='w3-button w3-padding-small w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button type='submit' className='w3-button w3-padding-small w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
           </div>

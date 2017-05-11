@@ -149,6 +149,7 @@
 * redo the yarn/npm store
 * make the whole application ES6'ish
 * use placeholders throughout
+* upgrade w3.css 2.82 to 4.04
 
 ### router rewrite
 
