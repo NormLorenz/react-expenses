@@ -138,18 +138,20 @@
 * create a new redux branch - DONE
 * 'There is no tracking information for the current branch' - git pull origin redux - DONE
   * git branch --set-upstream redux origin/redux
+* upgrade w3.css 2.82 to 4.04 - DONE
+* modify the summary 'change tax year' styling
 
 ### in-flight
 
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * implement single responsibility principal
-* implement donations and charities
+* implement donations and charities - WORKING
+* upgrade navigation system and file structure - WORKING
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
 * use placeholders throughout
-* upgrade w3.css 2.82 to 4.04
 
 ### router rewrite
 
@@ -195,5 +197,4 @@
   * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
   * pass the class name as props
 * major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4 - DONE
-* implement propTypes for redux?
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
