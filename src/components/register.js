@@ -30,7 +30,7 @@ class Register extends Component {
               <input className='w3-input w3-border w3-round' placeholder='Password' ref={(pw) => this.pw = pw} type='password' />
               <label className='w3-label'>Password</label>
             </div>
-            <button type='submit' className='w3-button w3-padding-small w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Register</button>
+            <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>Register</button>
           </form>
         </div>
       </div>
