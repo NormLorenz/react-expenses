@@ -24,7 +24,7 @@ export function insertCharity(charity) {
   }
 }
 
-export function fetchCategories() {
+export function fetchCharities() {
   return dispatch => {
     database.ref('charities').on('value', snap => {
       let charities = [];
@@ -40,7 +40,7 @@ export function fetchCategories() {
       });
 
       dispatch({
-        type: ActionTypes.CategoriesUpdated,
+        type: ActionTypes.CharitiesUpdated,
         payload: charities
       });
     });

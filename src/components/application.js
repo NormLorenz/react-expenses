@@ -14,6 +14,7 @@ import Summary from './summary';
 import Expenses from './expenses';
 import Properties from './lists/properties';
 import Categories from './lists/categories';
+import Charities from './lists/charities';
 import ExpenseReport from './reports/expenses';
 import NotImplemented from './notimplemented';
 import Placeholder from './placeholder';
@@ -89,7 +90,7 @@ class Application extends Component {
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
                     <Link to='/properties' className='w3-bar-item w3-button'>Properties</Link>
                     <Link to='/categories' className='w3-bar-item w3-button'>Categories</Link>
-                    <Link to='/notimplemented' className='w3-bar-item w3-button'>Charities</Link>
+                    <Link to='/charities' className='w3-bar-item w3-button'>Charities</Link>
                   </div>
                 </div>
                 <div className='w3-dropdown-hover'>
@@ -123,6 +124,7 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/expenses' component={Expenses} />
                   <PrivateRoute authed={this.state.authed} path='/properties' component={Properties} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
+                  <PrivateRoute authed={this.state.authed} path='/charities' component={Charities} />
                   <PrivateRoute authed={this.state.authed} path='/expensereport' component={ExpenseReport} />
                   <Route path='/notimplemented' component={NotImplemented} />
                   <Route render={() => <h4>No Match</h4>} />

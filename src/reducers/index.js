@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import CharitiesReducer from './charities';
 import CategoryReducer from './categories';
 import ExpenseReducer from './expenses';
 import PropertyReducer from './properties';
@@ -11,6 +12,7 @@ import {reducer as notifications} from 'react-notification-system-redux';
 // manage separate data domains
 
 const allReducers = combineReducers({
+  charityObject: CharitiesReducer,
   categoryObject: CategoryReducer,
   expenseObject: ExpenseReducer,
   propertyObject: PropertyReducer,

@@ -4,7 +4,7 @@ const actionTypes = {
   ExpensesUpdated: 'EXPENSES_UPDATED',
   CategoriesUpdated: 'CATEGORIES_UPDATED',
   PropertiesUpdated: 'PROPERTIES_UPDATED',
-  CharitiesUpdated: 'PROPERTIES_UPDATED'
+  CharitiesUpdated: 'CHARITIES_UPDATED'
 
 };
 
