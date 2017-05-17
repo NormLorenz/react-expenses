@@ -1,0 +1,2264 @@
+{
+  "categories" : {
+    "-KaSpTd-hcMbyNqFcKqP" : {
+      "description" : "cleaning supplies",
+      "isActive" : true
+    },
+    "-KaSq6s8x-nToK6eF0TI" : {
+      "description" : "decorating",
+      "isActive" : true
+    },
+    "-KaiBnzYXqx80piMJFst" : {
+      "description" : "computer",
+      "isActive" : true
+    },
+    "-KanJCPBzu4iNGRswZ2S" : {
+      "description" : "appliances",
+      "isActive" : true
+    },
+    "-KanJNc8jRgTE2Xb2k_V" : {
+      "description" : "escrow interest",
+      "isActive" : true
+    },
+    "-KanJPedoUShZDXKinTF" : {
+      "description" : "fixtures",
+      "isActive" : true
+    },
+    "-KanJRy9JDTeA6kJREqu" : {
+      "description" : "internet services",
+      "isActive" : true
+    },
+    "-KanJU8JfiJtMUGLRNpD" : {
+      "description" : "loan creation",
+      "isActive" : true
+    },
+    "-KanJWRbXdG3eJuDBobH" : {
+      "description" : "miscellaneous",
+      "isActive" : true
+    },
+    "-KanJZWasl2h5Stt8T_n" : {
+      "description" : "office expenses",
+      "isActive" : true
+    },
+    "-KanJc6vZVWxY0I03U02" : {
+      "description" : "postage/shipping",
+      "isActive" : true
+    },
+    "-KanJfzxjRy7iVBE3F1k" : {
+      "description" : "property insurance",
+      "isActive" : true
+    },
+    "-KanJi372YSZv9Zq5ag_" : {
+      "description" : "property taxes",
+      "isActive" : true
+    },
+    "-KanJk-qxTUiMR4ft8VT" : {
+      "description" : "repairs",
+      "isActive" : true
+    },
+    "-KanJmYc0hppZh1UBEAo" : {
+      "description" : "rm labor",
+      "isActive" : true
+    },
+    "-KanJoDdSCjavAcER6V3" : {
+      "description" : "rm materials",
+      "isActive" : true
+    },
+    "-KanJqWLQPBBIgWCgkbF" : {
+      "description" : "rm subcontractors",
+      "isActive" : true
+    },
+    "-KanJtsMkOnlQ_vTe4ly" : {
+      "description" : "sewer expenses",
+      "isActive" : true
+    },
+    "-KanJw0rBB7Itvcr-bPc" : {
+      "description" : "spm bill pay",
+      "isActive" : true
+    },
+    "-KanJy4ZlmVD4ILm4DUk" : {
+      "description" : "spm fees",
+      "isActive" : true
+    },
+    "-KanJzkWyzXYG7sZ58LS" : {
+      "description" : "spm labor",
+      "isActive" : true
+    },
+    "-KanK0vAxztrAvavJ69k" : {
+      "description" : "spm rent paid",
+      "isActive" : true
+    },
+    "-KanK3FD2uVg1GGzSvFS" : {
+      "description" : "subcontractors",
+      "isActive" : true
+    },
+    "-KanK5288mM_d8AgObN3" : {
+      "description" : "supplies",
+      "isActive" : true
+    },
+    "-KanK6dFEzxAOxbqvbxL" : {
+      "description" : "tools",
+      "isActive" : true
+    },
+    "-KanK8YSW1h9aAsrL5rF" : {
+      "description" : "utilities",
+      "isActive" : true
+    },
+    "-Kc-OV8NVdB1wWRJgHez" : {
+      "description" : "memberships",
+      "isActive" : true
+    }
+  },
+  "expenses" : {
+    "-KaYFRmcItCas8esKIfo" : {
+      "amount" : 5678,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2015-01-14T08:00:00.000Z",
+      "description" : "my expense",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2015
+    },
+    "-KaYGBxtkLfYIW0rKacn" : {
+      "amount" : 9334,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2014-06-24T07:00:00.000Z",
+      "description" : "costco",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2014
+    },
+    "-KaYGh5BiK7Ert40Iqov" : {
+      "amount" : 454,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2015-03-27T07:00:00.000Z",
+      "description" : "home depot",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2015
+    },
+    "-Kam6tzPxLfbipZOBfXD" : {
+      "amount" : 33330,
+      "category" : "",
+      "date" : "2015-11-11T08:00:00.000Z",
+      "description" : "fix ice dams",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2015
+    },
+    "-Kb_b0uMpqFIPc3gzEYx" : {
+      "amount" : 1645,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-09-20T07:00:00.000Z",
+      "description" : "logitech mouse",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kb_bDnCSJRC5lhLwF6M" : {
+      "amount" : 977,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-09-23T07:00:00.000Z",
+      "description" : "usb drive",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kbl2lDM-peSQmdzszo5" : {
+      "amount" : 145000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kbpxl95ZwDSNMPLQNsI" : {
+      "amount" : 10000,
+      "category" : "-Kc-OV8NVdB1wWRJgHez",
+      "date" : "2016-01-01T08:00:00.000Z",
+      "description" : "prime membership",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kc0YjjtGAfeYqikCIiH" : {
+      "amount" : 2598,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-22T07:00:00.000Z",
+      "description" : "costco sprague",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0ZFrQzAntHv2pg0Xy" : {
+      "amount" : 2952,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-18T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0ZrsmEPe_syeGZTgT" : {
+      "amount" : 1947,
+      "category" : "-KanJPedoUShZDXKinTF",
+      "date" : "2016-12-07T08:00:00.000Z",
+      "description" : "walmart sandpoint 2 trips",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc0_ERtl_VcYyARHoex" : {
+      "amount" : 0,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-03-01T08:00:00.000Z",
+      "description" : "usb adapter",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kc0_WmofZXZKw7yqc2p" : {
+      "amount" : 8584,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-09-25T07:00:00.000Z",
+      "description" : "office depot office chair cda",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kc0a4SnJqJpyNTG2_OW" : {
+      "amount" : 214,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-04T07:00:00.000Z",
+      "description" : "super one foods sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0aL65Ujvq9F79TIHY" : {
+      "amount" : 7886,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-04T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0afItRU3R33PpcnIn" : {
+      "amount" : 2272,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-03T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0bHirIVNQxLJge5Qv" : {
+      "amount" : 159,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-09T07:00:00.000Z",
+      "description" : "rosauers spokane #10",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0bUwse7aaE5ZE6Krh" : {
+      "amount" : 5731,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-09T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0bhDyZrlAoeiO5jdS" : {
+      "amount" : 1800,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-09-09T07:00:00.000Z",
+      "description" : "harbor freight cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0bxyVXr7mDm-7Gkxg" : {
+      "amount" : 100178,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-25T07:00:00.000Z",
+      "description" : "windsor plywood spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0c8qts4CKwzs6suAh" : {
+      "amount" : 640,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-08-05T07:00:00.000Z",
+      "description" : "sandpoint super drug",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0cIqDInhPfHw1cfms" : {
+      "amount" : 6650,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-24T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0cVI6hapcBvoPZ-vv" : {
+      "amount" : 1119,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-25T07:00:00.000Z",
+      "description" : "sandpoint super drug",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0cdl1IlC1QmYmw54q" : {
+      "amount" : 8487,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-25T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0ctE_wlpXfqOWlSmS" : {
+      "amount" : 10494,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-08-21T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0dHClzvEI1dWclZHS" : {
+      "amount" : 3226,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-08-21T07:00:00.000Z",
+      "description" : "costco cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0d_0mBmsrWCWYzMKN" : {
+      "amount" : 1247,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-08-23T07:00:00.000Z",
+      "description" : "fred meyers spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0do8iYGnCrvMuFcKd" : {
+      "amount" : 9049,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-13T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0e-aCO0IlIeIQJYwr" : {
+      "amount" : 4579,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-14T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0eCwk5VWBWfp6yFk0" : {
+      "amount" : 3961,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-09T07:00:00.000Z",
+      "description" : "kmart spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0eW99PPjbgZ2dmt8G" : {
+      "amount" : 9095,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-09T07:00:00.000Z",
+      "description" : "sherwin williams spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0eiff6W4jxY366qaV" : {
+      "amount" : 2812,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-12T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0esKtCx5LerNPvNYQ" : {
+      "amount" : 1057,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-08T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0f6IlD5ZnD32otsAU" : {
+      "amount" : 22249,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-06T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0fIsfB-8xPLK7Ac7V" : {
+      "amount" : 4824,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-18T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0fXYUN_Qn69Qi_x_8" : {
+      "amount" : 10538,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-08-19T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0fpAO5Cq15iVy95aE" : {
+      "amount" : 6520,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-08-16T07:00:00.000Z",
+      "description" : "world market spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0g4NuCpiOUQKZKLw6" : {
+      "amount" : 3316,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-26T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0gBOFSlmSQzw8sS-U" : {
+      "amount" : 7328,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-27T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc0ghPzuFCS5PmAyaoC" : {
+      "amount" : 1110,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-27T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLBPxNEiWqywHBRm5s" : {
+      "amount" : 18974,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-08-14T07:00:00.000Z",
+      "description" : "lowes cda lawnmover",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLBdYTSO3H-xdH6YXX" : {
+      "amount" : 8662,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLBzav_2h2k-lk-bfu" : {
+      "amount" : 1699,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "description" : "costco cleaning",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLCHD18Osxt3nvEymi" : {
+      "amount" : 769,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-08-26T07:00:00.000Z",
+      "description" : "hi mark heating",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLCVG-r3WFZPPyooXp" : {
+      "amount" : 8399,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-30T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLClUW4W5lYmCObeiO" : {
+      "amount" : 14169,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLCx--LzsWx0FRDEcH" : {
+      "amount" : 1365,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-26T07:00:00.000Z",
+      "description" : "ace hardware",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLD6PVUDv6GGD0i62U" : {
+      "amount" : 200,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "super one sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLDLyPvZFKpAWrAEJH" : {
+      "amount" : 2217,
+      "category" : "-KanJPedoUShZDXKinTF",
+      "date" : "2016-07-27T07:00:00.000Z",
+      "description" : "revival lighting spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLDXKarNLbm7VRbOAJ" : {
+      "amount" : 12496,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-28T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLDjGDX-N4sRRkBUue" : {
+      "amount" : 1000,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-01T07:00:00.000Z",
+      "description" : "fred meyers spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLDvcMpNxskzznUXMn" : {
+      "amount" : 299,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-08-02T07:00:00.000Z",
+      "description" : "value village spokane",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLE7XOViglxT-ockG_" : {
+      "amount" : 347,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-08-01T07:00:00.000Z",
+      "description" : "goodwill spokane 27th",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLEOZ_P2GBbU0Gaecb" : {
+      "amount" : 32250,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-08T07:00:00.000Z",
+      "description" : "hi mark heating sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLEZVgdbs9s9PqjWB5" : {
+      "amount" : 2644,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "description" : "home depot cda",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLEo1nR3L-BVmzZSDd" : {
+      "amount" : 874,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-24T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLEvZwpioo5FfI0udp" : {
+      "amount" : 4173,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-16T07:00:00.000Z",
+      "description" : "sun rental",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLF8X0gWgY020-8tcs" : {
+      "amount" : 3993,
+      "category" : "-KaSpTd-hcMbyNqFcKqP",
+      "date" : "2016-09-16T07:00:00.000Z",
+      "description" : "walmart sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcLFPjwrgnw-ZULKwXK" : {
+      "amount" : 6238,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-09-16T07:00:00.000Z",
+      "description" : "home depot sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcVVGKxGNa5prFCpDer" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVVTB5s8jkW4YN3TBp" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVVwjqJs_a1B5P0HkZ" : {
+      "amount" : 14500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVW7pyPwqK3XBK6h9B" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVWEu-lNf0vesQu9l5" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVWR2ypq4iqKTZc079" : {
+      "amount" : 7150,
+      "category" : "-KanJqWLQPBBIgWCgkbF",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVW_nXOgSFyRy5mztC" : {
+      "amount" : 25747,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-01-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVX-h_o0gmNu2K0QLQ" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVXCwp-q4lGAYPiLhj" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVXSbPSfNweCmBSIAW" : {
+      "amount" : 145000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVXcdofUScESsVk08l" : {
+      "amount" : 14500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVXrsAHLjiOUFJ6dKE" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVY1mg4dwgMUtJFDjZ" : {
+      "amount" : 2212,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVYAFINEQPoA-EcERR" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVYHpiBMepj5jx1_Pi" : {
+      "amount" : 12000,
+      "category" : "-KanJmYc0hppZh1UBEAo",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVYQFYOq8DW04ey13f" : {
+      "amount" : 2096,
+      "category" : "-KanJoDdSCjavAcER6V3",
+      "date" : "2016-02-26T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVYeUTNx8dWK5SOPeY" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVYm9gcsljTUz0V_HT" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVYwQea5DF0re9VSf0" : {
+      "amount" : 145000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVZ3mnZM1lxQ2WsnXa" : {
+      "amount" : 14500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVZClygmt8wfPrRrDi" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVZJagn_eb5s_-X1jm" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVZZYzxIiRT27_h_up" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVZlc5mVL1G1ytYlZU" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVZzVvHfrje7LQcb0l" : {
+      "amount" : 145000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcV_5Rfbx8j7pKXyz13" : {
+      "amount" : 14500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcV_DGwv9Rp8yxXsmQ3" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcV_LHt0FHiuPqxw6Jg" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-04-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcV_Webwg7DMEB6hQwy" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcV_cnDWPNHc_FPagiu" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcV_itTvIU3XQRB8kTq" : {
+      "amount" : 145000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcV_tb_CdrRWUGLUBmm" : {
+      "amount" : 14500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVa03MUgURApOZeJdM" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVa6HwKqA1EY0_FETp" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVaBN_CjMRWWY58jxD" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-05-27T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVaMEvytZADmU0BQed" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVaRgiplt8gUiDT1PF" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcVaa2eVFAnN8t_nazA" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVag0nqC8oCPlBeHbU" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcVapggGYJkcoewfwrL" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVaydf8t55zy-PfXfM" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcVb5tZDskEAmjQ-BHq" : {
+      "amount" : 4000,
+      "category" : "-KanJmYc0hppZh1UBEAo",
+      "date" : "2016-06-24T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc__vpB3u19EoF_TfKR" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_a1nemsa5HoItjAIp" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_aBMTPil2qv4mUnaV" : {
+      "amount" : 24200,
+      "category" : "-KanJqWLQPBBIgWCgkbF",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_aNAA9l-UDDyY3zDw" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_aUVIOpw6Um7dSY6S" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_abOOuNZzK85iH2Lk" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_aipZPfS1duPqfBy_" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_b1N0niW4CKAK0AN4" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_b6k9Of3V4CiLbFqR" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_bEFnNM0TsFa4e6kz" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_bNUHmUmbI4IUdhV-" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_bYUOXglhrjcnsgRO" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_beZAn7ZNRnwHKw68" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-08-30T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_bto-U_64hw8tOqUW" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_bz6Ed8BtHcZF5RJq" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_c5ht5yyWfIoxVMJ1" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_cBQmWRYz8wUbVE7I" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_cIgbgkF5zOV1tljH" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_cNk5ItfV2FffMkzr" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-09-28T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_cdcE6Jh9t5B5An1P" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_cigDNbK71PDI44XV" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_cotDTe9wLn4BHFKZ" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_dUmyJOIlOFntiCSN" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_e8Kf2zZy9rwmqtWn" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_eFM_AMb7KAxTF9N1" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_ebsQztaHp2D3WwW7" : {
+      "amount" : 116900,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc_equvBQtNfyfNuzAr" : {
+      "amount" : 11690,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-10-29T07:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc_fH1F9Vxx49nsc7iG" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_fOCNIxRgT1fY1nQ-" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_fVGWVyH1fHUBquG0" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_faKHkBwMCR15nJTU" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_fhXXBY3cfE3_w3N5" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_fnUrIZXnCEoknbdk" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_fw1f2fbX1XCAfGTo" : {
+      "amount" : 4700,
+      "category" : "-KanJmYc0hppZh1UBEAo",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_g23OoCVQ_szWcLsz" : {
+      "amount" : 2159,
+      "category" : "-KanJoDdSCjavAcER6V3",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_g9-UbQ51rp10oYTl" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc_gEJIjp6bJ3JWzg8J" : {
+      "amount" : 12500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-11-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc_gOGUvj2i1hHX-3xX" : {
+      "amount" : 90000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_gTM5BT03krt3TbfP" : {
+      "amount" : 9000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-Kc_g_VzXzU_hY12ia4f" : {
+      "amount" : 130000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_geNa3scRcnnq1HD2" : {
+      "amount" : 13000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_gnRUCSrhmlNa00pE" : {
+      "amount" : 20240,
+      "category" : "-KanJqWLQPBBIgWCgkbF",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-Kc_gu7CMEwGsesYz2z4" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_gzejYD71rSwx79nA" : {
+      "amount" : 10000,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-Kc_h478Mc5bH09qEqna" : {
+      "amount" : 125000,
+      "category" : "-KanK0vAxztrAvavJ69k",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : false,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kc_hArfvUdKuboHPJP9" : {
+      "amount" : 12500,
+      "category" : "-KanJy4ZlmVD4ILm4DUk",
+      "date" : "2016-12-28T08:00:00.000Z",
+      "description" : "statement",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcuIB5M0zxgtGSLFurf" : {
+      "amount" : 124979,
+      "category" : "-KanJi372YSZv9Zq5ag_",
+      "date" : "2016-12-20T08:00:00.000Z",
+      "description" : "county property tax",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcuI_xgs3VIkMCNqh7j" : {
+      "amount" : 152588,
+      "category" : "-KanJi372YSZv9Zq5ag_",
+      "date" : "2016-12-20T08:00:00.000Z",
+      "description" : "county property tax",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcuInARVLn5tyAQj4NC" : {
+      "amount" : 238196,
+      "category" : "-KanJi372YSZv9Zq5ag_",
+      "date" : "2016-12-20T08:00:00.000Z",
+      "description" : "county property tax",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcuIwibOK7Dlib-nj84" : {
+      "amount" : 282212,
+      "category" : "-KanJi372YSZv9Zq5ag_",
+      "date" : "2016-12-20T08:00:00.000Z",
+      "description" : "county property tax",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KcuJfOASSJX3IOZHo5l" : {
+      "amount" : 28300,
+      "category" : "-KanJfzxjRy7iVBE3F1k",
+      "date" : "2016-07-01T07:00:00.000Z",
+      "description" : "hazard insurance",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KcuMr3FmczAJqLuLCyk" : {
+      "amount" : 27200,
+      "category" : "-KanJfzxjRy7iVBE3F1k",
+      "date" : "2016-11-21T08:00:00.000Z",
+      "description" : "property insurance",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KcuN-pYNg5bQCoHKKhp" : {
+      "amount" : 43400,
+      "category" : "-KanJfzxjRy7iVBE3F1k",
+      "date" : "2016-10-02T07:00:00.000Z",
+      "description" : "property insurance",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KcuNDYe4XanSlvhFx_1" : {
+      "amount" : 37200,
+      "category" : "-KanJfzxjRy7iVBE3F1k",
+      "date" : "2016-03-30T07:00:00.000Z",
+      "description" : "property insurance",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KdTPDCiIoRmhaPAQ5em" : {
+      "amount" : 3369,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-01-04T08:00:00.000Z",
+      "description" : "computer stand",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTPcznmbBzcOSI0_1U" : {
+      "amount" : 2999,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-01-13T08:00:00.000Z",
+      "description" : "comcast internet",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTPxOmFjA5xExNX8bp" : {
+      "amount" : 3500,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-01-19T08:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdTQ98O39FItVGx1gDr" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-01-15T08:00:00.000Z",
+      "description" : "sewer services",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTQgJjbPdhkA51m1iI" : {
+      "amount" : 8641,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-01-25T08:00:00.000Z",
+      "description" : "utilities",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KdTRZRx-Rub7PjG64p-" : {
+      "amount" : 6913,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-02-15T08:00:00.000Z",
+      "description" : "city of sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KdTRoIBhYNgHoza4sAJ" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-02-04T08:00:00.000Z",
+      "description" : "sewer expenses",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTS2nOcP_DfLyvTFa0" : {
+      "amount" : 6948,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-02-19T08:00:00.000Z",
+      "description" : "comcast internet",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTSF6h6C-fIOWVz4Fe" : {
+      "amount" : 3150,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-01-25T08:00:00.000Z",
+      "description" : "clipboard computer",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTSPVwzUAq7Jtv5TT5" : {
+      "amount" : 1000,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-02-01T08:00:00.000Z",
+      "description" : "skype",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTSj_mNYA0M-yqx4Y5" : {
+      "amount" : 3995,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-02-07T08:00:00.000Z",
+      "description" : "router",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTStmi-HMefjG10Ubg" : {
+      "amount" : 1799,
+      "category" : "-KaiBnzYXqx80piMJFst",
+      "date" : "2016-02-10T08:00:00.000Z",
+      "description" : "cables",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTT66TBtnIMr4Kk5ge" : {
+      "amount" : 3949,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-03-15T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTTI8lQNbKPIhXE0Hb" : {
+      "amount" : 3500,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-03-05T08:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdTTQ7ehlMkZfIPW0dR" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-03-10T08:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTURw9vbDUURiukPgR" : {
+      "amount" : 3500,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-04-05T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdTUaL1vZf3h98R_Fmk" : {
+      "amount" : 768,
+      "category" : "-KanJc6vZVWxY0I03U02",
+      "date" : "2016-04-14T07:00:00.000Z",
+      "description" : "printing forms",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTV-mW67aOqusaLWY7" : {
+      "amount" : 272,
+      "category" : "-KanJc6vZVWxY0I03U02",
+      "date" : "2016-04-14T07:00:00.000Z",
+      "description" : "postage",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTVJfZgRlvOj_24CjB" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-04-15T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTVasvlnR4z4blkjLE" : {
+      "amount" : 15217,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-02-23T08:00:00.000Z",
+      "description" : "office phone",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTVjwJGE7ERmVLvHt0" : {
+      "amount" : 2617,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-03-02T08:00:00.000Z",
+      "description" : "wifi adapter",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTVsa_faVaYMsGlcEm" : {
+      "amount" : 2572,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-03-02T08:00:00.000Z",
+      "description" : "wall mounting plate",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTXNQuVXLkGXCJ0J6e" : {
+      "amount" : 11500,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-06-01T07:00:00.000Z",
+      "description" : "wayne clark",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KdTXfhtL7BKR6rHBspW" : {
+      "amount" : 19457,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-06-02T07:00:00.000Z",
+      "description" : "lawn mover",
+      "isDebit" : true,
+      "property" : "-KaEb6vsLjjN-Iryh7Sh",
+      "taxYear" : 2016
+    },
+    "-KdTXo1XoYWkGlJOYu7r" : {
+      "amount" : 3500,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-05-01T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdTXxBYOKGN7Y4ojjnW" : {
+      "amount" : 2049,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-05-14T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTY1LbZCDjVa4u1qDR" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-05-09T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTYItIOLvd_7xjU72s" : {
+      "amount" : 2999,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-04-21T07:00:00.000Z",
+      "description" : "ember training",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTY_dR8-6HAsFb6qCf" : {
+      "amount" : 1199,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-05-17T07:00:00.000Z",
+      "description" : "ubuntu",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTYu42tJLtO1gJKb-c" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-06-13T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdTZ6rBa6hlNFPRcxBx" : {
+      "amount" : 3500,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-06-01T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdTZCyNTRLDCEBfEMZg" : {
+      "amount" : 2999,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-06-13T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdTZVgrs5UCCDJ_VZjM" : {
+      "amount" : 364200,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-06-23T07:00:00.000Z",
+      "description" : "house painting",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KdT_6b7X-uj4tx1Z7KB" : {
+      "amount" : 15091,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-06-18T07:00:00.000Z",
+      "description" : "kitchen sink",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYV0S_e64yVNQOtiBN" : {
+      "amount" : 2999,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-07-10T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYV7HnwsfZ1N38TMx_" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-07-01T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdYVFfdx_ndHLn--VBC" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-07-14T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYVrT_STf4Rwt9UMVz" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-08-05T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdYVxqr-Th1oF1NMHaL" : {
+      "amount" : 2999,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-08-13T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYW6cktvyuskihc5ww" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-08-11T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYWL0yMbOdEQlpbW48" : {
+      "amount" : 45600,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-08-15T07:00:00.000Z",
+      "description" : "elkhorn",
+      "isDebit" : true,
+      "property" : "-KaEade6ohMY7Hi8C_WK",
+      "taxYear" : 2016
+    },
+    "-KdYXM6mfYPwxL-ND1Hg" : {
+      "amount" : 2489,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-07-10T07:00:00.000Z",
+      "description" : "rodent trap",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYXXp5Wxi6AbBYeHFy" : {
+      "amount" : 24500,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-07-24T07:00:00.000Z",
+      "description" : "bostitch nailer",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYXhNtgWmO1PAfROey" : {
+      "amount" : 498,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-07-24T07:00:00.000Z",
+      "description" : "bostitch swivel",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYXoVzz9sRdiQCBF-E" : {
+      "amount" : 5699,
+      "category" : "-KanK6dFEzxAOxbqvbxL",
+      "date" : "2016-07-24T07:00:00.000Z",
+      "description" : "nails",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYY-Ih8ergaEkR_Z7y" : {
+      "amount" : 1275,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "description" : "oven liner",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYY7unWB5FQraZ7pg9" : {
+      "amount" : 870,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-08-09T07:00:00.000Z",
+      "description" : "tie back",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYYVUBMKdqhIx_EsKg" : {
+      "amount" : 89336,
+      "category" : "-KanJCPBzu4iNGRswZ2S",
+      "date" : "2016-07-16T07:00:00.000Z",
+      "description" : "washer/dryer",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYYk5Dzyp_xiGut2By" : {
+      "amount" : 58500,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-06-25T07:00:00.000Z",
+      "description" : "appraisal",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYZ1w_QiUCjich5IQs" : {
+      "amount" : 18974,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-08T07:00:00.000Z",
+      "description" : "toilet",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYZJm60_y5UKdr6y93" : {
+      "amount" : 461,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-17T07:00:00.000Z",
+      "description" : "batteries",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdY_15h6Q5jT2xPQoXz" : {
+      "amount" : 1620,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-09-06T07:00:00.000Z",
+      "description" : "avista",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdY_9Gt40N8wsW5bfSL" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-09-05T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdY_F71WyGV-JQce9LG" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-09-05T07:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdY_MFojfDEwtUxHvvj" : {
+      "amount" : 2999,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-09-05T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdY_VtNST6Xr6f-_-2z" : {
+      "amount" : 6018,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-09-20T07:00:00.000Z",
+      "description" : "city of sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdY_s-Jv_K0gGy0vNlB" : {
+      "amount" : 14620,
+      "category" : "-KaSq6s8x-nToK6eF0TI",
+      "date" : "2016-07-23T07:00:00.000Z",
+      "description" : "blinds",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYatoR8mMEQA7Q4lNL" : {
+      "amount" : 1275,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "description" : "oven liners",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYb45KGEqZmjBuT2qv" : {
+      "amount" : 999,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-09-15T07:00:00.000Z",
+      "description" : "keyboard",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYbSDuG-PmopiQQlxt" : {
+      "amount" : 48900,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-10-24T07:00:00.000Z",
+      "description" : "hi mark heating",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYbayGeCvUlfTMgvqI" : {
+      "amount" : 4995,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-10-14T07:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYbk5395cVGTGZcOx8" : {
+      "amount" : 10793,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-10-25T07:00:00.000Z",
+      "description" : "city of sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYbxQthFUsFe7EIijz" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-10-05T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdYc23t24ZXBp5L3feR" : {
+      "amount" : 1991,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-10-11T07:00:00.000Z",
+      "description" : "avista",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYd5pH54DwM5B_b2RH" : {
+      "amount" : 11999,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-09-16T07:00:00.000Z",
+      "description" : "computer",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYdE8vcabE3k2MNbMe" : {
+      "amount" : 1645,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-09-19T07:00:00.000Z",
+      "description" : "mouse",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYdi1NL0BQO57lHxEb" : {
+      "amount" : 5109,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-11-25T08:00:00.000Z",
+      "description" : "city of sandpoint",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYdqECaoQjA2Xr6zWL" : {
+      "amount" : 10500,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-11-09T08:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYdwqvrhZigbEG128S" : {
+      "amount" : 4995,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-11-13T08:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYe3QqJ930moQnYBCS" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-11-05T07:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KdYfnaqcNV4FNgvHs3Y" : {
+      "amount" : 1399,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-10-19T07:00:00.000Z",
+      "description" : "shopvac filter",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KdYgdfHWB6uBcCq9meC" : {
+      "amount" : 5000,
+      "category" : "-KanK8YSW1h9aAsrL5rF",
+      "date" : "2016-12-16T08:00:00.000Z",
+      "description" : "sewer",
+      "isDebit" : true,
+      "property" : "-Ka8p-5P_zjoA2GsS50E",
+      "taxYear" : 2016
+    },
+    "-KdYgqEKOln5cbSul-P-" : {
+      "amount" : 4995,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-12-14T08:00:00.000Z",
+      "description" : "comcast",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KdYgwd1gLZPK-Gqxvym" : {
+      "amount" : 3430,
+      "category" : "-KanJRy9JDTeA6kJREqu",
+      "date" : "2016-12-01T08:00:00.000Z",
+      "description" : "laser image",
+      "isDebit" : true,
+      "property" : "-Ka8sEr8o_Xkqx8LmmS2",
+      "taxYear" : 2016
+    },
+    "-KevAz9Donbd6BM5zM-K" : {
+      "amount" : 4949,
+      "category" : "-KanJk-qxTUiMR4ft8VT",
+      "date" : "2016-07-16T07:00:00.000Z",
+      "description" : "hose sandpoint home depot",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-Kf2V8mf-71Ia2671y9y" : {
+      "amount" : 1916,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-12-24T08:00:00.000Z",
+      "description" : "thumb drive",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-Kf2Vf4AhWdXnfUctOfU" : {
+      "amount" : 4333,
+      "category" : "-KanJZWasl2h5Stt8T_n",
+      "date" : "2016-01-15T08:00:00.000Z",
+      "description" : "turbo tax",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    },
+    "-KfJcQymjfi7F8oW096h" : {
+      "amount" : 294440,
+      "category" : "-KanJNc8jRgTE2Xb2k_V",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "description" : "mortgage interest",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KfJwqZztJ3yMfSWyX8v" : {
+      "amount" : 290311,
+      "category" : "-KanJU8JfiJtMUGLRNpD",
+      "date" : "2016-07-29T07:00:00.000Z",
+      "description" : "closing costs",
+      "isDebit" : true,
+      "property" : "-KaEbGQUft5ggzJ28DZC",
+      "taxYear" : 2016
+    },
+    "-KfiKbxTkcvBylKs_R3c" : {
+      "amount" : 2900,
+      "category" : "-KanJWRbXdG3eJuDBobH",
+      "date" : "2016-03-12T08:00:00.000Z",
+      "description" : "online training",
+      "isDebit" : true,
+      "property" : "-Ka8oQSh7q2q8LT6DN7E",
+      "taxYear" : 2016
+    }
+  },
+  "properties" : {
+    "-Ka8oQSh7q2q8LT6DN7E" : {
+      "description" : "walnut street",
+      "isActive" : false
+    },
+    "-Ka8p-5P_zjoA2GsS50E" : {
+      "description" : "garfield bay",
+      "isActive" : true
+    },
+    "-Ka8sEr8o_Xkqx8LmmS2" : {
+      "description" : "hoffman road",
+      "isActive" : false
+    },
+    "-KaEade6ohMY7Hi8C_WK" : {
+      "description" : "browning way",
+      "isActive" : true
+    },
+    "-KaEb6vsLjjN-Iryh7Sh" : {
+      "description" : "creekview court",
+      "isActive" : true
+    },
+    "-KaEbGQUft5ggzJ28DZC" : {
+      "description" : "lincoln street",
+      "isActive" : true
+    }
+  },
+  "taxYear" : 2016,
+  "users" : {
+    "L3m49lZqigbomYDk8eNxvR5HMsY2" : {
+      "info" : {
+        "email" : "lindaoaksford@gmail.com",
+        "uid" : "L3m49lZqigbomYDk8eNxvR5HMsY2"
+      }
+    }
+  }
+}

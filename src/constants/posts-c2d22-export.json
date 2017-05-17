@@ -1,0 +1,361 @@
+{
+  "categories" : {
+    "1" : {
+      "description" : "spm bill pay",
+      "isActive" : true
+    },
+    "2" : {
+      "description" : "fixtures",
+      "isActive" : true
+    },
+    "3" : {
+      "description" : "computer",
+      "isActive" : true
+    },
+    "4" : {
+      "description" : "appliances",
+      "isActive" : true
+    },
+    "5" : {
+      "description" : "property taxes",
+      "isActive" : true
+    },
+    "6" : {
+      "description" : "internet services",
+      "isActive" : true
+    },
+    "7" : {
+      "description" : "miscellaneous",
+      "isActive" : true
+    },
+    "8" : {
+      "description" : "office expenses",
+      "isActive" : true
+    },
+    "9" : {
+      "description" : "postage and shipping",
+      "isActive" : true
+    },
+    "10" : {
+      "description" : "rm labor",
+      "isActive" : true
+    },
+    "11" : {
+      "description" : "rm materials",
+      "isActive" : true
+    },
+    "12" : {
+      "description" : "rm subcontractors",
+      "isActive" : true
+    },
+    "13" : {
+      "description" : "cleaning supplies",
+      "isActive" : true
+    },
+    "14" : {
+      "description" : "sewer expenses",
+      "isActive" : true
+    },
+    "15" : {
+      "description" : "spm fees",
+      "isActive" : true
+    },
+    "16" : {
+      "description" : "spm labor",
+      "isActive" : true
+    },
+    "17" : {
+      "description" : "supplies",
+      "isActive" : true
+    },
+    "18" : {
+      "description" : "tools",
+      "isActive" : true
+    },
+    "19" : {
+      "description" : "subcontractors",
+      "isActive" : true
+    },
+    "20" : {
+      "description" : "utilities",
+      "isActive" : true
+    },
+    "21" : {
+      "description" : "loan creation",
+      "isActive" : true
+    },
+    "22" : {
+      "description" : "escrow interest",
+      "isActive" : true
+    },
+    "23" : {
+      "description" : "repairs",
+      "isActive" : true
+    },
+    "24" : {
+      "description" : "decorating",
+      "isActive" : true
+    },
+    "25" : {
+      "description" : "property insurance",
+      "isActive" : true
+    },
+    "-KYtuELOc-kCPELYz5wl" : {
+      "description" : "spm receipts",
+      "isActive" : true
+    }
+  },
+  "charities" : {
+    "-KkLmcGALaSEiEvZb1oX" : {
+      "description" : "our lady of lourdes",
+      "isActive" : true
+    },
+    "-KkLmcHEQWR89OCzwbEn" : {
+      "description" : "carmelite sisters",
+      "isActive" : true
+    },
+    "-KkLmcIO2Hnc5v-0Iru5" : {
+      "description" : "catholic charities",
+      "isActive" : true
+    },
+    "-KkLmcJkg6WbiLN0EMVr" : {
+      "description" : "susan b anthony",
+      "isActive" : true
+    },
+    "-KkLmcK53CXaBDax_MCp" : {
+      "description" : "catholic vote",
+      "isActive" : true
+    },
+    "-KkLmcKV-kSBLYPdJgT7" : {
+      "description" : "dickow miistries",
+      "isActive" : true
+    },
+    "-KkLmcKzcIqOcmmuux6V" : {
+      "description" : "gonzaga university",
+      "isActive" : true
+    },
+    "-KkLmcLa5zY_vp12_maz" : {
+      "description" : "grassfire",
+      "isActive" : true
+    },
+    "-KkLmcML2UGb3Pnw_KVy" : {
+      "description" : "hagee minisitries",
+      "isActive" : true
+    },
+    "-KkLmcNQWlnjWPwH14vO" : {
+      "description" : "hillsdale college",
+      "isActive" : true
+    },
+    "-KkLmcO7RqNfz5MhoRxD" : {
+      "description" : "idaho catholic diocese",
+      "isActive" : true
+    },
+    "-KkLmcOlMx4lxISfLYsb" : {
+      "description" : "life services",
+      "isActive" : true
+    },
+    "-KkLmcPOwDllrZ8SklOS" : {
+      "description" : "ligonier ministries",
+      "isActive" : true
+    },
+    "-KkLmcQ-Qegkprick1ts" : {
+      "description" : "medical teams",
+      "isActive" : true
+    },
+    "-KkLmcQem4-l_ea30wID" : {
+      "description" : "mt angel abby",
+      "isActive" : true
+    },
+    "-KkLmcRB1pCgbcekX75V" : {
+      "description" : "salvation army",
+      "isActive" : true
+    },
+    "-KkLmcS-mSwJXz__4r5R" : {
+      "description" : "st aloysius",
+      "isActive" : true
+    },
+    "-KkLmcSfVVpQZ1iCHy-n" : {
+      "description" : "st josephs",
+      "isActive" : true
+    },
+    "-KkLmcTJhrx_63R0iZuc" : {
+      "description" : "st josephs indian school",
+      "isActive" : true
+    },
+    "-KkLmcTtBEttLBSjRCU_" : {
+      "description" : "thomas moore law center",
+      "isActive" : true
+    },
+    "-KkLmcUVj4TOtOuqeIAH" : {
+      "description" : "uganda orphans",
+      "isActive" : true
+    },
+    "-KkLmcV6WRGWzbSgsYF_" : {
+      "description" : "union gospel mission",
+      "isActive" : true
+    },
+    "-KkLmcVgAFQG7PN7etK_" : {
+      "description" : "shalome ministries",
+      "isActive" : true
+    },
+    "-KkLmcWABW32ZnIOu19t" : {
+      "description" : "tmagac",
+      "isActive" : true
+    }
+  },
+  "expenses" : {
+    "-KXfRS1OwsVhv_G507HD" : {
+      "amount" : 7530,
+      "category" : "2",
+      "date" : "2015-04-03T07:00:00.000Z",
+      "description" : "hardware",
+      "isDebit" : true,
+      "property" : "2",
+      "taxYear" : 2015
+    },
+    "-KXps9syGd_GYYUMOFf7" : {
+      "amount" : 7590,
+      "category" : "24",
+      "date" : "2005-04-02T08:00:00.000Z",
+      "description" : "lowes",
+      "isDebit" : true,
+      "property" : "3",
+      "taxYear" : 2005
+    },
+    "-KY6LIGT0w8s6-LNaZUK" : {
+      "amount" : 2956,
+      "category" : "23",
+      "date" : "2015-12-21T08:00:00.000Z",
+      "description" : "super one",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
+    },
+    "-KYZ4e-gQPfNIUc9Cjdv" : {
+      "amount" : 2312,
+      "category" : "20",
+      "date" : "2015-12-01T08:00:00.000Z",
+      "description" : "ace",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KYZFsjTEX8MSEeRNt2d" : {
+      "amount" : 328,
+      "category" : "22",
+      "date" : "2015-02-06T08:00:00.000Z",
+      "description" : "general store",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
+    },
+    "-KY_0W_2YQ0w5wKrEEIK" : {
+      "amount" : 34518,
+      "category" : "13",
+      "date" : "2015-12-07T08:00:00.000Z",
+      "description" : "sterling",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KY_0uanTbfyvl2Yu6Mt" : {
+      "amount" : 134690,
+      "category" : "4",
+      "date" : "2015-12-08T08:00:00.000Z",
+      "description" : "starbucks",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KYvW3RFcM3NLmWD-tPL" : {
+      "amount" : 977,
+      "category" : "3",
+      "date" : "2016-09-23T07:00:00.000Z",
+      "description" : "32 gb usb",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2016
+    },
+    "-KYvWi9xmSrLGrkR-L3B" : {
+      "amount" : 1645,
+      "category" : "3",
+      "date" : "2016-09-20T07:00:00.000Z",
+      "description" : "logitech mouse",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2016
+    },
+    "-Ki0Ms14FiKsO_fJkntu" : {
+      "amount" : 41414,
+      "category" : "21",
+      "date" : "2015-04-14T07:00:00.000Z",
+      "description" : "thrift store",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KiqG5vqgKEvhEzZ4nAX" : {
+      "amount" : 3340,
+      "category" : "23",
+      "date" : "2015-12-31T08:00:00.000Z",
+      "description" : "get ready for new years",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
+    },
+    "-KjVHcVL2ORq77aZveuV" : {
+      "amount" : 22200,
+      "category" : "4",
+      "date" : "2005-12-12T08:00:00.000Z",
+      "description" : "sdf",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2005
+    },
+    "-KjVHqF9cz_UihNILJQ_" : {
+      "amount" : 33300,
+      "category" : "13",
+      "date" : "2015-12-12T08:00:00.000Z",
+      "description" : "thrifty enterprises",
+      "isDebit" : true,
+      "property" : "5",
+      "taxYear" : 2015
+    },
+    "-KjYabydxet0lCmBHHuJ" : {
+      "amount" : 373303,
+      "category" : "21",
+      "date" : "2015-12-11T08:00:00.000Z",
+      "description" : "go to odies",
+      "isDebit" : true,
+      "property" : "4",
+      "taxYear" : 2015
+    }
+  },
+  "properties" : {
+    "1" : {
+      "description" : "creekview court",
+      "isActive" : true
+    },
+    "2" : {
+      "description" : "browning way",
+      "isActive" : true
+    },
+    "3" : {
+      "description" : "garfield bay",
+      "isActive" : true
+    },
+    "4" : {
+      "description" : "lincoln street",
+      "isActive" : true
+    },
+    "5" : {
+      "description" : "hoffman road",
+      "isActive" : false
+    },
+    "-KY_02GZ_EO07hvHLq2V" : {
+      "description" : "walnut street",
+      "isActive" : false
+    }
+  },
+  "taxYear" : 2015
+}

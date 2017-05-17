@@ -4,6 +4,8 @@ import Toggle from 'react-toggle';
 import ActiveDisplay from '../../helpers/activeDisplay';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/charities';
+import fixtures from '../../constants/fixtures';
+
 
 const modalStyle = {
   content: {
@@ -68,6 +70,28 @@ class Charities extends Component {
     }
 
     this.setState({ showModal: true });
+  }
+
+  handlePrime(event) {
+    event.preventDefault();
+    let _this = this;
+
+    if (this.props.charityObject.charities.length === 0) {
+
+      fixtures.charities.forEach(function (charity) {
+
+        let newCharity = {
+          key: null,
+          data: {
+            description: charity.description,
+            isActive: charity.isActive
+          }
+        }
+
+        _this.props.insertCharity(newCharity);
+      });
+
+    }
   }
 
   handleClose(event) {
@@ -155,6 +179,7 @@ class Charities extends Component {
           </table>
         </div>
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Charity</button>
+        &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Charities</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
