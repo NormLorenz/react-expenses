@@ -9,6 +9,7 @@ import { fetchTaxYear, editTaxYear } from '../actions/taxyear';
 import { fetchExpenses } from '../actions/expenses';
 import { fetchProperties } from '../actions/properties';
 import { fetchCategories } from '../actions/categories';
+import { fetchCharities } from '../actions/charities';
 
 const modalStyle = {
   content: {
@@ -42,6 +43,7 @@ class Summary extends Component {
       showModal: false,
       categoryRecords: 0,
       propertyRecords: 0,
+      charityRecords: 0,
       expenseRecords: 0,
       expenseCredits: 0,
       expenseDebits: 0
@@ -78,6 +80,7 @@ class Summary extends Component {
     this.props.fetchExpenses();
     this.props.fetchProperties();
     this.props.fetchCategories();
+    this.props.fetchCharities();
   }
 
   componentWillReceiveProps(newProps) {
@@ -125,6 +128,13 @@ class Summary extends Component {
         categoryRecords: newProps.categoryObject.categories.length
       })
     }
+
+    // charities
+    if (newProps.charityObject.charities) {
+      this.setState({
+        charityRecords: newProps.charityObject.charities.length
+      })
+    }
   }
 
   componentDidMount() {
@@ -140,8 +150,9 @@ class Summary extends Component {
     return (
       <div className='w3-container'>
         <h4>Summary</h4>
-        <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> number of category records</p>
-        <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> number of property records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.categoryRecords}</span> total number of category records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.propertyRecords}</span> total number of property records</p>
+        <p><span className='w3-badge w3-blue'>{this.state.charityRecords}</span> total number of charity records</p>
 
         <div className='w3-card-4' style={cardStyle}>
           <header className='w3-container w3-light-grey'>
@@ -193,7 +204,8 @@ function mapStateToProps(state) {
     taxyearObject: state.taxyearObject,
     expenseObject: state.expenseObject,
     propertyObject: state.propertyObject,
-    categoryObject: state.categoryObject
+    categoryObject: state.categoryObject,
+    charityObject: state.charityObject
   };
 }
 
@@ -204,6 +216,7 @@ export default connect(
     fetchTaxYear: fetchTaxYear,
     fetchExpenses: fetchExpenses,
     fetchProperties: fetchProperties,
-    fetchCategories: fetchCategories
+    fetchCategories: fetchCategories,
+    fetchCharities: fetchCharities
   }
 )(Summary)

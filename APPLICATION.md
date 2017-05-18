@@ -151,7 +151,7 @@
 * redo the yarn/npm store
 * make the whole application ES6'ish
 * use placeholders throughout
-* modify the summary 'change tax year' styling
+* modify the summary 'change tax year' styling to span the whole width of the panel
 * fixtures - update summary count for charities
 * redirect after authentication to original url
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject

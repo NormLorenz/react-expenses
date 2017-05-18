@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/charities';
 import fixtures from '../../constants/fixtures';
 
-
 const modalStyle = {
   content: {
     top: '50%',
@@ -75,6 +74,9 @@ class Charities extends Component {
   handlePrime(event) {
     event.preventDefault();
     let _this = this;
+
+    let stuff = JSON.parse('{ "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }');
+    console.log(stuff);
 
     if (this.props.charityObject.charities.length === 0) {
 
