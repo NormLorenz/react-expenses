@@ -140,6 +140,9 @@
   * git branch --set-upstream redux origin/redux
 * upgrade w3.css 2.82 to 4.04 - DONE
 * upgrade navigation system and file structure - DONE
+* new text size for menu - w3-almost-medium - DONE
+* fixtures - update summary count for charities - DONE
+* use placeholders throughout - DONE
 
 ### in-flight
 
@@ -150,12 +153,11 @@
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
-* use placeholders throughout
 * modify the summary 'change tax year' styling to span the whole width of the panel
-* fixtures - update summary count for charities
 * redirect after authentication to original url
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
 * install flow - https://flow.org/en/docs/getting-started/
+* add a taxYear search key to donations in firebase
 
 ### router rewrite
 

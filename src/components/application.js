@@ -80,7 +80,7 @@ class Application extends Component {
             <div className='w3-container'>
               <h3>React Expenses</h3>
 
-              <div className='w3-bar w3-card-4 w3-light-grey'>
+              <div className='w3-bar w3-card-4 w3-light-grey w3-almost-medium'>
                 <Link to='/' className='w3-bar-item w3-button'>Home</Link>
                 <Link to='/summary' className='w3-bar-item w3-button'>Summary</Link>
                 <Link to='/expenses' className='w3-bar-item w3-button'>Expenses</Link>
@@ -97,7 +97,7 @@ class Application extends Component {
                   <button className='w3-button'>Reports</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
                     <Link to='/expensereport' className='w3-bar-item w3-button'>Expenses</Link>
-                    <Link to='/notimplemented' className='w3-bar-item w3-button'>Contributions</Link>
+                    <Link to='/notimplemented' className='w3-bar-item w3-button'>Donations</Link>
                   </div>
                 </div>
                 {this.state.authed ?

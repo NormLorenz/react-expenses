@@ -4,6 +4,7 @@ import CategoryReducer from './categories';
 import ExpenseReducer from './expenses';
 import PropertyReducer from './properties';
 import TaxyearReducer from './taxyear';
+import DonationReducer from './donations';
 import {reducer as notifications} from 'react-notification-system-redux';
 
 // we combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -17,6 +18,7 @@ const allReducers = combineReducers({
   expenseObject: ExpenseReducer,
   propertyObject: PropertyReducer,
   taxyearObject: TaxyearReducer,
+  donationObject: DonationReducer,
   notifications
 });
 

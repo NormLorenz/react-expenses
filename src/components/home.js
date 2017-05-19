@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Image from '../logo.svg';
+import ReactImage from '../logo.svg';
 
 const imageStyle = {
   width: '70px'
@@ -14,7 +14,7 @@ class Home extends Component {
 
         <div className='w3-layout-row'>
           <div className='w3-layout-cell'>
-            <img src={Image} alt='react' className='w3-left w3-circle' style={imageStyle} />
+            <img src={ReactImage} alt='react' className='w3-left w3-circle' style={imageStyle} />
           </div>
           <div className='w3-layout-cell'>
             <div className='w3-container'>
@@ -32,7 +32,7 @@ class Home extends Component {
                 Please click on the menu above to continue.
               </p>
               <p>
-                React expenses ver 1.1.0 redux branch
+                React expenses ver 1.2.0 (master branch)
               </p>
             </div>
           </div>
