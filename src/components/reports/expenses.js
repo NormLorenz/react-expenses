@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import * as utilities from '../../helpers/utilities';
 
-import PropertyDisplay from '../../helpers/propertyDisplay';
-import CategoryDisplay from '../../helpers/categoryDisplay';
+import MyDisplay from '../../helpers/myDisplay';
 import ActiveDisplay from '../../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
@@ -133,8 +132,8 @@ class ExpenseReport extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
           <td>{expense.data.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td><MyDisplay categories={this.state.categories} value={expense.data.category} /></td>
+          <td><MyDisplay properties={this.state.properties} value={expense.data.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>
@@ -150,8 +149,8 @@ class ExpenseReport extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
           <td>{expense.data.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td><MyDisplay categories={this.state.categories} value={expense.data.category} /></td>
+          <td><MyDisplay properties={this.state.properties} value={expense.data.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>

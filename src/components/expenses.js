@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-import PropertyDisplay from '../helpers/propertyDisplay';
-import CategoryDisplay from '../helpers/categoryDisplay';
 import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
 import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
 import * as utilities from '../helpers/utilities';
@@ -13,6 +11,7 @@ import { fetchExpenses, editExpense, insertExpense, deleteExpense } from '../act
 import { fetchProperties } from '../actions/properties';
 import { fetchCategories } from '../actions/categories';
 
+import MyDisplay from '../helpers/myDisplay';
 import MySelect from '../helpers/mySelect';
 
 import Moment from 'react-moment';
@@ -208,8 +207,8 @@ class Expenses extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
           <td>{expense.data.description}</td>
-          <td><CategoryDisplay categories={this.state.categories} category={expense.data.category} /></td>
-          <td><PropertyDisplay properties={this.state.properties} property={expense.data.property} /></td>
+          <td><MyDisplay options={this.state.categories} value={expense.data.category} /></td>
+          <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
           <td><ExpenseTypeDisplay isDebit={expense.data.isDebit} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.edit)}>Edit</button>

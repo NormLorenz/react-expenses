@@ -158,6 +158,7 @@
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
 * install flow - https://flow.org/en/docs/getting-started/
 * add a taxYear search key to donations in firebase
+* combine PropertyDisplay and CategoryDisplay with MyDisplay
 
 ### router rewrite
 
