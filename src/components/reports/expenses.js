@@ -132,8 +132,8 @@ class ExpenseReport extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
           <td>{expense.data.description}</td>
-          <td><MyDisplay categories={this.state.categories} value={expense.data.category} /></td>
-          <td><MyDisplay properties={this.state.properties} value={expense.data.property} /></td>
+          <td><MyDisplay options={this.state.categories} value={expense.data.category} /></td>
+          <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>
@@ -149,8 +149,8 @@ class ExpenseReport extends Component {
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
           <td>{expense.data.description}</td>
-          <td><MyDisplay categories={this.state.categories} value={expense.data.category} /></td>
-          <td><MyDisplay properties={this.state.properties} value={expense.data.property} /></td>
+          <td><MyDisplay options={this.state.categories} value={expense.data.category} /></td>
+          <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
           <td></td>
         </tr>
