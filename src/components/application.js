@@ -12,6 +12,7 @@ import Login from './login';
 import Home from './home';
 import Summary from './summary';
 import Expenses from './expenses';
+import Donations from './donations';
 import Properties from './lists/properties';
 import Categories from './lists/categories';
 import Charities from './lists/charities';
@@ -84,7 +85,7 @@ class Application extends Component {
                 <Link to='/' className='w3-bar-item w3-button'>Home</Link>
                 <Link to='/summary' className='w3-bar-item w3-button'>Summary</Link>
                 <Link to='/expenses' className='w3-bar-item w3-button'>Expenses</Link>
-                <Link to='/notimplemented' className='w3-bar-item w3-button'>Contributions</Link>
+                <Link to='/donations' className='w3-bar-item w3-button'>Donations</Link>
                 <div className='w3-dropdown-hover'>
                   <button className='w3-button'>Lists</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
@@ -122,6 +123,7 @@ class Application extends Component {
                   <PublicRoute authed={this.state.authed} path='/login' component={Login} />
                   <PrivateRoute authed={this.state.authed} path='/summary' component={Summary} />
                   <PrivateRoute authed={this.state.authed} path='/expenses' component={Expenses} />
+                  <PrivateRoute authed={this.state.authed} path='/donations' component={Donations} />
                   <PrivateRoute authed={this.state.authed} path='/properties' component={Properties} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
                   <PrivateRoute authed={this.state.authed} path='/charities' component={Charities} />

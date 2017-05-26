@@ -143,6 +143,9 @@
 * new text size for menu - w3-almost-medium - DONE
 * fixtures - update summary count for charities - DONE
 * use placeholders throughout - DONE
+* combine PropertyDisplay and CategoryDisplay with MyDisplay - DONE
+* add a taxYear search key to donations in firebase - DONE
+* componentWillReceiveProps test for isLoaded - DONE
 
 ### in-flight
 
@@ -150,6 +153,7 @@
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * implement single responsibility principal
 * implement donations and charities - WORKING
+* write a prime imports - WORKING imported 164 - 6 where wrong year
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
@@ -157,8 +161,6 @@
 * redirect after authentication to original url
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
 * install flow - https://flow.org/en/docs/getting-started/
-* add a taxYear search key to donations in firebase
-* combine PropertyDisplay and CategoryDisplay with MyDisplay
 
 ### router rewrite
 

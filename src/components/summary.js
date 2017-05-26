@@ -86,14 +86,14 @@ class Summary extends Component {
   componentWillReceiveProps(newProps) {
 
     // taxYear
-    if (newProps.taxyearObject.taxYear) {
+    if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
       })
     }
 
     // expenses
-    if (newProps.expenseObject.expenses) {
+    if (newProps.expenseObject.isLoaded) {
       let expenseRecords = 0;
       let expenseCredits = 0;
       let expenseDebits = 0;
@@ -116,21 +116,21 @@ class Summary extends Component {
     }
 
     // properties
-    if (newProps.propertyObject.properties) {
+    if (newProps.propertyObject.isLoaded) {
       this.setState({
         propertyRecords: newProps.propertyObject.properties.length
       })
     }
 
     // categories
-    if (newProps.categoryObject.categories) {
+    if (newProps.categoryObject.isLoaded) {
       this.setState({
         categoryRecords: newProps.categoryObject.categories.length
       })
     }
 
     // charities
-    if (newProps.charityObject.charities) {
+    if (newProps.charityObject.isLoaded) {
       this.setState({
         charityRecords: newProps.charityObject.charities.length
       })

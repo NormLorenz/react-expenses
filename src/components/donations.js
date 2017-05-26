@@ -8,8 +8,9 @@ import { fetchTaxYear } from '../actions/taxyear';
 import { fetchDonations, editDonation, insertDonation, deleteDonation } from '../actions/donations';
 import { fetchCharities } from '../actions/charities';
 
-import MyDisplay from '../../helpers/myDisplay';
+import MyDisplay from '../helpers/myDisplay';
 import MySelect from '../helpers/mySelect';
+import fixtures from '../constants/fixtures';
 
 import Moment from 'react-moment';
 import moment from 'moment';
@@ -88,6 +89,34 @@ class Donations extends Component {
     this.setState({ showModal: true });
   }
 
+  handlePrime(event) {
+    event.preventDefault();
+    let _this = this;
+
+    if (this.props.donationObject.donations.length === 0) {
+
+      fixtures.donations.forEach(function (donation) {
+
+        let charity = _this.state.charities.find(function (charity) {
+          return charity.data.description === donation.charity;
+        });
+
+        let newDonation = {
+          key: null,
+          data: {
+            date: donation.date,
+            charity: charity.key,
+            amount: donation.amount * 100,
+            taxYear: moment(donation.date).year()
+          }
+        }
+
+        _this.props.insertDonation(newDonation);
+      });
+
+    }
+  }
+
   handleClose(event) {
     event.preventDefault();
     this.setState({ showModal: false });
@@ -146,21 +175,21 @@ class Donations extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.taxyearObject.taxYear) {
+    if (newProps.taxyearObject.isLoaded === true) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
       })
     }
-    if (newProps.donationObject.donations) {
-      this.setState({
-        donations: newProps.donationObject.donations.sort(
-          (a, b) => a.data.date < b.data.date ? -1 : 1)
-      });
-    }
-    if (newProps.propertyObject.charities) {
+    if (newProps.charityObject.isLoaded === true) {
       this.setState({
         charities: newProps.charityObject.charities.sort(
           (a, b) => a.data.description < b.data.description ? -1 : 1)
+      });
+    }
+    if (newProps.donationObject.isLoaded === true) {
+      this.setState({
+        donations: newProps.donationObject.donations.sort(
+          (a, b) => a.data.date < b.data.date ? -1 : 1)
       });
     }
   }
@@ -169,9 +198,9 @@ class Donations extends Component {
 
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '25%' };
-    const col2Style = { width: '25%' };
-    const col3Style = { width: '25%' };
-    const col4Style = { width: '25%' };
+    const col2Style = { width: '50%' };
+    const col3Style = { width: '8%' };
+    const col4Style = { width: '17%' };
 
     let items = this.state.donations.map(donation => {
       return (
@@ -205,6 +234,7 @@ class Donations extends Component {
           </table>
         </div>
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New donation</button>
+        &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Donations</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -220,7 +250,7 @@ class Donations extends Component {
               </div>
               <div className='w3-section'>
                 <MySelect className='w3-select w3-border w3-white w3-round' name='charity' text='select a charity' options={this.state.charities} value={this.state.charity} onChange={this.handleInputChange.bind(this)} />
-                <label className='w3-label'>Category</label>
+                <label className='w3-label'>Charity</label>
               </div>
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.amount} name='amount' placeholder='enter an amount' onChange={this.handleInputChange.bind(this)} />
@@ -234,7 +264,7 @@ class Donations extends Component {
           </div>
         </Modal>
 
-      </div>
+      </div >
     )
   }
 }
@@ -245,7 +275,7 @@ Donations.propTypes = {
 function mapStateToProps(state) {
   return {
     taxyearObject: state.taxyearObject,
-    donatoinObject: state.donationObject,
+    donationObject: state.donationObject,
     charityObject: state.charityObject
   };
 }

@@ -46,7 +46,7 @@ export function fetchDonations() {
             key: data.key,
             data: {
               date: data.val().date,
-              charity: data.val().property,
+              charity: data.val().charity,
               amount: data.val().amount,
               taxYear: data.val().taxYear
             }

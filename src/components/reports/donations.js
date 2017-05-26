@@ -6,27 +6,20 @@ import ActiveDisplay from '../../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../../actions/taxyear';
-import { fetchExpenses } from '../../actions/expenses';
-import { fetchProperties } from '../../actions/properties';
-import { fetchCategories } from '../../actions/categories';
+import { fetchDonations } from '../../actions/donations';
+import { fetchCharities } from '../../actions/charities';
 
 import Moment from 'react-moment';
 
-class ExpenseReport extends Component {
+class DonationReport extends Component {
 
   constructor() {
     super();
     this.state = {
       taxYear: 0,
-      expenses: [],
-      categories: [],
-      categoryCreditsTotal: 0,
-      categoryDebitsTotal: 0,
-      properties: [],
-      propertyCreditsTotal: 0,
-      propertyDebitsTotal: 0,
-      debitsTotal: 0,
-      creditsTotal: 0
+      donations: [],
+      charities: [],
+      donationTotal: 0
     };
   }
 
@@ -41,9 +34,8 @@ class ExpenseReport extends Component {
 
   componentWillMount() {
     this.props.fetchTaxYear();
-    this.props.fetchExpenses();
-    this.props.fetchProperties();
-    this.props.fetchCategories();
+    this.props.fetchDonations();
+    this.props.fetchCharities();
   }
 
   componentWillReceiveProps(newProps) {
@@ -296,9 +288,8 @@ class ExpenseReport extends Component {
 function mapStateToProps(state) {
   return {
     taxyearObject: state.taxyearObject,
-    expenseObject: state.expenseObject,
-    propertyObject: state.propertyObject,
-    categoryObject: state.categoryObject
+    donationObject: state.donationObject,
+    charityObject: state.charityObject
   };
 }
 
@@ -306,8 +297,7 @@ export default connect(
   mapStateToProps,
   {
     fetchTaxYear: fetchTaxYear,
-    fetchExpenses: fetchExpenses,
-    fetchProperties: fetchProperties,
-    fetchCategories: fetchCategories
+    fetchDonations: fetchDonations,
+    fetchCharities: fetchCharities
   }
-)(ExpenseReport);
+)(DonationReport);

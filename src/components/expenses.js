@@ -166,24 +166,24 @@ class Expenses extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.taxyearObject.taxYear) {
+    if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
       })
     }
-    if (newProps.expenseObject.expenses) {
+    if (newProps.expenseObject.isLoaded) {
       this.setState({
         expenses: newProps.expenseObject.expenses.sort(
           (a, b) => a.data.date < b.data.date ? -1 : 1)
       });
     }
-    if (newProps.propertyObject.properties) {
+    if (newProps.propertyObject.isLoaded) {
       this.setState({
         properties: newProps.propertyObject.properties.sort(
           (a, b) => a.data.description < b.data.description ? -1 : 1)
       });
     }
-    if (newProps.categoryObject.categories) {
+    if (newProps.categoryObject.isLoaded) {
       this.setState({
         categories: newProps.categoryObject.categories.sort(
           (a, b) => a.data.description < b.data.description ? -1 : 1)

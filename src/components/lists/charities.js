@@ -75,8 +75,7 @@ class Charities extends Component {
     event.preventDefault();
     let _this = this;
 
-    let stuff = JSON.parse('{ "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }');
-    console.log(stuff);
+    //let json = JSON.parse('{ "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }');
 
     if (this.props.charityObject.charities.length === 0) {
 
