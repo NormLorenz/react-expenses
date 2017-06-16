@@ -97,6 +97,8 @@ class Donations extends Component {
 
       fixtures.donations.forEach(function (donation) {
 
+        let calculatedDate = moment(donation.date);
+    
         let charity = _this.state.charities.find(function (charity) {
           return charity.data.description === donation.charity;
         });
@@ -104,10 +106,10 @@ class Donations extends Component {
         let newDonation = {
           key: null,
           data: {
-            date: donation.date,
+            date: calculatedDate.toISOString(),
             charity: charity.key,
             amount: donation.amount * 100,
-            taxYear: moment(donation.date).year()
+            taxYear: moment(calculatedDate).year()
           }
         }
 
@@ -187,6 +189,7 @@ class Donations extends Component {
       });
     }
     if (newProps.donationObject.isLoaded === true) {
+      console.log('hey', newProps.donationObject.donations);
       this.setState({
         donations: newProps.donationObject.donations.sort(
           (a, b) => a.data.date < b.data.date ? -1 : 1)

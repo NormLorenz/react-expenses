@@ -153,7 +153,9 @@
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * implement single responsibility principal
 * implement donations and charities - WORKING
-* write a prime imports - WORKING imported 164 - 6 where wrong year
+  * reload donation fixtures with ISO format date - DONE
+  * write a prime imports (imported 164 - 6 were wrong year) - DONE
+  * work on report - WORKING
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish
