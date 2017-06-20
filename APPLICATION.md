@@ -156,6 +156,7 @@
   * reload donation fixtures with ISO format date - DONE
   * write a prime imports (imported 164 - 6 were wrong year) - DONE
   * work on report - WORKING
+  * work on the summary page
 * implement mileage
 * redo the yarn/npm store
 * make the whole application ES6'ish

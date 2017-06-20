@@ -19,16 +19,17 @@ class DonationReport extends Component {
       taxYear: 0,
       donations: [],
       charities: [],
-      donationTotal: 0
+      donationTotal: 0,
+      charityTotal: 0
     };
   }
 
   // https://danmartensen.svbtle.com/javascripts-map-reduce-and-filter
-  calculateSum(expenses, key, field, isDebit) {
-    let filteredExpenses = expenses.filter((expense) =>
-      expense.data.isDebit === isDebit && expense.data[field] === key);
-    let sum = filteredExpenses.reduce((sum, expense) =>
-      sum + expense.data.amount, 0);
+  calculateSum(donations, key) {
+    let filteredDonations = donations.filter((donation) =>
+      donation.data.charity === key);
+    let sum = filteredDonations.reduce((sum, donation) =>
+      sum + donation.data.amount, 0);
     return sum;
   }
 
@@ -46,66 +47,36 @@ class DonationReport extends Component {
         taxYear: newProps.taxyearObject.taxYear
       })
 
-      // expenses
-      if (newProps.expenseObject.isLoaded) {
-        let expenses = newProps.expenseObject.expenses.sort(
+      // donations
+      if (newProps.donationObject.isLoaded) {
+        let donations = newProps.donationObject.donations.sort(
           (a, b) => a.data.date < b.data.date ? -1 : 1);
-        let debitsTotal = 0;
-        let creditsTotal = 0;
-        expenses.forEach(function (expense) {
-          if (expense.data.isDebit === true)
-            debitsTotal += expense.data.amount;
-          else
-            creditsTotal += expense.data.amount;
+        let donationTotal = 0;
+        // use reduce
+        donations.forEach(function (donation) {
+          donationTotal += donation.data.amount;
         });
 
         this.setState({
-          expenses: expenses,
-          debitsTotal: debitsTotal,
-          creditsTotal: creditsTotal
+          donations: donations,
+          donationTotal: donationTotal
         });
 
-        // properties
-        if (newProps.propertyObject.isLoaded) {
-          let properties = newProps.propertyObject.properties.sort(
+        // charities
+        if (newProps.charityObject.isLoaded) {
+          let charities = newProps.charityObject.charities.sort(
             (a, b) => a.data.description < b.data.description ? -1 : 1);
-          let propertyCreditsTotal = 0;
-          let propertyDebitsTotal = 0;
+          let charityTotal = 0;
           let _this = this;
-
-          properties.forEach(function (property) {
-            property.credit = _this.calculateSum(expenses, property.key, 'property', false);
-            property.debit = _this.calculateSum(expenses, property.key, 'property', true);
-            propertyCreditsTotal += property.credit;
-            propertyDebitsTotal += property.debit;
+          // use reduce
+          charities.forEach(function (charity) {
+            charity.amount = _this.calculateSum(donations, charity.key);
+            charityTotal += charity.amount;
           });
 
           this.setState({
-            properties: properties,
-            propertyCreditsTotal: propertyCreditsTotal,
-            propertyDebitsTotal: propertyDebitsTotal
-          });
-        }
-
-        // categories
-        if (newProps.categoryObject.isLoaded) {
-          let categories = newProps.categoryObject.categories.sort(
-            (a, b) => a.data.description < b.data.description ? -1 : 1);
-          let categoryCreditsTotal = 0;
-          let categoryDebitsTotal = 0;
-          let _this = this;
-
-          categories.forEach(function (category) {
-            category.credit = _this.calculateSum(expenses, category.key, 'category', false);
-            category.debit = _this.calculateSum(expenses, category.key, 'category', true);
-            categoryCreditsTotal += category.credit;
-            categoryDebitsTotal += category.debit;
-          });
-
-          this.setState({
-            categories: categories,
-            categoryCreditsTotal: categoryCreditsTotal,
-            categoryDebitsTotal: categoryDebitsTotal
+            charities: charities,
+            charityTotal: charityTotal
           });
         }
       }
@@ -114,59 +85,23 @@ class DonationReport extends Component {
 
   render() {
 
-    let filteredCredits = this.state.expenses.filter(expense => {
-      return expense.data.isDebit === false;
-    });
-
-    let credits = filteredCredits.map(expense => {
+    let donations = this.state.donations.map(donation => {
       return (
-        <tr key={expense.key}>
-          <td><Moment date={expense.data.date} format='L' /></td>
-          <td>{expense.data.description}</td>
-          <td><MyDisplay options={this.state.categories} value={expense.data.category} /></td>
-          <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
+        <tr key={donation.key}>
+          <td><Moment date={donation.data.date} format='L' /></td>
+          <td><MyDisplay options={this.state.charities} value={donation.data.charity} /></td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(donation.data.amount)}</td>
           <td></td>
         </tr>
       );
     });
 
-    let filteredDebits = this.state.expenses.filter(expense => {
-      return expense.data.isDebit === true;
-    });
-
-    let debits = filteredDebits.map(expense => {
+    let charities = this.state.charities.map(charity => {
       return (
-        <tr key={expense.key}>
-          <td><Moment date={expense.data.date} format='L' /></td>
-          <td>{expense.data.description}</td>
-          <td><MyDisplay options={this.state.categories} value={expense.data.category} /></td>
-          <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
-          <td></td>
-        </tr>
-      );
-    });
-
-    let properties = this.state.properties.map(property => {
-      return (
-        <tr key={property.key}>
-          <td>{property.data.description}</td>
-          <td><ActiveDisplay isActive={property.data.isActive} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(property.credit)}</td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(property.debit)}</td>
-          <td></td>
-        </tr>
-      );
-    });
-
-    let categories = this.state.categories.map(category => {
-      return (
-        <tr key={category.key}>
-          <td>{category.data.description}</td>
-          <td><ActiveDisplay isActive={category.data.isActive} /></td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(category.credit)}</td>
-          <td className='w3-right-align'>{utilities.convertCentsToDollars(category.debit)}</td>
+        <tr key={charity.key}>
+          <td>{charity.data.description}</td>
+          <td><ActiveDisplay isActive={charity.data.isActive} /></td>
+          <td className='w3-right-align'>{utilities.convertCentsToDollars(charity.amount)}</td>
           <td></td>
         </tr>
       );
@@ -175,107 +110,50 @@ class DonationReport extends Component {
     return (
       <div className='w3-container' >
         <h4>Reports for tax year {this.state.taxYear}</h4>
-
         <div className='w3-section'>
-          <h5>Cash In</h5>
+          <h5>Donations</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
-                <th style={{ width: '18%' }}>Date</th>
-                <th style={{ width: '30%' }}>Description</th>
-                <th style={{ width: '20%' }}>Category</th>
-                <th style={{ width: '20%' }}>Property</th>
+                <th style={{ width: '28%' }}>Date</th>
+                <th style={{ width: '60%' }}>Charity</th>
                 <th style={{ width: '10%' }}>Amount</th>
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.creditsTotal)}</td>
+                <td colSpan='2' className='w3-right-align'><b>Total:</b></td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.donationTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>
             <tbody>
-              {credits}
+              {donations}
             </tbody>
           </table>
         </div>
 
         <div className='w3-section'>
-          <h5>Cash Out</h5>
-          <table className='w3-table-all'>
-            <thead>
-              <tr>
-                <th style={{ width: '18%' }}>Date</th>
-                <th style={{ width: '30%' }}>Description</th>
-                <th style={{ width: '20%' }}>Category</th>
-                <th style={{ width: '20%' }}>Property</th>
-                <th style={{ width: '10%' }}>Amount</th>
-                <th style={{ width: '2%' }}></th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <td colSpan='4' className='w3-right-align'><b>Total:</b></td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.debitsTotal)}</td>
-                <td></td>
-              </tr>
-            </tfoot>
-            <tbody>
-              {debits}
-            </tbody>
-          </table>
-        </div>
-
-        <div className='w3-section'>
-          <h5>Properties</h5>
+          <h5>Charities</h5>
           <table className='w3-table-all'>
             <thead>
               <tr>
                 <th style={{ width: '58%' }}>Description</th>
-                <th style={{ width: '20%' }}>Active</th>
-                <th className='w3-right-align' style={{ width: '10%' }}>Credits</th>
-                <th className='w3-right-align' style={{ width: '10%' }}>Debits</th>
+                <th style={{ width: '40%' }}>Active</th>
+                <th className='w3-right-align' style={{ width: '10%' }}>Total</th>
                 <th style={{ width: '2%' }}></th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.propertyCreditsTotal)}</td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.propertyDebitsTotal)}</td>
+                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.charityTotal)}</td>
                 <td></td>
               </tr>
             </tfoot>
             <tbody>
-              {properties}
-            </tbody>
-          </table>
-        </div>
-
-        <div className='w3-section'>
-          <h5>Categories</h5>
-          <table className='w3-table-all'>
-            <thead>
-              <tr>
-                <th style={{ width: '58%' }}>Description</th>
-                <th style={{ width: '20%' }}>Active</th>
-                <th className='w3-right-align' style={{ width: '10%' }}>Credits</th>
-                <th className='w3-right-align' style={{ width: '10%' }}>Debits</th>
-                <th style={{ width: '2%' }}></th>
-              </tr>
-            </thead>
-            <tfoot>
-              <tr>
-                <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.categoryCreditsTotal)}</td>
-                <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.categoryDebitsTotal)}</td>
-                <td></td>
-              </tr>
-            </tfoot>
-            <tbody>
-              {categories}
+              {charities}
             </tbody>
           </table>
         </div>

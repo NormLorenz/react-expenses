@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class MyDisplay extends Component {
   render() {
     let _this = this;
+
     let option = this.props.options.find(function (option) {
       return option.key === _this.props.value;
     });
