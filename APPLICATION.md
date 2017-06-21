@@ -150,20 +150,45 @@
 ### in-flight
 
 * install jest - https://facebook.github.io/jest/docs/tutorial-react.html
+* install flow - https://flow.org/en/docs/getting-started/
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * implement single responsibility principal
-* implement donations and charities - WORKING
-  * reload donation fixtures with ISO format date - DONE
-  * write a prime imports (imported 164 - 6 were wrong year) - DONE
-  * work on report - WORKING
-  * work on the summary page
-* implement mileage
+* implement donations and charities - DONE
+  * reload donation fixtures with ISO format date
+  * write a prime imports (imported 164 - 6 were wrong year)
+  * work on report
 * redo the yarn/npm store
 * make the whole application ES6'ish
-* modify the summary 'change tax year' styling to span the whole width of the panel
+* modify the summary 'change tax year' styling to span the whole width of the panel - DONE
 * redirect after authentication to original url
 * do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
-* install flow - https://flow.org/en/docs/getting-started/
+
+### mileage
+* build waypoints/places
+* build trips
+* connect to google distance
+* drag and drop
+* links
+  * https://developers.google.com/maps/documentation/distance-matrix/start
+  * https://developers.google.com/maps/documentation/distance-matrix/#api_key
+  * https://github.com/fullstackreact/google-maps-react
+  * https://www.npmjs.com/package/google-distance-matrix
+  * https://www.npmjs.com/package/google-distance
+  * https://developers.google.com/maps/documentation/javascript/distancematrix
+  * https://developers.google.com/maps/
+  * https://www.mapdevelopers.com/distance_from_to.php
+* places
+  * name
+  * longitude
+  * latitude
+  * address
+  * isActive
+* trips
+  * date
+  * purpose
+  * mileage
+  * places
+  * taxYear
 
 ### router rewrite
 

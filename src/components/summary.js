@@ -169,7 +169,7 @@ class Summary extends Component {
             </p>
             <br />
           </div>
-          <button className='w3-btn-block w3-blue-grey' onClick={this.handleOpen.bind(this)}>+ change tax year</button>
+          <button className='w3-button w3-block w3-blue-grey' onClick={this.handleOpen.bind(this)}>+ change tax year</button>
         </div>
 
         <Modal style={modalStyle}
@@ -177,7 +177,7 @@ class Summary extends Component {
           contentLabel='modal'>
           <div className='w3-margin'>
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
-              <h4>Change the tax year</h4>
+              <h4>Change tax year</h4>
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>

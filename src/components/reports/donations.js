@@ -51,11 +51,9 @@ class DonationReport extends Component {
       if (newProps.donationObject.isLoaded) {
         let donations = newProps.donationObject.donations.sort(
           (a, b) => a.data.date < b.data.date ? -1 : 1);
-        let donationTotal = 0;
-        // use reduce
-        donations.forEach(function (donation) {
-          donationTotal += donation.data.amount;
-        });
+
+        let donationTotal = donations.reduce((donationTotal, donation) =>
+          donationTotal + donation.data.amount, 0);
 
         this.setState({
           donations: donations,
@@ -66,9 +64,9 @@ class DonationReport extends Component {
         if (newProps.charityObject.isLoaded) {
           let charities = newProps.charityObject.charities.sort(
             (a, b) => a.data.description < b.data.description ? -1 : 1);
-          let charityTotal = 0;
+          
           let _this = this;
-          // use reduce
+          let charityTotal = 0;
           charities.forEach(function (charity) {
             charity.amount = _this.calculateSum(donations, charity.key);
             charityTotal += charity.amount;
@@ -147,7 +145,7 @@ class DonationReport extends Component {
             </thead>
             <tfoot>
               <tr>
-                <td colSpan='2' className='w3-right-align'><b>Totals:</b></td>
+                <td colSpan='2' className='w3-right-align'><b>Total:</b></td>
                 <td className='w3-right-align'>{utilities.convertCentsToDollars(this.state.charityTotal)}</td>
                 <td></td>
               </tr>
