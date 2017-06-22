@@ -14,6 +14,7 @@ import Summary from './summary';
 import Expenses from './expenses';
 import Donations from './donations';
 import Properties from './lists/properties';
+import Places from './lists/places';
 import Categories from './lists/categories';
 import Charities from './lists/charities';
 import ExpenseReport from './reports/expenses';
@@ -90,16 +91,17 @@ class Application extends Component {
                 <div className='w3-dropdown-hover'>
                   <button className='w3-button'>Lists</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
-                    <Link to='/properties' className='w3-bar-item w3-button'>Properties</Link>
                     <Link to='/categories' className='w3-bar-item w3-button'>Categories</Link>
                     <Link to='/charities' className='w3-bar-item w3-button'>Charities</Link>
+                    <Link to='/places' className='w3-bar-item w3-button'>Places</Link>
+                    <Link to='/properties' className='w3-bar-item w3-button'>Properties</Link>
                   </div>
                 </div>
                 <div className='w3-dropdown-hover'>
                   <button className='w3-button'>Reports</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
-                    <Link to='/expensereport' className='w3-bar-item w3-button'>Expenses</Link>
                     <Link to='/donationreport' className='w3-bar-item w3-button'>Donations</Link>
+                    <Link to='/expensereport' className='w3-bar-item w3-button'>Expenses</Link>
                   </div>
                 </div>
                 {this.state.authed ?
@@ -126,6 +128,7 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/expenses' component={Expenses} />
                   <PrivateRoute authed={this.state.authed} path='/donations' component={Donations} />
                   <PrivateRoute authed={this.state.authed} path='/properties' component={Properties} />
+                  <PrivateRoute authed={this.state.authed} path='/places' component={Places} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
                   <PrivateRoute authed={this.state.authed} path='/charities' component={Charities} />
                   <PrivateRoute authed={this.state.authed} path='/expensereport' component={ExpenseReport} />

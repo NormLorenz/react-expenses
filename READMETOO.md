@@ -178,16 +178,21 @@
   * https://developers.google.com/maps/
   * https://www.mapdevelopers.com/distance_from_to.php
 * places
-  * name
+  * key
+  * description
   * longitude
   * latitude
   * address
   * isActive
 * trips
+  * key
   * date
   * purpose
   * mileage
   * places
+    * key
+    * place
+    * sortOrder
   * taxYear
 
 ### router rewrite

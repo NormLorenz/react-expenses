@@ -3,6 +3,7 @@ import CharitiesReducer from './charities';
 import CategoryReducer from './categories';
 import ExpenseReducer from './expenses';
 import PropertyReducer from './properties';
+import PlaceReducer from './places';
 import TaxyearReducer from './taxyear';
 import DonationReducer from './donations';
 import {reducer as notifications} from 'react-notification-system-redux';
@@ -17,6 +18,7 @@ const allReducers = combineReducers({
   categoryObject: CategoryReducer,
   expenseObject: ExpenseReducer,
   propertyObject: PropertyReducer,
+  placeObject: PlaceReducer,
   taxyearObject: TaxyearReducer,
   donationObject: DonationReducer,
   notifications

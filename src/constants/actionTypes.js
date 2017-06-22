@@ -5,7 +5,8 @@ const actionTypes = {
   CategoriesUpdated: 'CATEGORIES_UPDATED',
   PropertiesUpdated: 'PROPERTIES_UPDATED',
   CharitiesUpdated: 'CHARITIES_UPDATED',
-  DonationsUpdated: 'DONATIONS_UPDATED'
+  DonationsUpdated: 'DONATIONS_UPDATED',
+  PlacesUpdated: 'PLACES_UPDATED'
 
 };
 
