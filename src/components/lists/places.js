@@ -121,6 +121,23 @@ class Places extends Component {
     });
   }
 
+  componentDidMount() {
+    let myInit = {
+      method: 'GET'
+    };
+    let url = 'https://maps.googleapis.com/maps/api/geocode/json?address=anthonys+cda';
+
+    fetch(url, myInit).then((response) => {
+      return response.json();
+    }).then((data) => {
+      console.log('hey', data);
+      console.log('hey', data.status);
+      console.log('hey', data.results[0].formatted_address);
+      console.log('hey', data.results[0].geometry.location.lat);
+      console.log('hey', data.results[0].geometry.location.lng);
+    });
+  }
+
   componentWillMount() {
     this.props.fetchPlaces();
   }

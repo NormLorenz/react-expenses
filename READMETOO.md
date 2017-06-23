@@ -195,6 +195,20 @@
     * sortOrder
   * taxYear
 
+  * provide a separate search box with check icon if successful
+  * gray out everything except search, isActive and description (friendly name)
+  * trips should have three buttons, edit, delete and map
+
+* https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+* https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
+* https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
+* https://maps.googleapis.com/maps/api/geocode/json?address=1614+south+walnut+spokane+99203
+* https://maps.googleapis.com/maps/api/geocode/json?address=davenport+hotel+spokane
+* https://maps.googleapis.com/maps/api/geocode/json?address=sacred+heart+hospital+spokane
+* https://maps.googleapis.com/maps/api/geocode/json?address=anthonys+cda
+ 
+* http://andrewhfarmer.com/react-ajax-best-practices/
+ 
 ### router rewrite
 
 * upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.7 - DONE
