@@ -177,9 +177,12 @@
   * https://developers.google.com/maps/documentation/javascript/distancematrix
   * https://developers.google.com/maps/
   * https://www.mapdevelopers.com/distance_from_to.php
+
+const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
+
 * places
   * key
-  * description
+  * friendlyName
   * longitude
   * latitude
   * address
@@ -198,6 +201,10 @@
   * provide a separate search box with check icon if successful
   * gray out everything except search, isActive and description (friendly name)
   * trips should have three buttons, edit, delete and map
+
+  https://github.com/tomchentw/react-google-maps/blob/master/src/app/pages/basics/DirectionsExample.js
+  https://tomchentw.github.io/react-google-maps/
+  https://github.com/tomchentw/react-google-maps
 
 * https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
 * https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
