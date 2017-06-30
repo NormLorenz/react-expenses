@@ -8,18 +8,18 @@ const INPUT_STYLE = {
   boxSizing: `border-box`,
   MozBoxSizing: `border-box`,
   border: `1px solid transparent`,
-  width: `240px`,
-  height: `32px`,
-  marginTop: `27px`,
-  padding: `0 12px`,
+  width: `168px`,
+  height: `28px`,
+  marginTop: `10px`,
+  padding: `0 8px`,
   borderRadius: `1px`,
-  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-  fontSize: `14px`,
+  boxShadow: `0 1px 1px rgba(0, 0, 0, 0.3)`,
+  fontSize: `10px`,
   outline: `none`,
   textOverflow: `ellipses`,
 };
 
-const SearchBoxExampleGoogleMap = withGoogleMap(props => (
+const SearchBoxGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapMounted}
     defaultZoom={15}
@@ -31,7 +31,7 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
       bounds={props.bounds}
       controlPosition={window.google.maps.ControlPosition.TOP_LEFT}
       onPlacesChanged={props.onPlacesChanged}
-      inputPlaceholder='Customized your placeholder'
+      inputPlaceholder='Search'
       inputStyle={INPUT_STYLE}
     />
     {props.markers.map((marker, index) => (
@@ -42,7 +42,7 @@ const SearchBoxExampleGoogleMap = withGoogleMap(props => (
 
 // https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
 
-export default class SearchBoxExample extends Component {
+class SearchBoxComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -52,14 +52,34 @@ export default class SearchBoxExample extends Component {
     this.handleSearchBoxMounted = this.handleSearchBoxMounted.bind(this);
     this.handlePlacesChanged = this.handlePlacesChanged.bind(this);
 
+    // start at spokane washington
     this.state = {
       bounds: null,
       center: {
-        lat: 47.6205588,
-        lng: -122.3212725,
+        lat: 47.6587802,
+        lng: -117.4260466
       },
-      markers: [],
+      markers: []
     };
+  }
+
+  componentWillMount() {
+    if (this.props.latitude != null && this.props.longitude != null) {
+      this.setState({
+        center: {
+          lat: this.props.latitude,
+          lng: this.props.longitude
+        },
+        markers: [
+          {
+            position: {
+              lat: this.props.latitude,
+              lng: this.props.longitude
+            }
+          }
+        ]
+      });
+    }
   }
 
   handleMapMounted(map) {
@@ -92,14 +112,17 @@ export default class SearchBoxExample extends Component {
       center: mapCenter,
       markers,
     });
-    console.log('mapCenter', mapCenter);
-    console.log('markers', markers);
+
+    console.log('formatted_address', places[0].formatted_address);
+    console.log('latitude', places[0].geometry.location.lat());
+    console.log('longitude', places[0].geometry.location.lng());
+
   }
 
   render() {
     return (
-      <div style={{ width: '400px', height: '400px' }}>
-        <SearchBoxExampleGoogleMap
+      <div style={{ width: '293px', height: '250px', border: '1px solid #ccc' }}>
+        <SearchBoxGoogleMap
           containerElement={
             <div style={{ height: `100%` }} />
           }
@@ -118,3 +141,11 @@ export default class SearchBoxExample extends Component {
     );
   }
 }
+
+SearchBoxComponent.propTypes = {
+ // onChange: React.PropTypes.func,
+  longitude: React.PropTypes.number,
+  latitude: React.PropTypes.number
+};
+
+export default SearchBoxComponent;

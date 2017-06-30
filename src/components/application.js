@@ -17,7 +17,6 @@ import Properties from './lists/properties';
 import Places from './lists/places';
 import Categories from './lists/categories';
 import Charities from './lists/charities';
-import Searchbox from './lists/searchbox';
 import ExpenseReport from './reports/expenses';
 import DonationReport from './reports/donations';
 import NotImplemented from './notimplemented';
@@ -96,7 +95,6 @@ class Application extends Component {
                     <Link to='/charities' className='w3-bar-item w3-button'>Charities</Link>
                     <Link to='/places' className='w3-bar-item w3-button'>Places</Link>
                     <Link to='/properties' className='w3-bar-item w3-button'>Properties</Link>
-                    <Link to='/searchbox' className='w3-bar-item w3-button'>Searchbox</Link>
                   </div>
                 </div>
                 <div className='w3-dropdown-hover'>
@@ -133,7 +131,6 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/places' component={Places} />
                   <PrivateRoute authed={this.state.authed} path='/categories' component={Categories} />
                   <PrivateRoute authed={this.state.authed} path='/charities' component={Charities} />
-                  <PrivateRoute authed={this.state.authed} path='/searchbox' component={Searchbox} />
                   <PrivateRoute authed={this.state.authed} path='/expensereport' component={ExpenseReport} />
                   <PrivateRoute authed={this.state.authed} path='/donationreport' component={DonationReport} />
                   <Route path='/notimplemented' component={NotImplemented} />

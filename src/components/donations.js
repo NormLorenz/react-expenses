@@ -189,7 +189,6 @@ class Donations extends Component {
       });
     }
     if (newProps.donationObject.isLoaded === true) {
-      console.log('hey', newProps.donationObject.donations);
       this.setState({
         donations: newProps.donationObject.donations.sort(
           (a, b) => a.data.date < b.data.date ? -1 : 1)

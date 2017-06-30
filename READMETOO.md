@@ -198,9 +198,13 @@ const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
     * sortOrder
   * taxYear
 
+  * move searchbox.js to helpers
+
   * provide a separate search box with check icon if successful
   * gray out everything except search, isActive and description (friendly name)
   * trips should have three buttons, edit, delete and map
+  * index.html replacable parameters and apiKey
+  * http://react.tips/checkboxes-in-react/
 
   https://github.com/tomchentw/react-google-maps/blob/master/src/app/pages/basics/DirectionsExample.js
   https://tomchentw.github.io/react-google-maps/

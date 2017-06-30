@@ -4,6 +4,8 @@ import Toggle from 'react-toggle';
 import ActiveDisplay from '../../helpers/activeDisplay';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/places';
+import SearchBox from '../../helpers/searchbox';
+import * as utilities from '../../helpers/utilities';
 
 const modalStyle = {
   content: {
@@ -23,6 +25,7 @@ class Places extends Component {
 
   constructor() {
     super();
+
     this.state = {
       showModal: false,
       operation: null,
@@ -130,7 +133,6 @@ class Places extends Component {
     fetch(url, myInit).then((response) => {
       return response.json();
     }).then((data) => {
-      console.log('hey', data);
       console.log('hey', data.status);
       console.log('hey', data.results[0].formatted_address);
       console.log('hey', data.results[0].geometry.location.lat);
@@ -166,7 +168,7 @@ class Places extends Component {
           <td>{place.data.description}</td>
           <td>{place.data.longitude}</td>
           <td>{place.data.latitude}</td>
-          <td>{place.data.address}</td>
+          <td>{utilities.convertTextWithEllipsis(place.data.address, 27)}</td>
           <td><ActiveDisplay isActive={place.data.isActive} /></td>
           <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.edit)}>Edit</button>
             &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.delete)}>Delete</button></td>
@@ -206,20 +208,15 @@ class Places extends Component {
             </div>
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' placeholder='enter a description' onChange={this.handleInputChange.bind(this)} autoFocus />
-                <label className='w3-label'>Description</label>
+                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' placeholder='enter a friendly name' onChange={this.handleInputChange.bind(this)} autoFocus />
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.longitude} name='longitude' placeholder='enter a longitude' onChange={this.handleInputChange.bind(this)} />
-                <label className='w3-label'>Longitude</label>
+                <SearchBox latitude={this.state.latitude} longitude={this.state.longitude} />
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.latitude} name='latitude' placeholder='enter a latitude' onChange={this.handleInputChange.bind(this)} />
-                <label className='w3-label'>Latitude</label>
-              </div>
-              <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.address} name='address' placeholder='enter a address' onChange={this.handleInputChange.bind(this)} />
-                <label className='w3-label'>Address</label>
+                <label className='w3-label'>Address: </label>{utilities.convertTextWithEllipsis(this.state.address, 32)}<br />
+                <label className='w3-label'>Longitude: </label>{this.state.longitude}<br />
+                <label className='w3-label'>Latitude: </label>{this.state.latitude}
               </div>
               <div className='w3-section'>
                 <Toggle checked={this.state.isActive} name='isActive' onChange={this.handleInputChange.bind(this)} /><br />
@@ -233,7 +230,7 @@ class Places extends Component {
           </div>
         </Modal>
 
-      </div>
+      </div >
     )
   }
 }

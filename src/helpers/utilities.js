@@ -11,7 +11,14 @@ export function convertDollarsToCents(amount) {
   return Math.round(calculatedAmount * 100);
 }
 
+export function convertTextWithEllipsis(text, length) {
+  let result = '';
+  if (text != null && length != null) {
+    result = text.substring(0, length) + '...';
+  }
+  return result;
+}
+
 // export function stringifyObject (object) {
 //   return <pre>{JSON.stringify(object, null, ' ')}</pre>
 // }
- 
