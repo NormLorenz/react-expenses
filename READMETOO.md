@@ -198,7 +198,11 @@ const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
     * sortOrder
   * taxYear
 
-  * move searchbox.js to helpers
+  * move searchbox.js to helpers - DONE
+  * problem on new place - DONE
+  * need to enable vs code navigation side bar
+  * storing address with ellipsis - NOT A PROBLEM
+  * other misc things
 
   * provide a separate search box with check icon if successful
   * gray out everything except search, isActive and description (friendly name)

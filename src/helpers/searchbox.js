@@ -113,10 +113,13 @@ class SearchBoxComponent extends Component {
       markers,
     });
 
-    console.log('formatted_address', places[0].formatted_address);
-    console.log('latitude', places[0].geometry.location.lat());
-    console.log('longitude', places[0].geometry.location.lng());
+    const value = {
+      formatted_address: places[0].formatted_address,
+      latitude: places[0].geometry.location.lat(),
+      longitude: places[0].geometry.location.lng()
+    }
 
+    this.props.onChange(value);
   }
 
   render() {
@@ -143,7 +146,7 @@ class SearchBoxComponent extends Component {
 }
 
 SearchBoxComponent.propTypes = {
- // onChange: React.PropTypes.func,
+  onChange: React.PropTypes.func,
   longitude: React.PropTypes.number,
   latitude: React.PropTypes.number
 };

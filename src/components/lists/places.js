@@ -49,8 +49,8 @@ class Places extends Component {
         submitText: 'Save',
         key: null,
         description: '',
-        longitude: '',
-        latitude: '',
+        longitude: null,
+        latitude: null,
         address: '',
         isActive: true
       });
@@ -124,6 +124,18 @@ class Places extends Component {
     });
   }
 
+  handleSearchChange(value) {
+    console.log('formatted_address', value.formatted_address);
+    console.log('latitude', value.latitude);
+    console.log('longitude', value.longitude);
+
+    this.setState({
+      address: value.formatted_address,
+      latitude: value.latitude,
+      longitude: value.longitude
+    });
+  }
+
   componentDidMount() {
     let myInit = {
       method: 'GET'
@@ -133,10 +145,12 @@ class Places extends Component {
     fetch(url, myInit).then((response) => {
       return response.json();
     }).then((data) => {
-      console.log('hey', data.status);
-      console.log('hey', data.results[0].formatted_address);
-      console.log('hey', data.results[0].geometry.location.lat);
-      console.log('hey', data.results[0].geometry.location.lng);
+
+      // console.log('hey', data.status);
+      // console.log('hey', data.results[0].formatted_address);
+      // console.log('hey', data.results[0].geometry.location.lat);
+      // console.log('hey', data.results[0].geometry.location.lng);
+
     });
   }
 
@@ -156,19 +170,15 @@ class Places extends Component {
   render() {
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '20%' };
-    const col2Style = { width: '10%' };
+    const col2Style = { width: '55%' };
     const col3Style = { width: '10%' };
-    const col4Style = { width: '35%' };
-    const col5Style = { width: '10%' };
-    const col6Style = { width: '15%' };
+    const col4Style = { width: '15%' };
 
     let places = this.state.places.map(place => {
       return (
         <tr key={place.key}>
           <td>{place.data.description}</td>
-          <td>{place.data.longitude}</td>
-          <td>{place.data.latitude}</td>
-          <td>{utilities.convertTextWithEllipsis(place.data.address, 27)}</td>
+          <td>{place.data.address}</td>
           <td><ActiveDisplay isActive={place.data.isActive} /></td>
           <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.edit)}>Edit</button>
             &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.delete)}>Delete</button></td>
@@ -185,11 +195,9 @@ class Places extends Component {
             <thead>
               <tr>
                 <th style={col1Style}>Description</th>
-                <th style={col2Style}>Longitude</th>
-                <th style={col3Style}>Latitude</th>
-                <th style={col4Style}>Address</th>
-                <th style={col5Style}>Active</th>
-                <th style={col6Style}>Actions</th>
+                <th style={col2Style}>Address</th>
+                <th style={col3Style}>Active</th>
+                <th style={col4Style}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -211,7 +219,7 @@ class Places extends Component {
                 <input className='w3-input w3-border w3-round' value={this.state.description} name='description' placeholder='enter a friendly name' onChange={this.handleInputChange.bind(this)} autoFocus />
               </div>
               <div className='w3-section'>
-                <SearchBox latitude={this.state.latitude} longitude={this.state.longitude} />
+                <SearchBox latitude={this.state.latitude} longitude={this.state.longitude} onChange={this.handleSearchChange.bind(this)} />
               </div>
               <div className='w3-section'>
                 <label className='w3-label'>Address: </label>{utilities.convertTextWithEllipsis(this.state.address, 32)}<br />
