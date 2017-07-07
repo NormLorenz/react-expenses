@@ -6,7 +6,8 @@ const actionTypes = {
   PropertiesUpdated: 'PROPERTIES_UPDATED',
   CharitiesUpdated: 'CHARITIES_UPDATED',
   DonationsUpdated: 'DONATIONS_UPDATED',
-  PlacesUpdated: 'PLACES_UPDATED'
+  PlacesUpdated: 'PLACES_UPDATED',
+  TripsUpdated: 'TRIPS_UPDATED'
 
 };
 

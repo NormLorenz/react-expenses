@@ -48,13 +48,12 @@ class Expenses extends Component {
       property: null,
       isDebit: false,
       amount: null,
-
       taxYear: 0,
+
       expenses: [],
       properties: [],
       categories: []
     };
-
   }
 
   handleOpen(expense, operation) {
@@ -211,8 +210,10 @@ class Expenses extends Component {
           <td><MyDisplay options={this.state.properties} value={expense.data.property} /></td>
           <td><ExpenseTypeDisplay isDebit={expense.data.isDebit} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(expense.data.amount)}</td>
-          <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.edit)}>Edit</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.delete)}>Delete</button></td>
+          <td>
+            <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.edit)}>Edit</button>
+            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, expense, operations.delete)}>Delete</button>
+          </td>
         </tr>
       );
     });

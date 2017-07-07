@@ -179,10 +179,11 @@
   * https://www.mapdevelopers.com/distance_from_to.php
 
 const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
+https://console.developers.google.com/apis/credentials?project=posts-c2d22
 
 * places
   * key
-  * friendlyName
+  * description
   * longitude
   * latitude
   * address
@@ -192,36 +193,32 @@ const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
   * date
   * purpose
   * mileage
-  * places
+  * wayPoints
     * key
     * place
     * sortOrder
   * taxYear
 
+  https://developers.google.com/maps/documentation/javascript/directions
+  https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  https://developers.google.com/maps/documentation/javascript/examples/directions-waypoints
+
+  * origin
+  * waypoints
+  * destination
+
   * move searchbox.js to helpers - DONE
   * problem on new place - DONE
-  * need to enable vs code navigation side bar
-  * storing address with ellipsis - NOT A PROBLEM
-  * other misc things
-
-  * provide a separate search box with check icon if successful
-  * gray out everything except search, isActive and description (friendly name)
+  * need to enable vs code navigation side bar - DONE
+  * enter key causes dialog box to close
   * trips should have three buttons, edit, delete and map
-  * index.html replacable parameters and apiKey
-  * http://react.tips/checkboxes-in-react/
+  * index.html replacable parameters and apiKey if possible
 
   https://github.com/tomchentw/react-google-maps/blob/master/src/app/pages/basics/DirectionsExample.js
   https://tomchentw.github.io/react-google-maps/
   https://github.com/tomchentw/react-google-maps
 
-* https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
-* https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA
 * https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
-* https://maps.googleapis.com/maps/api/geocode/json?address=1614+south+walnut+spokane+99203
-* https://maps.googleapis.com/maps/api/geocode/json?address=davenport+hotel+spokane
-* https://maps.googleapis.com/maps/api/geocode/json?address=sacred+heart+hospital+spokane
-* https://maps.googleapis.com/maps/api/geocode/json?address=anthonys+cda
- 
 * http://andrewhfarmer.com/react-ajax-best-practices/
  
 ### router rewrite
