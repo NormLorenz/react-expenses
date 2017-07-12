@@ -161,7 +161,30 @@
 * make the whole application ES6'ish
 * modify the summary 'change tax year' styling to span the whole width of the panel - DONE
 * redirect after authentication to original url
-* do I need componentWillReceiveProps or can I bind directly to this.props.propertyObject
+* do I need componentWillReceiveProps or can I bind directly to this.props.
+* move helpers under components - DONE
+
+```HTML
+<!DOCTYPE html>
+<html>
+<body>
+<p>Click the button to add elements to the array.</p>
+<button onclick='myFunction(fruits, 2,3)'>Try it</button>
+<p id='demo'></p>
+<script>
+var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+document.getElementById('demo').innerHTML = fruits;
+function myFunction(items, from, to) {
+    items.splice(to, 0, items.splice(from, 1)[0]);
+    document.getElementById('demo').innerHTML = items;
+}
+</script>
+</body>
+</html>
+```
+ 
+THEN RENUMBER ORDER FIELD AND MAP
+ 
 
 ### mileage
 * build waypoints/places

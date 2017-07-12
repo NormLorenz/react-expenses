@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './application.css';
 
 import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
-import { logout } from '../helpers/authentication';
+import { logout } from './helpers/authentication';
 import { firebaseAuth } from '../constants/database';
 
 import { Provider } from 'react-redux';
@@ -21,7 +21,7 @@ import ExpenseReport from './reports/expenses';
 import DonationReport from './reports/donations';
 import NotImplemented from './notimplemented';
 import Placeholder from './placeholder';
-import Directions from '../helpers/directions';
+import Directions from './helpers/directions';
 import Trips from './trips';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth

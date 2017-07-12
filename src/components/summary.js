@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Avatar from '../android_dance.gif';
 import moment from 'moment';
-import * as utilities from '../helpers/utilities';
+import * as utilities from './helpers/utilities';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear, editTaxYear } from '../actions/taxyear';

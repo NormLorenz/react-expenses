@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-import ExpenseTypeSlider from '../helpers/expenseTypeSlider';
-import ExpenseTypeDisplay from '../helpers/expenseTypeDisplay';
-import * as utilities from '../helpers/utilities';
+import ExpenseTypeSlider from './helpers/expenseTypeSlider';
+import ExpenseTypeDisplay from './helpers/expenseTypeDisplay';
+import * as utilities from './helpers/utilities';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../actions/taxyear';
@@ -11,8 +11,8 @@ import { fetchExpenses, editExpense, insertExpense, deleteExpense } from '../act
 import { fetchProperties } from '../actions/properties';
 import { fetchCategories } from '../actions/categories';
 
-import MyDisplay from '../helpers/myDisplay';
-import MySelect from '../helpers/mySelect';
+import MyDisplay from './helpers/myDisplay';
+import MySelect from './helpers/mySelect';
 
 import Moment from 'react-moment';
 import moment from 'moment';

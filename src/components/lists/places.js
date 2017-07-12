@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Toggle from 'react-toggle';
-import ActiveDisplay from '../../helpers/activeDisplay';
+import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/places';
-import SearchBox from '../../helpers/searchbox';
-import * as utilities from '../../helpers/utilities';
+import SearchBox from '../helpers/searchbox';
+import * as utilities from '../helpers/utilities';
 
 const modalStyle = {
   content: {

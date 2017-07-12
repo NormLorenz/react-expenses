@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
-import * as utilities from '../helpers/utilities';
+import * as utilities from './helpers/utilities';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../actions/taxyear';
 import { fetchDonations, editDonation, insertDonation, deleteDonation } from '../actions/donations';
 import { fetchCharities } from '../actions/charities';
 
-import MyDisplay from '../helpers/myDisplay';
-import MySelect from '../helpers/mySelect';
+import MyDisplay from './helpers/myDisplay';
+import MySelect from './helpers/mySelect';
 import fixtures from '../constants/fixtures';
 
 import Moment from 'react-moment';

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import * as utilities from '../../helpers/utilities';
+import * as utilities from '../helpers/utilities';
 
-import MyDisplay from '../../helpers/myDisplay';
-import ActiveDisplay from '../../helpers/activeDisplay';
+import MyDisplay from '../helpers/myDisplay';
+import ActiveDisplay from '../helpers/activeDisplay';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../../actions/taxyear';

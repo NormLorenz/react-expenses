@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Toggle from 'react-toggle';
-import ActiveDisplay from '../../helpers/activeDisplay';
+import ActiveDisplay from '../helpers/activeDisplay';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/categories';
 

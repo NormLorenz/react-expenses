@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MySelect from '../helpers/mySelect';
 
 class Waypoint extends Component {
 

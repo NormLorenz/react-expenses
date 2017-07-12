@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { auth } from '../helpers/authorization'
+import { auth } from './helpers/authorization'
 
 class Register extends Component {
 
