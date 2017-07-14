@@ -146,10 +146,10 @@ class Places extends Component {
       return response.json();
     }).then((data) => {
 
-      // console.log('hey', data.status);
-      // console.log('hey', data.results[0].formatted_address);
-      // console.log('hey', data.results[0].geometry.location.lat);
-      // console.log('hey', data.results[0].geometry.location.lng);
+      // data.status);
+      // data.results[0].formatted_address);
+      // data.results[0].geometry.location.lat);
+      // data.results[0].geometry.location.lng);
 
     });
   }

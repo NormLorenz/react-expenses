@@ -6,6 +6,8 @@ import { fetchTaxYear } from '../actions/taxyear';
 import { fetchTrips, editTrip, insertTrip, deleteTrip } from '../actions/trips';
 import { fetchPlaces } from '../actions/places';
 
+import WayPoints from './waypoints';
+
 import Moment from 'react-moment';
 import moment from 'moment';
 
@@ -36,7 +38,7 @@ class Trips extends Component {
       key: null,
       date: null,
       purpose: null,
-      wayPoints: null,
+      wayPoints: [],
       mileage: null,
       taxYear: 0,
 
@@ -46,6 +48,10 @@ class Trips extends Component {
   }
 
   handleOpen(trip, operation) {
+
+    console.log('trip', trip);
+    console.log('trip.data.wayPoints', trip.data.wayPoints);
+
     if (operation === operations.new) {
       this.setState({
         operation: operation,
@@ -54,7 +60,7 @@ class Trips extends Component {
         key: null,
         date: '',
         purpose: '',
-        wayPoints: 'hey',
+        wayPoints: null,
         mileage: 123
       });
     }
@@ -134,6 +140,10 @@ class Trips extends Component {
     });
   }
 
+  handleOnChange(event) {
+
+  }
+
   componentWillMount() {
     this.props.fetchTaxYear();
     this.props.fetchTrips();
@@ -161,6 +171,8 @@ class Trips extends Component {
   }
 
   render() {
+
+    console.log('render', this.state.wayPoints);
 
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '15%' };
@@ -219,6 +231,9 @@ class Trips extends Component {
               <div className='w3-section'>
                 <input className='w3-input w3-border w3-round' value={this.state.purpose} name='purpose' placeholder='enter a purpose' onChange={this.handleInputChange.bind(this)} />
                 <label className='w3-label'>Purpose</label>
+              </div>
+              <div className='w3-section'>
+                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleInputChange.bind(this)} />
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>

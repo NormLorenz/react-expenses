@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import MySelect from '../helpers/mySelect';
+import MySelect from './helpers/mySelect';
 
 class Waypoint extends Component {
+
 
   render() {
 
@@ -36,9 +37,9 @@ class Waypoint extends Component {
 
 Waypoint.propTypes = {
   first: React.PropTypes.bool.isRequired,
-  last: React.propTypes.bool.isRequired,
-  wayPoint: React.propTypes.object.isRequired,
-  places: React.propTypes.array.isRequired,
+  last: React.PropTypes.bool.isRequired,
+  wayPoint: React.PropTypes.object.isRequired,
+  places: React.PropTypes.array.isRequired,
   onChange: React.PropTypes.func.isRequired,
   onUpAction: React.PropTypes.func.isRequired,
   onDownAction: React.PropTypes.func.isRequired,
