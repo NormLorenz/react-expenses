@@ -1,31 +1,60 @@
 import React, { Component } from 'react';
+// import update from 'react-addons-update';
+//import update from 'immutability-helper';
 //import WayPoint from './waypoint';
 
 class Waypoints extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      wayPoints: []
+      wayPoints: props.wayPoints
     };
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState = {
-      wayPoints: newProps.wayPoints
-    }
+  componentWillMount() {
+    // console.log('hey11', this.props.wayPoints);
+    // this.setState = {
+    //   wayPoints: this.props.wayPoints
+    //[] }
   }
 
   swap(items, from, to) {
     return items.splice(to, 0, items.splice(from, 1)[0]);
   }
 
-  handleOnInsert(object) {
+  handleOnInsert(event) {
 
+    console.log('hey22', this.state.wayPoints);
+    event.preventDefault();
+
+    let nextOrder = this.state.wayPoints.length + 1;
+    let _wayPoints = Object.assign([], this.setState.wayPoints);
+    _wayPoints = _wayPoints.push({
+      key: null,
+      order: nextOrder,
+      place: null
+    });
+
+    // let _wayPoints = update(this.state.waypoints, {
+    //   $push:
+    //   [{
+    //     key: null,
+    //     order: nextOrder,
+    //     place: null
+    //   }]
+    // }
+    // );
+
+    this.setState = {
+      wayPoints: _wayPoints
+    }
+
+    console.log('hey22', this.state.wayPoints);
   }
 
   handleOnChange(object) {
-    this.props.onChange(this);
+    //this.props.onChange(this);
   }
 
   handleOnUpAction(object) {
@@ -42,13 +71,22 @@ class Waypoints extends Component {
 
   render() {
 
-    console.log('another render', this.props.wayPoints);
-    console.log('another render', this.state.wayPoints);
+    const divStyle = { height: '225px', overflow: 'scroll' };
 
-    let items = this.props.wayPoints.map(wayPoint => {
+    let sortedItems = this.state.wayPoints.sort(
+      (a, b) => a.order < b.order ? -1 : 1
+    );
+
+    console.log('hey33', sortedItems);
+
+    let items = sortedItems.map(wayPoint => {
+
+      let first = wayPoint.order === 1; // disable up button
+      let last = wayPoint.order === sortedItems.length; // disable down button
+
       return (
         <div key={wayPoint.key}>
-          hello
+          hello {wayPoint.key} {wayPoint.order} {wayPoint.place} {first.toString()} {last.toString()} <br /><br />
           {/*<WayPoint
             first={false}
             last={false}
@@ -62,9 +100,15 @@ class Waypoints extends Component {
       );
     });
 
+    // let sortedItems = items.sort(
+    //       (a, b) => a.order < b.order ? -1 : 1)
+    //   });
+
     return (
       <div className='w3-section'>
-        {items}
+        <div style={divStyle}>
+          {items}
+        </div>
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOnInsert.bind(this)}>New</button>
       </div>
     )

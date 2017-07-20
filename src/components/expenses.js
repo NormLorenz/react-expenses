@@ -29,12 +29,14 @@ const modalStyle = {
   }
 };
 
+//https://medium.com/@mweststrate/3-reasons-why-i-stopped-using-react-setstate-ab73fc67a42e
+
 const operations = { new: 1, edit: 2, delete: 3 };
 
 class Expenses extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       operation: null,

@@ -13,8 +13,8 @@ import Moment from 'react-moment';
 
 class DonationReport extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       taxYear: 0,
       donations: [],

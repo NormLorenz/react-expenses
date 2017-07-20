@@ -163,6 +163,7 @@
 * redirect after authentication to original url
 * do I need componentWillReceiveProps or can I bind directly to this.props.
 * move helpers under components - DONE
+* all constructors should pass props down
 
 ```HTML
 <!DOCTYPE html>

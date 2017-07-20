@@ -14,7 +14,7 @@ import Moment from 'react-moment';
 
 class ExpenseReport extends Component {
 
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       taxYear: 0,

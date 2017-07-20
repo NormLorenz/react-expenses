@@ -19,7 +19,8 @@ export function convertTextWithEllipsis(text, length) {
   return result;
 }
 
-export const snapshotToArray = snapshot => {
+// not enterprise ready - need to consider child nodes
+export const objectToArray = snapshot => {
   let returnArr = [];
   snapshot.forEach(childSnapshot => {
     let item = childSnapshot.val();
@@ -28,6 +29,13 @@ export const snapshotToArray = snapshot => {
   });
   return returnArr;
 };
+
+// not enterprise ready
+export const arrayToObject = (array) =>
+  array.reduce((obj, item) => {
+    obj[item.key] = item
+    return obj
+  }, {});
 
 // export function stringifyObject (object) {
 //   return <pre>{JSON.stringify(object, null, ' ')}</pre>

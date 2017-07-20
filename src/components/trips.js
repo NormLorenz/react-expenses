@@ -27,8 +27,8 @@ const operations = { new: 1, edit: 2, delete: 3 };
 
 class Trips extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       operation: null,
@@ -49,9 +49,6 @@ class Trips extends Component {
 
   handleOpen(trip, operation) {
 
-    console.log('trip', trip);
-    console.log('trip.data.wayPoints', trip.data.wayPoints);
-
     if (operation === operations.new) {
       this.setState({
         operation: operation,
@@ -70,10 +67,10 @@ class Trips extends Component {
         operationText: 'Edit an existing trip',
         submitText: 'Save',
         key: trip.key,
-        date: moment(trip.data.date).format('L'),
-        purpose: trip.data.purpose,
-        wayPoints: trip.data.wayPoints,
-        mileage: trip.data.mileage
+        date: moment(trip.date).format('L'),
+        purpose: trip.purpose,
+        wayPoints: trip.wayPoints,
+        mileage: trip.mileage
       });
     }
     else if (operation === operations.delete) {
@@ -82,10 +79,10 @@ class Trips extends Component {
         operationText: 'Delete an existing trip',
         submitText: 'Delete',
         key: trip.key,
-        date: moment(trip.data.date).format('L'),
-        purpose: trip.data.purpose,
-        wayPoints: trip.data.wayPoints,
-        mileage: trip.data.mileage
+        date: moment(trip.date).format('L'),
+        purpose: trip.purpose,
+        wayPoints: trip.wayPoints,
+        mileage: trip.mileage
       });
     }
 
@@ -159,20 +156,18 @@ class Trips extends Component {
     if (newProps.tripObject.isLoaded) {
       this.setState({
         trips: newProps.tripObject.trips.sort(
-          (a, b) => a.data.date < b.data.date ? -1 : 1)
+          (a, b) => a.date < b.date ? -1 : 1)
       });
     }
     if (newProps.placeObject.isLoaded) {
       this.setState({
         places: newProps.placeObject.places.sort(
-          (a, b) => a.data.description < b.data.description ? -1 : 1)
+          (a, b) => a.description < b.description ? -1 : 1)
       });
     }
   }
 
   render() {
-
-    console.log('render', this.state.wayPoints);
 
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '15%' };
@@ -183,9 +178,9 @@ class Trips extends Component {
     let items = this.state.trips.map(trip => {
       return (
         <tr key={trip.key}>
-          <td><Moment date={trip.data.date} format='L' /></td>
-          <td>{trip.data.purpose}</td>
-          <td>{trip.data.mileage}</td>
+          <td><Moment date={trip.date} format='L' /></td>
+          <td>{trip.purpose}</td>
+          <td>{trip.mileage}</td>
           <td>
             <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.edit)}>Edit</button>
             &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.delete)}>Delete</button>

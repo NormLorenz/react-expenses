@@ -23,8 +23,8 @@ const operations = { new: 1, edit: 2, delete: 3 };
 
 class Places extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       showModal: false,

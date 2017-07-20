@@ -34,8 +34,8 @@ const avatarStyle = {
 
 class Summary extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       taxYear: 0,
       year: null,

@@ -49,8 +49,8 @@ function PublicRoute({ component: Component, authed, ...rest }) {
 }
 
 class Application extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       authed: false,
       loading: true,
