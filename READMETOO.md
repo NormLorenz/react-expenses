@@ -220,7 +220,7 @@ https://console.developers.google.com/apis/credentials?project=posts-c2d22
   * wayPoints
     * key
     * place
-    * order
+    * index
   * taxYear
 
   https://developers.google.com/maps/documentation/javascript/directions

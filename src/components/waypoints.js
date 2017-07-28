@@ -1,115 +1,102 @@
 import React, { Component } from 'react';
-// import update from 'react-addons-update';
-//import update from 'immutability-helper';
-//import WayPoint from './waypoint';
+import update from 'immutability-helper';
+import WayPoint from './waypoint';
 
 class Waypoints extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      wayPoints: props.wayPoints
+      wayPoints: props.wayPoints.sort((a, b) => a.index < b.index ? -1 : 1)
     };
   }
 
-  componentWillMount() {
-    // console.log('hey11', this.props.wayPoints);
-    // this.setState = {
-    //   wayPoints: this.props.wayPoints
-    //[] }
-  }
-
-  swap(items, from, to) {
-    return items.splice(to, 0, items.splice(from, 1)[0]);
-  }
-
-  handleOnInsert(event) {
-
-    console.log('hey22', this.state.wayPoints);
+  handleClick(command, event) {
     event.preventDefault();
 
-    let nextOrder = this.state.wayPoints.length + 1;
-    let _wayPoints = Object.assign([], this.setState.wayPoints);
-    _wayPoints = _wayPoints.push({
-      key: null,
-      order: nextOrder,
-      place: null
-    });
+    // https://facebook.github.io/react/docs/update.html
 
-    // let _wayPoints = update(this.state.waypoints, {
-    //   $push:
-    //   [{
-    //     key: null,
-    //     order: nextOrder,
-    //     place: null
-    //   }]
-    // }
-    // );
+    // commands are up, down, edit, delete, new
+    // let command = { action: 'new', index: null, place: null }; // new
+    // let command = { action: 'edit', index: 3, place: 'sdfsdfsdf' }; // edit
+    // let command = { action: 'up', index: 3, place: null }; // up
+    // let command = { action: 'down', index: 3, place: null }; // down
+    // let command = { action: 'delete', index: 3, place: null }; // down
 
-    this.setState = {
-      wayPoints: _wayPoints
+    let newState = null;
+
+    switch (command.action) {
+      case 'up':
+        let a = this.state.wayPoints[command.index];
+        let b = this.state.wayPoints[command.index - 1];
+        newState = update(this.state.wayPoints, {
+          [command.index]: { index: { $set: b.index } },
+          [command.index - 1]: { index: { $set: a.index } }
+        });
+        break;
+      case 'down':
+        let c = this.state.wayPoints[command.index];
+        let d = this.state.wayPoints[command.index + 1];
+        newState = update(this.state.wayPoints, {
+          [command.index]: { index: { $set: d.index } },
+          [command.index + 1]: { index: { $set: c.index } }
+        });
+        break;
+      case 'edit':
+        newState = update(this.state.wayPoints, {
+          [command.index]: { place: { $set: command.place } }
+        });
+        break;
+      case 'delete':
+        newState = update(this.state.wayPoints, {
+          $splice: [[command.index, 1]]
+        });
+        break;
+      case 'new':
+        let i = this.state.wayPoints.length;
+        newState = update(this.state.wayPoints, {
+          $push: [{ key: null, index: i, place: null }]
+        });
+        break;
+      default:
+        break;
     }
 
-    console.log('hey22', this.state.wayPoints);
-  }
-
-  handleOnChange(object) {
-    //this.props.onChange(this);
-  }
-
-  handleOnUpAction(object) {
-
-  }
-
-  handleOnDownAction(object) {
-
-  }
-
-  handleOnTrashAction(object) {
-
+    this.setState({
+      wayPoints: newState
+        .sort((a, b) => a.index < b.index ? -1 : 1)
+        .map((wayPoint, index) => {
+          wayPoint.index = index;
+          return wayPoint;
+        })
+    });
   }
 
   render() {
 
-    const divStyle = { height: '225px', overflow: 'scroll' };
+    const divStyle = { height: '225px', overflow: 'auto' };
 
-    let sortedItems = this.state.wayPoints.sort(
-      (a, b) => a.order < b.order ? -1 : 1
-    );
-
-    console.log('hey33', sortedItems);
-
-    let items = sortedItems.map(wayPoint => {
-
-      let first = wayPoint.order === 1; // disable up button
-      let last = wayPoint.order === sortedItems.length; // disable down button
+    let items = this.state.wayPoints.map(wayPoint => {
+      let first = wayPoint.index === 0;
+      let last = wayPoint.index === this.state.wayPoints.length - 1;
 
       return (
-        <div key={wayPoint.key}>
-          hello {wayPoint.key} {wayPoint.order} {wayPoint.place} {first.toString()} {last.toString()} <br /><br />
-          {/*<WayPoint
-            first={false}
-            last={false}
+        <div key={wayPoint.index}>
+          <WayPoint
+            first={first}
+            last={last}
             wayPoint={wayPoint}
-            places={this.props.places}
-            onChange={this.handleOnChange.bind(this)}
-            onUpAction={this.handleOnUpAction.bind(this)}
-            onDownAction={this.handleOnDownAction.bind(this)}
-            onTrashAction={this.handleOnTrashAction.bind(this)} />*/}
+            places={this.props.places} />
         </div>
       );
     });
 
-    // let sortedItems = items.sort(
-    //       (a, b) => a.order < b.order ? -1 : 1)
-    //   });
-
     return (
-      <div className='w3-section'>
+      <div className='w3-container w3-border w3-padding-small'>
         <div style={divStyle}>
           {items}
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOnInsert.bind(this)}>New</button>
+        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleClick.bind(this, { action: 'new', index: null, place: null })}>New</button>
       </div>
     )
   }
@@ -117,8 +104,8 @@ class Waypoints extends Component {
 
 Waypoints.propTypes = {
   wayPoints: React.PropTypes.array.isRequired,
-  places: React.PropTypes.array.isRequired,
-  onChange: React.PropTypes.func.isRequired
+  places: React.PropTypes.array.isRequired
+  // onChange: React.PropTypes.func.isRequired
 }
 
 export default Waypoints;

@@ -118,12 +118,12 @@ class Trips extends Component {
       this.props.insertTrip(trip);
     }
     else if (this.state.operation === operations.edit) {
-      this.props.editTrip(trip);
+      //this.props.editTrip(trip);
     }
     else if (this.state.operation === operations.delete) {
       this.props.deleteTrip(trip);
     }
-
+    console.log('hey', 'handleSubmit');
     this.setState({ showModal: false });
   }
 
@@ -135,10 +135,6 @@ class Trips extends Component {
     this.setState({
       [name]: value
     });
-  }
-
-  handleOnChange(event) {
-
   }
 
   componentWillMount() {
@@ -169,7 +165,7 @@ class Trips extends Component {
 
   render() {
 
-    const divStyle = { height: '475px', overflow: 'scroll' };
+    const divStyle = { height: '500px', overflow: 'scroll' };
     const col1Style = { width: '15%' };
     const col2Style = { width: '45%' };
     const col3Style = { width: '15%' };
@@ -228,7 +224,8 @@ class Trips extends Component {
                 <label className='w3-label'>Purpose</label>
               </div>
               <div className='w3-section'>
-                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleInputChange.bind(this)} />
+                {/*<WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleInputChange.bind(this)} />*/}
+                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} />
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
