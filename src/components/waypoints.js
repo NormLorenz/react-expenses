@@ -11,45 +11,43 @@ class Waypoints extends Component {
     };
   }
 
-  handleClick(command, event) {
+  handleClick(event) {
     event.preventDefault();
+    const name = event.currentTarget.name;
+    this.handleAction({ command: name, index: null, place: null });
+  }
+
+  handleAction(action) {
 
     // https://facebook.github.io/react/docs/update.html
 
-    // commands are up, down, edit, delete, new
-    // let command = { action: 'new', index: null, place: null }; // new
-    // let command = { action: 'edit', index: 3, place: 'sdfsdfsdf' }; // edit
-    // let command = { action: 'up', index: 3, place: null }; // up
-    // let command = { action: 'down', index: 3, place: null }; // down
-    // let command = { action: 'delete', index: 3, place: null }; // down
-
     let newState = null;
 
-    switch (command.action) {
+    switch (action.command) {
       case 'up':
-        let a = this.state.wayPoints[command.index];
-        let b = this.state.wayPoints[command.index - 1];
+        let a = this.state.wayPoints[action.index];
+        let b = this.state.wayPoints[action.index - 1];
         newState = update(this.state.wayPoints, {
-          [command.index]: { index: { $set: b.index } },
-          [command.index - 1]: { index: { $set: a.index } }
+          [action.index]: { index: { $set: b.index } },
+          [action.index - 1]: { index: { $set: a.index } }
         });
         break;
       case 'down':
-        let c = this.state.wayPoints[command.index];
-        let d = this.state.wayPoints[command.index + 1];
+        let c = this.state.wayPoints[action.index];
+        let d = this.state.wayPoints[action.index + 1];
         newState = update(this.state.wayPoints, {
-          [command.index]: { index: { $set: d.index } },
-          [command.index + 1]: { index: { $set: c.index } }
+          [action.index]: { index: { $set: d.index } },
+          [action.index + 1]: { index: { $set: c.index } }
         });
         break;
       case 'edit':
         newState = update(this.state.wayPoints, {
-          [command.index]: { place: { $set: command.place } }
+          [action.index]: { place: { $set: action.place } }
         });
         break;
       case 'delete':
         newState = update(this.state.wayPoints, {
-          $splice: [[command.index, 1]]
+          $splice: [[action.index, 1]]
         });
         break;
       case 'new':
@@ -62,14 +60,18 @@ class Waypoints extends Component {
         break;
     }
 
+    let wayPoints = newState
+      .sort((a, b) => a.index < b.index ? -1 : 1)
+      .map((wayPoint, index) => {
+        wayPoint.index = index;
+        return wayPoint;
+      });
+
     this.setState({
-      wayPoints: newState
-        .sort((a, b) => a.index < b.index ? -1 : 1)
-        .map((wayPoint, index) => {
-          wayPoint.index = index;
-          return wayPoint;
-        })
+      wayPoints: wayPoints
     });
+
+    this.props.onChange(wayPoints);
   }
 
   render() {
@@ -86,7 +88,8 @@ class Waypoints extends Component {
             first={first}
             last={last}
             wayPoint={wayPoint}
-            places={this.props.places} />
+            places={this.props.places}
+            onAction={this.handleAction.bind(this)} />
         </div>
       );
     });
@@ -96,7 +99,7 @@ class Waypoints extends Component {
         <div style={divStyle}>
           {items}
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleClick.bind(this, { action: 'new', index: null, place: null })}>New</button>
+        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' name='new' onClick={this.handleClick.bind(this)}>New</button>
       </div>
     )
   }
@@ -104,8 +107,8 @@ class Waypoints extends Component {
 
 Waypoints.propTypes = {
   wayPoints: React.PropTypes.array.isRequired,
-  places: React.PropTypes.array.isRequired
-  // onChange: React.PropTypes.func.isRequired
+  places: React.PropTypes.array.isRequired,
+  onChange: React.PropTypes.func.isRequired
 }
 
 export default Waypoints;

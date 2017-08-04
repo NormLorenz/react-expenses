@@ -105,25 +105,23 @@ class Trips extends Component {
 
     let trip = {
       key: this.state.key,
-      data: {
-        date: calculatedDate.toISOString(),
-        purpose: this.state.purpose,
-        wayPoints: this.state.wayPoints,
-        mileage: this.state.mileage,
-        taxYear: moment(calculatedDate).year()
-      }
+      date: calculatedDate.toISOString(),
+      purpose: this.state.purpose,
+      wayPoints: this.state.wayPoints,
+      mileage: this.state.mileage,
+      taxYear: moment(calculatedDate).year()
     }
 
-    if (this.state.operation === operations.new) {
-      this.props.insertTrip(trip);
-    }
-    else if (this.state.operation === operations.edit) {
-      //this.props.editTrip(trip);
-    }
-    else if (this.state.operation === operations.delete) {
-      this.props.deleteTrip(trip);
-    }
-    console.log('hey', 'handleSubmit');
+    // if (this.state.operation === operations.new) {
+    //   this.props.insertTrip(trip);
+    // }
+    // else if (this.state.operation === operations.edit) {
+    //   //this.props.editTrip(trip);
+    // }
+    // else if (this.state.operation === operations.delete) {
+    //   this.props.deleteTrip(trip);
+    // }
+    
     this.setState({ showModal: false });
   }
 
@@ -134,6 +132,13 @@ class Trips extends Component {
 
     this.setState({
       [name]: value
+    });
+  }
+
+  handleWayPointsChange(wayPoints) {
+    console.log('hey', wayPoints);
+    this.setState({
+      wayPoints: wayPoints
     });
   }
 
@@ -224,8 +229,7 @@ class Trips extends Component {
                 <label className='w3-label'>Purpose</label>
               </div>
               <div className='w3-section'>
-                {/*<WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleInputChange.bind(this)} />*/}
-                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} />
+                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleWayPointsChange.bind(this)} />
               </div>
               <div className='w3-section'>
                 <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
