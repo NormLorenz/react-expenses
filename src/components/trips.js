@@ -112,15 +112,15 @@ class Trips extends Component {
       taxYear: moment(calculatedDate).year()
     }
 
-    // if (this.state.operation === operations.new) {
-    //   this.props.insertTrip(trip);
-    // }
-    // else if (this.state.operation === operations.edit) {
-    //   //this.props.editTrip(trip);
-    // }
-    // else if (this.state.operation === operations.delete) {
-    //   this.props.deleteTrip(trip);
-    // }
+    if (this.state.operation === operations.new) {
+      this.props.insertTrip(trip);
+    }
+    else if (this.state.operation === operations.edit) {
+      this.props.editTrip(trip);
+    }
+    else if (this.state.operation === operations.delete) {
+      this.props.deleteTrip(trip);
+    }
     
     this.setState({ showModal: false });
   }
