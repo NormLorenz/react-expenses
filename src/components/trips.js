@@ -57,8 +57,8 @@ class Trips extends Component {
         key: null,
         date: '',
         purpose: '',
-        wayPoints: null,
-        mileage: 123
+        wayPoints: [],
+        mileage: 456
       });
     }
     else if (operation === operations.edit) {
@@ -136,7 +136,6 @@ class Trips extends Component {
   }
 
   handleWayPointsChange(wayPoints) {
-    console.log('hey', wayPoints);
     this.setState({
       wayPoints: wayPoints
     });

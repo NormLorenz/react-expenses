@@ -146,105 +146,10 @@
 * combine PropertyDisplay and CategoryDisplay with MyDisplay - DONE
 * add a taxYear search key to donations in firebase - DONE
 * componentWillReceiveProps test for isLoaded - DONE
-
-### in-flight
-
-* install jest - https://facebook.github.io/jest/docs/tutorial-react.html
-* install flow - https://flow.org/en/docs/getting-started/
-* deprecation warning: value provided is not in a recognized ISO format - moment
-* implement single responsibility principal
-* implement donations and charities - DONE
-  * reload donation fixtures with ISO format date
-  * write a prime imports (imported 164 - 6 were wrong year)
-  * work on report
-* redo the yarn/npm store
-* make the whole application ES6'ish
-* modify the summary 'change tax year' styling to span the whole width of the panel - DONE
-* redirect after authentication to original url
-* do I need componentWillReceiveProps or can I bind directly to this.props.
 * move helpers under components - DONE
-* all constructors should pass props down
+* modify the summary 'change tax year' styling to span the whole width of the panel - DONE
+* need to enable vs code navigation side bar - DONE
 
-```HTML
-<!DOCTYPE html>
-<html>
-<body>
-<p>Click the button to add elements to the array.</p>
-<button onclick='myFunction(fruits, 2,3)'>Try it</button>
-<p id='demo'></p>
-<script>
-var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
-document.getElementById('demo').innerHTML = fruits;
-function myFunction(items, from, to) {
-    items.splice(to, 0, items.splice(from, 1)[0]);
-    document.getElementById('demo').innerHTML = items;
-}
-</script>
-</body>
-</html>
-```
- 
-THEN RENUMBER ORDER FIELD AND MAP
- 
-
-### mileage
-* build waypoints/places
-* build trips
-* connect to google distance
-* drag and drop
-* links
-  * https://developers.google.com/maps/documentation/distance-matrix/start
-  * https://developers.google.com/maps/documentation/distance-matrix/#api_key
-  * https://github.com/fullstackreact/google-maps-react
-  * https://www.npmjs.com/package/google-distance-matrix
-  * https://www.npmjs.com/package/google-distance
-  * https://developers.google.com/maps/documentation/javascript/distancematrix
-  * https://developers.google.com/maps/
-  * https://www.mapdevelopers.com/distance_from_to.php
-
-const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
-https://console.developers.google.com/apis/credentials?project=posts-c2d22
-
-* places
-  * key
-  * description
-  * longitude
-  * latitude
-  * address
-  * isActive
-* trips
-  * key
-  * date
-  * purpose
-  * mileage
-  * wayPoints
-    * key
-    * place
-    * index
-  * taxYear
-
-  https://developers.google.com/maps/documentation/javascript/directions
-  https://developers.google.com/maps/documentation/javascript/3.exp/reference
-  https://developers.google.com/maps/documentation/javascript/examples/directions-waypoints
-
-  * origin
-  * waypoints
-  * destination
-
-  * move searchbox.js to helpers - DONE
-  * problem on new place - DONE
-  * need to enable vs code navigation side bar - DONE
-  * enter key causes dialog box to close
-  * trips should have three buttons, edit, delete and map
-  * index.html replacable parameters and apiKey if possible
-
-  https://github.com/tomchentw/react-google-maps/blob/master/src/app/pages/basics/DirectionsExample.js
-  https://tomchentw.github.io/react-google-maps/
-  https://github.com/tomchentw/react-google-maps
-
-* https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
-* http://andrewhfarmer.com/react-ajax-best-practices/
- 
 ### router rewrite
 
 * upgrade react-router from 4.0.0-alpha.5 to react-router-dom version v4.0.0-beta.7 - DONE
@@ -287,3 +192,77 @@ https://console.developers.google.com/apis/credentials?project=posts-c2d22
   * https://medium.com/yplan-eng/inline-styles-are-so-2016-f100b79dafe1
   * pass the class name as props
 * major refactor redux with firebase https://www.youtube.com/watch?v=UHJq5NOtNG4 - DONE
+* implement donations and charities - DONE
+
+### nice to have
+
+* install jest - https://facebook.github.io/jest/docs/tutorial-react.html
+* install flow - https://flow.org/en/docs/getting-started/
+* implement single responsibility principal
+* make the whole application ES6'ish
+* redirect after authentication to original url
+
+### short list
+
+* finish mileage task
+* finish in-flight task
+* backup production - DONE
+* backup development - DONE
+* backup development one more time
+* provide migration path from development to production
+  * charities
+  * donations
+  * places
+  * trips
+* publish
+
+### in-flight
+
+* deprecation warning: value provided is not in a recognized ISO format - moment
+* reload donation fixtures with ISO format date
+* write a prime imports (imported 164 - 6 were wrong year)
+* work on report
+* redo the yarn/npm store
+* do I need componentWillReceiveProps or can I bind directly to this.props
+* all constructors should pass props down
+
+### mileage
+
+* new trip is throwing error - DONE
+* hook in delete trip - DONE
+* hook in edit trip - DONE
+* move searchbox.js to helpers - DONE
+* calculate mileage - DONE AT LEAST DEMONSTRATED IT
+* connect to google distance [here](http://adripofjavascript.com/blog/drips/boiling-down-arrays-with-array-reduce.html)
+* build waypoints/places
+* build trips
+* hook in map trip
+* enter key causes dialog box to close
+* index.html replacable parameters and apiKey if possible
+* remove direction component, navbar entry and route
+* write a mileage report
+
+* const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
+
+* links
+  * https://developers.google.com/maps/documentation/distance-matrix/start
+  * https://developers.google.com/maps/documentation/distance-matrix/#api_key
+  * https://github.com/fullstackreact/google-maps-react
+  * https://www.npmjs.com/package/google-distance-matrix
+  * https://www.npmjs.com/package/google-distance
+  * https://developers.google.com/maps/documentation/javascript/distancematrix
+  * https://developers.google.com/maps/
+  * https://www.mapdevelopers.com/distance_from_to.php
+
+  * https://console.developers.google.com/apis/credentials?project=posts-c2d22
+
+  * https://developers.google.com/maps/documentation/javascript/directions
+  * https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  * https://developers.google.com/maps/documentation/javascript/examples/directions-waypoints
+
+  * https://github.com/tomchentw/react-google-maps/blob/master/src/app/pages/basics/DirectionsExample.js
+  * https://tomchentw.github.io/react-google-maps/
+  * https://github.com/tomchentw/react-google-maps
+
+  * https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
+  * http://andrewhfarmer.com/react-ajax-best-practices/

@@ -53,7 +53,7 @@ class Waypoints extends Component {
       case 'new':
         let i = this.state.wayPoints.length;
         newState = update(this.state.wayPoints, {
-          $push: [{ key: null, index: i, place: null }]
+          $push: [{ key: null, index: i, place: '' }]
         });
         break;
       default:

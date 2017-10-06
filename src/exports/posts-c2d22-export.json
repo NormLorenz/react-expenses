@@ -1,361 +1,1458 @@
 {
-  "categories": {
-    "1": {
-      "description": "spm bill pay",
-      "isActive": true
+  "categories" : {
+    "1" : {
+      "description" : "spm bill pay",
+      "isActive" : true
     },
-    "2": {
-      "description": "fixtures",
-      "isActive": true
+    "2" : {
+      "description" : "fixtures",
+      "isActive" : true
     },
-    "3": {
-      "description": "computer",
-      "isActive": true
+    "3" : {
+      "description" : "computer",
+      "isActive" : true
     },
-    "4": {
-      "description": "appliances",
-      "isActive": true
+    "4" : {
+      "description" : "appliances",
+      "isActive" : true
     },
-    "5": {
-      "description": "property taxes",
-      "isActive": true
+    "5" : {
+      "description" : "property taxes",
+      "isActive" : true
     },
-    "6": {
-      "description": "internet services",
-      "isActive": true
+    "6" : {
+      "description" : "internet services",
+      "isActive" : true
     },
-    "7": {
-      "description": "miscellaneous",
-      "isActive": true
+    "7" : {
+      "description" : "miscellaneous",
+      "isActive" : true
     },
-    "8": {
-      "description": "office expenses",
-      "isActive": true
+    "8" : {
+      "description" : "office expenses",
+      "isActive" : true
     },
-    "9": {
-      "description": "postage and shipping",
-      "isActive": true
+    "9" : {
+      "description" : "postage and shipping",
+      "isActive" : true
     },
-    "10": {
-      "description": "rm labor",
-      "isActive": true
+    "10" : {
+      "description" : "rm labor",
+      "isActive" : true
     },
-    "11": {
-      "description": "rm materials",
-      "isActive": true
+    "11" : {
+      "description" : "rm materials",
+      "isActive" : true
     },
-    "12": {
-      "description": "rm subcontractors",
-      "isActive": true
+    "12" : {
+      "description" : "rm subcontractors",
+      "isActive" : true
     },
-    "13": {
-      "description": "cleaning supplies",
-      "isActive": true
+    "13" : {
+      "description" : "cleaning supplies",
+      "isActive" : true
     },
-    "14": {
-      "description": "sewer expenses",
-      "isActive": true
+    "14" : {
+      "description" : "sewer expenses",
+      "isActive" : true
     },
-    "15": {
-      "description": "spm fees",
-      "isActive": true
+    "15" : {
+      "description" : "spm fees",
+      "isActive" : true
     },
-    "16": {
-      "description": "spm labor",
-      "isActive": true
+    "16" : {
+      "description" : "spm labor",
+      "isActive" : true
     },
-    "17": {
-      "description": "supplies",
-      "isActive": true
+    "17" : {
+      "description" : "supplies",
+      "isActive" : true
     },
-    "18": {
-      "description": "tools",
-      "isActive": true
+    "18" : {
+      "description" : "tools",
+      "isActive" : true
     },
-    "19": {
-      "description": "subcontractors",
-      "isActive": true
+    "19" : {
+      "description" : "subcontractors",
+      "isActive" : true
     },
-    "20": {
-      "description": "utilities",
-      "isActive": true
+    "20" : {
+      "description" : "utilities",
+      "isActive" : true
     },
-    "21": {
-      "description": "loan creation",
-      "isActive": true
+    "21" : {
+      "description" : "loan creation",
+      "isActive" : true
     },
-    "22": {
-      "description": "escrow interest",
-      "isActive": true
+    "22" : {
+      "description" : "escrow interest",
+      "isActive" : true
     },
-    "23": {
-      "description": "repairs",
-      "isActive": true
+    "23" : {
+      "description" : "repairs",
+      "isActive" : true
     },
-    "24": {
-      "description": "decorating",
-      "isActive": true
+    "24" : {
+      "description" : "decorating",
+      "isActive" : true
     },
-    "25": {
-      "description": "property insurance",
-      "isActive": true
+    "25" : {
+      "description" : "property insurance",
+      "isActive" : true
     },
-    "-KYtuELOc-kCPELYz5wl": {
-      "description": "spm receipts",
-      "isActive": true
+    "-KYtuELOc-kCPELYz5wl" : {
+      "description" : "spm receipts",
+      "isActive" : true
     }
   },
-  "charities": {
-    "-KkLmcGALaSEiEvZb1oX": {
-      "description": "our lady of lourdes",
-      "isActive": true
+  "charities" : {
+    "-KkLmcGALaSEiEvZb1oX" : {
+      "description" : "our lady of lourdes",
+      "isActive" : true
     },
-    "-KkLmcHEQWR89OCzwbEn": {
-      "description": "carmelite sisters",
-      "isActive": true
+    "-KkLmcHEQWR89OCzwbEn" : {
+      "description" : "carmelite sisters",
+      "isActive" : true
     },
-    "-KkLmcIO2Hnc5v-0Iru5": {
-      "description": "catholic charities",
-      "isActive": true
+    "-KkLmcIO2Hnc5v-0Iru5" : {
+      "description" : "catholic charities",
+      "isActive" : true
     },
-    "-KkLmcJkg6WbiLN0EMVr": {
-      "description": "susan b anthony",
-      "isActive": true
+    "-KkLmcJkg6WbiLN0EMVr" : {
+      "description" : "susan b anthony",
+      "isActive" : true
     },
-    "-KkLmcK53CXaBDax_MCp": {
-      "description": "catholic vote",
-      "isActive": true
+    "-KkLmcK53CXaBDax_MCp" : {
+      "description" : "catholic vote",
+      "isActive" : true
     },
-    "-KkLmcKV-kSBLYPdJgT7": {
-      "description": "dickow miistries",
-      "isActive": true
+    "-KkLmcKV-kSBLYPdJgT7" : {
+      "description" : "dickow miistries",
+      "isActive" : true
     },
-    "-KkLmcKzcIqOcmmuux6V": {
-      "description": "gonzaga university",
-      "isActive": true
+    "-KkLmcKzcIqOcmmuux6V" : {
+      "description" : "gonzaga university",
+      "isActive" : true
     },
-    "-KkLmcLa5zY_vp12_maz": {
-      "description": "grassfire",
-      "isActive": true
+    "-KkLmcLa5zY_vp12_maz" : {
+      "description" : "grassfire",
+      "isActive" : true
     },
-    "-KkLmcML2UGb3Pnw_KVy": {
-      "description": "hagee minisitries",
-      "isActive": true
+    "-KkLmcML2UGb3Pnw_KVy" : {
+      "description" : "hagee minisitries",
+      "isActive" : true
     },
-    "-KkLmcNQWlnjWPwH14vO": {
-      "description": "hillsdale college",
-      "isActive": true
+    "-KkLmcNQWlnjWPwH14vO" : {
+      "description" : "hillsdale college",
+      "isActive" : true
     },
-    "-KkLmcO7RqNfz5MhoRxD": {
-      "description": "idaho catholic diocese",
-      "isActive": true
+    "-KkLmcO7RqNfz5MhoRxD" : {
+      "description" : "idaho catholic diocese",
+      "isActive" : true
     },
-    "-KkLmcOlMx4lxISfLYsb": {
-      "description": "life services",
-      "isActive": true
+    "-KkLmcOlMx4lxISfLYsb" : {
+      "description" : "life services",
+      "isActive" : true
     },
-    "-KkLmcPOwDllrZ8SklOS": {
-      "description": "ligonier ministries",
-      "isActive": true
+    "-KkLmcPOwDllrZ8SklOS" : {
+      "description" : "ligonier ministries",
+      "isActive" : true
     },
-    "-KkLmcQ-Qegkprick1ts": {
-      "description": "medical teams",
-      "isActive": true
+    "-KkLmcQ-Qegkprick1ts" : {
+      "description" : "medical teams",
+      "isActive" : true
     },
-    "-KkLmcQem4-l_ea30wID": {
-      "description": "mt angel abby",
-      "isActive": true
+    "-KkLmcQem4-l_ea30wID" : {
+      "description" : "mt angel abby",
+      "isActive" : true
     },
-    "-KkLmcRB1pCgbcekX75V": {
-      "description": "salvation army",
-      "isActive": true
+    "-KkLmcRB1pCgbcekX75V" : {
+      "description" : "salvation army",
+      "isActive" : true
     },
-    "-KkLmcS-mSwJXz__4r5R": {
-      "description": "st aloysius",
-      "isActive": true
+    "-KkLmcS-mSwJXz__4r5R" : {
+      "description" : "st aloysius",
+      "isActive" : true
     },
-    "-KkLmcSfVVpQZ1iCHy-n": {
-      "description": "st josephs",
-      "isActive": true
+    "-KkLmcSfVVpQZ1iCHy-n" : {
+      "description" : "st josephs",
+      "isActive" : true
     },
-    "-KkLmcTJhrx_63R0iZuc": {
-      "description": "st josephs indian school",
-      "isActive": true
+    "-KkLmcTJhrx_63R0iZuc" : {
+      "description" : "st josephs indian school",
+      "isActive" : true
     },
-    "-KkLmcTtBEttLBSjRCU_": {
-      "description": "thomas moore law center",
-      "isActive": true
+    "-KkLmcTtBEttLBSjRCU_" : {
+      "description" : "thomas moore law center",
+      "isActive" : true
     },
-    "-KkLmcUVj4TOtOuqeIAH": {
-      "description": "uganda orphans",
-      "isActive": true
+    "-KkLmcUVj4TOtOuqeIAH" : {
+      "description" : "uganda orphans",
+      "isActive" : true
     },
-    "-KkLmcV6WRGWzbSgsYF_": {
-      "description": "union gospel mission",
-      "isActive": true
+    "-KkLmcV6WRGWzbSgsYF_" : {
+      "description" : "union gospel mission",
+      "isActive" : true
     },
-    "-KkLmcVgAFQG7PN7etK_": {
-      "description": "shalome ministries",
-      "isActive": true
+    "-KkLmcVgAFQG7PN7etK_" : {
+      "description" : "shalome ministries",
+      "isActive" : true
     },
-    "-KkLmcWABW32ZnIOu19t": {
-      "description": "tmagac",
-      "isActive": true
+    "-KkLmcWABW32ZnIOu19t" : {
+      "description" : "tmagac",
+      "isActive" : true
     }
   },
-  "expenses": {
-    "-KXfRS1OwsVhv_G507HD": {
-      "amount": 7530,
-      "category": "2",
-      "date": "2015-04-03T07:00:00.000Z",
-      "description": "hardware",
-      "isDebit": true,
-      "property": "2",
-      "taxYear": 2015
+  "donations" : {
+    "-KmmPBlrl7AK0GQqh0M8" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KXps9syGd_GYYUMOFf7": {
-      "amount": 7590,
-      "category": "24",
-      "date": "2005-04-02T08:00:00.000Z",
-      "description": "lowes",
-      "isDebit": true,
-      "property": "3",
-      "taxYear": 2005
+    "-KmmPBmxrrTP1Tsv4aKG" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KY6LIGT0w8s6-LNaZUK": {
-      "amount": 2956,
-      "category": "23",
-      "date": "2015-12-21T08:00:00.000Z",
-      "description": "super one",
-      "isDebit": true,
-      "property": "1",
-      "taxYear": 2015
+    "-KmmPBnxGxuGMj-Byk-8" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KYZ4e-gQPfNIUc9Cjdv": {
-      "amount": 2312,
-      "category": "20",
-      "date": "2015-12-01T08:00:00.000Z",
-      "description": "ace",
-      "isDebit": false,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2015
+    "-KmmPBpaSpiBFmK3C_cx" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KYZFsjTEX8MSEeRNt2d": {
-      "amount": 328,
-      "category": "22",
-      "date": "2015-02-06T08:00:00.000Z",
-      "description": "general store",
-      "isDebit": true,
-      "property": "1",
-      "taxYear": 2015
+    "-KmmPBr0OXf1AJ1sqpJG" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KY_0W_2YQ0w5wKrEEIK": {
-      "amount": 34518,
-      "category": "13",
-      "date": "2015-12-07T08:00:00.000Z",
-      "description": "sterling",
-      "isDebit": true,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2015
+    "-KmmPBrmWdDfSOC7lLY-" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KY_0uanTbfyvl2Yu6Mt": {
-      "amount": 134690,
-      "category": "4",
-      "date": "2015-12-08T08:00:00.000Z",
-      "description": "starbucks",
-      "isDebit": false,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2015
+    "-KmmPBsO_6OteWYclXBd" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KYvW3RFcM3NLmWD-tPL": {
-      "amount": 977,
-      "category": "3",
-      "date": "2016-09-23T07:00:00.000Z",
-      "description": "32 gb usb",
-      "isDebit": true,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2016
+    "-KmmPBt18vkZw-DWyEAF" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KYvWi9xmSrLGrkR-L3B": {
-      "amount": 1645,
-      "category": "3",
-      "date": "2016-09-20T07:00:00.000Z",
-      "description": "logitech mouse",
-      "isDebit": true,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2016
+    "-KmmPBtigPuPjXT3Ev5_" : {
+      "amount" : 11000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-Ki0Ms14FiKsO_fJkntu": {
-      "amount": 41414,
-      "category": "21",
-      "date": "2015-04-14T07:00:00.000Z",
-      "description": "thrift store",
-      "isDebit": false,
-      "property": "-KY_02GZ_EO07hvHLq2V",
-      "taxYear": 2015
+    "-KmmPBuohyL6Si_RLxAA" : {
+      "amount" : 8800,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KiqG5vqgKEvhEzZ4nAX": {
-      "amount": 3340,
-      "category": "23",
-      "date": "2015-12-31T08:00:00.000Z",
-      "description": "get ready for new years",
-      "isDebit": true,
-      "property": "1",
-      "taxYear": 2015
+    "-KmmPBvQTASOGSlnctR5" : {
+      "amount" : 11700,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KjVHcVL2ORq77aZveuV": {
-      "amount": 22200,
-      "category": "4",
-      "date": "2005-12-12T08:00:00.000Z",
-      "description": "sdf",
-      "isDebit": true,
-      "property": "1",
-      "taxYear": 2005
+    "-KmmPBw3LM-c8VZYxzCp" : {
+      "amount" : 8800,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-31T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KjVHqF9cz_UihNILJQ_": {
-      "amount": 33300,
-      "category": "13",
-      "date": "2015-12-12T08:00:00.000Z",
-      "description": "thrifty enterprises",
-      "isDebit": true,
-      "property": "5",
-      "taxYear": 2015
+    "-KmmPBwf9hZFfnd5pIsD" : {
+      "amount" : 8000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-03T08:00:00.000Z",
+      "taxYear" : 2016
     },
-    "-KjYabydxet0lCmBHHuJ": {
-      "amount": 373303,
-      "category": "21",
-      "date": "2015-12-11T08:00:00.000Z",
-      "description": "go to odies",
-      "isDebit": true,
-      "property": "4",
-      "taxYear": 2015
+    "-KmmPBxVY3eBet4C50sR" : {
+      "amount" : 20500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-01-28T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPBy81IKHDXiVnUCR" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-02-04T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPBzHTr6TNseZibCT" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC-ihQUPyhgMnmcp" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC0VWi6OdmLEsrG7" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC1bkSGBt_XLl510" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC2P7uuS-fauNXfs" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC3FJ-5Y4FFQ3m1r" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC46yp_bqQVwsOXs" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC4sF9Qf6bZxY05q" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcNQWlnjWPwH14vO",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC5cQz95XNl_X9eU" : {
+      "amount" : 44200,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-02-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC7JWyeboGOmJ8Zy" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC86dAQNiKulHaOk" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC8pE0KtxoaLrxoR" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCAMHIDeFbqi2F34" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCBLIBUXl4uNu-hz" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCCCB9GiqXrROXGM" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCCuTHhObnRmvogM" : {
+      "amount" : 32700,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCE2Aq0kmoY9JcMr" : {
+      "amount" : 36000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCF3d1kGDCC1rrpG" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcO7RqNfz5MhoRxD",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCFxWdkHnaacWR_N" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCHFAfAXYUPSTmiV" : {
+      "amount" : 0,
+      "charity" : "-KkLmcK53CXaBDax_MCp",
+      "date" : "2016-03-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCIER7xcRdbpVvpJ" : {
+      "amount" : 8300,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-03-06T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCIu_3LUxRDFHxnP" : {
+      "amount" : 1000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-03-11T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCJmqL_qbwye3GwF" : {
+      "amount" : 17000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-04-24T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCKQf101N18UNeoX" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCLESf5g8DTOWpE6" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCM6vdNguKRdbW1r" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCMk_bUpfElQ1W_1" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCNmVDt0ZEqCxq6k" : {
+      "amount" : 20000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCPNOsb-JwjyHjCH" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcNQWlnjWPwH14vO",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCQStVRXnDicBfd8" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCSrv2_D573Wu5d8" : {
+      "amount" : 5600,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCTSkFJA9E1cG4qP" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCU0QuMG1R_cYsAh" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-04-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCU_dxFXv5MkcXc0" : {
+      "amount" : 8300,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-04-07T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCVJ71RIPAdVtkxw" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-05-15T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCVwXkxLWxpP3SFQ" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-05-08T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCW_ImUy5PaINKzM" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-05-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCXKSuOTWyEkvYin" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCY9b8rcjVNfl_ll" : {
+      "amount" : 12000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCYktoxW2f78IPHG" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCZNlytBl-8ee_3t" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC_4EVU4HT7SEqBm" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPC_gqGLmiy7qgoC8" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCaHQKKrNVa8r7i8" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-05-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCarhUAnhrrnlirP" : {
+      "amount" : 28000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-05-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCbPL3aI9ftptjDw" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-06-04T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCc4qj5CllmyYGew" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-06-13T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCceWo1dkWblj2dV" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCdNdofVjbNg5cs2" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCe-47SWrmTuTlzs" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCf-IBWr4INDfWfl" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCfbPPtMLbFYIm_-" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCgBUW3UVM0VKV8N" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCguPOo8dxUd5VA6" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-06-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPChXwdD2O41uiycS" : {
+      "amount" : 19500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-06-25T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCij7WaOh4TWVjxz" : {
+      "amount" : 16600,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-06-19T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCk11Ut08sTkwfH-" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-07-24T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCkffqCisF8psG_z" : {
+      "amount" : 27500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-07-10T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPClHWp5wdwnMPvXo" : {
+      "amount" : 8300,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-07-17T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCm19BUozGFQs4l2" : {
+      "amount" : 3000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCmuyOGAUtfS9SlB" : {
+      "amount" : 2500,
+      "charity" : "-KkLmcTJhrx_63R0iZuc",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCneT2FLuKa0lBpi" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCoREoKo7jLjYgBU" : {
+      "amount" : 3000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCp9QA-5aaJ-DD5U" : {
+      "amount" : 9500,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCprd4dhc53bfiiM" : {
+      "amount" : 3000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCqbouGujGWRZVa4" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCrENjc78nCX81Sx" : {
+      "amount" : 2500,
+      "charity" : "-KkLmcJkg6WbiLN0EMVr",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCsA3GMXGKqQtPqf" : {
+      "amount" : 7500,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCsu0SlrsKChUzRP" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCttU9pZmUJszU7v" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-07-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCvD_WXtimclx7rz" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCvu2KwVrdemmtEW" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCwlvR3-ZWbGu7MP" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCxXq3GCFp7ur0CA" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCyGoH82mcmsgPqR" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCyrJuGDipWSmWxG" : {
+      "amount" : 19700,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-08-07T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPCzb-C353NhvwL8v" : {
+      "amount" : 16800,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-08-15T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD-GGBq_AMmIVu9b" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-08-21T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD035QtJ9q8ty6Ih" : {
+      "amount" : 19500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-08-28T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD1DLpoyoFeGcPyN" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcK53CXaBDax_MCp",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD1u1T5XWfl5GYh9" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcTJhrx_63R0iZuc",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD2Sg2Vw-zdCeibm" : {
+      "amount" : 5800,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD34e7iQMHuHDN_B" : {
+      "amount" : 5800,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD3ZtJhVeGvUNNVY" : {
+      "amount" : 3000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD4Hs4KoBhLlJiLl" : {
+      "amount" : 3000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-08-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD53S9iNvOGq5hX_" : {
+      "amount" : 7500,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD5YGki0uOOPLXEZ" : {
+      "amount" : 7500,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD6ED1BJK8YLZOHK" : {
+      "amount" : 2500,
+      "charity" : "-KkLmcTJhrx_63R0iZuc",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD6ze9a1xKvPdlob" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD7X5HmWCBjgcY8u" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD8EaG4rcLdmfTXk" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcNQWlnjWPwH14vO",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD9KzphKxRLYIITj" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD9zf1aAA0m7uz5y" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDAWYdsu4nTrkDmO" : {
+      "amount" : 7000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDAwuK0v7j8uaDez" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDBlLUqwzpYQipAF" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDDLX0sk94YQZKso" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcWABW32ZnIOu19t",
+      "date" : "2016-09-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDDzZj2kFROFkIAp" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-09-26T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDEO42AWFc8dfsTx" : {
+      "amount" : 8800,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-09-04T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDEtSOdWaJ81vBGL" : {
+      "amount" : 8200,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-09-10T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDFE7WwArylp8sCY" : {
+      "amount" : 27300,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-09-25T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDFkw7Ipd3mzXI5U" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcTJhrx_63R0iZuc",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDG2NjyHs4k0tpvV" : {
+      "amount" : 7000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDGj1eVIqKbEsHUz" : {
+      "amount" : 7000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDHxgZAix66hWwru" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDIsFzlVxfXq9AvI" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDKEy00tBVF_jHks" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-10-25T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDLUbsMOpnAzCeqw" : {
+      "amount" : 3500,
+      "charity" : "-KkLmcWABW32ZnIOu19t",
+      "date" : "2016-10-18T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDMM625TODRsNUCl" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-10-07T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDNVNaTMiOYbYCfK" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDOG5RiK0TWU5Q0S" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDQ2IonOjny8w2qo" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDQqpv-4QGy4bDy3" : {
+      "amount" : 6500,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDRNhLQ27rh9QB9N" : {
+      "amount" : 36400,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-10-30T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDSFeG2WBLlAvUjG" : {
+      "amount" : 6000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-10-31T07:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDT2E3GxK-hhhwNu" : {
+      "amount" : 7000,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDTpkT64mtPYUhcM" : {
+      "amount" : 7000,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDVF9oOpPpiqowwx" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDVeFSWpmbdEzgUt" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcKzcIqOcmmuux6V",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDW42roKMZQLv7K-" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcTJhrx_63R0iZuc",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDWobUX74SbDEfXm" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDXFNJrZgjFoaqyy" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDXezY4-yA_wnvFd" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDY4McB46tmR48NL" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-11-29T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDYUFqNnb6Wo3IPO" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcNQWlnjWPwH14vO",
+      "date" : "2016-11-30T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDYuX15MF_4HrpDF" : {
+      "amount" : 17000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-11-15T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDZLZOrKphKfN7l_" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcQem4-l_ea30wID",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPD_grFMp-UWhp2ZO" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDaAkgn_xsXbDfHE" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcML2UGb3Pnw_KVy",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDatv6uCxbCBW1l3" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcHEQWR89OCzwbEn",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDbWfJ3s1aGp4q7T" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcTtBEttLBSjRCU_",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDbzbufDFctMdxww" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDci3kCq4nMTvr17" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcQ-Qegkprick1ts",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDdAbR2-8XGW4C_G" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcV6WRGWzbSgsYF_",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDdgPRUvwqz_-KPf" : {
+      "amount" : 4000,
+      "charity" : "-KkLmcNQWlnjWPwH14vO",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDeCYaXF_6oRwWNQ" : {
+      "amount" : 2000,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDejNa_nCLKSliQP" : {
+      "amount" : 2500,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-12-25T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDfLvBbmjKAxWErq" : {
+      "amount" : 2500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDgHggqDoR9toh40" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-17T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDgloYyW9MVfjOLA" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-12-01T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDhOc5ddOaO2S0RH" : {
+      "amount" : 5000,
+      "charity" : "-KkLmcRB1pCgbcekX75V",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDhwRPLwhe2PTlPr" : {
+      "amount" : 6800,
+      "charity" : "-KkLmcGALaSEiEvZb1oX",
+      "date" : "2016-12-11T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDiKIn4cdss2_YSz" : {
+      "amount" : 27800,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-04T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDiqlk-adDjEWL9J" : {
+      "amount" : 28000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDjYjcuW-LEN3hne" : {
+      "amount" : 5500,
+      "charity" : "-KkLmcUVj4TOtOuqeIAH",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDk07ycei-4PBGad" : {
+      "amount" : 8500,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-11T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDk_cUgUzpThGlZI" : {
+      "amount" : 24000,
+      "charity" : "-KkLmcSfVVpQZ1iCHy-n",
+      "date" : "2016-12-01T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDl-QbpPN8li5Cvx" : {
+      "amount" : 16000,
+      "charity" : "-KkLmcS-mSwJXz__4r5R",
+      "date" : "2016-12-01T08:00:00.000Z",
+      "taxYear" : 2016
+    },
+    "-KmmPDl_xOC2vBqONkF5" : {
+      "amount" : 48000,
+      "charity" : "-KkLmcIO2Hnc5v-0Iru5",
+      "date" : "2016-12-31T08:00:00.000Z",
+      "taxYear" : 2016
     }
   },
-  "properties": {
-    "1": {
-      "description": "creekview court",
-      "isActive": true
+  "expenses" : {
+    "-KXfRS1OwsVhv_G507HD" : {
+      "amount" : 7530,
+      "category" : "2",
+      "date" : "2015-04-03T07:00:00.000Z",
+      "description" : "hardware",
+      "isDebit" : true,
+      "property" : "2",
+      "taxYear" : 2015
     },
-    "2": {
-      "description": "browning way",
-      "isActive": true
+    "-KXps9syGd_GYYUMOFf7" : {
+      "amount" : 7590,
+      "category" : "24",
+      "date" : "2005-04-02T08:00:00.000Z",
+      "description" : "lowes",
+      "isDebit" : true,
+      "property" : "3",
+      "taxYear" : 2005
     },
-    "3": {
-      "description": "garfield bay",
-      "isActive": true
+    "-KY6LIGT0w8s6-LNaZUK" : {
+      "amount" : 2956,
+      "category" : "23",
+      "date" : "2015-12-21T08:00:00.000Z",
+      "description" : "super one",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
     },
-    "4": {
-      "description": "lincoln street",
-      "isActive": true
+    "-KYZ4e-gQPfNIUc9Cjdv" : {
+      "amount" : 2312,
+      "category" : "20",
+      "date" : "2015-12-01T08:00:00.000Z",
+      "description" : "ace",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
     },
-    "5": {
-      "description": "hoffman road",
-      "isActive": false
+    "-KYZFsjTEX8MSEeRNt2d" : {
+      "amount" : 328,
+      "category" : "22",
+      "date" : "2015-02-06T08:00:00.000Z",
+      "description" : "general store",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
     },
-    "-KY_02GZ_EO07hvHLq2V": {
-      "description": "walnut street",
-      "isActive": false
+    "-KY_0W_2YQ0w5wKrEEIK" : {
+      "amount" : 34518,
+      "category" : "13",
+      "date" : "2015-12-07T08:00:00.000Z",
+      "description" : "sterling",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KY_0uanTbfyvl2Yu6Mt" : {
+      "amount" : 134690,
+      "category" : "4",
+      "date" : "2015-12-08T08:00:00.000Z",
+      "description" : "starbucks",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KYvW3RFcM3NLmWD-tPL" : {
+      "amount" : 977,
+      "category" : "3",
+      "date" : "2016-09-23T07:00:00.000Z",
+      "description" : "32 gb usb",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2016
+    },
+    "-KYvWi9xmSrLGrkR-L3B" : {
+      "amount" : 1645,
+      "category" : "3",
+      "date" : "2016-09-20T07:00:00.000Z",
+      "description" : "logitech mouse",
+      "isDebit" : true,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2016
+    },
+    "-Ki0Ms14FiKsO_fJkntu" : {
+      "amount" : 41414,
+      "category" : "21",
+      "date" : "2015-04-14T07:00:00.000Z",
+      "description" : "thrift store",
+      "isDebit" : false,
+      "property" : "-KY_02GZ_EO07hvHLq2V",
+      "taxYear" : 2015
+    },
+    "-KiqG5vqgKEvhEzZ4nAX" : {
+      "amount" : 3340,
+      "category" : "23",
+      "date" : "2015-12-31T08:00:00.000Z",
+      "description" : "get ready for new years",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2015
+    },
+    "-KjVHcVL2ORq77aZveuV" : {
+      "amount" : 22200,
+      "category" : "4",
+      "date" : "2005-12-12T08:00:00.000Z",
+      "description" : "sdf",
+      "isDebit" : true,
+      "property" : "1",
+      "taxYear" : 2005
+    },
+    "-KjVHqF9cz_UihNILJQ_" : {
+      "amount" : 33300,
+      "category" : "13",
+      "date" : "2015-12-12T08:00:00.000Z",
+      "description" : "thrifty enterprises",
+      "isDebit" : true,
+      "property" : "5",
+      "taxYear" : 2015
+    },
+    "-KjYabydxet0lCmBHHuJ" : {
+      "amount" : 373303,
+      "category" : "21",
+      "date" : "2015-12-11T08:00:00.000Z",
+      "description" : "go to odies",
+      "isDebit" : true,
+      "property" : "4",
+      "taxYear" : 2015
     }
   },
-  "taxYear": 2015
+  "places" : {
+    "-KnG9rmnVlOH0tESJYM_" : {
+      "address" : "220 W Kathleen Ave, Coeur d'Alene, ID 83815, United States",
+      "description" : "home depot cda",
+      "isActive" : true,
+      "latitude" : 47.7145621,
+      "longitude" : -116.78754600000002
+    },
+    "-KnGEQnRCMSIao_kss9N" : {
+      "address" : "1614 S Walnut St, Spokane, WA 99203, USA",
+      "description" : "town house",
+      "isActive" : true,
+      "latitude" : 47.6401709,
+      "longitude" : -117.43414530000001
+    },
+    "-KnzXGB0OR4lNnBAz0ss" : {
+      "address" : "185 Hoffman Ave, Sagle, ID 83860, USA",
+      "description" : "lake house",
+      "isActive" : true,
+      "latitude" : 48.18256,
+      "longitude" : -116.4301269
+    },
+    "-KnzYpCKYd7dd_r5lQnz" : {
+      "address" : "1614 Browning Way, Sandpoint, ID 83864, USA",
+      "description" : "browning way",
+      "isActive" : true,
+      "latitude" : 48.2712372,
+      "longitude" : -116.57530159999999
+    },
+    "-KnzZ35wpwBNpWf_Ndz4" : {
+      "address" : "309 Creekview Ct, Sandpoint, ID 83864, USA",
+      "description" : "creekview court",
+      "isActive" : true,
+      "latitude" : 48.3034107,
+      "longitude" : -116.5539827
+    },
+    "-KnzaqBpLJcFj0rTqbaX" : {
+      "address" : "440 W Garfield Bay Rd, Sagle, ID 83860, USA",
+      "description" : "garfield bay",
+      "isActive" : true,
+      "latitude" : 48.1840729,
+      "longitude" : -116.440922
+    },
+    "-KnzbIqZ15IyolqrDkwl" : {
+      "address" : "500 Kootenai Cutoff Rd, Ponderay, ID 83852, United States",
+      "description" : "home depot sandpoint",
+      "isActive" : true,
+      "latitude" : 48.3112149,
+      "longitude" : -116.54179390000002
+    },
+    "-KnzbQJ6z8DTvpcfKWG2" : {
+      "address" : "5617 E Sprague Ave, Spokane Valley, WA 99212, United States",
+      "description" : "home depot spokane",
+      "isActive" : true,
+      "latitude" : 47.6587757,
+      "longitude" : -117.32789030000004
+    },
+    "-Ko7dLTCKBY1ttJTWnZ0" : {
+      "address" : "W 708 Boone, Spokane, WA 99201, USA",
+      "description" : "value village spokane",
+      "isActive" : true,
+      "latitude" : 47.668812,
+      "longitude" : -117.42209209999999
+    }
+  },
+  "properties" : {
+    "1" : {
+      "description" : "creekview court",
+      "isActive" : true
+    },
+    "2" : {
+      "description" : "browning way",
+      "isActive" : true
+    },
+    "3" : {
+      "description" : "garfield bay",
+      "isActive" : true
+    },
+    "4" : {
+      "description" : "lincoln street",
+      "isActive" : true
+    },
+    "5" : {
+      "description" : "hoffman road",
+      "isActive" : false
+    },
+    "-KY_02GZ_EO07hvHLq2V" : {
+      "description" : "walnut street",
+      "isActive" : false
+    }
+  },
+  "taxYear" : 2016,
+  "trips" : {
+    "-KoOHN4a097M-KDZQfMj" : {
+      "date" : "2016-07-07T07:00:00.000Z",
+      "mileage" : 123,
+      "purpose" : "look for treasure",
+      "taxYear" : 2016,
+      "wayPoints" : {
+        "-Kue4QJYnGgqXpGK_u7F" : {
+          "index" : 0,
+          "place" : "-KnGEQnRCMSIao_kss9N"
+        },
+        "-Kue4QJ_5rxakmIcYjmS" : {
+          "index" : 1,
+          "place" : "-KnzaqBpLJcFj0rTqbaX"
+        },
+        "-Kue4QJhkVdremm5ap6c" : {
+          "index" : 2,
+          "place" : "-KnzYpCKYd7dd_r5lQnz"
+        },
+        "-Kue4QJo9x7uLwM_uniJ" : {
+          "index" : 3,
+          "place" : "-KnzbIqZ15IyolqrDkwl"
+        },
+        "-Kue4QJwsnopFe2z3_SA" : {
+          "index" : 4,
+          "place" : "-KnGEQnRCMSIao_kss9N"
+        }
+      }
+    },
+    "-KoOKj88eCkcUGCS-mf2" : {
+      "date" : "2016-03-03T08:00:00.000Z",
+      "mileage" : 123,
+      "purpose" : "shopping galore",
+      "taxYear" : 2016,
+      "wayPoints" : {
+        "-Kr6Q48qrcJfSBmnNg9n" : {
+          "index" : 0,
+          "place" : "-KnzXGB0OR4lNnBAz0ss"
+        },
+        "-Kr6Q4ABUJGdh1yugqBH" : {
+          "index" : 1,
+          "place" : "-KnzZ35wpwBNpWf_Ndz4"
+        }
+      }
+    }
+  }
 }

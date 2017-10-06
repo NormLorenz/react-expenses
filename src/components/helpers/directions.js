@@ -67,6 +67,17 @@ export default class DirectionsExample extends Component {
         });
         console.log(result);
         console.log(result.routes[0].legs[0].distance);
+
+        let legs = result.routes[0].legs;
+        console.log(legs);
+        var meters = legs
+          .map(function (a) { return a.distance.value; })
+          .reduce(function (a, b) { return a + b; });
+        console.log(meters);
+        console.log(Math.round(meters / 1609.334));
+
+        // meters / 1609.334
+
       } else {
         console.error(`error fetching directions ${result}`);
       }
