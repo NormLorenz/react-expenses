@@ -21,7 +21,6 @@ import ExpenseReport from './reports/expenses';
 import DonationReport from './reports/donations';
 import NotImplemented from './notimplemented';
 import Placeholder from './placeholder';
-import Directions from './helpers/directions';
 import Trips from './trips';
 
 // https://github.com/tylermcginnis/react-router-firebase-auth
@@ -90,7 +89,6 @@ class Application extends Component {
                 <Link to='/summary' className='w3-bar-item w3-button'>Summary</Link>
                 <Link to='/expenses' className='w3-bar-item w3-button'>Expenses</Link>
                 <Link to='/donations' className='w3-bar-item w3-button'>Donations</Link>
-                <Link to='/directions' className='w3-bar-item w3-button'>Directions</Link>
                 <Link to='/trips' className='w3-bar-item w3-button'>Trips</Link>
                 <div className='w3-dropdown-hover'>
                   <button className='w3-button'>Lists</button>
@@ -137,7 +135,6 @@ class Application extends Component {
                   <PrivateRoute authed={this.state.authed} path='/charities' component={Charities} />
                   <PrivateRoute authed={this.state.authed} path='/expensereport' component={ExpenseReport} />
                   <PrivateRoute authed={this.state.authed} path='/donationreport' component={DonationReport} />
-                  <PrivateRoute authed={this.state.authed} path='/directions' component={Directions} />
                   <PrivateRoute authed={this.state.authed} path='/trips' component={Trips} />
                   <Route path='/notimplemented' component={NotImplemented} />
                   <Route render={() => <h4>No Match</h4>} />

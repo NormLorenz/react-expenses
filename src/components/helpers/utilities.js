@@ -1,4 +1,4 @@
-
+/* global google */
 export function convertCentsToDollars(amount) {
   let dollars = Math.floor(amount / 100);
   let cents = amount % 100;
@@ -40,3 +40,57 @@ export const arrayToObject = (array) =>
 // export function stringifyObject (object) {
 //   return <pre>{JSON.stringify(object, null, ' ')}</pre>
 // }
+
+export function calculateMileage(directions) {
+  const MetersToMilesConst = 1609.334;
+  let mileage = 0;
+
+  if (directions) {
+    let meters = directions.routes[0].legs
+      .map(function (a) { return a.distance.value; })
+      .reduce(function (a, b) { return a + b; });
+    mileage = Math.round(meters / MetersToMilesConst);
+  }
+
+  return mileage;
+};
+
+export function getDirections(wayPoints, places) {
+  return new Promise((resolve, reject) => {
+
+    let legs = wayPoints
+      .filter(function (a) { return a.place != null; })
+      .map(function (a) {
+        let place = places.find(function (b) { return a.place === b.key; });
+        return { lat: place.data.latitude, lng: place.data.longitude };
+      });
+
+    if (legs.length < 2) {
+      reject('must have at least two places to compute mileage')
+    }
+
+    else {
+      let request = {
+        origin: legs[0],
+        waypoints: legs
+          .slice(1, legs.length - 1)
+          .map(function (leg) { return { location: leg }; }),
+        destination: legs[legs.length - 1],
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+
+      // pass the request to the directions service
+      const directionsService = new google.maps.DirectionsService();
+      
+      directionsService.route(request, (response, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          resolve(response);
+        }
+        else {
+          reject(status);
+        }
+      });
+    }
+  });
+};
+

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import * as utilities from './helpers/utilities';
+import { withGoogleMap, GoogleMap, DirectionsRenderer } from 'react-google-maps/lib';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../actions/taxyear';
@@ -23,14 +25,24 @@ const modalStyle = {
   }
 };
 
-const operations = { new: 1, edit: 2, delete: 3 };
+const DirectionsExampleGoogleMap = withGoogleMap(props => (
+  <GoogleMap
+    defaultZoom={7}
+    defaultCenter={props.center}
+  >
+    {props.directions && <DirectionsRenderer directions={props.directions} />}
+  </GoogleMap>
+));
+
+const operations = { new: 1, edit: 2, delete: 3, map: 4 };
 
 class Trips extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      showEditModal: false,
+      showMapModal: false,
       operation: null,
       operationText: null,
       submitText: null,
@@ -43,7 +55,9 @@ class Trips extends Component {
       taxYear: 0,
 
       trips: [],
-      places: []
+      places: [],
+
+      directions: null
     };
   }
 
@@ -58,8 +72,9 @@ class Trips extends Component {
         date: '',
         purpose: '',
         wayPoints: [],
-        mileage: 456
+        mileage: 0
       });
+      this.setState({ showEditModal: true });
     }
     else if (operation === operations.edit) {
       this.setState({
@@ -72,6 +87,7 @@ class Trips extends Component {
         wayPoints: trip.wayPoints,
         mileage: trip.mileage
       });
+      this.setState({ showEditModal: true });
     }
     else if (operation === operations.delete) {
       this.setState({
@@ -84,18 +100,61 @@ class Trips extends Component {
         wayPoints: trip.wayPoints,
         mileage: trip.mileage
       });
+      this.setState({ showEditModal: true });
+    }
+    else if (operation === operations.map) {
+      utilities.getDirections(trip.wayPoints, this.state.places)
+        .then(directions => {
+          this.setState({
+            mileage: utilities.calculateMileage(directions),
+            directions: directions,
+            showMapModal: true
+          });
+        })
+        .catch(error => {
+          this.setState({
+            mileage: 0,
+            directions: null
+          });
+          console.error(error);
+        });
     }
 
-    this.setState({ showModal: true });
   }
 
-  handleClose(event) {
+  closeEditModal(event) {
     event.preventDefault();
-    this.setState({ showModal: false });
+    this.setState({ showEditModal: false });
+  }
+
+  closeMapModal(event) {
+    event.preventDefault();
+    this.setState({ showMapModal: false });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+
+    // wait for a promise to complete
+    utilities.getDirections(this.state.wayPoints, this.state.places)
+      .then(directions => {
+        this.setState({
+          mileage: utilities.calculateMileage(directions)
+        });
+
+        this._handleSubmit();
+      })
+      .catch(error => {
+        this.setState({
+          mileage: 0
+        });
+
+        this._handleSubmit();
+        console.error(error);
+      });
+  }
+
+  _handleSubmit() {
 
     // calulate a date if only the day and month are provided
     let calculatedDate = moment(this.state.date);
@@ -121,8 +180,8 @@ class Trips extends Component {
     else if (this.state.operation === operations.delete) {
       this.props.deleteTrip(trip);
     }
-    
-    this.setState({ showModal: false });
+
+    this.setState({ showEditModal: false });
   }
 
   handleInputChange(event) {
@@ -184,7 +243,7 @@ class Trips extends Component {
           <td>
             <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.edit)}>Edit</button>
             &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.delete)}>Delete</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.delete)}>Map</button>
+            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.map)}>Map</button>
           </td>
         </tr>
       );
@@ -212,7 +271,7 @@ class Trips extends Component {
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New trip</button>
 
         <Modal style={modalStyle}
-          isOpen={this.state.showModal}
+          isOpen={this.state.showEditModal}
           contentLabel='modal'>
           <div className='w3-margin'>
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
@@ -231,10 +290,33 @@ class Trips extends Component {
                 <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleWayPointsChange.bind(this)} />
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeEditModal.bind(this)}>Cancel</button>
                 <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
+          </div>
+        </Modal>
+
+        <Modal style={modalStyle}
+          isOpen={this.state.showMapModal}
+          contentLabel='modal'>
+          <div className='w3-margin'>
+            <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
+              <h4>Map Places</h4>
+            </div>
+            <div style={{ width: '325px', height: '400px' }}>
+              <DirectionsExampleGoogleMap
+                containerElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                directions={this.state.directions}
+              />
+            </div>
+            <div className='w3-light-grey w3-text-grey w3-center'>
+              <h5>{this.state.mileage}  miles</h5>
+            </div>
+            <div className='w3-section'>
+              <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeMapModal.bind(this)}>Close</button>
+            </div>
           </div>
         </Modal>
 

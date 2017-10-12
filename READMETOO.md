@@ -149,6 +149,7 @@
 * move helpers under components - DONE
 * modify the summary 'change tax year' styling to span the whole width of the panel - DONE
 * need to enable vs code navigation side bar - DONE
+* edit multiple cursors - ctrl f2 - DONE
 
 ### router rewrite
 
@@ -204,8 +205,8 @@
 
 ### short list
 
-* finish mileage task
-* finish in-flight task
+* finish mileage tasks
+* finish in-flight tasks
 * backup production - DONE
 * backup development - DONE
 * backup development one more time
@@ -221,7 +222,6 @@
 * deprecation warning: value provided is not in a recognized ISO format - moment
 * reload donation fixtures with ISO format date
 * write a prime imports (imported 164 - 6 were wrong year)
-* work on report
 * redo the yarn/npm store
 * do I need componentWillReceiveProps or can I bind directly to this.props
 * all constructors should pass props down
@@ -232,14 +232,15 @@
 * hook in delete trip - DONE
 * hook in edit trip - DONE
 * move searchbox.js to helpers - DONE
-* calculate mileage - DONE AT LEAST DEMONSTRATED IT
-* connect to google distance [here](http://adripofjavascript.com/blog/drips/boiling-down-arrays-with-array-reduce.html)
-* build waypoints/places
-* build trips
-* hook in map trip
+* calculate mileage - DONE
+* connect to google distance - DONE
+* build waypoints/places - DONE
+* build trips - DONE
+* write mapping popup - DONE
+  * this.state.origin - do we need this? REMOVED
+  * pull when button is clicked - DONE
+* remove directions component from menu - WORKING
 * enter key causes dialog box to close
-* index.html replacable parameters and apiKey if possible
-* remove direction component, navbar entry and route
 * write a mileage report
 
 * const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
