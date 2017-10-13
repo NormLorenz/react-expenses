@@ -41,6 +41,8 @@ export const arrayToObject = (array) =>
 //   return <pre>{JSON.stringify(object, null, ' ')}</pre>
 // }
 
+//region mileage routines
+
 export function calculateMileage(directions) {
   const MetersToMilesConst = 1609.334;
   let mileage = 0;
@@ -93,4 +95,6 @@ export function getDirections(wayPoints, places) {
     }
   });
 };
+
+//endregion
 

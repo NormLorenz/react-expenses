@@ -237,11 +237,11 @@
 * build waypoints/places - DONE
 * build trips - DONE
 * write mapping popup - DONE
-  * this.state.origin - do we need this? REMOVED
+  * remove this.state.origin - DONE
   * pull when button is clicked - DONE
-* remove directions component from menu - WORKING
+* remove directions component from menu - DONE
 * enter key causes dialog box to close
-* write a mileage report
+* write a mileage report - DONE
 
 * const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
 
