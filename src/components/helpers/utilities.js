@@ -1,5 +1,30 @@
 /* global google */
 
+import moment from 'moment';
+
+export function calculateDate(dateString, taxYear) {
+
+  // calculate a date allowing only month and day input format
+  let date = moment(dateString, ['MM-DD', 'MM-DD-YYYY']);
+
+  // default to january 1st if improper format
+  if (date.isValid() === false) {
+    date = moment({ y: taxYear, m: 1, d: 1 });
+  }
+
+  // add the tax year if not explicitly declared
+  else if (dateString.length <= 5) {
+    date.year(taxYear);
+  }
+
+  // return something to the caller
+  return { date: date.toISOString(), taxYear: date.year() }
+}
+
+export function testDate() {
+  return moment({ y: 2015, m: 1, d: 1 }).toString();
+}
+
 export function sum(a, b) {
   return a + b;
 }
