@@ -1,4 +1,9 @@
 /* global google */
+
+export function sum(a, b) {
+  return a + b;
+}
+
 export function convertCentsToDollars(amount) {
   let dollars = Math.floor(amount / 100);
   let cents = amount % 100;
@@ -83,7 +88,7 @@ export function getDirections(wayPoints, places) {
 
       // pass the request to the directions service
       const directionsService = new google.maps.DirectionsService();
-      
+
       directionsService.route(request, (response, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
           resolve(response);

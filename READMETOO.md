@@ -65,6 +65,7 @@
 
 ### completed
 
+* echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 * install w3.css - DONE
 * bring over the markup for property list - DONE
 * style pages with w3.css - DONE
@@ -219,10 +220,12 @@
 
 ### in-flight
 
-* deprecation warning: value provided is not in a recognized ISO format - moment
+* deprecation warning: value provided is not in a recognized ISO format moment - DONE
 * reload donation fixtures with ISO format date
 * write a prime imports (imported 164 - 6 were wrong year)
-* redo the yarn/npm store
+* redo the yarn/npm store - DONE
+* jest - create unit tests - WORKING
+* code coverage `npm test -- --coverage` - DONE
 * do I need componentWillReceiveProps or can I bind directly to this.props
 * all constructors should pass props down
 
