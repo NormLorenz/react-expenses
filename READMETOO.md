@@ -198,7 +198,7 @@
 
 ### nice to have
 
-* install jest - https://facebook.github.io/jest/docs/tutorial-react.html
+* install jest - https://facebook.github.io/jest/docs/tutorial-react.html - DONE
 * install flow - https://flow.org/en/docs/getting-started/
 * implement single responsibility principal
 * make the whole application ES6'ish
@@ -216,15 +216,16 @@
   * donations
   * places
   * trips
-* publish
+* build 404 page
+* publish to surge
 
 ### in-flight
 
 * deprecation warning: value provided is not in a recognized ISO format moment - DONE
-* reload donation fixtures with ISO format date
-* write a prime imports (imported 164 - 6 were wrong year)
+* reload donation fixtures with ISO format date - CANCELLED
+* write a prime imports (imported 164 - 6 were wrong year) - CANCELLED
 * redo the yarn/npm store - DONE
-* jest - create unit tests - WORKING
+* jest - create unit tests - DONE
 * code coverage `npm test -- --coverage` - DONE
 * do I need componentWillReceiveProps or can I bind directly to this.props
 * all constructors should pass props down

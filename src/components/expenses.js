@@ -113,26 +113,21 @@ class Expenses extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // calulate a date if only the day and month are provided
-    let calculatedDate = moment(this.state.date);
-    if (calculatedDate.year() === 2001) {
-      calculatedDate.year(this.state.taxYear);
-    }
-
     // convert dollars and cents to cents
     let calculatedAmount = (this.state.amount).toString().replace(/[^0-9.]/g, '');
     calculatedAmount = Math.round(calculatedAmount * 100);
+    let dateObject = utilities.calculateDate(this.state.date, this.state.taxYear);
 
     let expense = {
       key: this.state.key,
       data: {
-        date: calculatedDate.toISOString(),
+        date: dateObject.date,
         description: this.state.description,
         category: this.state.category,
         property: this.state.property,
         isDebit: this.state.isDebit,
         amount: calculatedAmount,
-        taxYear: moment(calculatedDate).year()
+        taxYear: dateObject.taxYear
       }
     }
 

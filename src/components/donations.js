@@ -48,7 +48,6 @@ class Donations extends Component {
       donations: [],
       charities: []
     };
-
   }
 
   handleOpen(donation, operation) {
@@ -97,8 +96,7 @@ class Donations extends Component {
 
       fixtures.donations.forEach(function (donation) {
 
-        let calculatedDate = moment(donation.date);
-    
+        let dateObject = utilities.calculateDate(donation.date, this.state.taxYear);
         let charity = _this.state.charities.find(function (charity) {
           return charity.data.description === donation.charity;
         });
@@ -106,10 +104,10 @@ class Donations extends Component {
         let newDonation = {
           key: null,
           data: {
-            date: calculatedDate.toISOString(),
+            date: dateObject.date,
             charity: charity.key,
             amount: donation.amount * 100,
-            taxYear: moment(calculatedDate).year()
+            taxYear: dateObject.taxYear
           }
         }
 
@@ -127,23 +125,18 @@ class Donations extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // calulate a date if only the day and month are provided
-    let calculatedDate = moment(this.state.date);
-    if (calculatedDate.year() === 2001) {
-      calculatedDate.year(this.state.taxYear);
-    }
-
     // convert dollars and cents to cents
     let calculatedAmount = (this.state.amount).toString().replace(/[^0-9.]/g, '');
     calculatedAmount = Math.round(calculatedAmount * 100);
+    let dateObject = utilities.calculateDate(this.state.date, this.state.taxYear);
 
     let donation = {
       key: this.state.key,
       data: {
-        date: calculatedDate.toISOString(),
+        date: dateObject.date,
         charity: this.state.charity,
         amount: calculatedAmount,
-        taxYear: moment(calculatedDate).year()
+        taxYear: dateObject.taxYear
       }
     }
 

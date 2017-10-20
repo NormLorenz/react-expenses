@@ -156,19 +156,15 @@ class Trips extends Component {
 
   _handleSubmit() {
 
-    // calulate a date if only the day and month are provided
-    let calculatedDate = moment(this.state.date);
-    if (calculatedDate.year() === 2001) {
-      calculatedDate.year(this.state.taxYear);
-    }
+    let dateObject = utilities.calculateDate(this.state.date, this.state.taxYear);
 
     let trip = {
       key: this.state.key,
-      date: calculatedDate.toISOString(),
+      date: dateObject.date,
       purpose: this.state.purpose,
       wayPoints: this.state.wayPoints,
       mileage: this.state.mileage,
-      taxYear: moment(calculatedDate).year()
+      taxYear: dateObject.taxYear
     }
 
     if (this.state.operation === operations.new) {
