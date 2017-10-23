@@ -206,16 +206,18 @@
 
 ### short list
 
-* finish mileage tasks
-* finish in-flight tasks
-* backup production - DONE
-* backup development - DONE
-* backup development one more time
+* finish mileage tasks - DONE
+* finish in-flight tasks - DONE
+* backup production firebase - DONE
+* backup development firebase - DONE
+* backup development firebase one more time
 * provide migration path from development to production
   * charities
   * donations
   * places
   * trips
+* extensive testing
+* bugs
 * build 404 page
 * publish to surge
 
@@ -227,8 +229,8 @@
 * redo the yarn/npm store - DONE
 * jest - create unit tests - DONE
 * code coverage `npm test -- --coverage` - DONE
-* do I need componentWillReceiveProps or can I bind directly to this.props
-* all constructors should pass props down
+* do I need componentWillReceiveProps or can I bind directly to this.props - CANCELLED
+* all constructors should pass props down - CANCELLED
 
 ### mileage
 
@@ -244,7 +246,7 @@
   * remove this.state.origin - DONE
   * pull when button is clicked - DONE
 * remove directions component from menu - DONE
-* enter key causes dialog box to close
+* enter key causes dialog box to close - CAN'T REPRODUCE
 * write a mileage report - DONE
 
 * const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'
