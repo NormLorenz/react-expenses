@@ -216,6 +216,7 @@
   * donations
   * places
   * trips
+* add eslint
 * extensive testing
 * bugs
 * build 404 page
@@ -273,6 +274,3 @@
 
   * https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
   * http://andrewhfarmer.com/react-ajax-best-practices/
-
-
-TEST TEST TEST
