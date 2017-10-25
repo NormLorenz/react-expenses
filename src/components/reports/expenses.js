@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import * as utilities from '../helpers/utilities';
 
 import MyDisplay from '../helpers/myDisplay';
@@ -14,7 +14,7 @@ import Moment from 'react-moment';
 
 class ExpenseReport extends Component {
 
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       taxYear: 0,
@@ -52,7 +52,7 @@ class ExpenseReport extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
 
       // expenses
       if (newProps.expenseObject.isLoaded) {
@@ -122,11 +122,11 @@ class ExpenseReport extends Component {
 
   render() {
 
-    let filteredCredits = this.state.expenses.filter(expense => {
+    let filteredCredits = this.state.expenses.filter((expense) => {
       return expense.data.isDebit === false;
     });
 
-    let credits = filteredCredits.map(expense => {
+    let credits = filteredCredits.map((expense) => {
       return (
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
@@ -139,11 +139,11 @@ class ExpenseReport extends Component {
       );
     });
 
-    let filteredDebits = this.state.expenses.filter(expense => {
+    let filteredDebits = this.state.expenses.filter((expense) => {
       return expense.data.isDebit === true;
     });
 
-    let debits = filteredDebits.map(expense => {
+    let debits = filteredDebits.map((expense) => {
       return (
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
@@ -156,7 +156,7 @@ class ExpenseReport extends Component {
       );
     });
 
-    let properties = this.state.properties.map(property => {
+    let properties = this.state.properties.map((property) => {
       return (
         <tr key={property.key}>
           <td>{property.data.description}</td>
@@ -168,7 +168,7 @@ class ExpenseReport extends Component {
       );
     });
 
-    let categories = this.state.categories.map(category => {
+    let categories = this.state.categories.map((category) => {
       return (
         <tr key={category.key}>
           <td>{category.data.description}</td>
@@ -289,7 +289,7 @@ class ExpenseReport extends Component {
         </div>
 
       </div >
-    )
+    );
   }
 }
 

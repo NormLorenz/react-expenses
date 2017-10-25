@@ -34,7 +34,7 @@ function PrivateRoute({ component: Component, authed, ...rest }) {
         ? <Component {...props} />
         : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
     />
-  )
+  );
 }
 
 function PublicRoute({ component: Component, authed, ...rest }) {
@@ -45,7 +45,7 @@ function PublicRoute({ component: Component, authed, ...rest }) {
         ? <Component {...props} />
         : <Redirect to='/' />}
     />
-  )
+  );
 }
 
 class Application extends Component {
@@ -54,7 +54,7 @@ class Application extends Component {
     this.state = {
       authed: false,
       loading: true,
-    }
+    };
   }
 
   componentDidMount() {
@@ -63,17 +63,17 @@ class Application extends Component {
         this.setState({
           authed: true,
           loading: false,
-        })
+        });
       } else {
         this.setState({
           loading: false
-        })
+        });
       }
-    })
+    });
   }
 
   componentWillUnmount() {
-    this.removeListener()
+    this.removeListener();
   }
 
   render() {

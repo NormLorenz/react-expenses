@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import * as utilities from '../helpers/utilities';
 
 import MyDisplay from '../helpers/myDisplay';
@@ -45,7 +45,7 @@ class DonationReport extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
 
       // donations
       if (newProps.donationObject.isLoaded) {
@@ -83,7 +83,7 @@ class DonationReport extends Component {
 
   render() {
 
-    let donations = this.state.donations.map(donation => {
+    let donations = this.state.donations.map((donation) => {
       return (
         <tr key={donation.key}>
           <td><Moment date={donation.data.date} format='L' /></td>
@@ -94,7 +94,7 @@ class DonationReport extends Component {
       );
     });
 
-    let charities = this.state.charities.map(charity => {
+    let charities = this.state.charities.map((charity) => {
       return (
         <tr key={charity.key}>
           <td>{charity.data.description}</td>
@@ -157,7 +157,7 @@ class DonationReport extends Component {
         </div>
 
       </div >
-    )
+    );
   }
 }
 

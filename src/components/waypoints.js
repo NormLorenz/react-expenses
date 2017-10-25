@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 import WayPoint from './waypoint';
+import PropTypes from 'prop-types'; // ES6
 
 class Waypoints extends Component {
 
@@ -24,7 +25,7 @@ class Waypoints extends Component {
     let newState = null;
 
     switch (action.command) {
-      case 'up':
+      case 'up': {
         let a = this.state.wayPoints[action.index];
         let b = this.state.wayPoints[action.index - 1];
         newState = update(this.state.wayPoints, {
@@ -32,7 +33,8 @@ class Waypoints extends Component {
           [action.index - 1]: { index: { $set: a.index } }
         });
         break;
-      case 'down':
+      }
+      case 'down': {
         let c = this.state.wayPoints[action.index];
         let d = this.state.wayPoints[action.index + 1];
         newState = update(this.state.wayPoints, {
@@ -40,22 +42,26 @@ class Waypoints extends Component {
           [action.index + 1]: { index: { $set: c.index } }
         });
         break;
-      case 'edit':
+      }
+      case 'edit': {
         newState = update(this.state.wayPoints, {
           [action.index]: { place: { $set: action.place } }
         });
         break;
-      case 'delete':
+      }
+      case 'delete': {
         newState = update(this.state.wayPoints, {
           $splice: [[action.index, 1]]
         });
         break;
-      case 'new':
+      }
+      case 'new': {
         let i = this.state.wayPoints.length;
         newState = update(this.state.wayPoints, {
           $push: [{ key: null, index: i, place: '' }]
         });
         break;
+      }
       default:
         break;
     }
@@ -78,7 +84,7 @@ class Waypoints extends Component {
 
     const divStyle = { height: '225px', overflow: 'auto' };
 
-    let items = this.state.wayPoints.map(wayPoint => {
+    let items = this.state.wayPoints.map((wayPoint) => {
       let first = wayPoint.index === 0;
       let last = wayPoint.index === this.state.wayPoints.length - 1;
 
@@ -101,14 +107,14 @@ class Waypoints extends Component {
         </div>
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' name='new' onClick={this.handleClick.bind(this)}>New</button>
       </div>
-    )
+    );
   }
 }
 
 Waypoints.propTypes = {
-  wayPoints: React.PropTypes.array.isRequired,
-  places: React.PropTypes.array.isRequired,
-  onChange: React.PropTypes.func.isRequired
-}
+  wayPoints: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired
+};
 
 export default Waypoints;

@@ -102,7 +102,7 @@ class Places extends Component {
         address: this.state.address,
         isActive: this.state.isActive
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertPlace(place);
@@ -125,10 +125,6 @@ class Places extends Component {
   }
 
   handleSearchChange(value) {
-    console.log('formatted_address', value.formatted_address);
-    console.log('latitude', value.latitude);
-    console.log('longitude', value.longitude);
-
     this.setState({
       address: value.formatted_address,
       latitude: value.latitude,
@@ -144,13 +140,11 @@ class Places extends Component {
 
     fetch(url, myInit).then((response) => {
       return response.json();
-    }).then((data) => {
-
+    }).then((/*data*/) => {
       // data.status);
       // data.results[0].formatted_address);
       // data.results[0].geometry.location.lat);
       // data.results[0].geometry.location.lng);
-
     });
   }
 
@@ -174,7 +168,7 @@ class Places extends Component {
     const col3Style = { width: '10%' };
     const col4Style = { width: '15%' };
 
-    let places = this.state.places.map(place => {
+    let places = this.state.places.map((place) => {
       return (
         <tr key={place.key}>
           <td>{place.data.description}</td>
@@ -239,7 +233,7 @@ class Places extends Component {
         </Modal>
 
       </div >
-    )
+    );
   }
 }
 

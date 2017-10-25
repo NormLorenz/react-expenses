@@ -18,7 +18,7 @@ export function calculateDate(dateString, taxYear) {
   }
 
   // return something to the caller
-  return { date: date.toISOString(), taxYear: date.year() }
+  return { date: date.toISOString(), taxYear: date.year() };
 }
 
 export function testDate() {
@@ -50,9 +50,9 @@ export function convertTextWithEllipsis(text, length) {
 }
 
 // not enterprise ready - need to consider child nodes
-export const objectToArray = snapshot => {
+export const objectToArray = (snapshot) => {
   let returnArr = [];
-  snapshot.forEach(childSnapshot => {
+  snapshot.forEach((childSnapshot) => {
     let item = childSnapshot.val();
     item.key = childSnapshot.key;
     returnArr.push(item);
@@ -63,8 +63,8 @@ export const objectToArray = snapshot => {
 // not enterprise ready
 export const arrayToObject = (array) =>
   array.reduce((obj, item) => {
-    obj[item.key] = item
-    return obj
+    obj[item.key] = item;
+    return obj;
   }, {});
 
 // export function stringifyObject (object) {
@@ -85,7 +85,7 @@ export function calculateMileage(directions) {
   }
 
   return mileage;
-};
+}
 
 export function getDirections(wayPoints, places) {
   return new Promise((resolve, reject) => {
@@ -98,7 +98,7 @@ export function getDirections(wayPoints, places) {
       });
 
     if (legs.length < 2) {
-      reject('must have at least two places to compute mileage')
+      reject('must have at least two places to compute mileage');
     }
 
     else {
@@ -124,7 +124,7 @@ export function getDirections(wayPoints, places) {
       });
     }
   });
-};
+}
 
 //endregion
 

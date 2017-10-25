@@ -13,7 +13,6 @@ export function editTrip(trip) {
   delete trip.wayPoints;
 
   return (dispatch) => {
-
     database.ref('trips').child(key).set(trip);
     wayPoints.forEach((wayPoint) => {
       database.ref('trips').child(key).child('wayPoints').push({
@@ -27,7 +26,7 @@ export function editTrip(trip) {
       message: 'trip record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertTrip(trip) {
@@ -36,7 +35,6 @@ export function insertTrip(trip) {
   delete trip.wayPoints;
 
   return (dispatch) => {
-
     let ref = database.ref('trips').push(trip);
     wayPoints.forEach((wayPoint) => {
       database.ref('trips').child(ref.key).child('wayPoints').push({
@@ -50,7 +48,7 @@ export function insertTrip(trip) {
       message: 'trip record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function deleteTrip(trip) {
@@ -58,22 +56,20 @@ export function deleteTrip(trip) {
   delete trip.key;
 
   return (dispatch) => {
-
     database.ref('trips').child(key).remove();
-
     dispatch(Notifications.info({
       title: 'Info',
       message: 'trip record deleted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchTrips() {
-  return dispatch => {
-    database.ref('taxYear').on('value', snap => {
+  return (dispatch) => {
+    database.ref('taxYear').on('value', (snap) => {
       const tripsRef = database.ref('trips').orderByChild('taxYear').equalTo(snap.val());
-      tripsRef.on('value', snap => {
+      tripsRef.on('value', (snap) => {
 
         let trips = [];
         snap.forEach(function (data) {

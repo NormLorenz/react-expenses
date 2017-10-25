@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import SearchBox from 'react-google-maps/lib/places/SearchBox';
+import PropTypes from 'prop-types'; // ES6
 
 const INPUT_STYLE = {
   boxSizing: `border-box`,
@@ -19,7 +20,7 @@ const INPUT_STYLE = {
   textOverflow: `ellipses`,
 };
 
-const SearchBoxGoogleMap = withGoogleMap(props => (
+const SearchBoxGoogleMap = withGoogleMap((props) => (
   <GoogleMap
     ref={props.onMapMounted}
     defaultZoom={15}
@@ -101,7 +102,7 @@ class SearchBoxComponent extends Component {
     const places = this._searchBox.getPlaces();
 
     // add a marker for each place returned from search bar
-    const markers = places.map(place => ({
+    const markers = places.map((place) => ({
       position: place.geometry.location,
     }));
 
@@ -117,7 +118,7 @@ class SearchBoxComponent extends Component {
       formatted_address: places[0].formatted_address,
       latitude: places[0].geometry.location.lat(),
       longitude: places[0].geometry.location.lng()
-    }
+    };
 
     this.props.onChange(value);
   }
@@ -146,9 +147,9 @@ class SearchBoxComponent extends Component {
 }
 
 SearchBoxComponent.propTypes = {
-  onChange: React.PropTypes.func,
-  longitude: React.PropTypes.number,
-  latitude: React.PropTypes.number
+  onChange: PropTypes.func,
+  longitude: PropTypes.number,
+  latitude: PropTypes.number
 };
 
 export default SearchBoxComponent;

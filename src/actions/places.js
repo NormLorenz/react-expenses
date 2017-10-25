@@ -10,7 +10,7 @@ export function editPlace(place) {
       message: 'place record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertPlace(place) {
@@ -21,12 +21,12 @@ export function insertPlace(place) {
       message: 'place record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchPlaces() {
-  return dispatch => {
-    database.ref('places').on('value', snap => {
+  return (dispatch) => {
+    database.ref('places').on('value', (snap) => {
       let places = [];
       snap.forEach(function (data) {
         let place = {
@@ -38,7 +38,7 @@ export function fetchPlaces() {
             address: data.val().address,
             isActive: data.val().isActive
           }
-        }
+        };
         places.push(place);
       });
 

@@ -3,15 +3,15 @@ import { ref, firebaseAuth } from '../../constants/database';
 export function auth(email, password) {
   return firebaseAuth().createUserWithEmailAndPassword(email, password)
     .then(saveUser)
-    .catch((error) => console.log('Oops', error))
+    .catch((error) => console.log('Oops', error));
 }
 
 export function logout() {
-  return firebaseAuth().signOut()
+  return firebaseAuth().signOut();
 }
 
 export function login(email, password) {
-  return firebaseAuth().signInWithEmailAndPassword(email, password)
+  return firebaseAuth().signInWithEmailAndPassword(email, password);
 }
 
 export function saveUser(user) {
@@ -20,5 +20,5 @@ export function saveUser(user) {
       email: user.email,
       uid: user.uid
     })
-    .then(() => user)
+    .then(() => user);
 }

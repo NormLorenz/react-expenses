@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'; // ES6
+
 
 import Notifications from 'react-notification-system-redux';
 
@@ -18,4 +20,4 @@ Placeholder.propTypes = {
   notifications: PropTypes.array
 };
 
-export default connect(state => ({ notifications: state.notifications }))(Placeholder);
+export default connect((state) => ({ notifications: state.notifications }))(Placeholder);

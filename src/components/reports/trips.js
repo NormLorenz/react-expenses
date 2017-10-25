@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { fetchTaxYear } from '../../actions/taxyear';
@@ -28,7 +28,7 @@ class TripReport extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
 
       // trips
       if (newProps.tripObject.isLoaded) {
@@ -48,7 +48,7 @@ class TripReport extends Component {
 
   render() {
 
-    let trips = this.state.trips.map(trip => {
+    let trips = this.state.trips.map((trip) => {
       return (
         <tr key={trip.key}>
           <td><Moment date={trip.date} format='L' /></td>
@@ -86,7 +86,7 @@ class TripReport extends Component {
           </table>
         </div>
       </div >
-    )
+    );
   }
 }
 

@@ -1,5 +1,4 @@
 const actionTypes = {
-
   TaxYearUpdated: 'TAXYEAR_UPDATED',
   ExpensesUpdated: 'EXPENSES_UPDATED',
   CategoriesUpdated: 'CATEGORIES_UPDATED',
@@ -8,7 +7,6 @@ const actionTypes = {
   DonationsUpdated: 'DONATIONS_UPDATED',
   PlacesUpdated: 'PLACES_UPDATED',
   TripsUpdated: 'TRIPS_UPDATED'
-
 };
 
 export default actionTypes;

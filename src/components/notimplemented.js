@@ -7,7 +7,7 @@ class NotImplemented extends Component {
       <div className='w3-container'>
         <h4>Not Implemented</h4>
       </div>
-    )
+    );
   }
 }
 

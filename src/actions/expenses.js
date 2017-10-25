@@ -10,7 +10,7 @@ export function editExpense(expense) {
       message: 'expense record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertExpense(expense) {
@@ -21,7 +21,7 @@ export function insertExpense(expense) {
       message: 'expense record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function deleteExpense(expense) {
@@ -32,14 +32,14 @@ export function deleteExpense(expense) {
       message: 'expense record deleted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchExpenses() {
-  return dispatch => {
-    database.ref('taxYear').on('value', snap => {
+  return (dispatch) => {
+    database.ref('taxYear').on('value', (snap) => {
       const expensesRef = database.ref('expenses').orderByChild('taxYear').equalTo(snap.val());
-      expensesRef.on('value', snap => {
+      expensesRef.on('value', (snap) => {
         let expenses = [];
         snap.forEach(function (data) {
           let expense = {
@@ -53,7 +53,7 @@ export function fetchExpenses() {
               amount: data.val().amount,
               taxYear: data.val().taxYear
             }
-          }
+          };
           expenses.push(expense);
         });
         dispatch({

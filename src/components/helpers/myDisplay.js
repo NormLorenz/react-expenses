@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
 
 class MyDisplay extends Component {
   render() {
@@ -11,20 +12,20 @@ class MyDisplay extends Component {
     if (option) {
       return (
         <span> {option.data.description} </span>
-      )
+      );
     }
 
     else {
       return (
         <span> not selected </span>
-      )
+      );
     }
   }
 }
 
 MyDisplay.propTypes = {
-  value: React.PropTypes.string.isRequired,
-  options: React.PropTypes.array.isRequired
+  value: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired
 };
 
 export default MyDisplay;

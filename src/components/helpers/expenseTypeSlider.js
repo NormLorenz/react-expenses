@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import './expenseTypeSlider.css';
+import PropTypes from 'prop-types'; // ES6
 
 class ExpenseTypeSlider extends Component {
   render() {
@@ -16,14 +17,14 @@ class ExpenseTypeSlider extends Component {
         <input type='checkbox' value='none' id='expenseTypeSlider' name={this.props.name} checked={this.props.checked} onChange={this.props.onChange.bind(this)} />
         <label htmlFor='expenseTypeSlider'></label>
       </div>
-    )
+    );
   }
 }
 
 ExpenseTypeSlider.propTypes = {
-  checked: React.PropTypes.bool.isRequired,
-  name: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func.isRequired
+  checked: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export default ExpenseTypeSlider;

@@ -3,7 +3,7 @@ import ReactImage from '../logo.svg';
 
 const imageStyle = {
   width: '70px'
-}
+};
 
 class Home extends Component {
 
@@ -20,7 +20,7 @@ class Home extends Component {
             <div className='w3-container'>
               <p>
                 This application is built with React js and is used to aid in the collection of receipts and expenses and allows
-                importing and exporting data with reporting capabilites. It's built on an react 15.4.2
+                importing and exporting data with reporting capabilites. It&apos;s built on an react 15.4.2
                 framework using w3.css 4.04, react-router 4.0.0-beta.8, react-modal 1.6.5 and moment.js 2.17.1.
                 Additionally, the data is stored on a Google Firebase using the 3.6.7 libaries.
               </p>
@@ -39,7 +39,7 @@ class Home extends Component {
         </div>
 
       </div>
-    )
+    );
   }
 }
 

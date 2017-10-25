@@ -129,7 +129,7 @@ class Expenses extends Component {
         amount: calculatedAmount,
         taxYear: dateObject.taxYear
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertExpense(expense);
@@ -165,7 +165,7 @@ class Expenses extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
     }
     if (newProps.expenseObject.isLoaded) {
       this.setState({
@@ -198,7 +198,7 @@ class Expenses extends Component {
     const col6Style = { width: '8%' };
     const col7Style = { width: '17%' };
 
-    let items = this.state.expenses.map(expense => {
+    let items = this.state.expenses.map((expense) => {
       return (
         <tr key={expense.key}>
           <td><Moment date={expense.data.date} format='L' /></td>
@@ -280,7 +280,7 @@ class Expenses extends Component {
         </Modal>
 
       </div>
-    )
+    );
   }
 }
 

@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { login } from './helpers/authentication'
+import React, { Component } from 'react';
+import { login } from './helpers/authentication';
 
 class Login extends Component {
 
   handleSubmit = (e) => {
-    e.preventDefault()
-    login(this.email.value, this.pw.value)
+    e.preventDefault();
+    login(this.email.value, this.pw.value);
   }
   
   render() {
@@ -29,7 +29,7 @@ class Login extends Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 

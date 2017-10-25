@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MySelect from './helpers/mySelect';
+import PropTypes from 'prop-types'; // ES6
 
 class Waypoint extends Component {
 
@@ -23,17 +24,17 @@ class Waypoint extends Component {
       <i className='fa fa-chevron-up w3-text-gray w3-almost-medium w3-padding-tiny'></i> :
       <a href='#' name='up' onClick={this.handleClick.bind(this)}>
         <i className='fa fa-chevron-up w3-text-black w3-almost-medium w3-padding-tiny'></i>
-      </a>
+      </a>;
 
     let downButton = this.props.last === true ?
       <i className='fa fa-chevron-down w3-text-gray w3-almost-medium w3-padding-tiny'></i> :
       <a href='#' name='down' onClick={this.handleClick.bind(this)}>
         <i className='fa fa-chevron-down w3-text-black w3-almost-medium w3-padding-tiny'></i>
-      </a>
+      </a>;
 
     let deleteButton = <a href='#' name='delete' onClick={this.handleClick.bind(this)}>
       <i className='fa fa-trash w3-text-black w3-almost-medium w3-padding-tiny'></i>
-    </a >
+    </a >;
 
     return (
       <div className='w3-section' key={this.props.wayPoint.order}>
@@ -47,16 +48,16 @@ class Waypoint extends Component {
           {upButton}{downButton}{deleteButton}
         </div>
       </div>
-    )
+    );
   }
 }
 
 Waypoint.propTypes = {
-  first: React.PropTypes.bool.isRequired,
-  last: React.PropTypes.bool.isRequired,
-  wayPoint: React.PropTypes.object.isRequired,
-  places: React.PropTypes.array.isRequired,
-  onAction: React.PropTypes.func.isRequired
-}
+  first: PropTypes.bool.isRequired,
+  last: PropTypes.bool.isRequired,
+  wayPoint: PropTypes.object.isRequired,
+  places: PropTypes.array.isRequired,
+  onAction: PropTypes.func.isRequired
+};
 
 export default Waypoint;

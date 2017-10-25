@@ -66,7 +66,7 @@ class Summary extends Component {
     this.setState({ showModal: false });
   }
 
-  handleOpen(event) {
+  handleOpen() {
     this.setState({ showModal: true });
   }
 
@@ -89,7 +89,7 @@ class Summary extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
     }
 
     // expenses
@@ -119,21 +119,21 @@ class Summary extends Component {
     if (newProps.propertyObject.isLoaded) {
       this.setState({
         propertyRecords: newProps.propertyObject.properties.length
-      })
+      });
     }
 
     // categories
     if (newProps.categoryObject.isLoaded) {
       this.setState({
         categoryRecords: newProps.categoryObject.categories.length
-      })
+      });
     }
 
     // charities
     if (newProps.charityObject.isLoaded) {
       this.setState({
         charityRecords: newProps.charityObject.charities.length
-      })
+      });
     }
   }
 
@@ -143,7 +143,7 @@ class Summary extends Component {
     for (let i = 0; i < 15; i++) {
       years.push(year--);
     }
-    this.setState({ years: years.map(i => { return { description: i, key: i } }) });
+    this.setState({ years: years.map((i) => { return { description: i, key: i }; }) });
   }
 
   render() {
@@ -163,7 +163,7 @@ class Summary extends Component {
             <img src={Avatar} alt='avatar' className='w3-left w3-circle w3-margin-right' style={avatarStyle} />
             <p>
               Below are the dollar totals for tax year {this.state.taxYear} only. To view other years, click the
-              'change tax year' link below. Cash in: {utilities.convertCentsToDollars(this.state.expenseCredits)},
+              &apos;change tax year&apos; link below. Cash in: {utilities.convertCentsToDollars(this.state.expenseCredits)},
               cash out: {utilities.convertCentsToDollars(this.state.expenseDebits)}&nbsp;
               and total expense records: {this.state.expenseRecords}.
             </p>
@@ -182,7 +182,7 @@ class Summary extends Component {
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
                 <select className='w3-select w3-border w3-white w3-round' style={{ paddingLeft: '6px' }} name='taxYear' value={this.state.taxYear} onChange={this.handleInputChange.bind(this)} >
-                  {this.state.years.map(year => { return <option className='w3-text-grey' key={year.key} value={year.key}>{year.description}</option> })}
+                  {this.state.years.map((year) => { return <option className='w3-text-grey' key={year.key} value={year.key}>{year.description}</option>; })}
                 </select>
                 <label className='w3-label'>Tax year: also used to set the default year for shortened mm/dd entries</label>
               </div>
@@ -195,7 +195,7 @@ class Summary extends Component {
         </Modal>
 
       </div >
-    )
+    );
   }
 }
 
@@ -219,4 +219,4 @@ export default connect(
     fetchCategories: fetchCategories,
     fetchCharities: fetchCharities
   }
-)(Summary)
+)(Summary);

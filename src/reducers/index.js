@@ -26,4 +26,4 @@ const allReducers = combineReducers({
   notifications
 });
 
-export default allReducers
+export default allReducers;

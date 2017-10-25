@@ -84,7 +84,7 @@ class Categories extends Component {
         description: this.state.description,
         isActive: this.state.isActive
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertCategory(category);
@@ -125,7 +125,7 @@ class Categories extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '20%' };
 
-    let categories = this.state.categories.map(category => {
+    let categories = this.state.categories.map((category) => {
       return (
         <tr key={category.key}>
           <td>{category.data.description}</td>
@@ -181,7 +181,7 @@ class Categories extends Component {
         </Modal>
 
       </div>
-    )
+    );
   }
 }
 

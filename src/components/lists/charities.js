@@ -87,7 +87,7 @@ class Charities extends Component {
             description: charity.description,
             isActive: charity.isActive
           }
-        }
+        };
 
         _this.props.insertCharity(newCharity);
       });
@@ -109,7 +109,7 @@ class Charities extends Component {
         description: this.state.description,
         isActive: this.state.isActive
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertCharity(charity);
@@ -150,7 +150,7 @@ class Charities extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '20%' };
 
-    let charities = this.state.charities.map(charity => {
+    let charities = this.state.charities.map((charity) => {
       return (
         <tr key={charity.key}>
           <td>{charity.data.description}</td>
@@ -207,7 +207,7 @@ class Charities extends Component {
         </Modal>
 
       </div>
-    )
+    );
   }
 }
 

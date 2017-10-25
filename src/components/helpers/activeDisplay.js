@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
 
 class ActiveDisplay extends Component {
   render() {
@@ -7,18 +8,18 @@ class ActiveDisplay extends Component {
     if (isActive === true) {
       return (
         <span className="w3-badge w3-green">true</span>
-      )
+      );
     }
     else {
       return (
         <span className="w3-badge w3-red">false</span>
-      )
+      );
     }
   }
 }
 
 ActiveDisplay.propTypes = {
-  isActive: React.PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired
 };
 
 export default ActiveDisplay;

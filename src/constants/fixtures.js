@@ -203,6 +203,6 @@ const fixtures = {
     { date: '12/31/2016', charity: 'catholic charities', amount: '480.00' }
   ]
 
-}
+};
 
 export default fixtures;

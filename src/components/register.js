@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { auth } from './helpers/authorization'
+import React, { Component } from 'react';
+import { login } from './helpers/authentication';
 
 class Register extends Component {
 
@@ -34,9 +34,9 @@ class Register extends Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 
 
-export default Register
+export default Register;

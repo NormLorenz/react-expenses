@@ -84,7 +84,7 @@ class Properties extends Component {
         description: this.state.description,
         isActive: this.state.isActive
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertProperty(property);
@@ -125,7 +125,7 @@ class Properties extends Component {
     const col2Style = { width: '15%' };
     const col3Style = { width: '20%' };
 
-    let properties = this.state.properties.map(property => {
+    let properties = this.state.properties.map((property) => {
       return (
         <tr key={property.key}>
           <td>{property.data.description}</td>
@@ -181,7 +181,7 @@ class Properties extends Component {
         </Modal>
 
       </div>
-    )
+    );
   }
 }
 

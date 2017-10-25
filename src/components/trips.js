@@ -25,7 +25,7 @@ const modalStyle = {
   }
 };
 
-const DirectionsExampleGoogleMap = withGoogleMap(props => (
+const DirectionsExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
     defaultZoom={7}
     defaultCenter={props.center}
@@ -104,14 +104,14 @@ class Trips extends Component {
     }
     else if (operation === operations.map) {
       utilities.getDirections(trip.wayPoints, this.state.places)
-        .then(directions => {
+        .then((directions) => {
           this.setState({
             mileage: utilities.calculateMileage(directions),
             directions: directions,
             showMapModal: true
           });
         })
-        .catch(error => {
+        .catch((error) => {
           this.setState({
             mileage: 0,
             directions: null
@@ -137,14 +137,14 @@ class Trips extends Component {
 
     // wait for a promise to complete
     utilities.getDirections(this.state.wayPoints, this.state.places)
-      .then(directions => {
+      .then((directions) => {
         this.setState({
           mileage: utilities.calculateMileage(directions)
         });
 
         this._handleSubmit();
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
           mileage: 0
         });
@@ -165,7 +165,7 @@ class Trips extends Component {
       wayPoints: this.state.wayPoints,
       mileage: this.state.mileage,
       taxYear: dateObject.taxYear
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertTrip(trip);
@@ -206,7 +206,7 @@ class Trips extends Component {
     if (newProps.taxyearObject.isLoaded) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
     }
     if (newProps.tripObject.isLoaded) {
       this.setState({
@@ -230,7 +230,7 @@ class Trips extends Component {
     const col3Style = { width: '15%' };
     const col4Style = { width: '25%' };
 
-    let items = this.state.trips.map(trip => {
+    let items = this.state.trips.map((trip) => {
       return (
         <tr key={trip.key}>
           <td><Moment date={trip.date} format='L' /></td>
@@ -317,7 +317,7 @@ class Trips extends Component {
         </Modal>
 
       </div>
-    )
+    );
   }
 }
 

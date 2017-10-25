@@ -10,13 +10,12 @@ export function editTaxYear(taxYear) {
       message: 'tax year record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchTaxYear() {
-  return dispatch => {
-    database.ref('taxYear').on('value', snap => {
-
+  return (dispatch) => {
+    database.ref('taxYear').on('value', (snap) => {
       dispatch({
         type: ActionTypes.TaxYearUpdated,
         payload: snap.val()

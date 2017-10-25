@@ -10,7 +10,7 @@ export function editCategory(category) {
       message: 'category record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertCategory(category) {
@@ -21,12 +21,12 @@ export function insertCategory(category) {
       message: 'category record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchCategories() {
-  return dispatch => {
-    database.ref('categories').on('value', snap => {
+  return (dispatch) => {
+    database.ref('categories').on('value', (snap) => {
       let categories = [];
       snap.forEach(function (data) {
         let category = {
@@ -35,7 +35,7 @@ export function fetchCategories() {
             description: data.val().description,
             isActive: data.val().isActive
           }
-        }
+        };
         categories.push(category);
       });
 

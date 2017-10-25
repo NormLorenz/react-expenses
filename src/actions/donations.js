@@ -10,7 +10,7 @@ export function editDonation(donation) {
       message: 'donation record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertDonation(donation) {
@@ -21,7 +21,7 @@ export function insertDonation(donation) {
       message: 'donation record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function deleteDonation(donation) {
@@ -32,14 +32,14 @@ export function deleteDonation(donation) {
       message: 'donation record deleted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchDonations() {
-  return dispatch => {
-    database.ref('taxYear').on('value', snap => {
+  return (dispatch) => {
+    database.ref('taxYear').on('value', (snap) => {
       const donationsRef = database.ref('donations').orderByChild('taxYear').equalTo(snap.val());
-      donationsRef.on('value', snap => {
+      donationsRef.on('value', (snap) => {
         let donations = [];
         snap.forEach(function (data) {
           let donation = {
@@ -50,7 +50,7 @@ export function fetchDonations() {
               amount: data.val().amount,
               taxYear: data.val().taxYear
             }
-          }
+          };
           donations.push(donation);
         });
         dispatch({

@@ -10,7 +10,7 @@ export function editCharity(charity) {
       message: 'charity record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertCharity(charity) {
@@ -21,12 +21,12 @@ export function insertCharity(charity) {
       message: 'charity record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchCharities() {
-  return dispatch => {
-    database.ref('charities').on('value', snap => {
+  return (dispatch) => {
+    database.ref('charities').on('value', (snap) => {
       let charities = [];
       snap.forEach(function (data) {
         let charity = {
@@ -35,7 +35,7 @@ export function fetchCharities() {
             description: data.val().description,
             isActive: data.val().isActive
           }
-        }
+        };
         charities.push(charity);
       });
 

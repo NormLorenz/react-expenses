@@ -10,7 +10,7 @@ export function editProperty(property) {
       message: 'property record updated',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function insertProperty(property) {
@@ -21,12 +21,12 @@ export function insertProperty(property) {
       message: 'property record inserted',
       position: 'br'
     }));
-  }
+  };
 }
 
 export function fetchProperties() {
-  return dispatch => {
-    database.ref('properties').on('value', snap => {
+  return (dispatch) => {
+    database.ref('properties').on('value', (snap) => {
       let properties = [];
       snap.forEach(function (data) {
         let property = {
@@ -35,7 +35,7 @@ export function fetchProperties() {
             description: data.val().description,
             isActive: data.val().isActive
           }
-        }
+        };
         properties.push(property);
       });
 

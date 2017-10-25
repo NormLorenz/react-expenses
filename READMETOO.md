@@ -216,7 +216,7 @@
   * donations
   * places
   * trips
-* add eslint
+* hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - WORKING
 * extensive testing
 * bugs
 * build 404 page

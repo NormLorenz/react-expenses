@@ -109,7 +109,7 @@ class Donations extends Component {
             amount: donation.amount * 100,
             taxYear: dateObject.taxYear
           }
-        }
+        };
 
         _this.props.insertDonation(newDonation);
       });
@@ -138,7 +138,7 @@ class Donations extends Component {
         amount: calculatedAmount,
         taxYear: dateObject.taxYear
       }
-    }
+    };
 
     if (this.state.operation === operations.new) {
       this.props.insertDonation(donation);
@@ -173,7 +173,7 @@ class Donations extends Component {
     if (newProps.taxyearObject.isLoaded === true) {
       this.setState({
         taxYear: newProps.taxyearObject.taxYear
-      })
+      });
     }
     if (newProps.charityObject.isLoaded === true) {
       this.setState({
@@ -197,7 +197,7 @@ class Donations extends Component {
     const col3Style = { width: '8%' };
     const col4Style = { width: '17%' };
 
-    let items = this.state.donations.map(donation => {
+    let items = this.state.donations.map((donation) => {
       return (
         <tr key={donation.key}>
           <td><Moment date={donation.data.date} format='L' /></td>
@@ -260,7 +260,7 @@ class Donations extends Component {
         </Modal>
 
       </div >
-    )
+    );
   }
 }
 
