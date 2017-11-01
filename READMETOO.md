@@ -216,10 +216,11 @@
   * donations
   * places
   * trips
-* hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - WORKING
+* hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - DONE
 * extensive testing
 * bugs
 * build 404 page
+* swap config firebase source
 * publish to surge
 
 ### in-flight
