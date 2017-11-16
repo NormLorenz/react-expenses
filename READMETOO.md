@@ -211,11 +211,11 @@
 * backup production firebase - DONE
 * backup development firebase - DONE
 * backup development firebase one more time
+* enter last years mileage
 * provide migration path from development to production
-  * charities
-  * donations
-  * places
-  * trips
+  * charities - has prime button - DONE
+  * donations - has prime button - DONE
+  * places - 
 * hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - DONE
 * extensive testing
 * bugs

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/places';
 import SearchBox from '../helpers/searchbox';
 import * as utilities from '../helpers/utilities';
+import fixtures from '../../constants/fixtures';
 
 const modalStyle = {
   content: {
@@ -83,6 +84,30 @@ class Places extends Component {
     }
 
     this.setState({ showModal: true });
+  }
+
+  handlePrime(event) {
+    event.preventDefault();
+    let _this = this;
+
+    //let json = JSON.parse('{ "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }');
+
+    if (this.props.placeObject.places.length === 0) {
+
+      fixtures.places.forEach(function (place) {
+
+      //   let newCharity = {
+      //     key: null,
+      //     data: {
+      //       description: charity.description,
+      //       isActive: charity.isActive
+      //     }
+      //   };
+
+      //   _this.props.insertCharity(newCharity);
+      });
+
+    }
   }
 
   handleClose(event) {
@@ -200,6 +225,7 @@ class Places extends Component {
           </table>
         </div>
         <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Place</button>
+        &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Places</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}

@@ -6,6 +6,43 @@ const fixtures = {
   categories: [
   ],
 
+  places: [
+
+    // "-KnG9rmnVlOH0tESJYM_" : {
+    //   "address" : "220 W Kathleen Ave, Coeur d'Alene, ID 83815, United States",
+    //   "description" : "home depot cda",
+    //   "isActive" : true,
+    //   "latitude" : 47.7145621,
+    //   "longitude" : -116.78754600000002
+    // },
+    { address: '', description: '', isActive: true, latitude: 0, longitude: 0 },
+    // "-KnGEQnRCMSIao_kss9N" : {
+    //   "address" : "1614 S Walnut St, Spokane, WA 99203, USA",
+    //   "description" : "town house",
+    //   "isActive" : true,
+    //   "latitude" : 47.6401709,
+    //   "longitude" : -117.43414530000001
+    // },
+    { address: '', description: '', isActive: true, latitude: 0, longitude: 0 },
+    // "-KnzXGB0OR4lNnBAz0ss" : {
+    //   "address" : "185 Hoffman Ave, Sagle, ID 83860, USA",
+    //   "description" : "lake house",
+    //   "isActive" : true,
+    //   "latitude" : 48.18256,
+    //   "longitude" : -116.4301269
+    // },
+    { address: '', description: '', isActive: true, latitude: 0, longitude: 0 },
+    { address: '1614 Browning Way, Sandpoint, ID 83864, USA', description: 'browning way rental', isActive: true, latitude: 48.2712372, longitude: -116.57530159999999 },
+    { address: '309 Creekview Ct, Sandpoint, ID 83864, USA', description: 'creekview court rental', isActive: true, latitude: 48.3034107, longitude: -116.5539827 },
+    { address: '440 W Garfield Bay Rd, Sagle, ID 83860, USA', description: 'garfield bay rental', isActive: true, latitude: 48.1840729, longitude: -116.440922 },
+    { address: '500 Kootenai Cutoff Rd, Ponderay, ID 83852, United States', description: 'home depot sandpoint', isActive: true, latitude: 48.3112149, longitude: -116.54179390000002 },
+    { address: '5617 E Sprague Ave, Spokane Valley, WA 99212, United States', description: 'home depot spokane', isActive: true, latitude: 47.6587757, longitude: -117.32789030000004 },
+    { address: 'W 708 Boone, Spokane, WA 99201, USA', description: 'value village spokane', isActive: true, latitude: 47.668812, longitude: -117.42209209999999 }
+  ],
+
+  trips: [
+  ],
+
   charities: [
     { description: 'our lady of lourdes', isActive: true },
     { description: 'carmelite sisters', isActive: true },
