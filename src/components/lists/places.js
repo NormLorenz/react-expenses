@@ -95,16 +95,18 @@ class Places extends Component {
     if (this.props.placeObject.places.length === 0) {
 
       fixtures.places.forEach(function (place) {
+        let newPlace = {
+          key: null,
+          data: {
+            address: place.address,
+            description: place.description,
+            isActive: place.active,
+            latitude: place.latitude,
+            longitude: place.longitude
+          }
+        };
 
-      //   let newCharity = {
-      //     key: null,
-      //     data: {
-      //       description: charity.description,
-      //       isActive: charity.isActive
-      //     }
-      //   };
-
-      //   _this.props.insertCharity(newCharity);
+        _this.props.insertPlace(newPlace);
       });
 
     }

@@ -213,9 +213,9 @@
 * backup development firebase one more time
 * enter last years mileage
 * provide migration path from development to production
-  * charities - has prime button - DONE
-  * donations - has prime button - DONE
-  * places - 
+  * charities - DONE
+  * donations - DONE
+  * places - WORKING
 * hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - DONE
 * extensive testing
 * bugs
