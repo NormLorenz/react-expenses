@@ -14,7 +14,7 @@ const fixtures = {
     { address: '309 Creekview Ct, Sandpoint, ID 83864, USA', description: 'creekview court rental', isActive: true, latitude: 48.3034107, longitude: -116.5539827 },
     { address: '440 W Garfield Bay Rd, Sagle, ID 83860, USA', description: 'garfield bay rental', isActive: true, latitude: 48.1840729, longitude: -116.440922 },
     { address: '500 Kootenai Cutoff Rd, Ponderay, ID 83852, USA', description: 'home depot sandpoint', isActive: true, latitude: 48.3112149, longitude: -116.54179390000002 },
-    { address: '5617 E Sprague Ave, Spokane Valley, WA 99212, USAnited States', description: 'home depot spokane', isActive: true, latitude: 47.6587757, longitude: -117.32789030000004 },
+    { address: '5617 E Sprague Ave, Spokane Valley, WA 99212, USA', description: 'home depot spokane', isActive: true, latitude: 47.6587757, longitude: -117.32789030000004 },
     { address: 'W 708 Boone, Spokane, WA 99201, USA', description: 'value village spokane', isActive: true, latitude: 47.668812, longitude: -117.42209209999999 }
   ],
 

@@ -100,7 +100,7 @@ class Places extends Component {
           data: {
             address: place.address,
             description: place.description,
-            isActive: place.active,
+            isActive: place.isActive,
             latitude: place.latitude,
             longitude: place.longitude
           }

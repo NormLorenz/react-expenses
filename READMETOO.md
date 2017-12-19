@@ -211,6 +211,7 @@
 * backup production firebase - DONE
 * backup development firebase - DONE
 * backup development firebase one more time
+* update firebase rules for expenses database - DONE
 * enter last years mileage
 * provide migration path from development to production
   * charities - DONE

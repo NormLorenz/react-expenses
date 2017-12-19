@@ -96,7 +96,7 @@ class Donations extends Component {
 
       fixtures.donations.forEach(function (donation) {
 
-        let dateObject = utilities.calculateDate(donation.date, this.state.taxYear);
+        let dateObject = utilities.calculateDate(donation.date, _this.state.taxYear);
         let charity = _this.state.charities.find(function (charity) {
           return charity.data.description === donation.charity;
         });
