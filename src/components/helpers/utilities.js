@@ -91,7 +91,7 @@ export function getDirections(wayPoints, places) {
   return new Promise((resolve, reject) => {
 
     let legs = wayPoints
-      .filter(function (a) { return a.place != null; })
+      .filter(function (a) { return a.place !== ''; })
       .map(function (a) {
         let place = places.find(function (b) { return a.place === b.key; });
         return { lat: place.data.latitude, lng: place.data.longitude };

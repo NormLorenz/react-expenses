@@ -210,19 +210,30 @@
 * finish in-flight tasks - DONE
 * backup production firebase - DONE
 * backup development firebase - DONE
-* backup development firebase one more time
 * update firebase rules for expenses database - DONE
-* enter last years mileage
-* provide migration path from development to production
+* provide migration path from development to production - DONE
   * charities - DONE
   * donations - DONE
-  * places - WORKING
+  * places - DONE
 * hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - DONE
-* extensive testing
+* swap config firebase source - DONE
+
+* enter last years mileage places
+* extensive testing - DONE
 * bugs
-* build 404 page
-* swap config firebase source
-* publish to surge
+  * by hitting enter an extra blank place is added to the route
+  * which causes an error to be thrown in the utilities.js line 97 - FIXED
+* backup production firebase one more time
+* publish - DONE
+  * build the site ```$ npm run build```
+  * in the build directory, rename index.html to 200.html page
+  * install surge ```$ sudo npm install -g surge```
+  * run surge ```$ surge```
+    * email: ```normlorenz@gmail.com```
+    * token: ```042538```
+    * project path: ```/home/norm/Projects/react-expenses/build```
+    * size: ```12 files, 8.0 MB```
+    * domain: ```react-expenses.surge.sh```
 
 ### in-flight
 
