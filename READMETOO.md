@@ -219,11 +219,16 @@
 * swap config firebase source - DONE
 
 * enter last years mileage places
+* <span style='color:red;'> display version and build number</span>
+
 * extensive testing - DONE
 * bugs
-  * by hitting enter an extra blank place is added to the route
+  * by hitting enter an extra blank place is added to the route - FIXED
   * which causes an error to be thrown in the utilities.js line 97 - FIXED
-* backup production firebase one more time
+* refactor all buttons as per attached article so enter key submits the form - DONE
+  * https://dzello.com/blog/2017/02/19/demystifying-enter-key-submission-react-forms-multiple-buttons/
+* backup production firebase one more time - DONE
+
 * publish - DONE
   * build the site ```$ npm run build```
   * in the build directory, rename index.html to 200.html page
@@ -260,7 +265,6 @@
   * remove this.state.origin - DONE
   * pull when button is clicked - DONE
 * remove directions component from menu - DONE
-* enter key causes dialog box to close - CAN'T REPRODUCE
 * write a mileage report - DONE
 
 * const apiKey = 'AIzaSyCYmAO8B6vGQaRptBtg6C20r_9i67WgQhc'

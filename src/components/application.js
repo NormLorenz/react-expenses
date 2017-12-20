@@ -92,7 +92,7 @@ class Application extends Component {
                 <Link to='/donations' className='w3-bar-item w3-button'>Donations</Link>
                 <Link to='/trips' className='w3-bar-item w3-button'>Trips</Link>
                 <div className='w3-dropdown-hover'>
-                  <button className='w3-button'>Lists</button>
+                  <button type='button' className='w3-button'>Lists</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
                     <Link to='/categories' className='w3-bar-item w3-button'>Categories</Link>
                     <Link to='/charities' className='w3-bar-item w3-button'>Charities</Link>
@@ -101,7 +101,7 @@ class Application extends Component {
                   </div>
                 </div>
                 <div className='w3-dropdown-hover'>
-                  <button className='w3-button'>Reports</button>
+                  <button type='button' className='w3-button'>Reports</button>
                   <div className='w3-dropdown-content w3-bar-block w3-card-4'>
                     <Link to='/donationreport' className='w3-bar-item w3-button'>Donations</Link>
                     <Link to='/expensereport' className='w3-bar-item w3-button'>Expenses</Link>

@@ -203,8 +203,8 @@ class Donations extends Component {
           <td><Moment date={donation.data.date} format='L' /></td>
           <td><MyDisplay options={this.state.charities} value={donation.data.charity} /></td>
           <td className='w3-right-align'>{utilities.convertCentsToDollars(donation.data.amount)}</td>
-          <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, donation, operations.edit)}>Edit</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, donation, operations.delete)}>Delete</button></td>
+          <td><button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, donation, operations.edit)}>Edit</button>
+            &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, donation, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -228,8 +228,8 @@ class Donations extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New donation</button>
-        &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Donations</button>
+        <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New donation</button>
+        &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Donations</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -252,7 +252,7 @@ class Donations extends Component {
                 <label className='w3-label'>Amount</label>
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
                 <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>

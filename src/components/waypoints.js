@@ -19,7 +19,7 @@ class Waypoints extends Component {
   }
 
   handleAction(action) {
-
+    
     // https://facebook.github.io/react/docs/update.html
 
     let newState = null;
@@ -105,7 +105,7 @@ class Waypoints extends Component {
         <div style={divStyle}>
           {items}
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' name='new' onClick={this.handleClick.bind(this)}>New</button>
+        <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' name='new' onClick={this.handleClick.bind(this)}>New</button>
       </div>
     );
   }

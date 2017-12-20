@@ -237,9 +237,9 @@ class Trips extends Component {
           <td>{trip.purpose}</td>
           <td>{trip.mileage}</td>
           <td>
-            <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.edit)}>Edit</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.delete)}>Delete</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.map)}>Map</button>
+            <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.edit)}>Edit</button>
+            &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.delete)}>Delete</button>
+            &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, trip, operations.map)}>Map</button>
           </td>
         </tr>
       );
@@ -264,7 +264,7 @@ class Trips extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New trip</button>
+        <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New trip</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showEditModal}
@@ -286,7 +286,7 @@ class Trips extends Component {
                 <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleWayPointsChange.bind(this)} />
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeEditModal.bind(this)}>Cancel</button>
+                <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeEditModal.bind(this)}>Cancel</button>
                 <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
@@ -311,7 +311,7 @@ class Trips extends Component {
               <h5>{this.state.mileage}  miles</h5>
             </div>
             <div className='w3-section'>
-              <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeMapModal.bind(this)}>Close</button>
+              <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeMapModal.bind(this)}>Close</button>
             </div>
           </div>
         </Modal>

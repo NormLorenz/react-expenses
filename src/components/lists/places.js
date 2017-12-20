@@ -201,8 +201,8 @@ class Places extends Component {
           <td>{place.data.description}</td>
           <td>{place.data.address}</td>
           <td><ActiveDisplay isActive={place.data.isActive} /></td>
-          <td><button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.edit)}>Edit</button>
-            &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.delete)}>Delete</button></td>
+          <td><button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.edit)}>Edit</button>
+            &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round' onClick={this.handleOpen.bind(this, place, operations.delete)}>Delete</button></td>
         </tr>
       );
     });
@@ -226,8 +226,8 @@ class Places extends Component {
             </tbody>
           </table>
         </div>
-        <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Place</button>
-        &nbsp;<button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Places</button>
+        <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-gray w3-round w3-margin-top' onClick={this.handleOpen.bind(this, null, operations.new)}>New Place</button>
+        &nbsp;<button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-margin-top' onClick={this.handlePrime.bind(this)}>Prime Places</button>
 
         <Modal style={modalStyle}
           isOpen={this.state.showModal}
@@ -253,7 +253,7 @@ class Places extends Component {
                 <label className='w3-text-teal'>Active</label>
               </div>
               <div className='w3-section'>
-                <button className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
+                <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
                 <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
               </div>
             </form>
