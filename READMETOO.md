@@ -219,7 +219,7 @@
 * swap config firebase source - DONE
 
 * enter last years mileage places
-* <span style='color:red;'> display version and build number</span>
+* display version and build number - DONE
 
 * extensive testing - DONE
 * bugs
