@@ -36,6 +36,16 @@ const DirectionsExampleGoogleMap = withGoogleMap((props) => (
 
 const operations = { new: 1, edit: 2, delete: 3, map: 4 };
 
+function validate(date, purpose, wayPoints) {
+  // true means invalid, so our conditions got reversed
+  let dateObject = moment(date, ['MM-DD', 'MM-DD-YYYY']);
+  return {
+    date: (dateObject) ? dateObject.isValid() === false : true,
+    purpose: (purpose) ? purpose.length === 0 : true,
+    wayPoints: (wayPoints) ? Object.keys(wayPoints).length < 2 : true
+  };
+}
+
 class Trips extends Component {
 
   constructor(props) {
@@ -54,11 +64,25 @@ class Trips extends Component {
       mileage: null,
       taxYear: 0,
 
+      field: '',
+
       trips: [],
       places: [],
 
       directions: null
     };
+  }
+
+  handleBlur = () => () => {
+    this.setState({
+      field: ''
+    });
+  }
+
+  handleFocus = (field) => () => {
+    this.setState({
+      field: field
+    });
   }
 
   handleOpen(trip, operation) {
@@ -72,9 +96,9 @@ class Trips extends Component {
         date: '',
         purpose: '',
         wayPoints: [],
-        mileage: 0
+        mileage: 0,
+        showEditModal: true
       });
-      this.setState({ showEditModal: true });
     }
     else if (operation === operations.edit) {
       this.setState({
@@ -85,9 +109,9 @@ class Trips extends Component {
         date: moment(trip.date).format('L'),
         purpose: trip.purpose,
         wayPoints: trip.wayPoints,
-        mileage: trip.mileage
+        mileage: trip.mileage,
+        showEditModal: true
       });
-      this.setState({ showEditModal: true });
     }
     else if (operation === operations.delete) {
       this.setState({
@@ -98,9 +122,9 @@ class Trips extends Component {
         date: moment(trip.date).format('L'),
         purpose: trip.purpose,
         wayPoints: trip.wayPoints,
-        mileage: trip.mileage
+        mileage: trip.mileage,
+        showEditModal: true
       });
-      this.setState({ showEditModal: true });
     }
     else if (operation === operations.map) {
       utilities.getDirections(trip.wayPoints, this.state.places)
@@ -224,6 +248,11 @@ class Trips extends Component {
 
   render() {
 
+    const errors = validate(this.state.date, this.state.purpose, this.state.wayPoints);
+    const isDisabled = Object.keys(errors).some((x) => errors[x]);
+    const hasError = (field) => { return errors[field]; };
+    const hasFocus = (field) => { return this.state.field === field; };
+
     const divStyle = { height: '500px', overflow: 'scroll' };
     const col1Style = { width: '15%' };
     const col2Style = { width: '45%' };
@@ -273,21 +302,56 @@ class Trips extends Component {
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
+
+            {/* https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component */}
+
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.date} name='date' placeholder='mm/dd or mm/dd/yyyy' onChange={this.handleInputChange.bind(this)} autoFocus />
+                <input
+                  className={`w3-input w3-border w3-round ${hasFocus('date') ? '' : hasError('date') ? 'w3-border-red' : ''}`}
+                  value={this.state.date}
+                  name='date'
+                  placeholder='mm/dd or mm/dd/yyyy'
+                  onChange={this.handleInputChange.bind(this)}
+                  onBlur={this.handleBlur('date')}
+                  onFocus={this.handleFocus('date')}
+                  autoFocus />
                 <label className='w3-label'>Date</label>
               </div>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.purpose} name='purpose' placeholder='enter a purpose' onChange={this.handleInputChange.bind(this)} />
+                <input
+                  className={`w3-input w3-border w3-round ${hasFocus('purpose') ? '' : hasError('purpose') ? 'w3-border-red' : ''}`}
+                  value={this.state.purpose}
+                  name='purpose'
+                  placeholder='enter a purpose'
+                  onChange={this.handleInputChange.bind(this)}
+                  onBlur={this.handleBlur('purpose')}
+                  onFocus={this.handleFocus('purpose')} />
                 <label className='w3-label'>Purpose</label>
               </div>
               <div className='w3-section'>
-                <WayPoints wayPoints={this.state.wayPoints} places={this.state.places} onChange={this.handleWayPointsChange.bind(this)} />
+                <WayPoints
+                  className={`w3-container w3-border w3-round w3-padding-small ${hasFocus('wayPoints') ? 'w3-border-cobalt' : hasError('wayPoints') ? 'w3-border-red' : ''}`}
+                  wayPoints={this.state.wayPoints}
+                  places={this.state.places}
+                  onChange={this.handleWayPointsChange.bind(this)}
+                  onBlur={this.handleBlur('wayPoints')}
+                  onFocus={this.handleFocus('wayPoints')} />
+                <label className='w3-label'>Places</label>
               </div>
               <div className='w3-section'>
-                <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.closeEditModal.bind(this)}>Cancel</button>
-                <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
+                <button
+                  type='button'
+                  className={`w3-button w3-padding-tiny w3-white w3-border w3-round w3-right ${hasFocus('cancel') ? 'w3-border-cobalt' : ''}`}
+                  onClick={this.closeEditModal.bind(this)}
+                  onBlur={this.handleBlur('cancel')}
+                  onFocus={this.handleFocus('cancel')}>Cancel</button>
+                <button
+                  type='submit'
+                  className={`w3-button w3-padding-tiny w3-white w3-border w3-round w3-right w3-margin-right ${hasFocus('save') ? 'w3-border-cobalt' : ''}`}
+                  onBlur={this.handleBlur('save')}
+                  onFocus={this.handleFocus('save')}
+                  disabled={isDisabled}>{this.state.submitText}</button>
               </div>
             </form>
           </div>

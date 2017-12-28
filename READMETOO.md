@@ -218,8 +218,20 @@
 * hook in eslint [here](https://github.com/Microsoft/vscode-eslint) - DONE
 * swap config firebase source - DONE
 
-* enter last years mileage places
+* enter last years mileage places - DONE
 * display version and build number - DONE
+
+* add validation to the application - WORKING
+  * trips - DONE
+  * expenses
+  * donations
+  * places
+  * charities
+  * categories
+  * properties
+  * summary
+  * close buttons
+  * rebuild cash in/ cash out slider
 
 * extensive testing - DONE
 * bugs

@@ -19,7 +19,7 @@ class Waypoints extends Component {
   }
 
   handleAction(action) {
-    
+
     // https://facebook.github.io/react/docs/update.html
 
     let newState = null;
@@ -101,7 +101,10 @@ class Waypoints extends Component {
     });
 
     return (
-      <div className='w3-container w3-border w3-padding-small'>
+      <div
+        className={this.props.className}
+        onBlur={this.props.onBlur}
+        onFocus={this.props.onFocus}>
         <div style={divStyle}>
           {items}
         </div>
@@ -114,7 +117,10 @@ class Waypoints extends Component {
 Waypoints.propTypes = {
   wayPoints: PropTypes.array.isRequired,
   places: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  className: PropTypes.string
 };
 
 export default Waypoints;
