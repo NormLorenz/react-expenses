@@ -225,13 +225,13 @@
   * trips - DONE
   * expenses
   * donations
-  * places
-  * charities
-  * categories
-  * properties
+  * categories - DONE
+  * charities - DONE
+  * places - DONE
+  * properties - DONE
   * summary
   * close buttons
-  * rebuild cash in/ cash out slider
+  * replace cash in/out slider
 
 * extensive testing - DONE
 * bugs
@@ -303,3 +303,8 @@
 
   * https://maps.googleapis.com/maps/api/geocode/json?address=home+depot+cda
   * http://andrewhfarmer.com/react-ajax-best-practices/
+
+### ran out of inodes
+
+* https://www.maketecheasier.com/fix-linux-no-space-left-on-device-error/
+* https://askubuntu.com/questions/231585/running-out-of-inodes

@@ -22,6 +22,13 @@ const modalStyle = {
 
 const operations = { new: 1, edit: 2, delete: 3 };
 
+function validate(description) {
+  // true means invalid, so our conditions got reversed
+  return {
+    description: (description) ? description.length === 0 : true
+  };
+}
+
 class Places extends Component {
 
   constructor(props) {
@@ -38,8 +45,21 @@ class Places extends Component {
       latitude: null,
       address: null,
       isActive: false,
-      places: []
+      places: [],
+      field: ''
     };
+  }
+
+  handleBlur = () => () => {
+    this.setState({
+      field: ''
+    });
+  }
+
+  handleFocus = (field) => () => {
+    this.setState({
+      field: field
+    });
   }
 
   handleOpen(place, operation) {
@@ -53,7 +73,8 @@ class Places extends Component {
         longitude: null,
         latitude: null,
         address: '',
-        isActive: true
+        isActive: true,
+        showModal: true
       });
     }
     else if (operation === operations.edit) {
@@ -66,7 +87,8 @@ class Places extends Component {
         longitude: place.data.longitude,
         latitude: place.data.latitude,
         address: place.data.address,
-        isActive: place.data.isActive
+        isActive: place.data.isActive,
+        showModal: true
       });
     }
     else if (operation === operations.delete) {
@@ -79,11 +101,10 @@ class Places extends Component {
         longitude: place.data.longitude,
         latitude: place.data.latitude,
         address: place.data.address,
-        isActive: place.data.isActive
+        isActive: place.data.isActive,
+        showModal: true
       });
     }
-
-    this.setState({ showModal: true });
   }
 
   handlePrime(event) {
@@ -189,6 +210,12 @@ class Places extends Component {
   }
 
   render() {
+
+    const errors = validate(this.state.description);
+    const isDisabled = Object.keys(errors).some((x) => errors[x]);
+    const hasError = (field) => { return errors[field]; };
+    const hasFocus = (field) => { return this.state.field === field; };
+
     const divStyle = { height: '475px', overflow: 'scroll' };
     const col1Style = { width: '20%' };
     const col2Style = { width: '55%' };
@@ -236,9 +263,20 @@ class Places extends Component {
             <div className='w3-card-8 w3-light-grey w3-text-grey w3-center'>
               <h4>{this.state.operationText}</h4>
             </div>
+
+            {/* https://stackoverflow.com/questions/34521797/how-to-add-multiple-classes-to-a-reactjs-component */}
+
             <form className='w3-container' onSubmit={this.handleSubmit.bind(this)}>
               <div className='w3-section'>
-                <input className='w3-input w3-border w3-round' value={this.state.description} name='description' placeholder='enter a friendly name' onChange={this.handleInputChange.bind(this)} autoFocus />
+                <input
+                  className={`w3-input w3-border w3-round ${hasFocus('description') ? '' : hasError('description') ? 'w3-border-red' : ''}`}
+                  value={this.state.description}
+                  name='description'
+                  placeholder='enter a friendly name'
+                  onChange={this.handleInputChange.bind(this)}
+                  onBlur={this.handleBlur('description')}
+                  onFocus={this.handleFocus('description')} autoFocus />
+                <label className='w3-label'>Description</label>
               </div>
               <div className='w3-section'>
                 <SearchBox latitude={this.state.latitude} longitude={this.state.longitude} onChange={this.handleSearchChange.bind(this)} />
@@ -253,8 +291,19 @@ class Places extends Component {
                 <label className='w3-text-teal'>Active</label>
               </div>
               <div className='w3-section'>
-                <button type='button' className='w3-button w3-padding-tiny w3-white w3-border w3-border-red w3-round w3-right' onClick={this.handleClose.bind(this)}>Cancel</button>
-                <button type='submit' className='w3-button w3-padding-tiny w3-white w3-border w3-border-blue w3-round w3-right w3-margin-right'>{this.state.submitText}</button>
+                <button
+                  type='button'
+                  className={`w3-button w3-padding-tiny w3-white w3-border w3-round w3-right ${hasFocus('cancel') ? 'w3-border-cobalt' : ''}`}
+                  onClick={this.handleClose.bind(this)}
+                  onBlur={this.handleBlur('cancel')}
+                  onFocus={this.handleFocus('cancel')}>Cancel</button>
+                <button
+                  type='submit'
+                  className={`w3-button w3-padding-tiny w3-white w3-border w3-round w3-right w3-margin-right ${hasFocus('save') ? 'w3-border-cobalt' : ''}`}
+                  onBlur={this.handleBlur('save')}
+                  onFocus={this.handleFocus('save')}
+                  disabled={isDisabled}>{this.state.submitText}
+                </button>
               </div>
             </form>
           </div>
