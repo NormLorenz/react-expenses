@@ -309,5 +309,15 @@
 * https://www.maketecheasier.com/fix-linux-no-space-left-on-device-error/
 * https://askubuntu.com/questions/231585/running-out-of-inodes
 
+### restore a remote repro
 
-
+```
+1.       on the remove repro type:
+  a.       move the react-expenses folder to the SD card
+  b.       create a new folder on the thumb drive called react-expenses
+  c.       cd react-expenses
+  d.       git init --bare
+2.       on the local repro
+  a.       git push origin master
+  b.       git push origin redux
+```
