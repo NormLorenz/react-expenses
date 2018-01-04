@@ -10,6 +10,10 @@ it('calculateDate', () => {
   expect(utilities.calculateDate('sdf', 2015)).toMatchObject({ date: '2015-01-01T08:01:00.000Z', taxYear: 2015 });
 });
 
+it('snapshop', () => {
+  expect(utilities.calculateDate('12/12', 2012)).toMatchSnapshot();
+});
+
 it('testDate', () => {
   expect(utilities.testDate()).toEqual('Thu Jan 01 2015 00:01:00 GMT-0800');
 });

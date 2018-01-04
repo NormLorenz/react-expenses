@@ -227,7 +227,7 @@
   * donations
   * categories - DONE
   * charities - DONE
-  * places - DONE
+  * places - WORKING
   * properties - DONE
   * summary
   * close buttons
