@@ -48,8 +48,11 @@
 * git config --list
 
 ### move remote to github
-
-* git remote set-url origin https://github.com/NormLorenz/react-expenses.git
+```bash
+git remote set-url origin https://github.com/NormLorenz/react-expenses.git
+git push -u origin master
+git config --list
+```
 
 ### routers
 
