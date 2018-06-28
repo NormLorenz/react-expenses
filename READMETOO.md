@@ -47,6 +47,10 @@
   * git config branch.master.merge refs/heads/master
 * git config --list
 
+### move remote to github
+
+* git remote set-url origin https://github.com/NormLorenz/react-expenses.git
+
 ### routers
 
 * https://github.com/aksonov/react-native-router-flux
