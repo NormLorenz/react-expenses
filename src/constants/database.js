@@ -2,7 +2,7 @@ import firebase from 'firebase';
 
 // production
 // const config = {
-//   apiKey: 'visit https://console.firebase.google.com/project/expenses-c2168/settings/general/',
+//   apiKey: '',
 //   authDomain: 'expenses-c2168.firebaseapp.com',
 //   databaseURL: 'https://expenses-c2168.firebaseio.com',
 //   storageBucket: 'expenses-c2168.appspot.com',
@@ -11,7 +11,7 @@ import firebase from 'firebase';
 
 // test
 const config = {
-  apiKey: 'AIzaSyC70EfVJ08gG5PFhWa6o-tHnojftsP7HCQ',
+  apiKey: '',
   authDomain: 'posts-c2d22.firebaseapp.com',
   databaseURL: 'https://posts-c2d22.firebaseio.com',
   storageBucket: 'posts-c2d22.appspot.com',
